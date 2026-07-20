@@ -1,14 +1,15 @@
-# Portfolio — Michael Daadoun
+# 🌍 Showcase & Démo Live — Traducteur Automatique i18n JSON
 
-Site web portfolio minimaliste et moderne hébergé sur GitHub Pages.
+Site de présentation et studio de démo interactive pour le microservice de traduction automatique i18n JSON basé sur **Google Gemini (Structured Outputs)** et **FastAPI**.
 
-## 🚀 Repositories & Deployment
+## 🚀 Live Site & Dépôt
 
-- **Repository**: [github.com/mdaadoun/portfolio](https://github.com/mdaadoun/portfolio)
-- **Live Site (GitHub Pages)**: [mdaadoun.github.io/portfolio](https://mdaadoun.github.io/portfolio)
+- **Site GitHub Pages**: [mdaadoun.github.io/portfolio](https://mdaadoun.github.io/portfolio)
+- **Dépôt Submodule**: [github.com/mdaadoun/portfolio](https://github.com/mdaadoun/portfolio)
 
-## 🛠️ Stack Technique
+## ✨ Fonctionnalités Présentées
 
-- HTML5 / CSS3 (Variables CSS, Glassmorphism, animations fluides)
-- Responsive Design
-- Deployment automatisé via GitHub Actions
+- **Studio de Démo Interactive** (Traduction de JSON i18n & Texte brut)
+- **Préservation des Variables** (`{user}`, `{{count}}`, `<a>`)
+- **Sélecteur d'URL API** pour se connecter en direct au microservice Cloud Run FastAPI
+- **Mode Démo Simulé** intégré hors-ligne

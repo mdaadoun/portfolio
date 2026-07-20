@@ -3,123 +3,263 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Michael Daadoun — Portfolio</title>
-  <meta name="description" content="Portfolio de Michael Daadoun, Développeur Web & AI Engineer. Découvrez mes projets, compétences et réalisations.">
+  <title>Traducteur Automatique i18n JSON — IA & Microservice</title>
+  <meta name="description" content="Démonstration live et présentation du traducteur automatique i18n JSON basé sur l'IA (Google Gemini Structured Outputs & FastAPI).">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Outfit:wght@400;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Outfit:wght@400;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <div class="background-glow"></div>
+  <div class="background-glow glow-1"></div>
+  <div class="background-glow glow-2"></div>
 
+  <!-- Header / Navigation -->
   <header class="navbar" id="navbar">
     <div class="container nav-container">
-      <a href="#" class="logo">MD<span>.dev</span></a>
+      <a href="#" class="logo">
+        <span class="logo-icon">🌍</span>
+        <span class="logo-text">i18n<span>.translator</span></span>
+      </a>
       <nav>
         <ul class="nav-links">
-          <li><a href="#about">À propos</a></li>
-          <li><a href="#skills">Compétences</a></li>
-          <li><a href="#projects">Projets</a></li>
-          <li><a href="#contact" class="btn btn-sm">Contact</a></li>
+          <li><a href="#presentation">Présentation</a></li>
+          <li><a href="#architecture">Architecture</a></li>
+          <li><a href="#demo" class="nav-btn-demo">Démo Live</a></li>
         </ul>
       </nav>
     </div>
   </header>
 
   <main>
+    <!-- Hero Section -->
     <section class="hero" id="hero">
       <div class="container hero-container">
-        <div class="badge">Disponible pour de nouveaux projets</div>
-        <h1 class="hero-title">Michael Daadoun</h1>
-        <p class="hero-subtitle">Développeur Web & passionné par l'Ingénierie IA</p>
+        <div class="badge">
+          <span class="badge-dot"></span>
+          Ingénierie LLM & Microservice FastAPI
+        </div>
+        <h1 class="hero-title">Traducteur Automatique <span class="gradient-text">i18n JSON</span></h1>
         <p class="hero-desc">
-          Créateur d'expériences web modernes, réactives et performantes. Basé en France, spécialisé en développement Front-End & architectures IA.
+          Solution haut niveau de localisation pour applications web. Préservez la structure arborescente de vos fichiers JSON et l'intégrité de vos variables d'interpolation (ex: <code>{username}</code>, <code>{{count}}</code>, <code>&lt;a&gt;</code>) grâce à Google Gemini (Structured Outputs).
         </p>
+
+        <div class="tech-stack-pills">
+          <span class="pill">FastAPI 0.115+</span>
+          <span class="pill">Google Gemini LLM</span>
+          <span class="pill">Google Cloud Run</span>
+          <span class="pill">Structured Outputs</span>
+          <span class="pill">Docker Multi-Stage</span>
+        </div>
+
         <div class="hero-actions">
-          <a href="#projects" class="btn btn-primary">Découvrir mes projets</a>
-          <a href="https://github.com/mdaadoun" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-              <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/>
-            </svg>
-            GitHub
+          <a href="#demo" class="btn btn-primary btn-lg">
+            <span>Tester la Démo Live</span>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
           </a>
+          <a href="#presentation" class="btn btn-secondary btn-lg">Découvrir le Projet</a>
         </div>
       </div>
     </section>
 
-    <section class="section" id="about">
+    <!-- Presentation Section -->
+    <section class="section" id="presentation">
       <div class="container">
-        <h2 class="section-title">À propos</h2>
-        <div class="about-grid">
-          <div class="glass-card about-card">
-            <h3>Mon Parcours</h3>
-            <p>
-              Issu d'une reconversion passionnée vers les métiers du numérique avec un titre d'Infographiste Webdesigner, suivi d'expériences solides en développement front-end et d'une formation à l'école 42.
-            </p>
+        <div class="section-header">
+          <h2 class="section-title">Présentation & Problématique Métier</h2>
+          <p class="section-subtitle">Pourquoi la traduction i18n par LLM classique échoue sans pipeline dédié ?</p>
+        </div>
+
+        <div class="features-grid">
+          <div class="glass-card feature-card">
+            <div class="card-icon">🧩</div>
+            <h3>Préservation des Structures</h3>
+            <p>Aplatissement récursif (flattening) des fichiers JSON complexes et reconstruction exacte après traduction. Aucune clé manquante ou déplacée.</p>
           </div>
-          <div class="glass-card about-card">
-            <h3>Vision & Objectifs</h3>
-            <p>
-              Combiner les meilleures pratiques du développement front-end moderne avec les avancées récentes de l'IA pour bâtir des applications fluides, intuitives et intelligentes.
-            </p>
+
+          <div class="glass-card feature-card">
+            <div class="card-icon">🛡️</div>
+            <h3>Protection des Variables</h3>
+            <p>Post-traitement par Regex spécialisé garantissant que les variables comme <code>{user}</code> ou <code>{{count}}</code> et les balises HTML ne sont jamais altérées.</p>
+          </div>
+
+          <div class="glass-card feature-card">
+            <div class="card-icon">⚡</div>
+            <h3>Gestion des Quotas & Backoff</h3>
+            <p>Découpage automatique en lots (batching) et retry résilient avec <em>Exponential Backoff & Jitter</em> pour éviter les erreurs de Rate Limit (429).</p>
+          </div>
+
+          <div class="glass-card feature-card">
+            <div class="card-icon">💾</div>
+            <h3>Checkpointing Atomique</h3>
+            <p>Sauvegarde progressive de l'avancement sur disque. En cas de coupure réseau, la traduction reprend exactement là où elle s'est arrêtée.</p>
           </div>
         </div>
       </div>
     </section>
 
-    <section class="section" id="skills">
+    <!-- Architecture Section -->
+    <section class="section" id="architecture">
       <div class="container">
-        <h2 class="section-title">Compétences</h2>
-        <div class="skills-grid">
-          <div class="skill-chip">HTML5 / CSS3 / SASS</div>
-          <div class="skill-chip">JavaScript (ES6+)</div>
-          <div class="skill-chip">Node.js</div>
-          <div class="skill-chip">React / Vite</div>
-          <div class="skill-chip">FastAPI / Python</div>
-          <div class="skill-chip">Git & GitHub</div>
-          <div class="skill-chip">Ingénierie Prompt & IA</div>
-          <div class="skill-chip">UI/UX Design</div>
+        <div class="section-header">
+          <h2 class="section-title">Architecture du Pipeline</h2>
+          <p class="section-subtitle">Microservice Serverless haute disponibilité déployé sur Google Cloud Run</p>
+        </div>
+
+        <div class="glass-card pipeline-card">
+          <div class="pipeline-steps">
+            <div class="step">
+              <div class="step-num">1</div>
+              <h4>Aplatissement</h4>
+              <p>Conversion du JSON imbriqué en paires clé-valeur plates.</p>
+            </div>
+            <div class="step-arrow">→</div>
+            <div class="step">
+              <div class="step-num">2</div>
+              <h4>Batching</h4>
+              <p>Segmentation optimisée selon la fenêtre de contexte.</p>
+            </div>
+            <div class="step-arrow">→</div>
+            <div class="step">
+              <div class="step-num">3</div>
+              <h4>Gemini LLM</h4>
+              <p>Inférence avec schéma strict Pydantic Structured Outputs.</p>
+            </div>
+            <div class="step-arrow">→</div>
+            <div class="step">
+              <div class="step-num">4</div>
+              <h4>Regex & Repair</h4>
+              <p>Correction automatique des espaces et variables.</p>
+            </div>
+            <div class="step-arrow">→</div>
+            <div class="step">
+              <div class="step-num">5</div>
+              <h4>Reconstruction</h4>
+              <p>Restitution du dictionnaire JSON traduit identique à l'original.</p>
+            </div>
+          </div>
         </div>
       </div>
     </section>
 
-    <section class="section" id="projects">
+    <!-- Live Demo Section -->
+    <section class="section demo-section" id="demo">
       <div class="container">
-        <h2 class="section-title">Projets Récents</h2>
-        <div class="projects-grid">
-          <article class="glass-card project-card">
-            <div class="project-content">
-              <h3>Ingénierie IA & Dashboard</h3>
-              <p>Applications intégrant des modèles de langage et des interfaces utilisateur interactives pour l'analyse de données et le développement assisté par IA.</p>
-              <div class="tags">
-                <span>JavaScript</span>
-                <span>Python</span>
-                <span>AI</span>
+        <div class="section-header">
+          <div class="badge badge-accent">Interactive Studio</div>
+          <h2 class="section-title">Démo Live de Traduction</h2>
+          <p class="section-subtitle">Testez le traducteur en temps réel sur du texte ou un dictionnaire i18n JSON</p>
+        </div>
+
+        <!-- API Config Bar -->
+        <div class="glass-card api-config-card">
+          <div class="api-config-header">
+            <div class="api-status" id="apiStatus">
+              <span class="status-dot demo-mode"></span>
+              <span class="status-text" id="apiStatusText">Mode Démo (Simulé) — URL API non configurée</span>
+            </div>
+            <button class="btn-toggle-config" id="btnToggleApiInput" type="button">
+              ⚙️ Configurer l'URL API
+            </button>
+          </div>
+          <div class="api-input-wrapper hidden" id="apiInputContainer">
+            <label for="apiUrlInput">URL de votre API Traducteur (FastAPI / Cloud Run) :</label>
+            <div class="input-group">
+              <input type="url" id="apiUrlInput" placeholder="https://votre-service-cloud-run.a.run.app/api/translate" value="">
+              <button class="btn btn-sm btn-primary" id="btnSaveApiUrl" type="button">Enregistrer</button>
+            </div>
+            <span class="api-help">Entrez l'URL de votre microservice FastAPI pour basculer en mode direct temps réel.</span>
+          </div>
+        </div>
+
+        <!-- Demo Studio Workspace -->
+        <div class="glass-card demo-card">
+          <!-- Control Bar -->
+          <div class="demo-controls">
+            <div class="mode-selector">
+              <button class="mode-btn active" data-mode="json" id="modeJsonBtn">📦 Dictionnaire JSON i18n</button>
+              <button class="mode-btn" data-mode="text" id="modeTextBtn">📝 Texte Brut avec Variables</button>
+            </div>
+
+            <div class="language-picker">
+              <div class="lang-group">
+                <label for="sourceLang">Source :</label>
+                <select id="sourceLang" class="lang-select">
+                  <option value="fr" selected>🇫🇷 Français</option>
+                  <option value="en">🇬🇧 Anglais</option>
+                  <option value="es">🇪🇸 Espagnol</option>
+                  <option value="de">🇩🇪 Allemand</option>
+                </select>
+              </div>
+
+              <div class="lang-swap" id="langSwapBtn" title="Inverser les langues">⇄</div>
+
+              <div class="lang-group">
+                <label for="targetLang">Cible :</label>
+                <select id="targetLang" class="lang-select">
+                  <option value="en" selected>🇬🇧 Anglais</option>
+                  <option value="fr">🇫🇷 Français</option>
+                  <option value="es">🇪🇸 Espagnol</option>
+                  <option value="de">🇩🇪 Allemand</option>
+                  <option value="it">🇮🇹 Italien</option>
+                  <option value="ja">🇯🇵 Japonais</option>
+                </select>
               </div>
             </div>
-          </article>
-          <article class="glass-card project-card">
-            <div class="project-content">
-              <h3>Portfolio Web Modern</h3>
-              <p>Site portfolio minimaliste, ultra rapide et hébergé via GitHub Pages avec workflow d'intégration continue.</p>
-              <div class="tags">
-                <span>HTML/CSS</span>
-                <span>GitHub Pages</span>
-                <span>CI/CD</span>
-              </div>
-            </div>
-          </article>
-        </div>
-      </div>
-    </section>
+          </div>
 
-    <section class="section" id="contact">
-      <div class="container">
-        <div class="glass-card contact-card">
-          <h2>Me contacter</h2>
-          <p>Un projet, une question ou une opportunité de collaboration ?</p>
-          <a href="mailto:daadounmichael@gmail.com" class="btn btn-primary">Envoyer un message</a>
+          <!-- Sample Quick Actions -->
+          <div class="presets-bar">
+            <span class="presets-title">Exemples prédéfinis :</span>
+            <button type="button" class="preset-btn" id="btnPresetNav">Exemple 1 : Navigation & Auth</button>
+            <button type="button" class="preset-btn" id="btnPresetVars">Exemple 2 : Variables & HTML</button>
+            <button type="button" class="preset-btn" id="btnPresetNested">Exemple 3 : Arborescence Imbriquée</button>
+          </div>
+
+          <!-- Editor Split View -->
+          <div class="editor-split">
+            <!-- Source Input -->
+            <div class="editor-pane">
+              <div class="pane-header">
+                <span class="pane-title">Entrée (<span id="inputModeLabel">JSON i18n</span>)</span>
+                <button type="button" class="btn-action-sm" id="btnClearInput">Effacer</button>
+              </div>
+              <textarea id="sourceText" class="code-editor" spellcheck="false" placeholder="Entrez votre dictionnaire JSON ou votre texte ici..."></textarea>
+            </div>
+
+            <!-- Action Center -->
+            <div class="editor-actions">
+              <button type="button" id="btnTranslate" class="btn btn-primary btn-translate">
+                <span class="btn-text">Traduire</span>
+                <span class="spinner hidden" id="translateSpinner"></span>
+              </button>
+            </div>
+
+            <!-- Target Output -->
+            <div class="editor-pane">
+              <div class="pane-header">
+                <span class="pane-title">Résultat Traduit</span>
+                <button type="button" class="btn-action-sm" id="btnCopyOutput">📋 Copier</button>
+              </div>
+              <textarea id="targetText" class="code-editor" readonly spellcheck="false" placeholder="La traduction apparaîtra ici..."></textarea>
+            </div>
+          </div>
+
+          <!-- Live Metrics Bar -->
+          <div class="metrics-bar">
+            <div class="metric-item">
+              <span class="metric-label">Statut :</span>
+              <span class="metric-value" id="metricStatus">Prêt</span>
+            </div>
+            <div class="metric-item">
+              <span class="metric-label">Variables préservées :</span>
+              <span class="metric-value" id="metricVars">0 détectées</span>
+            </div>
+            <div class="metric-item">
+              <span class="metric-label">Temps d'exécution :</span>
+              <span class="metric-value" id="metricTime">-- ms</span>
+            </div>
+          </div>
         </div>
       </div>
     </section>
@@ -127,8 +267,11 @@
 
   <footer class="footer">
     <div class="container">
-      <p>&copy; 2026 Michael Daadoun. Tous droits réservés.</p>
+      <p>Microservice Traducteur Automatique i18n — Conçu avec FastAPI & Google Gemini LLM</p>
+      <p class="footer-sub">Hébergé via GitHub Pages & Google Cloud Run</p>
     </div>
   </footer>
+
+  <script src="app.js"></script>
 </body>
 </html>
