@@ -34,6 +34,16 @@ document.addEventListener('DOMContentLoaded', () => {
   let currentMode = 'json'; // 'json' or 'text'
   let customApiUrl = localStorage.getItem('i18n_translator_api_url') || '';
 
+  // Language display mapping
+  const LANG_NAMES = {
+    fr: "French",
+    en: "English",
+    es: "Spanish",
+    de: "German",
+    it: "Italian",
+    ja: "Japanese"
+  };
+
   // Preset Data
   const PRESETS = {
     nav: {
@@ -184,8 +194,9 @@ document.addEventListener('DOMContentLoaded', () => {
       return;
     }
 
-    const sourceLang = sourceLangSelect.value;
-    const targetLang = targetLangSelect.value;
+    const sourceLangCode = sourceLangSelect.value;
+    const targetLangCode = targetLangSelect.value;
+    const targetLangName = LANG_NAMES[targetLangCode] || targetLangCode;
 
     setLoading(true);
     metricStatus.textContent = 'En cours...';
@@ -195,24 +206,49 @@ document.addEventListener('DOMContentLoaded', () => {
       let result = '';
 
       if (customApiUrl) {
-        // Real API Call
+        // Prepare Payload to support both /api/pipeline/run, /api/translate-batch, or generic endpoints
+        let dataPayload;
+        if (currentMode === 'json') {
+          try {
+            dataPayload = JSON.parse(text);
+          } catch (e) {
+            throw new Error("Format JSON d'entrée invalide.");
+          }
+        } else {
+          dataPayload = { "text": text };
+        }
+
+        const requestBody = {
+          data: dataPayload,
+          target_language: targetLangName,
+          source_lang: sourceLangCode,
+          target_lang: targetLangCode,
+          use_mock: false
+        };
+
         const response = await fetch(customApiUrl, {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({
-            text: currentMode === 'json' ? JSON.parse(text) : text,
-            source_lang: sourceLang,
-            target_lang: targetLang,
-            mode: currentMode
-          })
+          body: JSON.stringify(requestBody)
         });
 
         if (!response.ok) {
-          throw new Error(`Erreur API (${response.status})`);
+          const errData = await response.json().catch(() => ({}));
+          throw new Error(errData.message || `Erreur HTTP ${response.status}`);
         }
 
         const data = await response.json();
-        result = typeof data.translated === 'object' ? JSON.stringify(data.translated, null, 2) : data.translated;
+        
+        // Extract translated output from various backend schemas
+        if (data.output_nested) {
+          result = typeof data.output_nested === 'object' ? JSON.stringify(data.output_nested, null, 2) : data.output_nested;
+        } else if (data.result) {
+          result = typeof data.result === 'object' ? JSON.stringify(data.result, null, 2) : data.result;
+        } else if (data.translated) {
+          result = typeof data.translated === 'object' ? JSON.stringify(data.translated, null, 2) : data.translated;
+        } else {
+          result = typeof data === 'object' ? JSON.stringify(data, null, 2) : String(data);
+        }
       } else {
         // Realistic High-Quality Simulation
         await new Promise(res => setTimeout(res, 600)); // Simulate LLM latency
@@ -224,10 +260,10 @@ document.addEventListener('DOMContentLoaded', () => {
           } catch (e) {
             throw new Error("Format JSON invalide. Veuillez vérifier la syntaxe.");
           }
-          const translatedObj = translateJsonObject(parsed, targetLang);
+          const translatedObj = translateJsonObject(parsed, targetLangCode);
           result = JSON.stringify(translatedObj, null, 2);
         } else {
-          result = translateString(text, targetLang);
+          result = translateString(text, targetLangCode);
         }
       }
 
@@ -272,7 +308,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // String Translation Simulator with Variable Preservation
   function translateString(str, targetLang) {
-    // Dictionary of mock translations while preserving placeholders
     const dictionary = {
       en: {
         "Démonstrateur i18n": "i18n Demonstrator",
@@ -303,7 +338,7 @@ document.addEventListener('DOMContentLoaded', () => {
         "Votre score actuel est de {score} points.": "Su puntuación actual es de {score} puntos.",
         "Tableau de Bord IA": "Panel de Control IA",
         "Analyse en temps réel pour {user}": "Análisis en tiempo real para {user}",
-        "Nombre total de traductions : {{total}}": "Número total de traducciones: {{total}}",
+        "Nombre total de traductions : {{total}}": "Número total de traductions: {{total}}",
         "Taux de précision : {rate}%": "Tasa de precisión: {rate}%"
       },
       de: {
@@ -328,7 +363,6 @@ document.addEventListener('DOMContentLoaded', () => {
       return dictionary[targetLang][str];
     }
 
-    // Generic fallback translation with variable protection
     const prefix = {
       en: "[EN] ",
       es: "[ES] ",
