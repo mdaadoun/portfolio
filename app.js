@@ -32,7 +32,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const apiStatusText = document.getElementById('apiStatusText');
 
   let currentMode = 'json'; // 'json' or 'text'
-  let customApiUrl = localStorage.getItem('i18n_translator_api_url') || '';
+  let customApiUrl = localStorage.getItem('i18n_translator_api_url') || 'https://traducteur-i18n-api-165800447059.europe-west1.run.app/api/pipeline/run';
 
   // Language display mapping
   const LANG_NAMES = {
