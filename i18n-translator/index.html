@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Traducteur Automatique i18n JSON — IA & Microservice</title>
+  <meta name="description" content="Démonstration live et présentation du traducteur automatique i18n JSON basé sur l'IA (Google Gemini Structured Outputs & FastAPI).">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Outfit:wght@400;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./style.css?v=2.0">
+</head>
+<body>
+  <div class="background-glow glow-1"></div>
+  <div class="background-glow glow-2"></div>
+
+  <!-- Header / Navigation -->
+  <header class="navbar" id="navbar">
+    <div class="container nav-container">
+      <a href="#" class="logo">
+        <span class="logo-icon">🌍</span>
+        <span class="logo-text">i18n<span>.translator</span></span>
+      </a>
+      <nav>
+        <ul class="nav-links">
+          <li><a href="../index.html" class="nav-btn-hub">← Hub Portfolio</a></li>
+          <li><a href="#presentation">Présentation</a></li>
+          <li><a href="#architecture">Architecture</a></li>
+          <li><a href="#demo" class="nav-btn-demo">Démo Live</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- Hero Section -->
+    <section class="hero" id="hero">
+      <div class="container hero-container">
+        <div class="badge">
+          <span class="badge-dot"></span>
+          Ingénierie LLM & Microservice FastAPI
+        </div>
+        <h1 class="hero-title">Traducteur Automatique <span class="gradient-text">i18n JSON</span></h1>
+        <p class="hero-desc">
+          Solution haut niveau de localisation pour applications web. Préservez la structure arborescente de vos fichiers JSON et l'intégrité de vos variables d'interpolation (ex: <code>{username}</code>, <code>{{count}}</code>, <code>&lt;a&gt;</code>) grâce à Google Gemini (Structured Outputs).
+        </p>
+
+        <div class="tech-stack-pills">
+          <span class="pill">FastAPI 0.115+</span>
+          <span class="pill">Google Gemini LLM</span>
+          <span class="pill">Google Cloud Run</span>
+          <span class="pill">Structured Outputs</span>
+          <span class="pill">Docker Multi-Stage</span>
+        </div>
+
+        <div class="hero-actions">
+          <a href="#demo" class="btn btn-primary btn-lg">
+            <span>Tester la Démo Live</span>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+          <a href="#presentation" class="btn btn-secondary btn-lg">Découvrir le Projet</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Presentation Section -->
+    <section class="section" id="presentation">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-title">Présentation & Problématique Métier</h2>
+          <p class="section-subtitle">Pourquoi la traduction i18n par LLM classique échoue sans pipeline dédié ?</p>
+        </div>
+
+        <div class="features-grid">
+          <div class="glass-card feature-card">
+            <div class="card-icon">🧩</div>
+            <h3>Préservation des Structures</h3>
+            <p>Aplatissement récursif (flattening) des fichiers JSON complexes et reconstruction exacte après traduction. Aucune clé manquante ou déplacée.</p>
+          </div>
+
+          <div class="glass-card feature-card">
+            <div class="card-icon">🛡️</div>
+            <h3>Protection des Variables</h3>
+            <p>Post-traitement par Regex spécialisé garantissant que les variables comme <code>{user}</code> ou <code>{{count}}</code> et les balises HTML ne sont jamais altérées.</p>
+          </div>
+
+          <div class="glass-card feature-card">
+            <div class="card-icon">⚡</div>
+            <h3>Gestion des Quotas & Backoff</h3>
+            <p>Découpage automatique en lots (batching) et retry résilient avec <em>Exponential Backoff & Jitter</em> pour éviter les erreurs de Rate Limit (429).</p>
+          </div>
+
+          <div class="glass-card feature-card">
+            <div class="card-icon">💾</div>
+            <h3>Checkpointing Atomique</h3>
+            <p>Sauvegarde progressive de l'avancement sur disque. En cas de coupure réseau, la traduction reprend exactement là où elle s'est arrêtée.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Architecture Section -->
+    <section class="section" id="architecture">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-title">Architecture du Pipeline</h2>
+          <p class="section-subtitle">Microservice Serverless haute disponibilité déployé sur Google Cloud Run</p>
+        </div>
+
+        <div class="glass-card pipeline-card">
+          <div class="pipeline-steps">
+            <div class="step">
+              <div class="step-num">1</div>
+              <h4>Aplatissement</h4>
+              <p>Conversion du JSON imbriqué en paires clé-valeur plates.</p>
+            </div>
+            <div class="step-arrow">→</div>
+            <div class="step">
+              <div class="step-num">2</div>
+              <h4>Batching</h4>
+              <p>Segmentation optimisée selon la fenêtre de contexte.</p>
+            </div>
+            <div class="step-arrow">→</div>
+            <div class="step">
+              <div class="step-num">3</div>
+              <h4>Gemini LLM</h4>
+              <p>Inférence avec schéma strict Pydantic Structured Outputs.</p>
+            </div>
+            <div class="step-arrow">→</div>
+            <div class="step">
+              <div class="step-num">4</div>
+              <h4>Regex & Repair</h4>
+              <p>Correction automatique des espaces et variables.</p>
+            </div>
+            <div class="step-arrow">→</div>
+            <div class="step">
+              <div class="step-num">5</div>
+              <h4>Reconstruction</h4>
+              <p>Restitution du dictionnaire JSON traduit identique à l'original.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Live Demo Section -->
+    <section class="section demo-section" id="demo">
+      <div class="container">
+        <div class="section-header">
+          <div class="badge badge-accent">Interactive Studio</div>
+          <h2 class="section-title">Démo Live de Traduction</h2>
+          <p class="section-subtitle">Testez le traducteur en temps réel sur du texte ou un dictionnaire i18n JSON</p>
+        </div>
+
+        <!-- API Config Bar (Masqué pour la vue recruteur) -->
+        <div class="glass-card api-config-card" style="display: none;">
+          <div class="api-config-header">
+            <div class="api-status" id="apiStatus">
+              <span class="status-dot demo-mode"></span>
+              <span class="status-text" id="apiStatusText">Mode Démo (Simulé) — URL API non configurée</span>
+            </div>
+            <button class="btn-toggle-config" id="btnToggleApiInput" type="button">
+              ⚙️ Configurer l'URL API
+            </button>
+          </div>
+          <div class="api-input-wrapper hidden" id="apiInputContainer">
+            <label for="apiUrlInput">URL de votre API Traducteur (FastAPI / Cloud Run) :</label>
+            <div class="input-group">
+              <input type="url" id="apiUrlInput" placeholder="https://votre-service-cloud-run.a.run.app/api/translate" value="">
+              <button class="btn btn-sm btn-primary" id="btnSaveApiUrl" type="button">Enregistrer</button>
+            </div>
+            <span class="api-help">Entrez l'URL de votre microservice FastAPI pour basculer en mode direct temps réel.</span>
+          </div>
+        </div>
+
+        <!-- Demo Studio Workspace -->
+        <div class="glass-card demo-card">
+          <!-- Control Bar -->
+          <div class="demo-controls">
+            <div class="mode-selector">
+              <button class="mode-btn active" data-mode="json" id="modeJsonBtn">📦 Dictionnaire JSON i18n</button>
+              <button class="mode-btn" data-mode="text" id="modeTextBtn">📝 Texte Brut avec Variables</button>
+            </div>
+
+            <div class="language-picker">
+              <div class="lang-group">
+                <label for="sourceLang">Source :</label>
+                <select id="sourceLang" class="lang-select">
+                  <option value="fr" selected>🇫🇷 Français</option>
+                  <option value="en">🇬🇧 Anglais</option>
+                  <option value="es">🇪🇸 Espagnol</option>
+                  <option value="de">🇩🇪 Allemand</option>
+                  <option value="custom">✏️ Autre (Saisie libre)...</option>
+                </select>
+                <input type="text" id="customSourceLang" class="lang-select hidden" placeholder="ex: Arabe, Latin..." style="width: 130px;">
+              </div>
+
+              <div class="lang-swap" id="langSwapBtn" title="Inverser les langues">⇄</div>
+
+              <div class="lang-group">
+                <label for="targetLang">Cible :</label>
+                <select id="targetLang" class="lang-select">
+                  <option value="en" selected>🇬🇧 Anglais</option>
+                  <option value="fr">🇫🇷 Français</option>
+                  <option value="es">🇪🇸 Espagnol</option>
+                  <option value="de">🇩🇪 Allemand</option>
+                  <option value="it">🇮🇹 Italien</option>
+                  <option value="ja">🇯🇵 Japonais</option>
+                  <option value="custom">✏️ Autre (Saisie libre)...</option>
+                </select>
+                <input type="text" id="customTargetLang" class="lang-select hidden" placeholder="ex: Arabe, Latin..." style="width: 130px;">
+              </div>
+
+              <div class="lang-group">
+                <label for="chunkSizeInput" title="Nombre de clés d'interpolation par lot envoyé à l'IA">Taille du lot :</label>
+                <input type="number" id="chunkSizeInput" class="lang-select" min="1" max="100" value="50" style="width: 65px;" title="Taille des lots (batch size)">
+              </div>
+            </div>
+          </div>
+
+          <!-- Sample Quick Actions -->
+          <div class="presets-bar">
+            <span class="presets-title">Exemples prédéfinis :</span>
+            <button type="button" class="preset-btn" id="btnPresetNav">Exemple 1 : Navigation & Auth</button>
+            <button type="button" class="preset-btn" id="btnPresetVars">Exemple 2 : Variables & HTML</button>
+            <button type="button" class="preset-btn" id="btnPresetNested">Exemple 3 : Arborescence Imbriquée</button>
+          </div>
+
+          <!-- Editor Split View -->
+          <div class="editor-split">
+            <!-- Source Input -->
+            <div class="editor-pane">
+              <div class="pane-header">
+                <span class="pane-title">Entrée (<span id="inputModeLabel">JSON i18n</span>)</span>
+                <button type="button" class="btn-action-sm" id="btnClearInput">Effacer</button>
+              </div>
+              <textarea id="sourceText" class="code-editor" spellcheck="false" placeholder="Entrez votre dictionnaire JSON ou votre texte ici..."></textarea>
+            </div>
+
+            <!-- Action Center -->
+            <div class="editor-actions">
+              <button type="button" id="btnTranslate" class="btn btn-primary btn-translate">
+                <span class="btn-text">Traduire</span>
+                <span class="spinner hidden" id="translateSpinner"></span>
+              </button>
+            </div>
+
+            <!-- Target Output -->
+            <div class="editor-pane">
+              <div class="pane-header">
+                <span class="pane-title">Résultat Traduit</span>
+                <button type="button" class="btn-action-sm" id="btnCopyOutput">📋 Copier</button>
+              </div>
+              <textarea id="targetText" class="code-editor" readonly spellcheck="false" placeholder="La traduction apparaîtra ici..."></textarea>
+            </div>
+          </div>
+
+          <!-- Live Metrics Bar -->
+          <div class="metrics-bar">
+            <div class="metric-item">
+              <span class="metric-label">Statut :</span>
+              <span class="metric-value" id="metricStatus">Prêt</span>
+            </div>
+            <div class="metric-item">
+              <span class="metric-label">Variables préservées :</span>
+              <span class="metric-value" id="metricVars">0 détectées</span>
+            </div>
+            <div class="metric-item">
+              <span class="metric-label">Temps d'exécution :</span>
+              <span class="metric-value" id="metricTime">-- ms</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <p>Microservice Traducteur Automatique i18n — Conçu avec FastAPI & Google Gemini LLM</p>
+      <p class="footer-sub">Hébergé via GitHub Pages & Google Cloud Run</p>
+    </div>
+  </footer>
+
+  <script src="./app.js?v=2.0"></script>
+</body>
+</html>
