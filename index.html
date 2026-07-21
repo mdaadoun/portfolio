@@ -189,7 +189,9 @@
                   <option value="en">🇬🇧 Anglais</option>
                   <option value="es">🇪🇸 Espagnol</option>
                   <option value="de">🇩🇪 Allemand</option>
+                  <option value="custom">✏️ Autre (Saisie libre)...</option>
                 </select>
+                <input type="text" id="customSourceLang" class="lang-select hidden" placeholder="ex: Arabe, Latin..." style="width: 130px;">
               </div>
 
               <div class="lang-swap" id="langSwapBtn" title="Inverser les langues">⇄</div>
@@ -203,7 +205,14 @@
                   <option value="de">🇩🇪 Allemand</option>
                   <option value="it">🇮🇹 Italien</option>
                   <option value="ja">🇯🇵 Japonais</option>
+                  <option value="custom">✏️ Autre (Saisie libre)...</option>
                 </select>
+                <input type="text" id="customTargetLang" class="lang-select hidden" placeholder="ex: Arabe, Latin..." style="width: 130px;">
+              </div>
+
+              <div class="lang-group">
+                <label for="chunkSizeInput" title="Nombre de clés d'interpolation par lot envoyé à l'IA">Taille du lot :</label>
+                <input type="number" id="chunkSizeInput" class="lang-select" min="1" max="100" value="50" style="width: 65px;" title="Taille des lots (batch size)">
               </div>
             </div>
           </div>

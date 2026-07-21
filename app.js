@@ -4,6 +4,9 @@ document.addEventListener('DOMContentLoaded', () => {
   const modeTextBtn = document.getElementById('modeTextBtn');
   const sourceLangSelect = document.getElementById('sourceLang');
   const targetLangSelect = document.getElementById('targetLang');
+  const customSourceLangInput = document.getElementById('customSourceLang');
+  const customTargetLangInput = document.getElementById('customTargetLang');
+  const chunkSizeInput = document.getElementById('chunkSizeInput');
   const langSwapBtn = document.getElementById('langSwapBtn');
   const sourceText = document.getElementById('sourceText');
   const targetText = document.getElementById('targetText');
@@ -12,6 +15,25 @@ document.addEventListener('DOMContentLoaded', () => {
   const btnClearInput = document.getElementById('btnClearInput');
   const btnCopyOutput = document.getElementById('btnCopyOutput');
   const inputModeLabel = document.getElementById('inputModeLabel');
+
+  // Custom Language Selectors Visibility Handlers
+  sourceLangSelect.addEventListener('change', () => {
+    if (sourceLangSelect.value === 'custom') {
+      customSourceLangInput.classList.remove('hidden');
+      customSourceLangInput.focus();
+    } else {
+      customSourceLangInput.classList.add('hidden');
+    }
+  });
+
+  targetLangSelect.addEventListener('change', () => {
+    if (targetLangSelect.value === 'custom') {
+      customTargetLangInput.classList.remove('hidden');
+      customTargetLangInput.focus();
+    } else {
+      customTargetLangInput.classList.add('hidden');
+    }
+  });
   
   // Metrics
   const metricStatus = document.getElementById('metricStatus');
@@ -152,8 +174,25 @@ document.addEventListener('DOMContentLoaded', () => {
   langSwapBtn.addEventListener('click', () => {
     const srcVal = sourceLangSelect.value;
     const tgtVal = targetLangSelect.value;
+    const customSrcVal = customSourceLangInput.value;
+    const customTgtVal = customTargetLangInput.value;
+
     sourceLangSelect.value = tgtVal;
     targetLangSelect.value = srcVal;
+    customSourceLangInput.value = customTgtVal;
+    customTargetLangInput.value = customSrcVal;
+
+    if (sourceLangSelect.value === 'custom') {
+      customSourceLangInput.classList.remove('hidden');
+    } else {
+      customSourceLangInput.classList.add('hidden');
+    }
+
+    if (targetLangSelect.value === 'custom') {
+      customTargetLangInput.classList.remove('hidden');
+    } else {
+      customTargetLangInput.classList.add('hidden');
+    }
   });
 
   // Clear & Copy
@@ -196,7 +235,16 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const sourceLangCode = sourceLangSelect.value;
     const targetLangCode = targetLangSelect.value;
-    const targetLangName = LANG_NAMES[targetLangCode] || targetLangCode;
+
+    const sourceLangName = sourceLangCode === 'custom'
+      ? (customSourceLangInput.value.trim() || 'French')
+      : (LANG_NAMES[sourceLangCode] || sourceLangCode);
+
+    const targetLangName = targetLangCode === 'custom'
+      ? (customTargetLangInput.value.trim() || 'English')
+      : (LANG_NAMES[targetLangCode] || targetLangCode);
+
+    const chunkSize = parseInt(chunkSizeInput.value, 10) || 50;
 
     setLoading(true);
     metricStatus.textContent = 'En cours...';
@@ -221,10 +269,10 @@ document.addEventListener('DOMContentLoaded', () => {
         const requestBody = {
           data: dataPayload,
           target_language: targetLangName,
-          source_lang: sourceLangCode,
-          target_lang: targetLangCode,
+          source_lang: sourceLangName,
+          target_lang: targetLangName,
           use_mock: false,
-          chunk_size: 50
+          chunk_size: chunkSize
         };
 
         const response = await fetch(customApiUrl, {
