@@ -223,7 +223,8 @@ document.addEventListener('DOMContentLoaded', () => {
           target_language: targetLangName,
           source_lang: sourceLangCode,
           target_lang: targetLangCode,
-          use_mock: false
+          use_mock: false,
+          chunk_size: 50
         };
 
         const response = await fetch(customApiUrl, {
