@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Michaël Daadoun — Portfolio AI Engineering & Microservices</title>
-  <meta name="description" content="Portfolio de projets en IA, ingénierie LLM, microservices FastAPI et déploiements Cloud Serverless par Michaël Daadoun.">
+  <title>Michaël Daadoun — Portfolio AI Product Engineer</title>
+  <meta name="description" content="Portfolio de projets IA, AI Product Engineering, intégration LLM et orchestration d'agents par Michaël Daadoun.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Outfit:wght@400;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
@@ -23,7 +23,8 @@
       </a>
       <nav>
         <ul class="nav-links">
-          <li><a href="#projects">Projets</a></li>
+          <li><a href="#parcours">Parcours & Expériences</a></li>
+          <li><a href="#projects">Projets Produit IA</a></li>
           <li><a href="https://github.com/mdaadoun" target="_blank" rel="noopener" class="nav-btn-demo">GitHub ↗</a></li>
         </ul>
       </nav>
@@ -36,27 +37,58 @@
       <div class="container hero-container">
         <div class="badge">
           <span class="badge-dot"></span>
-          AI Engineering & Cloud Architecture
+          AI Product Engineer
         </div>
-        <h1 class="hero-title">Portfolio Projets <span class="gradient-text">IA & Microservices</span></h1>
+        <h1 class="hero-title">Portfolio & Parcours <span class="gradient-text">AI Product Engineer</span></h1>
         <p class="hero-desc">
-          Bienvenue sur mon hub de démonstration. Retrouvez ici mes réalisations en ingénierie d'intelligence artificielle, déploiement Cloud Serverless (GCP Cloud Run) et développement de microservices Python haute performance.
+          Formé à l'<strong>École 42 Angoulême</strong>, je couvre l'ensemble du spectre de l'IA appliquée : de la <strong>robotique multimodale en Python</strong> jusqu'à l'<strong>orchestration d'agents intelligents</strong>, <strong>l'intégration LLM</strong> et le développement de fonctionnalités produit à fort impact.
         </p>
 
         <div class="tech-stack-pills">
-          <span class="pill">Python 3.11+</span>
-          <span class="pill">FastAPI</span>
-          <span class="pill">Google Gemini LLM</span>
-          <span class="pill">GCP Cloud Run</span>
+          <span class="pill">AI Product Features</span>
+          <span class="pill">Intégration LLM</span>
+          <span class="pill">Orchestration d'Agents IA</span>
           <span class="pill">Structured Outputs</span>
-          <span class="pill">Docker</span>
+          <span class="pill">Robotique & IA Python (multimodal)</span>
         </div>
 
         <div class="hero-actions">
           <a href="#projects" class="btn btn-primary btn-lg">
-            <span>Explorer les Projets</span>
+            <span>Découvrir les Projets</span>
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
           </a>
+          <a href="#parcours" class="btn btn-secondary btn-lg">Mon Parcours</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Parcours & Formation Section -->
+    <section class="section" id="parcours">
+      <div class="container">
+        <div class="section-header">
+          <div class="badge">Évolution & Spectre de Compétences</div>
+          <h2 class="section-title">Parcours & Compétences IA</h2>
+          <p class="section-subtitle">De la robotique & IA embarquée jusqu'à l'orchestration d'agents LLM et fonctionnalités produit</p>
+        </div>
+
+        <div class="features-grid">
+          <div class="glass-card feature-card">
+            <div class="card-icon">🤖</div>
+            <h3>Robotique & IA multimodale</h3>
+            <p><strong>Stage 6 mois — École 42</strong><br>Conception et développement en Python d'un robot intelligent utilisant vision, audio et texte. Traitement de données temps réel et algorithmes de contrôle IA.</p>
+          </div>
+
+          <div class="glass-card feature-card">
+            <div class="card-icon">🧠</div>
+            <h3>Intégration LLM</h3>
+            <p>Conception de fonctionnalités produit intelligentes avec garanties de format strictes (Pydantic, Structured Outputs) et gestion résiliente des requêtes.</p>
+          </div>
+
+          <div class="glass-card feature-card">
+            <div class="card-icon">⚡</div>
+            <h3>Orchestration d'Agents & Workflows</h3>
+            <p>Création d'agents autonomes et de pipelines multi-étapes combinant RAG, outils dynamiques et interfaces réactives orientées utilisateur.</p>
+          </div>
         </div>
       </div>
     </section>
@@ -65,9 +97,9 @@
     <section class="section" id="projects">
       <div class="container">
         <div class="section-header">
-          <div class="badge badge-accent">Showcase Projets</div>
-          <h2 class="section-title">Catalogue de Démonstrations</h2>
-          <p class="section-subtitle">Découvrez les prototypes et microservices prêts pour la production</p>
+          <div class="badge badge-accent">Showcase Projets Produit</div>
+          <h2 class="section-title">Projets IA & Démonstrations</h2>
+          <p class="section-subtitle">Applications intelligentes centrées sur l'expérience utilisateur et l'intégration LLM</p>
         </div>
 
         <div class="hub-projects-grid">
@@ -79,17 +111,16 @@
             <div class="project-header-icon">🌍</div>
             <h3 class="project-card-title">Traducteur Automatique i18n JSON</h3>
             <p class="project-card-desc">
-              Microservice Cloud haute performance pour la traduction automatique i18n JSON basée sur Google Gemini (Structured Outputs). Préservation stricte des variables d'interpolation (<code>{username}</code>, <code>{{count}}</code>) et retry résilient.
+              Outil intelligent d'aide à la localisation logicielle. Permet de traduire instantanément des fichiers i18n complexes tout en garantissant la préservation stricte des variables d'interpolation (<code>{username}</code>, <code>{{count}}</code>) grâce aux Structured Outputs LLM.
             </p>
             <div class="project-card-tags">
+              <span class="pill">Structured Outputs</span>
+              <span class="pill">UX Produit</span>
               <span class="pill">FastAPI</span>
-              <span class="pill">Google Gemini</span>
-              <span class="pill">Cloud Run</span>
-              <span class="pill">Pydantic</span>
             </div>
             <div class="project-card-action">
               <a href="./i18n-translator/index.html" class="btn btn-primary btn-full">
-                <span>Accéder au Projet & Démo Live</span>
+                <span>Accéder à la Démo Produit</span>
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
               </a>
             </div>
@@ -170,8 +201,8 @@
 
   <footer class="footer">
     <div class="container">
-      <p>Portfolio Michaël Daadoun — AI Engineering & Microservices</p>
-      <p class="footer-sub">Hébergé via GitHub Pages & Google Cloud Run</p>
+      <p>Portfolio Michaël Daadoun — AI Product Engineering</p>
+      <p class="footer-sub">Hébergé via GitHub Pages</p>
     </div>
   </footer>
 </body>
