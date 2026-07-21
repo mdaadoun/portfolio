@@ -101,38 +101,43 @@ document.addEventListener('DOMContentLoaded', () => {
   };
 
   // Initialize API config state
-  if (customApiUrl) {
+  if (customApiUrl && apiUrlInput) {
     apiUrlInput.value = customApiUrl;
     setApiModeActive(true);
   }
 
   // Toggle API Config UI
-  btnToggleApiInput.addEventListener('click', () => {
-    apiInputContainer.classList.toggle('hidden');
-  });
+  if (btnToggleApiInput && apiInputContainer) {
+    btnToggleApiInput.addEventListener('click', () => {
+      apiInputContainer.classList.toggle('hidden');
+    });
+  }
 
-  btnSaveApiUrl.addEventListener('click', () => {
-    const url = apiUrlInput.value.trim();
-    if (url) {
-      localStorage.setItem('i18n_translator_api_url', url);
-      customApiUrl = url;
-      setApiModeActive(true);
-      alert('URL API enregistrée avec succès !');
-    } else {
-      localStorage.removeItem('i18n_translator_api_url');
-      customApiUrl = '';
-      setApiModeActive(false);
-      alert('URL API réinitialisée. Retour au mode démo.');
-    }
-  });
+  if (btnSaveApiUrl && apiUrlInput) {
+    btnSaveApiUrl.addEventListener('click', () => {
+      const url = apiUrlInput.value.trim();
+      if (url) {
+        localStorage.setItem('i18n_translator_api_url', url);
+        customApiUrl = url;
+        setApiModeActive(true);
+        alert('URL API enregistrée avec succès !');
+      } else {
+        localStorage.removeItem('i18n_translator_api_url');
+        customApiUrl = '';
+        setApiModeActive(false);
+        alert('URL API réinitialisée. Retour au mode démo.');
+      }
+    });
+  }
 
   function setApiModeActive(isActive) {
+    if (!apiStatus || !apiStatusText) return;
     const statusDot = apiStatus.querySelector('.status-dot');
     if (isActive) {
-      statusDot.className = 'status-dot api-mode';
+      if (statusDot) statusDot.className = 'status-dot api-mode';
       apiStatusText.textContent = `API Directe Active : ${customApiUrl}`;
     } else {
-      statusDot.className = 'status-dot demo-mode';
+      if (statusDot) statusDot.className = 'status-dot demo-mode';
       apiStatusText.textContent = 'Mode Démo (Simulé) — URL API non configurée';
     }
   }
