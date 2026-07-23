@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>L'Avènement de l'AI Engineer — Michaël Daadoun</title>
+  <meta name="description" content="De l'Artisanat du Prompt à l'Usine Logicielle Autonome. Analyse de l'évolution du métier d'AI Engineer de 2023 à 2026 par Michaël Daadoun.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Outfit:wght@400;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../style.css?v=3.0">
+  <style>
+    .article-container {
+      max-width: 800px;
+      margin: 40px auto 80px auto;
+      padding: 0 24px;
+    }
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      color: var(--primary-color);
+      text-decoration: none;
+      font-size: 0.9rem;
+      font-weight: 600;
+      margin-bottom: 24px;
+      transition: var(--transition);
+    }
+    .back-link:hover {
+      color: var(--text-main);
+      transform: translateX(-4px);
+    }
+    .article-header {
+      border-bottom: 1px solid var(--border-color);
+      padding-bottom: 24px;
+      margin-bottom: 32px;
+    }
+    .article-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+      font-size: 0.82rem;
+      color: var(--text-muted);
+      margin-bottom: 16px;
+    }
+    .meta-item {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .meta-tag {
+      color: var(--accent-color);
+      font-weight: 600;
+    }
+    .article-title {
+      font-family: var(--font-heading);
+      font-size: 2.2rem;
+      font-weight: 800;
+      line-height: 1.25;
+      color: var(--text-main);
+      margin-bottom: 20px;
+    }
+    .article-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+    .article-body {
+      font-size: 1.05rem;
+      line-height: 1.75;
+      color: var(--text-main);
+    }
+    .article-body p {
+      margin-bottom: 20px;
+    }
+    .article-body h3 {
+      font-family: var(--font-heading);
+      font-size: 1.5rem;
+      color: var(--text-main);
+      margin-top: 36px;
+      margin-bottom: 16px;
+      border-bottom: 1px solid var(--border-color);
+      padding-bottom: 6px;
+    }
+    .article-body h4 {
+      font-family: var(--font-heading);
+      font-size: 1.2rem;
+      color: var(--primary-color);
+      margin-top: 28px;
+      margin-bottom: 12px;
+    }
+    .article-body blockquote {
+      background: rgba(255, 255, 255, 0.02);
+      border-left: 4px solid var(--primary-color);
+      padding: 16px 20px;
+      margin: 24px 0;
+      border-radius: 0 8px 8px 0;
+      font-style: italic;
+      color: var(--text-muted);
+    }
+    .article-body ul {
+      margin-left: 24px;
+      margin-bottom: 24px;
+    }
+    .article-body li {
+      margin-bottom: 8px;
+    }
+    .article-body strong {
+      color: #ffffff;
+    }
+    .article-body pre {
+      background: rgba(14, 21, 38, 0.8);
+      border: 1px solid var(--border-color);
+      padding: 16px;
+      border-radius: 8px;
+      overflow-x: auto;
+      margin: 24px 0;
+      font-family: var(--font-mono);
+      font-size: 0.9rem;
+    }
+    .article-body code {
+      background: rgba(0, 0, 0, 0.3);
+      color: var(--primary-color);
+      padding: 2px 6px;
+      border-radius: 4px;
+      font-family: var(--font-mono);
+      font-size: 0.9rem;
+    }
+    .article-body pre code {
+      background: none;
+      color: #cbd5e1;
+      padding: 0;
+      font-size: inherit;
+    }
+  </style>
+</head>
+<body>
+  <div class="background-glow glow-1"></div>
+  <div class="background-glow glow-2"></div>
+
+  <!-- Header / Navigation -->
+  <header class="navbar" id="navbar">
+    <div class="container nav-container">
+      <a href="../index.html" class="logo">
+        <span class="logo-icon">🚀</span>
+        <span class="logo-text">Michaël<span>.Daadoun</span></span>
+      </a>
+      <nav>
+        <ul class="nav-links">
+          <li><a href="../index.html#parcours">Parcours</a></li>
+          <li><a href="../index.html#projects">Projets</a></li>
+          <li><a href="https://github.com/mdaadoun" target="_blank" rel="noopener" class="nav-btn-demo">GitHub ↗</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <div class="article-container glass-card" style="padding: 40px; border-radius: var(--radius);">
+      <a href="./index.html" class="back-link">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
+        Retour au blog
+      </a>
+
+      <article>
+        <!-- Header -->
+        <header class="article-header">
+          <div class="article-meta">
+            <span class="meta-item">
+              📅 23 Juillet 2026
+            </span>
+            <span class="meta-item">
+              ✍️ Par Michaël Daadoun
+            </span>
+            <span class="meta-item">
+              ⏱️ 6 min de lecture
+            </span>
+            <span class="meta-item meta-tag">
+              🏷️ AI Engineering / Architecture
+            </span>
+          </div>
+
+          <h1 class="article-title">L'Avènement de l'AI Engineer : De l'Artisanat du Prompt à l'Usine Logicielle Autonome</h1>
+
+          <div class="article-tags">
+            <span class="pill">AI Engineer</span>
+            <span class="pill">MCP</span>
+            <span class="pill">Agents Cloud</span>
+            <span class="pill">Architecture</span>
+          </div>
+        </header>
+
+        <!-- Content Body -->
+        <div class="article-body">
+          <p>L'émergence de l'intelligence artificielle générative a redéfini les frontières du génie logiciel. En l'espace de trois ans, un nouveau rôle est passé du statut de curiosité technologique à celui de pivot central des architectures d'entreprise : l'<strong>AI Engineer</strong> (Ingénieur IA). À travers le prisme de l'histoire de la conférence <em>AI Engineer World's Fair</em> (inaugurée sous le nom d'<em>AI Engineer Summit</em> en 2023 à San Francisco), nous pouvons cartographier la mutation radicale de ce métier, analyser son état des lieux en 2026 et entrevoir les contours de son avenir.</p>
+
+          <h3>En 2023 : La Naissance d'un Métier et l'Ère des "Wrappers"</h3>
+          <p>L'année 2023 marque la fondation officielle de la profession, portée par la nécessité de distinguer l'ingénieur IA du chercheur en Machine Learning et de l'développeur traditionnel. À cette époque, l'industrie découvre la puissance brute de GPT-4. Le paradigme est alors à la découverte et à l'artisanat :</p>
+          <ul>
+            <li><strong>Le paradigme du Prompt Engineering</strong> : L'essentiel du travail consiste à ajuster, coupler et optimiser des requêtes textuelles. Les applications sont souvent de simples surcouches (<em>GPT wrappers</em>) connectées à des API propriétaires.</li>
+            <li><strong>Les premiers jalons techniques</strong> : C'est l'apparition des premières architectures RAG (<em>Retrieval-Augmented Generation</em>) rudimentaires et la prise de conscience de phénomènes critiques comme le <em>Lost in the Middle</em> (la perte de précision du modèle au milieu de son contexte). Les premières tentatives d'automatisation des agents voient le jour avec AutoGPT et la proposition de l'<em>Agent Protocol</em>.</li>
+            <li><strong>L'évaluation empirique</strong> : La qualité des réponses se mesure au "Vibe Check", une validation visuelle et informelle des résultats.</li>
+          </ul>
+
+          <h3>En 2024 : Le Choc de la Production et la Crise de Confiance</h3>
+          <p>En 2024, l'événement grandit et se transforme en <em>World's Fair</em>. L'enjeu bascule des démonstrations superficielles vers la création d'applications fiables et industrialisables.</p>
+          <ul>
+            <li><strong>L'éclatement du monopole</strong> : GPT-4 perd sa domination exclusive face à l'émergence d'une concurrence féroce (Claude 3.5 Sonnet, Gemini 1.5 Pro, Llama 3).</li>
+            <li><strong>Défis de sécurité et d'infrastructure</strong> : L'industrie se heurte à la "crise de confiance de l'IA" (enjeux de confidentialité, entraînement sans licence) et au problème persistant des injections de prompts (<em>Prompt Injection</em>). Parallèlement, des optimisations majeures comme le <em>Context Caching</em> réduisent la latence et les coûts, tandis que l'inférence locale sur CPU se démocratise grâce à des initiatives comme <em>Llamafile</em>.</li>
+            <li><strong>Complexification des architectures</strong> : Le RAG évolue vers des modèles hybrides intégrant des bases vectorielles et des graphes de connaissances (<em>Knowledge Graphs</em>).</li>
+          </ul>
+
+          <h3>En 2025 : La Révolution des Protocoles et l'Approche "Peer Programming"</h3>
+          <p>L'année 2025 consacre l'interoperabilité et la standardisation des systèmes d'IA. Le salon rassemble plus de 3 000 participants.</p>
+          <ul>
+            <li><strong>Le triomphe du Model Context Protocol (MCP)</strong> : Initié pour résoudre le calvaire des copier-coller de contextes, le protocole MCP (porté par Anthropic et Microsoft) s'impose comme la norme universelle pour connecter les modèles aux outils et bases de données extérieurs.</li>
+            <li><strong>La transition vers le "Peer Programming"</strong> : L'IA ne se contente plus d'être un assistant d'autocomplétion (Pair programming). Grâce aux IDE agentiques (Cursor, Windsurf) et à des modèles dédiés au génie logiciel (SWE-1), l'IA devient un coéquipier autonome capable de gérer des branches de test et des Pull Requests.</li>
+            <li><strong>Effondrement des coûts</strong> : En 18 mois, les coûts d'inférence des modèles distillés s'effondrent de -99%, déplaçant la valeur financière de l'accès aux modèles vers l'orchestration avancée et la sécurité.</li>
+          </ul>
+
+          <h3>En 2026 : L'État des Lieux du Métier (Cloud Agents & Software Factories)</h3>
+          <p>Aujourd'hui, en 2026, l'AI Engineer a achevé sa mue. L'industrie est passée de la "course aux modèles" à la "course aux applications" de production à l'échelle industrielle. Le métier s'articule désormais autour de piliers technologiques matures :</p>
+          <pre style="border: 1px solid var(--border-color); background: rgba(0,0,0,0.3); padding: 12px; border-radius: 6px; font-family: var(--font-mono); overflow-x: auto; color: var(--primary-color);"><code>2023: Wrapper / Prompt Engineer ➡️ 2024: System Architect (RAG & Evals)
+                                                 ⬇️
+2026: Agent & Context Orchestrator ⬅️ 2025: Agent Builder (MCP Protocols)</code></pre>
+          <p style="font-size: 0.9rem; color: var(--text-muted); text-align: center; font-style: italic; margin-top: -12px;">Le glissement des compétences de l'AI Engineer sur 4 ans.</p>
+
+          <h4>1. L'Orchestration des Cloud Agents</h4>
+          <p>Les contraintes matérielles des machines locales ont été surmontées. Les agents s'exécutent de manière asynchrone dans le nuage (notamment via des environnements persistants nés du rachat d'Ona par OpenAI) pendant des heures ou des jours. Ils résolvent des tâches complexes en toute autonomie sans monopoliser les ressources locales de l'ingénieur.</p>
+
+          <h4>2. Le Context Engineering Just-In-Time</h4>
+          <p>Le prompt engineering artisanal a été remplacé par le <strong>Context Engineering</strong> et le <strong>Loop Engineering</strong>. L'ingénieur conçoit des architectures équipées de routeurs contextuels dynamiques (<em>JIT Context Routers</em>). Grâce au standard MCP, ces routeurs n'injectent à l'agent que les outils et informations strictement nécessaires à l'instant T, optimisant drastiquement les coûts et limitant les hallucinations.</p>
+
+          <h4>3. L'Ingénierie Rigoureuse : Evals-as-Code et Garde-Fous Déterministes</h4>
+          <p>Le déploiement en production d'un système non déterministe exige un cadre déterministe strict. Les évaluations font partie intégrante des pipelines CI/CD (<em>Evals-as-Code</em>) sous forme de portes de qualité automatisées (<em>quality gates</em>). De plus, des couches de vérification dures (interrupteurs de veto codés en Python) filtrent les sorties des agents avant exposition finale pour garantir la conformité métier et la sécurité.</p>
+
+          <blockquote>
+            <strong>L'Insight Clé de 2026 :</strong> Contrairement aux prédictions alarmistes, l'IA n'a pas tué le développement logiciel traditionnel ; elle l'a replacé au centre. Pour qu'un agent autonome navigue efficacement, la base de code doit être ultra-structurée, modulaire, documentée et couverte par des tests stricts. L'AI Engineer moderne n'écrit plus seulement du code pour les humains, il l'architecture pour des "développeurs virtuels juniors".
+          </blockquote>
+
+          <h3>L'Avenir du Métier d'AI Engineer</h3>
+          <p>À l'horizon des prochaines années, le rôle de l'AI Engineer est appelé à se stabiliser en tant que garant de l'efficience systémique.</p>
+          <ul>
+            <li><strong>De l'Application à l'Usine Logicielle Autonome (Software Factories)</strong> : L'ingénieur IA va de moins en moins coder d'applications isolées. Il administrera des usines logicielles autonomes, supervisant des réseaux d'agents spécialisés qui collaborent, s'auto-évaluent et s'auto-corrigent en boucle fermée.</li>
+            <li><strong>La Maîtrise du Test-Time Compute</strong> : L'infrastructure de demain devra arbitrer entre la très basse latence (pour les flux multimodaux temps réel) et le temps de réflexion long des modèles de raisonnement avancés (apprentissage par renforcement). L'AI Engineer sera l'architecte de cet arbitrage économique et technique.</li>
+            <li><strong>La Posture de Pilote et d'Auditeur</strong> : Face à la puissance des outils de génération, le risque majeur pour l'ingénieur est "l'illusion de compétence". L'AI Engineer du futur devra adopter une posture d'architecte et d'auditeur critique. Sa valeur ne résidera pas dans sa vitesse de saisie, mais dans sa capacité à interroger les choix d'architecture, à cartographier la dynamique des flux de données et à gouverner les contraintes de coût, de sécurité et de latence.</li>
+          </ul>
+
+          <p>En somme, l'AI Engineer est passé du statut de consommateur de modèles en 2023 à celui d'administrateur de systèmes autonomes complexes. C'est un métier où le génie logiciel classique s'allie à l'orchestration des modèles pour transformer la puissance brute des LLM en valeur d'entreprise indiscutable.</p>
+        </div>
+      </article>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <p>Portfolio Michaël Daadoun — AI Product Engineering</p>
+      <p class="footer-sub">Hébergé via GitHub Pages</p>
+    </div>
+  </footer>
+</body>
+</html>
