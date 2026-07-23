@@ -2,7 +2,7 @@
 
 Le monde de l'intelligence artificielle vient de franchir un nouveau cap majeur avec le lancement par Moonshot AI du modèle **Kimi K3**. Affichant une échelle impressionnante de **2,8 billions (trillions) de paramètres**, Kimi K3 s'impose d'emblée comme le plus grand modèle *open-weight* / *open-source* jamais mis à disposition de la communauté.
 
-Pour les ingénieurs produit IA (*AI Product Engineers*) et les architectes logiciels, cette annonce ne représente pas seulement une prouesse technique supplémentaire dans la course aux armements des LLM : elle redéfinit les frontières de ce qui est déployable, remet en question la suprématie des modèles fermés américains (comme Claude Fable 5 d'Anthropic ou GPT-5.6 Soul d'OpenAI) et modifie l'équation économique de l'inférence.
+Pour les ingénieurs produit IA (*AI Product Engineers*) et les architectes logiciels, cette annonce ne représente pas seulement une prouesse technique supplémentaire dans la course aux armements des LLM : elle redéfinit les frontières de ce qui est déployable, remet en question la suprématie des modèles fermés américains (comme Claude Fable 5 d'Anthropic ou GPT-5.6 Sol d'OpenAI) et modifie l'équation économique de l'inférence.
 
 Cet article d'analyse offre une plongée complète et sans concession dans l'architecture de Kimi K3, ses performances réelles sur le terrain, ses limites d'ingénierie et ses répercussions stratégiques pour vos feuilles de route produit.
 
@@ -86,7 +86,7 @@ Sur le papier, les scores de K3 ont provoqué une onde de choc. Sur l'index de r
 Index Global Artificial Analysis (Score Relatif)
 --------------------------------------------------
 Claude Fable 5 (Max)    : [####################] (1er)
-GPT-5.6 Soul (Max)      : [################### ] (2e)
+GPT-5.6 Sol (Max)      : [################### ] (2e)
 Kimi K3 (Max)           : [##################  ] (3e - 1er Open-Weight)
 Claude Opus 4.8         : [------------------  ]
 
@@ -94,7 +94,7 @@ Claude Opus 4.8         : [------------------  ]
 
 ### A. Le champion incontesté du Front-End et du Design Visuel
 
-Le domaine où Kimi K3 fait sensation est le développement Web et Front-End. Sur la **Frontend Code Arena** (d'Arena AI), K3 prend la **1ʳᵉ place mondiale avec un score Elo de 1 679 points**, devançant très nettement Claude Fable 5 (76 % de réussite contre 63 %) et GPT-5.6 Soul.
+Le domaine où Kimi K3 fait sensation est le développement Web et Front-End. Sur la **Frontend Code Arena** (d'Arena AI), K3 prend la **1ʳᵉ place mondiale avec un score Elo de 1 679 points**, devançant très nettement Claude Fable 5 (76 % de réussite contre 63 %) et GPT-5.6 Sol.
 
 Cette domination s'explique par son architecture nativement multimodale combinée à une boucle de rétroaction visuelle (*vision in the loop*). Le modèle ne se contente pas d'écrire du code : il exécute le rendu, prend une capture d'écran, analyse visuellement l'interface générée, et réitère de manière autonome.
 
@@ -104,7 +104,7 @@ Cette domination s'explique par son architecture nativement multimodale combiné
 
 K3 démontre des capacités agentiques avancées lorsqu'il s'agit de maintenir la cohérence sur des sessions de code de plusieurs heures :
 
-* **Optimisation de Kernels GPU** : Lors de tests sur sandbox fermée (profilage, réécriture et bench de kernels Triton/MLA sur GPU Nvidia H200), K3 a réduit le temps d'exécution d'un kernel AttnRes de **283,6 ms à 114,4 ms**, surpassant GPT-5.6 Soul et égalant Fable 5.
+* **Optimisation de Kernels GPU** : Lors de tests sur sandbox fermée (profilage, réécriture et bench de kernels Triton/MLA sur GPU Nvidia H200), K3 a réduit le temps d'exécution d'un kernel AttnRes de **283,6 ms à 114,4 ms**, surpassant GPT-5.6 Sol et égalant Fable 5.
 * **Développement de Compilateur** : K3 a conçu à partir de zéro **MiniTriton**, un compilateur GPU compact doté de sa propre couche IR (*Intermediate Representation*), de passes d'optimisation et d'un pipeline de génération de code PTX capable d'entraîner un modèle nanoGPT de bout en bout.
 * **Co-conception Matérielle (RSI)** : En 48 heures d'autonomie complète, K3 a conçu, optimisé et vérifié une puce de 4 mm² (librairie Nangate 45nm) dédiée à l'inférence d'un nano-modèle.
 * **Astrophysique Computationnelle** : Le modèle a reproduit en 2 heures un pipeline complet d'analyse de données (évaluation de 300+ équations d'état, 3000+ lignes de code Python et dashboard HTML interactif) qui demande habituellement 1 à 2 semaines de travail à un chercheur senior.
@@ -126,20 +126,20 @@ Même en ignorant le KV-Cache, faire tourner ce modèle requiert un cluster de s
 
 ### Critique 2 : L'équation économique trompeuse du "Coût par Intelligence"
 
-À première vue, l'API de Kimi K3 semble être une excellente affaire : $3,00 / Mtok en entrée et $15,00 / Mtok en sortie, soit environ la moitié du tarif de GPT-5.6 Soul.
+À première vue, l'API de Kimi K3 semble être une excellente affaire : $3,00 / Mtok en entrée et $15,00 / Mtok en sortie, soit environ la moitié du tarif de GPT-5.6 Sol.
 
 Cependant, les benchmarks indépendants d'*Artificial Analysis* (sur le test AA-Briefcase) mettent en évidence un phénomène critique :
 
 * K3 est un modèle particulièrement **verbeux et gourmand en tokens**.
-* Là où GPT-5.6 Soul résout une tâche complexe en moyenne avec 42 000 tokens de sortie et 50 tours de conversation, Kimi K3 génère en moyenne **120 000 tokens de sortie et nécessite 83 tours de conversation** pour accomplir le même travail.
-* **Résultat économique réel** : Le coût final par tâche résolue (*Cost per Intelligence Task*) s'élève à environ **$0,94 pour Kimi K3**, soit exactement le même coût global que GPT-5.6 Soul, tout en étant environ 2,5 à 3,8 fois plus lent en temps d'exécution total.
+* Là où GPT-5.6 Sol résout une tâche complexe en moyenne avec 42 000 tokens de sortie et 50 tours de conversation, Kimi K3 génère en moyenne **120 000 tokens de sortie et nécessite 83 tours de conversation** pour accomplir le même travail.
+* **Résultat économique réel** : Le coût final par tâche résolue (*Cost per Intelligence Task*) s'élève à environ **$0,94 pour Kimi K3**, soit exactement le même coût global que GPT-5.6 Sol, tout en étant environ 2,5 à 3,8 fois plus lent en temps d'exécution total.
 
 ```
 Comparatif d'Efficacité par Tâche (AA-Briefcase)
 ----------------------------------------------------------------------
 Modèle         | Tokens Sortie / Tâche | Tours (Turns) | Coût / Tâche
 ----------------------------------------------------------------------
-GPT-5.6 Soul   | ~42 000               | ~50           | ~$0.94
+GPT-5.6 Sol   | ~42 000               | ~50           | ~$0.94
 Kimi K3 (Max)  | ~120 000              | ~83           | ~$0.94
 ----------------------------------------------------------------------
 

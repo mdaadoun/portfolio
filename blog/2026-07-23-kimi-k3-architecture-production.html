@@ -195,7 +195,7 @@
         <div class="article-body">
           <p>Le monde de l'intelligence artificielle vient de franchir un nouveau cap majeur avec le lancement par Moonshot AI du modèle <strong>Kimi K3</strong>. Affichant une échelle impressionnante de <strong>2,8 billions (trillions) de paramètres</strong>, Kimi K3 s'impose d'emblée comme le plus grand modèle <em>open-weight</em> / <em>open-source</em> jamais mis à disposition de la communauté.</p>
 
-          <p>Pour les ingénieurs produit IA (<em>AI Product Engineers</em>) et les architectes logiciels, cette annonce ne représente pas seulement une prouesse technique supplémentaire dans la course aux armements des LLM : elle redéfinit les frontières de ce qui est déployable, remet en question la suprématie des modèles fermés américains (comme Claude Fable 5 d'Anthropic ou GPT-5.6 Soul d'OpenAI) et modifie l'équation économique de l'inférence.</p>
+          <p>Pour les ingénieurs produit IA (<em>AI Product Engineers</em>) et les architectes logiciels, cette annonce ne représente pas seulement une prouesse technique supplémentaire dans la course aux armements des LLM : elle redéfinit les frontières de ce qui est déployable, remet en question la suprématie des modèles fermés américains (comme Claude Fable 5 d'Anthropic ou GPT-5.6 Sol d'OpenAI) et modifie l'équation économique de l'inférence.</p>
 
           <p>Cet article d'analyse offre une plongée complète et sans concession dans l'architecture de Kimi K3, ses performances réelles sur le terrain, ses limites d'ingénierie et ses répercussions stratégiques pour vos feuilles de route produit.</p>
 
@@ -296,12 +296,12 @@
           <pre style="border: 1px solid var(--border-color); background: rgba(0,0,0,0.3); padding: 12px; border-radius: 6px; font-family: var(--font-mono); overflow-x: auto; color: var(--primary-color);"><code>Index Global Artificial Analysis (Score Relatif)
 --------------------------------------------------
 Claude Fable 5 (Max)    : [####################] (1er)
-GPT-5.6 Soul (Max)      : [################### ] (2e)
+GPT-5.6 Sol (Max)      : [################### ] (2e)
 Kimi K3 (Max)           : [##################  ] (3e - 1er Open-Weight)
 Claude Opus 4.8         : [------------------  ]</code></pre>
 
           <h4>A. Le champion incontesté du Front-End et du Design Visuel</h4>
-          <p>Le domaine où Kimi K3 fait sensation est le développement Web et Front-End. Sur la <strong>Frontend Code Arena</strong> (d'Arena AI), K3 prend la <strong>1ʳᵉ place mondiale avec un score Elo de 1 679 points</strong>, devançant très nettement Claude Fable 5 (76 % de réussite contre 63 %) et GPT-5.6 Soul.</p>
+          <p>Le domaine où Kimi K3 fait sensation est le développement Web et Front-End. Sur la <strong>Frontend Code Arena</strong> (d'Arena AI), K3 prend la <strong>1ʳᵉ place mondiale avec un score Elo de 1 679 points</strong>, devançant très nettement Claude Fable 5 (76 % de réussite contre 63 %) et GPT-5.6 Sol.</p>
           <p>Cette domination s'explique par son architecture nativement multimodale combinée à une boucle de rétroaction visuelle (<em>vision in the loop</em>). Le modèle ne se contente pas d'écrire du code : il exécute le rendu, prend une capture d'écran, analyse visuellement l'interface générée, et réitère de manière autonome.</p>
           <ul>
             <li><strong>Cas d'usage 3D & Jeux</strong> : K3 a été capable de générer intégralement un jeu d'exploration 3D procédural en Three.js / WebGPU ainsi qu'un émulateur complet de Game Boy Advance fonctionnel dans le navigateur.</li>
@@ -310,7 +310,7 @@ Claude Opus 4.8         : [------------------  ]</code></pre>
           <h4>B. Ingénierie Système et Tâches "Long-Horizon"</h4>
           <p>K3 démontre des capacités agentiques avancées lorsqu'il s'agit de maintenir la cohérence sur des sessions de code de plusieurs heures :</p>
           <ul>
-            <li><strong>Optimisation de Kernels GPU</strong> : Lors de tests sur sandbox fermée (profilage, réécriture et bench de kernels Triton/MLA sur GPU Nvidia H200), K3 a réduit le temps d'exécution d'un kernel AttnRes de <strong>283,6 ms à 114,4 ms</strong>, surpassant GPT-5.6 Soul et égalant Fable 5.</li>
+            <li><strong>Optimisation de Kernels GPU</strong> : Lors de tests sur sandbox fermée (profilage, réécriture et bench de kernels Triton/MLA sur GPU Nvidia H200), K3 a réduit le temps d'exécution d'un kernel AttnRes de <strong>283,6 ms à 114,4 ms</strong>, surpassant GPT-5.6 Sol et égalant Fable 5.</li>
             <li><strong>Développement de Compilateur</strong> : K3 a conçu à partir de zéro <strong>MiniTriton</strong>, un compilateur GPU compact doté de sa propre couche IR (<em>Intermediate Representation</em>), de passes d'optimisation et d'un pipeline de génération de code PTX capable d'entraîner un modèle nanoGPT de bout en bout.</li>
             <li><strong>Co-conception Matérielle (RSI)</strong> : En 48 heures d'autonomie complète, K3 a conçu, optimisé et vérifié une puce de 4 mm² (librairie Nangate 45nm) dédiée à l'inférence d'un nano-modèle.</li>
             <li><strong>Astrophysique Computationnelle</strong> : Le modèle a reproduit en 2 heures un pipeline complet d'analyse de données (évaluation de 300+ équations d'état, 3000+ lignes de code Python et dashboard HTML interactif) qui demande habituellement 1 à 2 semaines de travail à un chercheur senior.</li>
@@ -328,12 +328,12 @@ Claude Opus 4.8         : [------------------  ]</code></pre>
           <p>Même en ignorant le KV-Cache, faire tourner ce modèle requiert un cluster de serveurs de classe entreprise (au minimum 8 à 16 GPU de 80 Go d'A100/H100). Moonshot recommande officiellement des architectures de super-nœuds comprenant au moins <strong>64 accélérateurs interconnectés</strong> (ex. Nvidia NVL72). Pour une entreprise, auto-héberger K3 n'est donc pas une alternative "gratuite" ou "légère", mais une décision d'infrastructure lourde.</p>
 
           <h4>Critique 2 : L'équation économique trompeuse du "Coût par Intelligence"</h4>
-          <p>À première vue, l'API de Kimi K3 semble être une excellente affaire : $3,00 / Mtok en entrée et $15,00 / Mtok en sortie, soit environ la moitié du tarif de GPT-5.6 Soul.</p>
+          <p>À première vue, l'API de Kimi K3 semble être une excellente affaire : $3,00 / Mtok en entrée et $15,00 / Mtok en sortie, soit environ la moitié du tarif de GPT-5.6 Sol.</p>
           <p>Cependant, les benchmarks indépendants d'<em>Artificial Analysis</em> (sur le test AA-Briefcase) mettent en évidence un phénomène critique :</p>
           <ul>
             <li>K3 est un modèle particulièrement <strong>verbeux et gourmand en tokens</strong>.</li>
-            <li>Là où GPT-5.6 Soul résout une tâche complexe en moyenne avec 42 000 tokens de sortie et 50 tours de conversation, Kimi K3 génère en moyenne <strong>120 000 tokens de sortie et nécessite 83 tours de conversation</strong> pour accomplir le même travail.</li>
-            <li><strong>Résultat économique réel</strong> : Le coût final par tâche résolue (<em>Cost per Intelligence Task</em>) s'élève à environ <strong>$0,94 pour Kimi K3</strong>, soit exactement le même coût global que GPT-5.6 Soul, tout en étant environ 2,5 à 3,8 fois plus lent en temps d'exécution total.</li>
+            <li>Là où GPT-5.6 Sol résout une tâche complexe en moyenne avec 42 000 tokens de sortie et 50 tours de conversation, Kimi K3 génère en moyenne <strong>120 000 tokens de sortie et nécessite 83 tours de conversation</strong> pour accomplir le même travail.</li>
+            <li><strong>Résultat économique réel</strong> : Le coût final par tâche résolue (<em>Cost per Intelligence Task</em>) s'élève à environ <strong>$0,94 pour Kimi K3</strong>, soit exactement le même coût global que GPT-5.6 Sol, tout en étant environ 2,5 à 3,8 fois plus lent en temps d'exécution total.</li>
           </ul>
 
           <table style="width: 100%; border-collapse: collapse; margin: 20px 0; font-size: 0.95rem; text-align: left; border: 1px solid var(--border-color);">
@@ -347,7 +347,7 @@ Claude Opus 4.8         : [------------------  ]</code></pre>
             </thead>
             <tbody>
               <tr style="border-bottom: 1px solid var(--border-color);">
-                <td style="padding: 12px; font-weight: bold; color: var(--primary-color);">GPT-5.6 Soul</td>
+                <td style="padding: 12px; font-weight: bold; color: var(--primary-color);">GPT-5.6 Sol</td>
                 <td style="padding: 12px;">~42 000</td>
                 <td style="padding: 12px;">~50</td>
                 <td style="padding: 12px;">~$0.94</td>
