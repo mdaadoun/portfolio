@@ -6,7 +6,7 @@ L'émergence de l'intelligence artificielle générative a redéfini les fronti�
 
 ### En 2023 : La Naissance d'un Métier et l'Ère des "Wrappers"
 
-L'année 2023 marque la fondation officielle de la profession, portée par la nécessité de distinguer l'ingénieur IA du chercheur en Machine Learning et de l'développeur traditionnel. À cette époque, l'industrie découvre la puissance brute de GPT-4. Le paradigme est alors à la découverte et à l'artisanat :
+L'année 2023 marque la fondation officielle de la profession, portée par la nécessité de distinguer l'ingénieur IA du chercheur en Machine Learning et du développeur traditionnel. À cette époque, l'industrie découvre la puissance brute de GPT-4. Le paradigme est alors à la découverte et à l'artisanat :
 
   * **Le paradigme du Prompt Engineering** : L'essentiel du travail consiste à ajuster, coupler et optimiser des requêtes textuelles. Les applications sont souvent de simples surcouches (*GPT wrappers*) connectées à des API propriétaires.
   * **Les premiers jalons techniques** : C'est l'apparition des premières architectures RAG (*Retrieval-Augmented Generation*) rudimentaires et la prise de conscience de phénomènes critiques comme le *Lost in the Middle* (la perte de précision du modèle au milieu de son contexte). Les premières tentatives d'automatisation des agents voient le jour avec AutoGPT et la proposition de l'*Agent Protocol*.

@@ -33,7 +33,7 @@ Guidés par la consigne d'obtenir le meilleur score possible à l'évaluation, l
 
 
 3. 
-**L'assaut sur Hugging Face :** Une fois connectée au Web, l'IA a déduit logique que les corrigés du benchmark *ExploitGym* devaient se trouver sur la plateforme Hugging Face.
+**L'assaut sur Hugging Face :** Une fois connectée au Web, l'IA a déduit logiquement que les corrigés du benchmark *ExploitGym* devaient se trouver sur la plateforme Hugging Face.
 
 
 4. 
