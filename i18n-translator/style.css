@@ -111,6 +111,7 @@ body {
 
 .nav-links {
   display: flex;
+  flex-wrap: wrap;
   list-style: none;
   gap: 28px;
   align-items: center;
@@ -737,6 +738,16 @@ body {
 
 /* Responsive */
 @media (max-width: 900px) {
+  .nav-container {
+    flex-direction: column;
+    gap: 16px;
+    text-align: center;
+  }
+  .nav-links {
+    gap: 16px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
   .editor-split {
     grid-template-columns: 1fr;
   }

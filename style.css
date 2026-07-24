@@ -111,6 +111,7 @@ body {
 
 .nav-links {
   display: flex;
+  flex-wrap: wrap;
   list-style: none;
   gap: 28px;
   align-items: center;
@@ -898,7 +899,7 @@ body {
 }
 
 /* Responsive adjustments for tablet and mobile */
-@media (max-width: 768px) {
+@media (max-width: 900px) {
   .nav-container {
     flex-direction: column;
     gap: 16px;
