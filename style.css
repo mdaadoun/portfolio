@@ -896,3 +896,55 @@ body {
   opacity: 0.6;
   border-color: rgba(255, 255, 255, 0.1);
 }
+
+/* Responsive adjustments for tablet and mobile */
+@media (max-width: 768px) {
+  .nav-container {
+    flex-direction: column;
+    gap: 16px;
+    text-align: center;
+  }
+  .nav-links {
+    gap: 16px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .hero-title {
+    font-size: 2.2rem;
+  }
+  .hero-desc {
+    font-size: 1.05rem;
+  }
+  .glass-card, .hub-project-card, .blog-card {
+    padding: 20px !important;
+  }
+  .hub-projects-grid {
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+  }
+  .article-container {
+    padding: 20px 16px !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-title {
+    font-size: 1.8rem;
+  }
+  .hero-actions {
+    flex-direction: column;
+    width: 100%;
+    gap: 12px;
+  }
+  .hero-actions .btn {
+    width: 100%;
+  }
+  .nav-links {
+    gap: 12px;
+    font-size: 0.85rem;
+  }
+  .nav-btn-demo {
+    padding: 6px 12px;
+  }
+}
+
