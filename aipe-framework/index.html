@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AIPE_Framework — Blueprint AI Product Engineering</title>
+  <meta name="description" content="Cadre industriel d'ingénierie logicielle pour applications IA et produits LLM par Michaël Daadoun (Poetry, Ruff, Mypy strict, Docker Multi-Stage, VSCode Format-on-save).">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Outfit:wght@400;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./style.css?v=1.0">
+</head>
+<body>
+  <div class="background-glow glow-1"></div>
+  <div class="background-glow glow-2"></div>
+
+  <!-- Header / Navigation -->
+  <header class="navbar" id="navbar">
+    <div class="container nav-container">
+      <a href="#" class="logo">
+        <span class="logo-icon">🚀</span>
+        <span class="logo-text">AIPE<span>.framework</span></span>
+      </a>
+      <nav>
+        <ul class="nav-links">
+          <li><a href="../index.html" class="nav-btn-hub">← Hub Portfolio</a></li>
+          <li><a href="#presentation">Présentation</a></li>
+          <li><a href="#architecture">Architecture</a></li>
+          <li><a href="#quality">Qualité & Tests</a></li>
+          <li><a href="#explorer">Roadmap & Documentation</a></li>
+          <li><a href="#docs-sources" class="nav-btn-demo">Code Source ↗</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- Hero Section -->
+    <section class="hero" id="hero">
+      <div class="container hero-container">
+        <div class="badge">
+          <span class="badge-dot"></span>
+          Industrial Blueprint & Product Infrastructure
+        </div>
+        <h1 class="hero-title">Blueprint <span class="gradient-text">AI Product Engineering</span></h1>
+        <p class="hero-desc">
+          Socle technique et industriel standardisé conçu pour accélérer et sécuriser le développement de produits d'intelligence artificielle (LLMs, RAG, Agents). Élimine la dette technique initiale en imposant de bonnes pratiques strictes dès le premier jour.
+        </p>
+
+        <div class="tech-stack-pills">
+          <span class="pill">Poetry (Déterministe)</span>
+          <span class="pill">Ruff Linter & Formatter</span>
+          <span class="pill">Mypy Strict (100% Typé)</span>
+          <span class="pill">Pre-commit & detect-secrets</span>
+          <span class="pill">FastAPI ASGI</span>
+          <span class="pill">Docker Multi-Stage Non-Root</span>
+          <span class="pill">VSCode Format-on-Save</span>
+        </div>
+
+        <div class="hero-actions">
+          <a href="#quality" class="btn btn-primary btn-lg">
+            <span>Explorer la Suite de Tests (64 PASSED)</span>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+          <a href="#explorer" class="btn btn-secondary btn-lg">Consulter la Roadmap & FAQ</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Presentation Section -->
+    <section class="section" id="presentation">
+      <div class="container">
+        <div class="section-header">
+          <div class="badge">Résolution de la Dette Technique</div>
+          <h2 class="section-title">Les 4 Piliers d'Ingénierie AIPE</h2>
+          <p class="section-subtitle">Comment passer d'un prototype IA spaghetti à un microservice prêt pour la production</p>
+        </div>
+
+        <div class="features-grid">
+          <div class="glass-card feature-card">
+            <div class="card-icon">⚡</div>
+            <h3>Zero-Setup Friction</h3>
+            <p>Onboarding d'un développeur en moins de 5 minutes chrono (`git clone` → `make install` → `make dev`). Environnement virtuel `.venv` local déterministe.</p>
+          </div>
+
+          <div class="glass-card feature-card">
+            <div class="card-icon">🛡️</div>
+            <h3>Gatekeeping & Sécurité Passive</h3>
+            <p>Blocage automatique au niveau local Git de toute fuite de secret (clés API OpenAI, Gemini) via `detect-secrets` et validation de syntaxe YAML avant tout commit.</p>
+          </div>
+
+          <div class="glass-card feature-card">
+            <div class="card-icon">💎</div>
+            <h3>Qualité & Typage Strict</h3>
+            <p>Formateur & linter Rust ultra-rapide `Ruff` (< 2s) couplé au vérificateur statique `Mypy` en mode strict (100% du code dans `src/` annoté et vérifié).</p>
+          </div>
+
+          <div class="glass-card feature-card">
+            <div class="card-icon">🐳</div>
+            <h3>Conteneurisation Hardened</h3>
+            <p>Dockerfile multi-stage ultra-léger (< 250 MB), exécuté sous un utilisateur système non-privilégié (`appuser` UID 1000) avec sonde native `HEALTHCHECK` HTTP.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Pipeline Architecture Section -->
+    <section class="section" id="architecture">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-title">Architecture & Lifecycle par Phases</h2>
+          <p class="section-subtitle">Une feuille de route linéaire en 6 phases de l'initialisation au déploiement</p>
+        </div>
+
+        <div class="glass-card pipeline-card">
+          <div class="pipeline-steps">
+            <div class="step">
+              <div class="step-num">1</div>
+              <h4>Poetry & Setup</h4>
+              <p>Isolation locale `.venv` & résolution déterministe.</p>
+            </div>
+            <div class="step-arrow">→</div>
+            <div class="step">
+              <div class="step-num">2</div>
+              <h4>Qualité & Hooks</h4>
+              <p>Ruff, Mypy strict & detect-secrets pre-commit.</p>
+            </div>
+            <div class="step-arrow">→</div>
+            <div class="step">
+              <div class="step-num">3</div>
+              <h4>CLI Makefile</h4>
+              <p>Interface de commande unifiée Zero-Friction.</p>
+            </div>
+            <div class="step-arrow">→</div>
+            <div class="step">
+              <div class="step-num">4</div>
+              <h4>API FastAPI</h4>
+              <p>Microservice ASGI & endpoint /health normé.</p>
+            </div>
+            <div class="step-arrow">→</div>
+            <div class="step">
+              <div class="step-num">5</div>
+              <h4>Docker Hardened</h4>
+              <p>Multi-stage, non-root appuser & HEALTHCHECK.</p>
+            </div>
+            <div class="step-arrow">→</div>
+            <div class="step">
+              <div class="step-num">6</div>
+              <h4>IDE & Onboarding</h4>
+              <p>VSCode format-on-save Ruff & KPI simulation < 5 min.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Quality & Test Suite Section -->
+    <section class="section" id="quality">
+      <div class="container">
+        <div class="section-header">
+          <div class="badge badge-accent">QA & Test Suite Studio</div>
+          <h2 class="section-title">Indicateurs de Qualité & Terminal de Tests</h2>
+          <p class="section-subtitle">Exécutez la suite de tests automatisés ou simulez le scénario d'onboarding en temps réel</p>
+        </div>
+
+        <!-- Metrics Counters -->
+        <div class="metrics-grid">
+          <div class="metric-card">
+            <div class="metric-number">64 / 64</div>
+            <div class="metric-label">Tests au Vert (100% Pass)</div>
+          </div>
+          <div class="metric-card">
+            <div class="metric-number">100 %</div>
+            <div class="metric-label">Couverture de Code (src/)</div>
+          </div>
+          <div class="metric-card">
+            <div class="metric-number">0 Erreur</div>
+            <div class="metric-label">Typage Strict Mypy</div>
+          </div>
+          <div class="metric-card">
+            <div class="metric-number">&lt; 250 Mo</div>
+            <div class="metric-label">Image Docker Runtime</div>
+          </div>
+          <div class="metric-card">
+            <div class="metric-number">2 min 14s</div>
+            <div class="metric-label">KPI Onboarding (&lt; 5 min)</div>
+          </div>
+        </div>
+
+        <!-- Terminal Studio -->
+        <div class="terminal-card">
+          <div class="terminal-header">
+            <div class="terminal-dots">
+              <span class="dot dot-red"></span>
+              <span class="dot dot-yellow"></span>
+              <span class="dot dot-green"></span>
+            </div>
+            <div class="terminal-title" id="terminalTitle">user@aipe-framework:~$ pytest tests/</div>
+            <div style="font-size: 0.75rem; color: var(--text-muted); font-family: var(--font-mono);">Interactive QA Terminal</div>
+          </div>
+
+          <div class="terminal-controls">
+            <button class="test-suite-btn active" data-suite="all">🧪 Toute la suite (64 tests)</button>
+            <button class="test-suite-btn" data-suite="onboarding">🚀 Tests Onboarding (21 tests)</button>
+            <button class="test-suite-btn" data-suite="vscode">🖥️ Configuration VSCode (13 tests)</button>
+            <button class="test-suite-btn" data-suite="docker">🐳 Docker & Hardening (15 tests)</button>
+            <button class="test-suite-btn" data-suite="simulation">⏱️ Simulation Onboarding (< 5 min)</button>
+          </div>
+
+          <div class="terminal-body" id="terminalBody">
+            <pre>============================= test session starts ==============================
+platform linux -- Python 3.10.12, pytest-8.4.2, pluggy-1.6.0
+rootdir: /home/michael/Code/ai-engineering/projets/AIPE_Framework
+configfile: pyproject.toml
+plugins: cov-4.1.0, anyio-4.14.2
+collected 64 items
+
+<span class="t-purple">tests/test_dockerfile.py</span> ...............                                 [ 23%]
+<span class="t-purple">tests/test_gatekeeping.py</span> ...                                            [ 28%]
+<span class="t-purple">tests/test_main.py</span> .                                                     [ 29%]
+<span class="t-purple">tests/test_makefile.py</span> ...                                               [ 34%]
+<span class="t-purple">tests/test_onboarding.py</span> .....................                           [ 67%]
+<span class="t-purple">tests/test_poetry.py</span> ......                                              [ 76%]
+<span class="t-purple">tests/test_pre_commit.py</span> ..                                              [ 79%]
+<span class="t-purple">tests/test_vscode_settings.py</span> .............                              [100%]
+
+---------- coverage: platform linux, python 3.10.12-final-0 ----------
+Name                         Stmts   Miss  Cover   Missing
+----------------------------------------------------------
+src/__init__.py                  0      0   100%
+src/api/__init__.py              0      0   100%
+src/api/routes/__init__.py       0      0   100%
+src/api/routes/health.py         7      0   100%
+src/core/__init__.py             0      0   100%
+src/core/config.py               8      0   100%
+src/main.py                      5      0   100%
+src/schemas/__init__.py          0      0   100%
+src/schemas/health.py            5      0   100%
+----------------------------------------------------------
+TOTAL                           25      0   100%
+Coverage XML written to file coverage.xml
+
+<span class="t-green">Required test coverage of 100.0% reached. Total coverage: 100.00%</span>
+
+<span class="t-green">============================== 64 passed in 3.69s ==============================</span></pre>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Interactive Explorer Section (Roadmap, FAQ, Glossaire, Journal) -->
+    <section class="section" id="explorer">
+      <div class="container">
+        <div class="section-header">
+          <div class="badge">Documentation Vivante & Architecture</div>
+          <h2 class="section-title">Explorateur Interactif du Projet</h2>
+          <p class="section-subtitle">Naviguez dans la feuille de route, le glossaire, la FAQ recruteur et le journal d'apprentissage</p>
+        </div>
+
+        <div class="glass-card">
+          <div class="explorer-tabs">
+            <button class="tab-btn active" data-tab="tabRoadmap">🗺️ Feuille de Route (100% Validé)</button>
+            <button class="tab-btn" data-tab="tabGlossary">📖 Glossaire Technique</button>
+            <button class="tab-btn" data-tab="tabFaq">❓ FAQ Entretien (34 questions)</button>
+            <button class="tab-btn" data-tab="tabJournal">📝 Journal (17 Séances)</button>
+          </div>
+
+          <!-- Tab 1: Roadmap -->
+          <div class="tab-content active" id="tabRoadmap">
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 16px;">
+              <div style="background: rgba(16, 185, 129, 0.08); border: 1px solid rgba(16, 185, 129, 0.3); border-radius: 8px; padding: 16px;">
+                <span class="badge badge-accent">Phase 1 — Validé</span>
+                <h4 style="margin: 8px 0 4px; color: #fff;">Poetry & Virtualenv Isolation</h4>
+                <p style="font-size: 0.85rem; color: var(--text-muted);">Création de pyproject.toml, isolation locale .venv in-project et verrouillage déterministe poetry.lock.</p>
+              </div>
+              <div style="background: rgba(16, 185, 129, 0.08); border: 1px solid rgba(16, 185, 129, 0.3); border-radius: 8px; padding: 16px;">
+                <span class="badge badge-accent">Phase 2 — Validé</span>
+                <h4 style="margin: 8px 0 4px; color: #fff;">Qualité & Hooks Pre-commit</h4>
+                <p style="font-size: 0.85rem; color: var(--text-muted);">Détection de secrets (detect-secrets), linter/formatter Ruff en < 2s, typage Mypy strict et hooks Git locaux.</p>
+              </div>
+              <div style="background: rgba(16, 185, 129, 0.08); border: 1px solid rgba(16, 185, 129, 0.3); border-radius: 8px; padding: 16px;">
+                <span class="badge badge-accent">Phase 3 — Validé</span>
+                <h4 style="margin: 8px 0 4px; color: #fff;">Interface CLI Makefile</h4>
+                <p style="font-size: 0.85rem; color: var(--text-muted);">Abstraction des commandes courantes (make install, make lint, make test, make dev, make clean, make dashboard).</p>
+              </div>
+              <div style="background: rgba(16, 185, 129, 0.08); border: 1px solid rgba(16, 185, 129, 0.3); border-radius: 8px; padding: 16px;">
+                <span class="badge badge-accent">Phase 4 — Validé</span>
+                <h4 style="margin: 8px 0 4px; color: #fff;">API FastAPI & Healthcheck</h4>
+                <p style="font-size: 0.85rem; color: var(--text-muted);">Structure modulaire src/ (core, schemas, api/routes), route GET /health normée et suite de tests d'intégration.</p>
+              </div>
+              <div style="background: rgba(16, 185, 129, 0.08); border: 1px solid rgba(16, 185, 129, 0.3); border-radius: 8px; padding: 16px;">
+                <span class="badge badge-accent">Phase 5 — Validé</span>
+                <h4 style="margin: 8px 0 4px; color: #fff;">Docker & Sécurité Non-Root</h4>
+                <p style="font-size: 0.85rem; color: var(--text-muted);">Dockerfile multi-stage builder/runtime, utilisateur non-privilégié appuser (UID 1000) et directive HEALTHCHECK avec curl -f.</p>
+              </div>
+              <div style="background: rgba(16, 185, 129, 0.08); border: 1px solid rgba(16, 185, 129, 0.3); border-radius: 8px; padding: 16px;">
+                <span class="badge badge-accent">Phase 6 — Validé</span>
+                <h4 style="margin: 8px 0 4px; color: #fff;">IDE & Onboarding Simulation</h4>
+                <p style="font-size: 0.85rem; color: var(--text-muted);">Paramètres VSCode .vscode/settings.json (format-on-save Ruff), recommendations d'extensions et KPI onboarding < 5 min.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Tab 2: Glossary -->
+          <div class="tab-content" id="tabGlossary">
+            <div class="accordion-item">
+              <div class="accordion-header">
+                <span>Poetry & Lock File (Déterminisme)</span>
+                <span>▼</span>
+              </div>
+              <div class="accordion-body">
+                Outil moderne de gestion des dépendances qui résout de manière déterministe l'arbre complet des dépendances et verrouille les versions exactes dans poetry.lock. Garantit un environnement identique entre dev et CI.
+              </div>
+            </div>
+            <div class="accordion-item">
+              <div class="accordion-header">
+                <span>Ruff (Linter & Formatter Rust)</span>
+                <span>▼</span>
+              </div>
+              <div class="accordion-body">
+                Outil ultra-rapide écrit en Rust remplaçant Flake8, Black, isort et autoflake. Analyse et reformate l'ensemble de la codebase en quelques millisecondes.
+              </div>
+            </div>
+            <div class="accordion-item">
+              <div class="accordion-header">
+                <span>Mypy en mode strict (Typage Statique)</span>
+                <span>▼</span>
+              </div>
+              <div class="accordion-body">
+                Vérificateur de typage statique pour Python. Le mode strict exige l'annotation explicite de toutes les signatures de fonctions, éliminant toute une classe de bugs d'exécution en production.
+              </div>
+            </div>
+            <div class="accordion-item">
+              <div class="accordion-header">
+                <span>Docker Multi-Stage & Hardening Non-Root</span>
+                <span>▼</span>
+              </div>
+              <div class="accordion-body">
+                Technique de construction d'image Docker séparant l'étape de compilation (builder) de l'image finale (runtime < 250 MB). L'exécution est verrouillée sous l'utilisateur non-root appuser (UID 1000).
+              </div>
+            </div>
+            <div class="accordion-item">
+              <div class="accordion-header">
+                <span>Format-on-Save & Code Actions (VSCode)</span>
+                <span>▼</span>
+              </div>
+              <div class="accordion-body">
+                Configuration .vscode/settings.json déclenchant le formatage Ruff et la réorganisation des imports à chaque Ctrl+S, alignant l'IDE avec la CI.
+              </div>
+            </div>
+            <div class="accordion-item">
+              <div class="accordion-header">
+                <span>Zero-Setup Friction & Smoke Test</span>
+                <span>▼</span>
+              </div>
+              <div class="accordion-body">
+                KPI mesurant l'effort d'onboarding (< 5 min). Le smoke test simule un clonage vierge, exécute make install et vérifie la route /health en conditions réelles.
+              </div>
+            </div>
+          </div>
+
+          <!-- Tab 3: FAQ -->
+          <div class="tab-content" id="tabFaq">
+            <div class="accordion-item">
+              <div class="accordion-header">
+                <span>Q1. Pourquoi préférez-vous Poetry à requirements.txt ?</span>
+                <span>▼</span>
+              </div>
+              <div class="accordion-body">
+                requirements.txt ne résout pas les dépendances transitives, conduisant à des dérives de version. Poetry garantit la reproductibilité absolue grâce au fichier poetry.lock et gère les groupes dev/prod séparément.
+              </div>
+            </div>
+            <div class="accordion-item">
+              <div class="accordion-header">
+                <span>Q5. Pourquoi utiliser un Dockerfile multi-stage ?</span>
+                <span>▼</span>
+              </div>
+              <div class="accordion-body">
+                Pour réduire le poids de l'image (de 1 Go à < 250 Mo) en excluant les compilateurs et Poetry du conteneur final, et pour restreindre la surface d'attaque sécurité en production.
+              </div>
+            </div>
+            <div class="accordion-item">
+              <div class="accordion-header">
+                <span>Q23. Pourquoi exécuter le conteneur sous un utilisateur non-root ?</span>
+                <span>▼</span>
+              </div>
+              <div class="accordion-body">
+                Par défaut, Docker s'exécute sous root (UID 0). Basculer vers appuser (UID 1000) applique le principe de moindre privilège : en cas de compromission applicative, l'attaquant n'obtient pas les droits d'administration sur le système hôte.
+              </div>
+            </div>
+            <div class="accordion-item">
+              <div class="accordion-header">
+                <span>Q29. Pourquoi versionner le dossier .vscode/ dans Git ?</span>
+                <span>▼</span>
+              </div>
+              <div class="accordion-body">
+                Par philosophie Infrastructure as Code (IaC). Versionner settings.json et extensions.json garantit que tous les développeurs de l'équipe partagent le même formateur et les mêmes règles sans configuration manuelle.
+              </div>
+            </div>
+            <div class="accordion-item">
+              <div class="accordion-header">
+                <span>Q32. Que signifie le KPI « Zero-Setup Friction » ?</span>
+                <span>▼</span>
+              </div>
+              <div class="accordion-body">
+                C'est la métrique garantissant qu'un nouveau développeur externe clone le projet et démarre un serveur fonctionnel en moins de 5 minutes chrono (validé par script automatisé).
+              </div>
+            </div>
+          </div>
+
+          <!-- Tab 4: Journal -->
+          <div class="tab-content" id="tabJournal">
+            <div style="font-size: 0.92rem; color: var(--text-muted); line-height: 1.8;">
+              <p><strong>17 séances de développement documentées sous format ADR (Architecture Decision Records) :</strong></p>
+              <ul style="padding-left: 20px; margin: 12px 0;">
+                <li><strong>Séance 1 à 2 :</strong> Initialisation Poetry, isolation .venv local et configuration des dépendances dev/prod.</li>
+                <li><strong>Séance 3 à 6 :</strong> Intégration detect-secrets, Ruff linter/formatter, Mypy mode strict et hooks pre-commit.</li>
+                <li><strong>Séance 7 à 8 :</strong> Création de l'interface CLI unifiée Makefile (make install, make clean, make lint, make test).</li>
+                <li><strong>Séance 9 à 11 :</strong> Architecture modulaire FastAPI src/ (core, schemas, routes) et suite de tests d'intégration HTTP.</li>
+                <li><strong>Séance 12 à 15 :</strong> Dockerfile Multi-stage, hardening non-root (appuser UID 1000) et directive HEALTHCHECK native.</li>
+                <li><strong>Séance 16 :</strong> Configuration IDE VSCode (.vscode/settings.json format-on-save Ruff + recommendations).</li>
+                <li><strong>Séance 17 :</strong> Simulation d'onboarding Zero-Setup Friction (< 5 min), suite de 21 tests de prérequis et clôture de la roadmap.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Documents & Sources Section -->
+    <section class="section" id="docs-sources">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-title">Documents de Architecture &amp; Code Source</h2>
+          <p class="section-subtitle">Accédez directement aux ressources brutes sur GitHub ou au dépôt de code source complet.</p>
+        </div>
+
+        <div class="features-grid">
+          <!-- Link 1: Code Source Complet -->
+          <a href="https://github.com/mdaadoun/AIPE_Framework" target="_blank" rel="noopener noreferrer" class="glass-card feature-card" style="text-decoration: none; color: inherit; height: 100%;">
+            <div class="card-icon" style="color: var(--primary-color);">💻</div>
+            <h3>Code Source Complet</h3>
+            <p>Dépôt Git du projet contenant le code FastAPI, le Dockerfile, les 64 tests unitaires et le dashboard interactif.</p>
+            <span class="read-link" style="margin-top: auto; color: var(--primary-color); font-weight: 600; display: inline-flex; align-items: center; gap: 4px; font-size: 0.9rem;">
+              Parcourir sur GitHub ↗
+            </span>
+          </a>
+
+          <!-- Link 2: Feuille de Route Brute -->
+          <a href="https://raw.githubusercontent.com/mdaadoun/AIPE_Framework/main/docs/roadmap_details.md" target="_blank" rel="noopener noreferrer" class="glass-card feature-card" style="text-decoration: none; color: inherit; height: 100%;">
+            <div class="card-icon" style="color: var(--accent-color);">🗺️</div>
+            <h3>Feuille de Route Brute</h3>
+            <p>Spécification détaillée des 6 phases et 15 étapes avec critères de validation chronologiques.</p>
+            <span class="read-link" style="margin-top: auto; color: var(--accent-color); font-weight: 600; display: inline-flex; align-items: center; gap: 4px; font-size: 0.9rem;">
+              Lire roadmap.md (Raw) ↗
+            </span>
+          </a>
+
+          <!-- Link 3: Glossaire Technique Brut -->
+          <a href="https://raw.githubusercontent.com/mdaadoun/AIPE_Framework/main/docs/glossaire.md" target="_blank" rel="noopener noreferrer" class="glass-card feature-card" style="text-decoration: none; color: inherit; height: 100%;">
+            <div class="card-icon" style="color: #3b82f6;">📚</div>
+            <h3>Glossaire Technique Brut</h3>
+            <p>Définitions approfondies des concepts DevOps, Qualité, Sécurité et IDE appliqués au framework.</p>
+            <span class="read-link" style="margin-top: auto; color: #3b82f6; font-weight: 600; display: inline-flex; align-items: center; gap: 4px; font-size: 0.9rem;">
+              Lire glossaire.md (Raw) ↗
+            </span>
+          </a>
+
+          <!-- Link 4: FAQ Entretien Brute -->
+          <a href="https://raw.githubusercontent.com/mdaadoun/AIPE_Framework/main/docs/faq_entretien.md" target="_blank" rel="noopener noreferrer" class="glass-card feature-card" style="text-decoration: none; color: inherit; height: 100%;">
+            <div class="card-icon" style="color: var(--warning-color);">❓</div>
+            <h3>FAQ Entretien Technique</h3>
+            <p>34 questions/réponses approfondies expliquant les arbitrages et choix d'architecture pour les recruteurs.</p>
+            <span class="read-link" style="margin-top: auto; color: var(--warning-color); font-weight: 600; display: inline-flex; align-items: center; gap: 4px; font-size: 0.9rem;">
+              Lire faq_entretien.md (Raw) ↗
+            </span>
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <p>Blueprint AIPE_Framework — AI Product Engineering Infrastructure</p>
+      <p class="footer-sub">Conçu par Michaël Daadoun — Hébergé via GitHub Pages</p>
+    </div>
+  </footer>
+
+  <script src="./app.js?v=1.0"></script>
+</body>
+</html>
