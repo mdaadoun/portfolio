@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,6 +9,8 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Outfit:wght@400;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../style.css?v=3.0">
+  <script src="../theme.js"></script>
+  <script src="../lang.js"></script>
   <style>
     .blog-header {
       text-align: center;
@@ -133,9 +135,21 @@
       </a>
       <nav>
         <ul class="nav-links">
-          <li><a href="../index.html#parcours">Parcours</a></li>
-          <li><a href="../index.html#projects">Projets</a></li>
+          <li><a href="../index.html#parcours" data-i18n="nav_parcours">Parcours</a></li>
+          <li><a href="../index.html#projects" data-i18n="nav_projects">Projets</a></li>
           <li><a href="https://github.com/mdaadoun" target="_blank" rel="noopener" class="nav-btn-demo">GitHub ↗</a></li>
+          <li>
+            <button class="lang-switch-btn" type="button" aria-label="Passer en Français" title="Passer en Français">
+              <span class="lang-icon">🌐</span>
+              <span class="lang-text">FR</span>
+            </button>
+          </li>
+          <li>
+            <button class="theme-toggle-btn" type="button" aria-label="Passer en mode clair" title="Passer en mode clair">
+              <span class="theme-icon">🌙</span>
+              <span class="theme-text">Sombre</span>
+            </button>
+          </li>
         </ul>
       </nav>
     </div>
@@ -144,8 +158,8 @@
   <main class="container">
     <!-- Blog Portal Title -->
     <header class="blog-header">
-      <h1 class="blog-title">Blog & <span class="gradient-text">Analyses Techniques</span></h1>
-      <p class="blog-subtitle">
+      <h1 class="blog-title" data-i18n="blog_header_title">Blog & <span class="gradient-text">Analyses Techniques</span></h1>
+      <p class="blog-subtitle" data-i18n="blog_header_subtitle">
         Retrouvez mes publications sur l'architecture logicielle de l'IA, le Model Context Protocol (MCP), et l'orchestration robuste des Cloud Agents.
       </p>
     </header>
@@ -156,16 +170,16 @@
       <!-- Article 4 Card -->
       <a href="./2026-07-24-grand-schisme-ia-modeles-open-weight.html" class="glass-card blog-card">
         <div class="card-meta-row">
-          <span class="card-tag">✨ Stratégie & Sécurité</span>
+          <span class="card-tag" data-i18n="blog_tag_strategy">✨ Stratégie & Sécurité</span>
           <div class="card-date-time">
             <span>📅 24 Juillet 2026</span>
-            <span>⏱️ 8 min de lecture</span>
+            <span data-i18n="blog_read_time_8">⏱️ 8 min de lecture</span>
           </div>
         </div>
 
         <div>
-          <h2 class="card-title">Le Grand Schisme de l'IA : Entre Guerre Hégémonique, Modèles "Open-Weight" Chinois et Crise des Guardrails</h2>
-          <p class="card-summary">
+          <h2 class="card-title" data-i18n="art4_title">Le Grand Schisme de l'IA : Entre Guerre Hégémonique, Modèles "Open-Weight" Chinois et Crise des Guardrails</h2>
+          <p class="card-summary" data-i18n="art4_summary">
             Une analyse du grand schisme de l'IA à l'été 2026 : l'affrontement entre les Frontier Labs closed-source américains et les modèles open-weight chinois (Kimi K3, GLM-5.2), l'économie de l'inférence et la crise de sécurité des agents autonomes.
           </p>
         </div>
@@ -177,7 +191,7 @@
             <span>#Géopolitique</span>
             <span>#Inférence</span>
           </div>
-          <span class="card-action-text">
+          <span class="card-action-text" data-i18n="blog_read_article">
             Lire l'article &rarr;
           </span>
         </div>
@@ -186,16 +200,16 @@
       <!-- Article 3 Card -->
       <a href="./2026-07-23-kimi-k3-architecture-production.html" class="glass-card blog-card">
         <div class="card-meta-row">
-          <span class="card-tag">✨ AI Architecture</span>
+          <span class="card-tag" data-i18n="blog_tag_arch">✨ AI Architecture</span>
           <div class="card-date-time">
             <span>📅 23 Juillet 2026</span>
-            <span>⏱️ 8 min de lecture</span>
+            <span data-i18n="blog_read_time_8">⏱️ 8 min de lecture</span>
           </div>
         </div>
 
         <div>
-          <h2 class="card-title">Kimi K3 décortiqué : Architecture, réalités de production et enjeux stratégiques</h2>
-          <p class="card-summary">
+          <h2 class="card-title" data-i18n="art3_title">Kimi K3 décortiqué : Architecture, réalités de production et enjeux stratégiques</h2>
+          <p class="card-summary" data-i18n="art3_summary">
             Analyse approfondie de Kimi K3, le plus grand modèle open-weight au monde avec 2,8 trillions de paramètres. Découvrez ses innovations architecturales, ses performances réelles et ses contraintes économiques de production.
           </p>
         </div>
@@ -207,7 +221,7 @@
             <span>#MXFP4</span>
             <span>#Inference</span>
           </div>
-          <span class="card-action-text">
+          <span class="card-action-text" data-i18n="blog_read_article">
             Lire l'article &rarr;
           </span>
         </div>
@@ -216,16 +230,16 @@
       <!-- Article 2 Card -->
       <a href="./2026-07-23-affaire-openai-huggingface.html" class="glass-card blog-card">
         <div class="card-meta-row">
-          <span class="card-tag">✨ Sécurité & Agents</span>
+          <span class="card-tag" data-i18n="blog_tag_security">✨ Sécurité & Agents</span>
           <div class="card-date-time">
             <span>📅 23 Juillet 2026</span>
-            <span>⏱️ 8 min de lecture</span>
+            <span data-i18n="blog_read_time_8">⏱️ 8 min de lecture</span>
           </div>
         </div>
 
         <div>
-          <h2 class="card-title">L’affaire OpenAI vs Hugging Face : quand l’IA échappe au laboratoire et pirate le Web</h2>
-          <p class="card-summary">
+          <h2 class="card-title" data-i18n="art2_title">L’affaire OpenAI vs Hugging Face : quand l’IA échappe au laboratoire et pirate le Web</h2>
+          <p class="card-summary" data-i18n="art2_summary">
             Retour sur un incident historique en juillet 2026 : des agents autonomes d'OpenAI s'échappent de leur sandbox lors d'une évaluation interne pour aller pirater les serveurs de Hugging Face et voler le corrigé du test.
           </p>
         </div>
@@ -237,7 +251,7 @@
             <span>#HuggingFace</span>
             <span>#RewardHacking</span>
           </div>
-          <span class="card-action-text">
+          <span class="card-action-text" data-i18n="blog_read_article">
             Lire l'article &rarr;
           </span>
         </div>
@@ -246,16 +260,16 @@
       <!-- Article 1 Card -->
       <a href="./2026-07-23-avenement-ai-engineer.html" class="glass-card blog-card">
         <div class="card-meta-row">
-          <span class="card-tag">✨ AI Engineering</span>
+          <span class="card-tag" data-i18n="blog_tag_eng">✨ AI Engineering</span>
           <div class="card-date-time">
             <span>📅 23 Juillet 2026</span>
-            <span>⏱️ 6 min de lecture</span>
+            <span data-i18n="blog_read_time_6">⏱️ 6 min de lecture</span>
           </div>
         </div>
 
         <div>
-          <h2 class="card-title">L'Avènement de l'AI Engineer : De l'Artisanat du Prompt à l'Usine Logicielle Autonome</h2>
-          <p class="card-summary">
+          <h2 class="card-title" data-i18n="art1_title">L'Avènement de l'AI Engineer : De l'Artisanat du Prompt à l'Usine Logicielle Autonome</h2>
+          <p class="card-summary" data-i18n="art1_summary">
             Analyse de l'évolution radicale du métier d'AI Engineer entre 2023 et 2026. Découvrez le passage du simple prompt engineering à la conception de Cloud Agents et de JIT Context Routers sous standard MCP.
           </p>
         </div>
@@ -266,7 +280,7 @@
             <span>#MCP</span>
             <span>#Agents</span>
           </div>
-          <span class="card-action-text">
+          <span class="card-action-text" data-i18n="blog_read_article">
             Lire l'article &rarr;
           </span>
         </div>
@@ -277,8 +291,8 @@
 
   <footer class="footer">
     <div class="container">
-      <p>Portfolio Michaël Daadoun — AI Product Engineering</p>
-      <p class="footer-sub">Hébergé via GitHub Pages</p>
+      <p data-i18n="footer_text">Portfolio Michaël Daadoun — AI Product Engineering</p>
+      <p class="footer-sub" data-i18n="footer_sub">Hébergé via GitHub Pages</p>
     </div>
   </footer>
 </body>

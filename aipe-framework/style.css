@@ -21,6 +21,69 @@
   --font-mono: 'JetBrains Mono', monospace;
 }
 
+/* Light Theme Variables Overrides */
+html.light-theme {
+  --bg-color: #f8fafc;
+  --bg-card: rgba(255, 255, 255, 0.85);
+  --bg-card-solid: #ffffff;
+  --bg-input: #f1f5f9;
+  --border-color: rgba(15, 23, 42, 0.12);
+  --border-focus: rgba(139, 92, 246, 0.6);
+  --text-main: #0f172a;
+  --text-muted: #475569;
+  --primary-color: #7c3aed;
+  --primary-hover: #6d28d9;
+  --primary-glow: rgba(124, 58, 237, 0.2);
+  --accent-color: #059669;
+  --accent-glow: rgba(5, 150, 105, 0.2);
+}
+
+html.light-theme .navbar {
+  background: rgba(248, 250, 252, 0.92);
+}
+
+html.light-theme .theme-toggle-btn {
+  background: rgba(15, 23, 42, 0.06);
+  border-color: var(--border-color);
+  color: var(--text-main);
+}
+
+html.light-theme .theme-toggle-btn:hover {
+  background: rgba(15, 23, 42, 0.12);
+}
+
+html.light-theme .glow-1 {
+  background: radial-gradient(circle, rgba(139, 92, 246, 0.15) 0%, transparent 70%);
+}
+
+html.light-theme .glow-2 {
+  background: radial-gradient(circle, rgba(16, 185, 129, 0.12) 0%, transparent 70%);
+}
+
+/* Theme Toggle Button Style */
+.theme-toggle-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 14px;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid var(--border-color);
+  border-radius: 99px;
+  color: var(--text-main);
+  font-family: var(--font-sans);
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: var(--transition);
+  user-select: none;
+}
+
+.theme-toggle-btn:hover {
+  background: rgba(255, 255, 255, 0.16);
+  transform: translateY(-1px);
+}
+
+
 * {
   box-sizing: border-box;
   margin: 0;

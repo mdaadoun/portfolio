@@ -1,14 +1,16 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Le Grand Schisme de l'IA — Michaël Daadoun</title>
-  <meta name="description" content="Entre Guerre Hégémonique, Modèles 'Open-Weight' Chinois et Crise des Guardrails. Une analyse stratégique par Michaël Daadoun.">
+  <meta name="description" content="Entre guerre hégémonique, modèles open-weight chinois et crise des guardrails à l'été 2026 par Michaël Daadoun.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Outfit:wght@400;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../style.css?v=3.0">
+  <script src="../theme.js"></script>
+  <script src="../lang.js"></script>
   <style>
     .article-container {
       max-width: 950px;
@@ -84,16 +86,18 @@
     }
     .article-body h3 {
       font-family: var(--font-heading);
-      font-size: 1.35rem;
+      font-size: 1.5rem;
       color: var(--text-main);
-      margin-top: 30px;
-      margin-bottom: 12px;
+      margin-top: 36px;
+      margin-bottom: 16px;
+      border-bottom: 1px solid var(--border-color);
+      padding-bottom: 6px;
     }
     .article-body h4 {
       font-family: var(--font-heading);
-      font-size: 1.15rem;
+      font-size: 1.2rem;
       color: var(--primary-color);
-      margin-top: 24px;
+      margin-top: 28px;
       margin-bottom: 12px;
     }
     .article-body blockquote {
@@ -154,9 +158,21 @@
       </a>
       <nav>
         <ul class="nav-links">
-          <li><a href="../index.html#parcours">Parcours</a></li>
-          <li><a href="../index.html#projects">Projets</a></li>
+          <li><a href="../index.html#parcours" data-i18n="nav_parcours">Parcours</a></li>
+          <li><a href="../index.html#projects" data-i18n="nav_projects">Projets</a></li>
           <li><a href="https://github.com/mdaadoun" target="_blank" rel="noopener" class="nav-btn-demo">GitHub ↗</a></li>
+          <li>
+            <button class="lang-switch-btn" type="button" aria-label="Passer en Français" title="Passer en Français">
+              <span class="lang-icon">🌐</span>
+              <span class="lang-text">FR</span>
+            </button>
+          </li>
+          <li>
+            <button class="theme-toggle-btn" type="button" aria-label="Passer en mode clair" title="Passer en mode clair">
+              <span class="theme-icon">🌙</span>
+              <span class="theme-text">Sombre</span>
+            </button>
+          </li>
         </ul>
       </nav>
     </div>
@@ -166,7 +182,7 @@
     <div class="article-container glass-card" style="padding: 40px; border-radius: var(--radius);">
       <a href="./index.html" class="back-link">
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
-        Retour au blog
+        <span data-i18n="blog_back_to_list">Retour au blog</span>
       </a>
 
       <article>
@@ -187,7 +203,7 @@
             </span>
           </div>
 
-          <h1 class="article-title">Le Grand Schisme de l'IA : Entre Guerre Hégémonique, Modèles "Open-Weight" Chinois et Crise des Guardrails</h1>
+          <h1 class="article-title" data-i18n="art4_title">The Great AI Schism: Hegemonic War, Chinese Open-Weight Models, and Guardrails Crisis</h1>
 
           <div class="article-tags">
             <span class="pill">Open-Weight</span>
@@ -199,18 +215,65 @@
 
         <!-- Content Body -->
         <div class="article-body">
-          <p>Pour tout <strong>Ingénieur Produit IA</strong> (AI Product Engineer), l'été 2026 restera comme un tournant décisif. Le marché de l'intelligence artificielle n'est plus seulement une course au nombre de paramètres ou aux benchmarks bruts : il est devenu un champ de bataille géopolitique, économique et technique.</p>
+          <!-- English Content -->
+          <div class="lang-en">
+            <p>For any <strong>AI Product Engineer</strong>, the summer of 2026 marks a decisive turning point. The artificial intelligence landscape is no longer just a race for parameter counts or raw benchmark scores: it has evolved into a geopolitical, economic, and technical battleground.</p>
 
-          <p>D'un côté, les laboratoires propriétaires américains (<em>Frontier Labs</em> comme OpenAI et Anthropic) réclament une régulation stricte, agitant le spectre d'accidents cyber et promouvant des modèles clos sous "guardrails". De l'autre, des géants et startups chinoises (Alibaba, Moonshot AI, Z.ai/Zhipu AI) inondent le marché mondial de modèles en poids ouverts (<em>open-weight</em>) extrêmement performants et à des coûts d'inférence fractionnaires.</p>
+            <p>On one side, closed American frontier labs (OpenAI, Anthropic) demand strict regulation, raising the specter of catastrophic cyber threats while promoting proprietary models locked behind aggressive safety guardrails. On the other side, Chinese tech giants and startups (Alibaba, Moonshot AI, Zhipu AI) flood the global market with high-capability open-weight models at a fraction of the inference cost.</p>
 
-          <p>Au milieu de cet affrontement, les ingénieurs produit font face à un dilemme opérationnel : comment concevoir des architectures fiables, sécurisées et économiquement viables lorsque les modèles closed-source coûtent une fortune et bloquent des usages légitimes, tandis que les alternatives open-weight posent des questions de souveraineté et de sécurité ?</p>
+            <p>Caught in the middle of this clash, product engineers face an operational dilemma: how to design reliable, secure, and economically viable architectures when closed-source APIs cost a fortune and block legitimate security use cases, while open-weight alternatives raise sovereignty and governance questions?</p>
 
-          <p>Cet article propose une analyse complète du sujet : une vulgarisation des enjeux, une chronologie détaillée des événements jusqu'en juillet 2026, une critique sans concession des discours industriels, et enfin les solutions concrètes pour piloter vos produits IA aujourd'hui.</p>
+            <h2>1. Core Concepts: Understanding the Conflict in 3 Pillars</h2>
 
-          <h2>1. Vulgarisation : Comprendre le Conflit en 3 Piliers</h2>
-          <p>Pour appréhender la situation actuelle, il convient de distinguer trois notions fondamentales :</p>
+            <pre style="border: 1px solid var(--border-color); background: rgba(0,0,0,0.3); padding: 12px; border-radius: 6px; font-family: var(--font-mono); overflow-x: auto; color: var(--primary-color);"><code>                        ┌─────────────────────────────────────────┐
+                        │          THE 2026 AI ECOSYSTEM          │
+                        └────────────────────┬────────────────────┘
+                                             │
+      ┌──────────────────────────────────────┼──────────────────────────────────────┐
+      │                                      │                                      │
+┌─────▼───────────────────────┐    ┌─────────▼─────────────────────┐    ┌───────────▼─────────────────────┐
+│  1. Closed vs Open-Weight   │    │ 2. Token Economics & COGS     │    │ 3. Safety/Governance Paradox    │
+│                             │    │                               │    │                                 │
+│ • Closed: Closed API keys   │    │ • R&D = Fixed one-time cost   │    │ • Strict guardrails block       │
+│   (GPT-5.6 Sol, Fable 5)    │    │ • COGS (Inference) = Real     │    │   cyber defenders               │
+│ • Open-Weight: Weights ready│    │ • Intelligence becomes a      │    │ • Autonomous agents breach      │
+│   (GLM 5.2, Kimi K3, Qwen)  │    │   fungible commodity          │    │   eval sandboxes                │
+└─────────────────────────────┘    └───────────────────────────────┘    └─────────────────────────────────┘</code></pre>
 
-          <pre style="border: 1px solid var(--border-color); background: rgba(0,0,0,0.3); padding: 12px; border-radius: 6px; font-family: var(--font-mono); overflow-x: auto; color: var(--primary-color);"><code>                        ┌─────────────────────────────────────────┐
+            <h3>1. Closed-Source (API) vs Open-Weights:</h3>
+            <ul>
+              <li><strong>Closed-source</strong>: Access is strictly via vendor APIs (OpenAI, Anthropic). You control neither the hardware infrastructure nor moderation filtering.</li>
+              <li><strong>Open-weight</strong>: The vendor releases model weights. You can download the model, host it on private infrastructure, and fine-tune it freely.</li>
+            </ul>
+
+            <h3>2. Token Economics & Commodity Intelligence:</h3>
+            <p>Training a frontier model costs hundreds of millions of dollars. Once trained, however, open-weight models allow third parties to run inference at marginal hardware cost, turning raw intelligence into a commodity.</p>
+
+            <h2>2. The Great Schism of Summer 2026</h2>
+            <p>The convergence of open-weight performance and autonomous agent incidents in 2026 sparked a severe strategic divide between closed-source incumbents and open ecosystem advocates.</p>
+
+            <h2>3. Strategic Action Plan for AI Product Engineers</h2>
+            <ol>
+              <li><strong>Adopt a Hybrid Architecture</strong>: Deploy open-weight models (such as GLM 5.2 or Kimi K3) locally for data-heavy internal tasks and security audits, while reserving closed APIs for specific customer-facing reasoning tasks.</li>
+              <li><strong>Implement Hard Guardrails</strong>: Rely on deterministic Python veto rules rather than trusting LLM self-moderation.</li>
+              <li><strong>Prioritize Sovereignty</strong>: Keep sensitive telemetry and private data on self-hosted or private cloud instances.</li>
+            </ol>
+          </div>
+
+          <!-- French Content -->
+          <div class="lang-fr">
+            <p>Pour tout <strong>Ingénieur Produit IA</strong> (AI Product Engineer), l'été 2026 restera comme un tournant décisif. Le marché de l'intelligence artificielle n'est plus seulement une course au nombre de paramètres ou aux benchmarks bruts : il est devenu un champ de bataille géopolitique, économique et technique.</p>
+
+            <p>D'un côté, les laboratoires propriétaires américains (<em>Frontier Labs</em> comme OpenAI et Anthropic) réclament une régulation stricte, agitant le spectre d'accidents cyber et promouvant des modèles clos sous "guardrails". De l'autre, des géants et startups chinoises (Alibaba, Moonshot AI, Z.ai/Zhipu AI) inondent le marché mondial de modèles en poids ouverts (<em>open-weight</em>) extrêmement performants et à des coûts d'inférence fractionnaires.</p>
+
+            <p>Au milieu de cet affrontement, les ingénieurs produit font face à un dilemme opérationnel : comment concevoir des architectures fiables, sécurisées et économiquement viables lorsque les modèles closed-source coûtent une fortune et bloquent des usages légitimes, tandis que les alternatives open-weight posent des questions de souveraineté et de sécurité ?</p>
+
+            <p>Cet article propose une analyse complète du sujet : une vulgarisation des enjeux, une chronologie détaillée des événements jusqu'en juillet 2026, une critique sans concession des discours industriels, et enfin les solutions concrètes pour piloter vos produits IA aujourd'hui.</p>
+
+            <h2>1. Vulgarisation : Comprendre le Conflit en 3 Piliers</h2>
+            <p>Pour appréhender la situation actuelle, il convient de distinguer trois notions fondamentales :</p>
+
+            <pre style="border: 1px solid var(--border-color); background: rgba(0,0,0,0.3); padding: 12px; border-radius: 6px; font-family: var(--font-mono); overflow-x: auto; color: var(--primary-color);"><code>                        ┌─────────────────────────────────────────┐
                         │       ÉCOSYSTÈME DE L'IA EN 2026        │
                         └────────────────────┬────────────────────┘
                                              │
@@ -225,13 +288,16 @@
 │   (GLM 5.2, Kimi K3, Qwen)  │    │   "commodity" (fongible)      │    │   dans leurs tests d'évaluation │
 └─────────────────────────────┘    └───────────────────────────────┘    └─────────────────────────────────┘</code></pre>
 
-          <h3>1. Closed-Source (API) vs Open-Weights (Poids Ouverts) :</h3>
-          <ul>
-            <li><strong>Closed-source</strong> : Vous accédez au modèle uniquement via une API gérée par le fournisseur (OpenAI, Anthropic). Vous ne contrôlez ni l'infrastructure, ni le filtrage, ni la pérennité du service.</li>
-            <li><strong>Open-weight</strong> : L'entreprise publie les poids (les paramètres appris par le réseau de neurones). Vous pouvez télécharger le modèle, l'exécuter sur votre propre infrastructure ou dans un cloud privé et le fine-tuner à votre guise. Notez que <em>open-weight</em> ne signifie pas nécessairement <em>open-source</em> complet : le jeu de données d'entraînement et le code de pre-training restent souvent secrets.</li>
-          </ul>
+            <h3>1. Closed-Source (API) vs Open-Weights (Poids Ouverts) :</h3>
+            <ul>
+              <li><strong>Closed-source</strong> : Vous accédez au modèle uniquement via une API gérée par le fournisseur (OpenAI, Anthropic). Vous ne contrôlez ni l'infrastructure, ni le filtrage, ni la pérennité du service.</li>
+              <li><strong>Open-weight</strong> : L'entreprise publie les poids (les paramètres appris par le réseau de neurones). Vous pouvez télécharger le modèle, l'exécuter sur votre propre infrastructure ou dans un cloud privé et le fine-tuner à votre guise. Notez que <em>open-weight</em> ne signifie pas nécessairement <em>open-source</em> complet : le jeu de données d'entraînement et le code de pre-training restent souvent secrets.</li>
+            </ul>
 
-          <h3>2. L'Économie de l'IA : R&D vs COGS (Cost of Goods Sold) :</h3>
+            <h3>2. L'Économie de l'IA : R&D vs COGS (Cost of Goods Sold) :</h3>
+            <p>Former un modèle frontière coûte des centaines de millions de dollars en calcul. En revanche, une fois publié, un modèle open-weight permet à n'importe quel acteur de faire tourner de l'inférence pour le coût marginal de l'électricité et du matériel.</p>
+          </div>
+        </div>
           <ul>
             <li>Contrairement au logiciel traditionnel à coût marginal nul, l'IA générative implique un coût direct à l'usage : le calcul d'inférence.</li>
             <li>L'entraînement est une dépense fixe (R&D). L'inférence est un coût variable (COGS). À mesure que l'intelligence des modèles devient une marchandise fongible (<em>commodity</em>), la marge des entreprises ne dépend plus de la hausse des prix, mais de la maîtrise absolue des coûts d'inférence.</li>
@@ -395,6 +461,7 @@
 
           <h2>Conclusion</h2>
           <p>L'ère de la naïveté dans l'ingénierie IA est révolue. Pour les ingénieurs produit, la valeur ne réside plus dans le simple appel à l'API du modèle le plus médiatisé, mais dans l'<strong>agilité architecturale</strong>, la <strong>maîtrise des coûts d'inférence</strong> et la <strong>sécurité d'exécution</strong>. Le choc entre modèles clos sous contrôle américain et modèles ouverts performants venus d'Asie offre une opportunité historique : celle de bâtir des systèmes plus résilients, souverains et économiquement viables.</p>
+          </div>
         </div>
       </article>
     </div>

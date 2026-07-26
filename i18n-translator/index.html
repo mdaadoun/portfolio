@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,8 +7,10 @@
   <meta name="description" content="Démonstration live et présentation du traducteur automatique i18n JSON basé sur l'IA (Google Gemini Structured Outputs & FastAPI).">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Outfit:wght@400;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Outfit:wght@400;600;700;800&family=JetBrains+Mono:wght@400;500;600" rel="stylesheet">
   <link rel="stylesheet" href="./style.css?v=2.0">
+  <script src="../theme.js"></script>
+  <script src="../lang.js"></script>
 </head>
 <body>
   <div class="background-glow glow-1"></div>
@@ -23,11 +25,23 @@
       </a>
       <nav>
         <ul class="nav-links">
-          <li><a href="../index.html" class="nav-btn-hub">← Hub Portfolio</a></li>
-          <li><a href="#presentation">Présentation</a></li>
-          <li><a href="#architecture">Architecture</a></li>
-          <li><a href="#docs-sources">Documents &amp; Sources</a></li>
-          <li><a href="#demo" class="nav-btn-demo">Démo Live</a></li>
+          <li><a href="../index.html" class="nav-btn-hub" data-i18n="nav_hub">← Hub Portfolio</a></li>
+          <li><a href="#presentation" data-i18n="nav_presentation">Présentation</a></li>
+          <li><a href="#architecture" data-i18n="nav_architecture">Architecture</a></li>
+          <li><a href="#docs-sources" data-i18n="nav_docs_sources">Documents &amp; Sources</a></li>
+          <li><a href="#demo" class="nav-btn-demo" data-i18n="nav_demo">Démo Live</a></li>
+          <li>
+            <button class="lang-switch-btn" type="button" aria-label="Passer en Français" title="Passer en Français">
+              <span class="lang-icon">🌐</span>
+              <span class="lang-text">FR</span>
+            </button>
+          </li>
+          <li>
+            <button class="theme-toggle-btn" type="button" aria-label="Passer en mode clair" title="Passer en mode clair">
+              <span class="theme-icon">🌙</span>
+              <span class="theme-text">Sombre</span>
+            </button>
+          </li>
         </ul>
       </nav>
     </div>
@@ -39,10 +53,10 @@
       <div class="container hero-container">
         <div class="badge">
           <span class="badge-dot"></span>
-          AI Product Feature & Intégration LLM
+          <span data-i18n="i18n_hero_badge">AI Product Feature & Intégration LLM</span>
         </div>
-        <h1 class="hero-title">Traducteur Automatique <span class="gradient-text">i18n JSON</span></h1>
-        <p class="hero-desc">
+        <h1 class="hero-title" data-i18n="i18n_hero_title">Traducteur Automatique <span class="gradient-text">i18n JSON</span></h1>
+        <p class="hero-desc" data-i18n="i18n_hero_desc">
           Outil de localisation intelligente adaptable à tout produit utilisant du JSON. Résout le problème des variables d'interpolation corrompues (ex: <code>{username}</code>, <code>{{count}}</code>, <code>&lt;a&gt;</code>) grâce la validation par Structured Outputs.
         </p>
 
@@ -56,10 +70,10 @@
 
         <div class="hero-actions">
           <a href="#demo" class="btn btn-primary btn-lg">
-            <span>Tester la Démo Live</span>
+            <span data-i18n="i18n_hero_btn_demo">Tester la Démo Live</span>
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
           </a>
-          <a href="#presentation" class="btn btn-secondary btn-lg">Découvrir le Projet</a>
+          <a href="#presentation" class="btn btn-secondary btn-lg" data-i18n="i18n_hero_btn_proj">Découvrir le Projet</a>
         </div>
       </div>
     </section>
@@ -68,33 +82,33 @@
     <section class="section" id="presentation">
       <div class="container">
         <div class="section-header">
-          <h2 class="section-title">Présentation & Problématique Métier</h2>
-          <p class="section-subtitle">Pourquoi la traduction i18n par LLM classique échoue sans pipeline dédié ?</p>
+          <h2 class="section-title" data-i18n="i18n_pres_title">Présentation & Problématique Métier</h2>
+          <p class="section-subtitle" data-i18n="i18n_pres_subtitle">Pourquoi la traduction i18n par LLM classique échoue sans pipeline dédié ?</p>
         </div>
 
         <div class="features-grid">
           <div class="glass-card feature-card">
             <div class="card-icon">🧩</div>
-            <h3>Préservation des Structures</h3>
-            <p>Aplatissement récursif (flattening) des fichiers JSON complexes et reconstruction exacte après traduction. Aucune clé manquante ou déplacée.</p>
+            <h3 data-i18n="i18n_card1_title">Préservation des Structures</h3>
+            <p data-i18n="i18n_card1_desc">Aplatissement récursif (flattening) des fichiers JSON complexes et reconstruction exacte après traduction. Aucune clé manquante ou déplacée.</p>
           </div>
 
           <div class="glass-card feature-card">
             <div class="card-icon">🛡️</div>
-            <h3>Protection des Variables</h3>
-            <p>Post-traitement par Regex spécialisé garantissant que les variables comme <code>{user}</code> ou <code>{{count}}</code> et les balises HTML ne sont jamais altérées.</p>
+            <h3 data-i18n="i18n_card2_title">Protection des Variables</h3>
+            <p data-i18n="i18n_card2_desc">Post-traitement par Regex spécialisé garantissant que les variables comme <code>{user}</code> ou <code>{{count}}</code> et les balises HTML ne sont jamais altérées.</p>
           </div>
 
           <div class="glass-card feature-card">
             <div class="card-icon">⚡</div>
-            <h3>Gestion des Quotas & Backoff</h3>
-            <p>Découpage automatique en lots (batching) et retry résilient avec <em>Exponential Backoff & Jitter</em> pour éviter les erreurs de Rate Limit (429).</p>
+            <h3 data-i18n="i18n_card3_title">Gestion des Quotas & Backoff</h3>
+            <p data-i18n="i18n_card3_desc">Découpage automatique en lots (batching) et retry résilient avec <em>Exponential Backoff & Jitter</em> pour éviter les erreurs de Rate Limit (429).</p>
           </div>
 
           <div class="glass-card feature-card">
             <div class="card-icon">💾</div>
-            <h3>Checkpointing Atomique</h3>
-            <p>Sauvegarde progressive de l'avancement sur disque. En cas de coupure réseau, la traduction reprend exactement là où elle s'est arrêtée.</p>
+            <h3 data-i18n="i18n_card4_title">Checkpointing Atomique</h3>
+            <p data-i18n="i18n_card4_desc">Sauvegarde progressive de l'avancement sur disque. En cas de coupure réseau, la traduction reprend exactement là où elle s'est arrêtée.</p>
           </div>
         </div>
       </div>
@@ -104,40 +118,40 @@
     <section class="section" id="architecture">
       <div class="container">
         <div class="section-header">
-          <h2 class="section-title">Architecture du Pipeline</h2>
-          <p class="section-subtitle">Microservice Serverless haute disponibilité déployé sur Google Cloud Run</p>
+          <h2 class="section-title" data-i18n="i18n_arch_title">Architecture du Pipeline</h2>
+          <p class="section-subtitle" data-i18n="i18n_arch_subtitle">Microservice Serverless haute disponibilité déployé sur Google Cloud Run</p>
         </div>
 
         <div class="glass-card pipeline-card">
           <div class="pipeline-steps">
             <div class="step">
               <div class="step-num">1</div>
-              <h4>Aplatissement</h4>
-              <p>Conversion du JSON imbriqué en paires clé-valeur plates.</p>
+              <h4 data-i18n="i18n_step1_title">Aplatissement</h4>
+              <p data-i18n="i18n_step1_desc">Conversion du JSON imbriqué en paires clé-valeur plates.</p>
             </div>
             <div class="step-arrow">→</div>
             <div class="step">
               <div class="step-num">2</div>
-              <h4>Batching</h4>
-              <p>Segmentation optimisée selon la fenêtre de contexte.</p>
+              <h4 data-i18n="i18n_step2_title">Batching</h4>
+              <p data-i18n="i18n_step2_desc">Segmentation optimisée selon la fenêtre de contexte.</p>
             </div>
             <div class="step-arrow">→</div>
             <div class="step">
               <div class="step-num">3</div>
-              <h4>Gemini LLM</h4>
-              <p>Inférence avec schéma strict Pydantic Structured Outputs.</p>
+              <h4 data-i18n="i18n_step3_title">Gemini LLM</h4>
+              <p data-i18n="i18n_step3_desc">Inférence avec schéma strict Pydantic Structured Outputs.</p>
             </div>
             <div class="step-arrow">→</div>
             <div class="step">
               <div class="step-num">4</div>
-              <h4>Regex & Repair</h4>
-              <p>Correction automatique des espaces et variables.</p>
+              <h4 data-i18n="i18n_step4_title">Regex & Repair</h4>
+              <p data-i18n="i18n_step4_desc">Correction automatique des espaces et variables.</p>
             </div>
             <div class="step-arrow">→</div>
             <div class="step">
               <div class="step-num">5</div>
-              <h4>Reconstruction</h4>
-              <p>Restitution du dictionnaire JSON traduit identique à l'original.</p>
+              <h4 data-i18n="i18n_step5_title">Reconstruction</h4>
+              <p data-i18n="i18n_step5_desc">Restitution du dictionnaire JSON traduit identique à l'original.</p>
             </div>
           </div>
         </div>
@@ -148,17 +162,17 @@
     <section class="section" id="docs-sources">
       <div class="container">
         <div class="section-header">
-          <h2 class="section-title">Documents de Conception &amp; Sources</h2>
-          <p class="section-subtitle">Accédez directement aux ressources brutes au format Markdown ou au dépôt de code source.</p>
+          <h2 class="section-title" data-i18n="i18n_docs_title">Documents de Conception &amp; Sources</h2>
+          <p class="section-subtitle" data-i18n="i18n_docs_subtitle">Accédez directement aux ressources brutes au format Markdown ou au dépôt de code source.</p>
         </div>
 
         <div class="features-grid">
           <!-- Link 1: Journaux de bord -->
           <a href="https://github.com/mdaadoun/traducteur_i18n/tree/main/docs/journal" target="_blank" rel="noopener noreferrer" class="glass-card feature-card" style="text-decoration: none; color: inherit; height: 100%;">
             <div class="card-icon" style="color: #3b82f6;">📝</div>
-            <h3>Journaux de bord</h3>
-            <p>Historique complet et journal d'apprentissage de toutes les séances de développement du traducteur.</p>
-            <span class="read-link" style="margin-top: auto; color: #3b82f6; font-weight: 600; display: inline-flex; align-items: center; gap: 4px; font-size: 0.9rem;">
+            <h3 data-i18n="i18n_doc1_title">Journaux de bord</h3>
+            <p data-i18n="i18n_doc1_desc">Historique complet et journal d'apprentissage de toutes les séances de développement du traducteur.</p>
+            <span class="read-link" style="margin-top: auto; color: #3b82f6; font-weight: 600; display: inline-flex; align-items: center; gap: 4px; font-size: 0.9rem;" data-i18n="i18n_doc1_link">
               Parcourir les journaux ↗
             </span>
           </a>
@@ -166,9 +180,9 @@
           <!-- Link 2: Glossaire Technique -->
           <a href="https://raw.githubusercontent.com/mdaadoun/traducteur_i18n/main/docs/glossaire.md" target="_blank" rel="noopener noreferrer" class="glass-card feature-card" style="text-decoration: none; color: inherit; height: 100%;">
             <div class="card-icon" style="color: var(--accent-color);">📚</div>
-            <h3>Glossaire Technique</h3>
-            <p>Définitions détaillées des concepts clés du pipeline (Structured Outputs, Checkpointing, Retry Backoff).</p>
-            <span class="read-link" style="margin-top: auto; color: var(--accent-color); font-weight: 600; display: inline-flex; align-items: center; gap: 4px; font-size: 0.9rem;">
+            <h3 data-i18n="i18n_doc2_title">Glossaire Technique</h3>
+            <p data-i18n="i18n_doc2_desc">Définitions détaillées des concepts clés du pipeline (Structured Outputs, Checkpointing, Retry Backoff).</p>
+            <span class="read-link" style="margin-top: auto; color: var(--accent-color); font-weight: 600; display: inline-flex; align-items: center; gap: 4px; font-size: 0.9rem;" data-i18n="i18n_doc2_link">
               Lire le glossaire brut (Raw) ↗
             </span>
           </a>
@@ -176,9 +190,9 @@
           <!-- Link 3: Questions d'Entretien -->
           <a href="https://raw.githubusercontent.com/mdaadoun/traducteur_i18n/main/docs/faq_entretien.md" target="_blank" rel="noopener noreferrer" class="glass-card feature-card" style="text-decoration: none; color: inherit; height: 100%;">
             <div class="card-icon" style="color: #f59e0b;">❓</div>
-            <h3>Questions d'Entretien</h3>
-            <p>FAQ préparatoire et questions typiques concernant l'architecture de l'agent et les choix de conception.</p>
-            <span class="read-link" style="margin-top: auto; color: #f59e0b; font-weight: 600; display: inline-flex; align-items: center; gap: 4px; font-size: 0.9rem;">
+            <h3 data-i18n="i18n_doc3_title">Questions d'Entretien</h3>
+            <p data-i18n="i18n_doc3_desc">FAQ préparatoire et questions typiques concernant l'architecture de l'agent et les choix de conception.</p>
+            <span class="read-link" style="margin-top: auto; color: #f59e0b; font-weight: 600; display: inline-flex; align-items: center; gap: 4px; font-size: 0.9rem;" data-i18n="i18n_doc3_link">
               Lire la FAQ brute (Raw) ↗
             </span>
           </a>
@@ -186,9 +200,9 @@
           <!-- Link 4: Code Source Complet -->
           <a href="https://github.com/mdaadoun/traducteur_i18n" target="_blank" rel="noopener noreferrer" class="glass-card feature-card" style="text-decoration: none; color: inherit; height: 100%;">
             <div class="card-icon" style="color: var(--primary-color);">💻</div>
-            <h3>Code Source Complet</h3>
-            <p>Dépôt complet du projet contenant l'intégralité du code (CLI, API FastAPI, Dockerfile et orchestration).</p>
-            <span class="read-link" style="margin-top: auto; color: var(--primary-color); font-weight: 600; display: inline-flex; align-items: center; gap: 4px; font-size: 0.9rem;">
+            <h3 data-i18n="i18n_doc4_title">Code Source Complet</h3>
+            <p data-i18n="i18n_doc4_desc">Dépôt complet du projet contenant l'intégralité du code (CLI, API FastAPI, Dockerfile et orchestration).</p>
+            <span class="read-link" style="margin-top: auto; color: var(--primary-color); font-weight: 600; display: inline-flex; align-items: center; gap: 4px; font-size: 0.9rem;" data-i18n="i18n_doc4_link">
               Parcourir le code source ↗
             </span>
           </a>
@@ -201,11 +215,11 @@
       <div class="container">
         <div class="section-header">
           <div class="badge badge-accent">Interactive Studio</div>
-          <h2 class="section-title">Démo Live de Traduction</h2>
-          <p class="section-subtitle">Testez le traducteur en temps réel sur du texte ou un dictionnaire i18n JSON</p>
+          <h2 class="section-title" data-i18n="i18n_demo_title">Démo Live de Traduction</h2>
+          <p class="section-subtitle" data-i18n="i18n_demo_subtitle">Testez le traducteur en temps réel sur du texte ou un dictionnaire i18n JSON</p>
         </div>
 
-        <!-- API Config Bar (Masqué pour la vue recruteur) -->
+        <!-- API Config Bar -->
         <div class="glass-card api-config-card" style="display: none;">
           <div class="api-config-header">
             <div class="api-status" id="apiStatus">
@@ -231,13 +245,13 @@
           <!-- Control Bar -->
           <div class="demo-controls">
             <div class="mode-selector">
-              <button class="mode-btn active" data-mode="json" id="modeJsonBtn">📦 Dictionnaire JSON i18n</button>
-              <button class="mode-btn" data-mode="text" id="modeTextBtn">📝 Texte Brut avec Variables</button>
+              <button class="mode-btn active" data-mode="json" id="modeJsonBtn" data-i18n="i18n_btn_mode_json">📦 Dictionnaire JSON i18n</button>
+              <button class="mode-btn" data-mode="text" id="modeTextBtn" data-i18n="i18n_btn_mode_text">📝 Texte Brut avec Variables</button>
             </div>
 
             <div class="language-picker">
               <div class="lang-group">
-                <label for="sourceLang">Source :</label>
+                <label for="sourceLang" data-i18n="i18n_label_source">Source :</label>
                 <select id="sourceLang" class="lang-select">
                   <option value="fr" selected>🇫🇷 Français</option>
                   <option value="en">🇬🇧 Anglais</option>
@@ -251,7 +265,7 @@
               <div class="lang-swap" id="langSwapBtn" title="Inverser les langues">⇄</div>
 
               <div class="lang-group">
-                <label for="targetLang">Cible :</label>
+                <label for="targetLang" data-i18n="i18n_label_target">Cible :</label>
                 <select id="targetLang" class="lang-select">
                   <option value="en" selected>🇬🇧 Anglais</option>
                   <option value="fr">🇫🇷 Français</option>
@@ -265,7 +279,7 @@
               </div>
 
               <div class="lang-group">
-                <label for="chunkSizeInput" title="Nombre de clés d'interpolation par lot envoyé à l'IA">Taille du lot :</label>
+                <label for="chunkSizeInput" title="Nombre de clés d'interpolation par lot envoyé à l'IA" data-i18n="i18n_label_batch">Taille du lot :</label>
                 <input type="number" id="chunkSizeInput" class="lang-select" min="1" max="100" value="50" style="width: 65px;" title="Taille des lots (batch size)">
               </div>
             </div>
@@ -273,10 +287,10 @@
 
           <!-- Sample Quick Actions -->
           <div class="presets-bar">
-            <span class="presets-title">Exemples prédéfinis :</span>
-            <button type="button" class="preset-btn" id="btnPresetNav">Exemple 1 : Navigation & Auth</button>
-            <button type="button" class="preset-btn" id="btnPresetVars">Exemple 2 : Variables & HTML</button>
-            <button type="button" class="preset-btn" id="btnPresetNested">Exemple 3 : Arborescence Imbriquée</button>
+            <span class="presets-title" data-i18n="i18n_presets_label">Exemples prédéfinis :</span>
+            <button type="button" class="preset-btn" id="btnPresetNav" data-i18n="i18n_preset1">Exemple 1 : Navigation & Auth</button>
+            <button type="button" class="preset-btn" id="btnPresetVars" data-i18n="i18n_preset2">Exemple 2 : Variables & HTML</button>
+            <button type="button" class="preset-btn" id="btnPresetNested" data-i18n="i18n_preset3">Exemple 3 : Arborescence Imbriquée</button>
           </div>
 
           <!-- Editor Split View -->
@@ -284,8 +298,8 @@
             <!-- Source Input -->
             <div class="editor-pane">
               <div class="pane-header">
-                <span class="pane-title">Entrée (<span id="inputModeLabel">JSON i18n</span>)</span>
-                <button type="button" class="btn-action-sm" id="btnClearInput">Effacer</button>
+                <span class="pane-title"><span data-i18n="i18n_input_title">Entrée</span> (<span id="inputModeLabel">JSON i18n</span>)</span>
+                <button type="button" class="btn-action-sm" id="btnClearInput" data-i18n="i18n_btn_clear">Effacer</button>
               </div>
               <textarea id="sourceText" class="code-editor" spellcheck="false" placeholder="Entrez votre dictionnaire JSON ou votre texte ici..."></textarea>
             </div>
@@ -293,7 +307,7 @@
             <!-- Action Center -->
             <div class="editor-actions">
               <button type="button" id="btnTranslate" class="btn btn-primary btn-translate">
-                <span class="btn-text">Traduire</span>
+                <span class="btn-text" data-i18n="i18n_btn_translate">Traduire</span>
                 <span class="spinner hidden" id="translateSpinner"></span>
               </button>
             </div>
@@ -301,8 +315,8 @@
             <!-- Target Output -->
             <div class="editor-pane">
               <div class="pane-header">
-                <span class="pane-title">Résultat Traduit</span>
-                <button type="button" class="btn-action-sm" id="btnCopyOutput">📋 Copier</button>
+                <span class="pane-title" data-i18n="i18n_output_title">Résultat Traduit</span>
+                <button type="button" class="btn-action-sm" id="btnCopyOutput" data-i18n="i18n_btn_copy">📋 Copier</button>
               </div>
               <textarea id="targetText" class="code-editor" readonly spellcheck="false" placeholder="La traduction apparaîtra ici..."></textarea>
             </div>
@@ -311,15 +325,15 @@
           <!-- Live Metrics Bar -->
           <div class="metrics-bar">
             <div class="metric-item">
-              <span class="metric-label">Statut :</span>
-              <span class="metric-value" id="metricStatus">Prêt</span>
+              <span class="metric-label" data-i18n="i18n_metric_status">Statut :</span>
+              <span class="metric-value" id="metricStatus" data-i18n="i18n_status_ready">Prêt</span>
             </div>
             <div class="metric-item">
-              <span class="metric-label">Variables préservées :</span>
+              <span class="metric-label" data-i18n="i18n_metric_vars">Variables préservées :</span>
               <span class="metric-value" id="metricVars">0 détectées</span>
             </div>
             <div class="metric-item">
-              <span class="metric-label">Temps d'exécution :</span>
+              <span class="metric-label" data-i18n="i18n_metric_time">Temps d'exécution :</span>
               <span class="metric-value" id="metricTime">-- ms</span>
             </div>
           </div>
@@ -330,11 +344,12 @@
 
   <footer class="footer">
     <div class="container">
-      <p>Microservice Traducteur Automatique i18n — Conçu avec FastAPI & LLM</p>
-      <p class="footer-sub">Hébergé via GitHub Pages & service en ligne sur Google Cloud Run</p>
+      <p data-i18n="footer_i18n_text">Microservice Traducteur Automatique i18n — Conçu avec FastAPI & LLM</p>
+      <p class="footer-sub" data-i18n="footer_i18n_sub">Hébergé via GitHub Pages & service en ligne sur Google Cloud Run</p>
     </div>
   </footer>
 
   <script src="./app.js?v=2.0"></script>
 </body>
 </html>
+

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,6 +9,8 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Outfit:wght@400;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="./style.css?v=1.0">
+  <script src="../theme.js"></script>
+  <script src="../lang.js"></script>
 </head>
 <body>
   <div class="background-glow glow-1"></div>
@@ -23,12 +25,24 @@
       </a>
       <nav>
         <ul class="nav-links">
-          <li><a href="../index.html" class="nav-btn-hub">← Hub Portfolio</a></li>
-          <li><a href="#presentation">Présentation</a></li>
-          <li><a href="#architecture">Architecture</a></li>
-          <li><a href="#quality">Qualité & Tests</a></li>
-          <li><a href="#explorer">Roadmap & Documentation</a></li>
-          <li><a href="#docs-sources" class="nav-btn-demo">Code Source ↗</a></li>
+          <li><a href="../index.html" class="nav-btn-hub" data-i18n="nav_hub">← Hub Portfolio</a></li>
+          <li><a href="#presentation" data-i18n="nav_presentation">Présentation</a></li>
+          <li><a href="#architecture" data-i18n="nav_architecture">Architecture</a></li>
+          <li><a href="#quality" data-i18n="nav_quality">Qualité & Tests</a></li>
+          <li><a href="#explorer" data-i18n="nav_explorer">Roadmap & Documentation</a></li>
+          <li><a href="#docs-sources" class="nav-btn-demo" data-i18n="nav_source">Code Source ↗</a></li>
+          <li>
+            <button class="lang-switch-btn" type="button" aria-label="Passer en Français" title="Passer en Français">
+              <span class="lang-icon">🌐</span>
+              <span class="lang-text">FR</span>
+            </button>
+          </li>
+          <li>
+            <button class="theme-toggle-btn" type="button" aria-label="Passer en mode clair" title="Passer en mode clair">
+              <span class="theme-icon">🌙</span>
+              <span class="theme-text">Sombre</span>
+            </button>
+          </li>
         </ul>
       </nav>
     </div>
@@ -40,10 +54,10 @@
       <div class="container hero-container">
         <div class="badge">
           <span class="badge-dot"></span>
-          Industrial Blueprint & Product Infrastructure
+          <span data-i18n="aipe_hero_badge">Industrial Blueprint & Product Infrastructure</span>
         </div>
-        <h1 class="hero-title">Blueprint <span class="gradient-text">AI Product Engineering</span></h1>
-        <p class="hero-desc">
+        <h1 class="hero-title" data-i18n="aipe_hero_title">Blueprint <span class="gradient-text">AI Product Engineering</span></h1>
+        <p class="hero-desc" data-i18n="aipe_hero_desc">
           Socle technique et industriel standardisé conçu pour accélérer et sécuriser le développement de produits d'intelligence artificielle (LLMs, RAG, Agents). Élimine la dette technique initiale en imposant de bonnes pratiques strictes dès le premier jour.
         </p>
 
@@ -59,10 +73,10 @@
 
         <div class="hero-actions">
           <a href="#quality" class="btn btn-primary btn-lg">
-            <span>Explorer la Suite de Tests (64 PASSED)</span>
+            <span data-i18n="aipe_hero_btn_qa">Explorer la Suite de Tests (64 PASSED)</span>
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
           </a>
-          <a href="#explorer" class="btn btn-secondary btn-lg">Consulter la Roadmap & FAQ</a>
+          <a href="#explorer" class="btn btn-secondary btn-lg" data-i18n="aipe_hero_btn_docs">Consulter la Roadmap & FAQ</a>
         </div>
       </div>
     </section>
@@ -71,34 +85,34 @@
     <section class="section" id="presentation">
       <div class="container">
         <div class="section-header">
-          <div class="badge">Résolution de la Dette Technique</div>
-          <h2 class="section-title">Les 4 Piliers d'Ingénierie AIPE</h2>
-          <p class="section-subtitle">Comment passer d'un prototype IA spaghetti à un microservice prêt pour la production</p>
+          <div class="badge" data-i18n="aipe_pres_badge">Résolution de la Dette Technique</div>
+          <h2 class="section-title" data-i18n="aipe_pres_title">Les 4 Piliers d'Ingénierie AIPE</h2>
+          <p class="section-subtitle" data-i18n="aipe_pres_subtitle">Comment passer d'un prototype IA spaghetti à un microservice prêt pour la production</p>
         </div>
 
         <div class="features-grid">
           <div class="glass-card feature-card">
             <div class="card-icon">⚡</div>
-            <h3>Zero-Setup Friction</h3>
-            <p>Onboarding d'un développeur en moins de 5 minutes chrono (`git clone` → `make install` → `make dev`). Environnement virtuel `.venv` local déterministe.</p>
+            <h3 data-i18n="aipe_card1_title">Zero-Setup Friction</h3>
+            <p data-i18n="aipe_card1_desc">Onboarding d'un développeur en moins de 5 minutes chrono (`git clone` → `make install` → `make dev`). Environnement virtuel `.venv` local déterministe.</p>
           </div>
 
           <div class="glass-card feature-card">
             <div class="card-icon">🛡️</div>
-            <h3>Gatekeeping & Sécurité Passive</h3>
-            <p>Blocage automatique au niveau local Git de toute fuite de secret (clés API OpenAI, Gemini) via `detect-secrets` et validation de syntaxe YAML avant tout commit.</p>
+            <h3 data-i18n="aipe_card2_title">Gatekeeping & Sécurité Passive</h3>
+            <p data-i18n="aipe_card2_desc">Blocage automatique au niveau local Git de toute fuite de secret (clés API OpenAI, Gemini) via `detect-secrets` et validation de syntaxe YAML avant tout commit.</p>
           </div>
 
           <div class="glass-card feature-card">
             <div class="card-icon">💎</div>
-            <h3>Qualité & Typage Strict</h3>
-            <p>Formateur & linter Rust ultra-rapide `Ruff` (< 2s) couplé au vérificateur statique `Mypy` en mode strict (100% du code dans `src/` annoté et vérifié).</p>
+            <h3 data-i18n="aipe_card3_title">Qualité & Typage Strict</h3>
+            <p data-i18n="aipe_card3_desc">Formateur & linter Rust ultra-rapide `Ruff` (< 2s) couplé au vérificateur statique `Mypy` en mode strict (100% du code dans `src/` annoté et vérifié).</p>
           </div>
 
           <div class="glass-card feature-card">
             <div class="card-icon">🐳</div>
-            <h3>Conteneurisation Hardened</h3>
-            <p>Dockerfile multi-stage ultra-léger (< 250 MB), exécuté sous un utilisateur système non-privilégié (`appuser` UID 1000) avec sonde native `HEALTHCHECK` HTTP.</p>
+            <h3 data-i18n="aipe_card4_title">Conteneurisation Hardened</h3>
+            <p data-i18n="aipe_card4_desc">Dockerfile multi-stage ultra-léger (< 250 MB), exécuté sous un utilisateur système non-privilégié (`appuser` UID 1000) avec sonde native `HEALTHCHECK` HTTP.</p>
           </div>
         </div>
       </div>
@@ -108,46 +122,46 @@
     <section class="section" id="architecture">
       <div class="container">
         <div class="section-header">
-          <h2 class="section-title">Architecture & Lifecycle par Phases</h2>
-          <p class="section-subtitle">Une feuille de route linéaire en 6 phases de l'initialisation au déploiement</p>
+          <h2 class="section-title" data-i18n="aipe_arch_title">Architecture & Lifecycle par Phases</h2>
+          <p class="section-subtitle" data-i18n="aipe_arch_subtitle">Une feuille de route linéaire en 6 phases de l'initialisation au déploiement</p>
         </div>
 
         <div class="glass-card pipeline-card">
           <div class="pipeline-steps">
             <div class="step">
               <div class="step-num">1</div>
-              <h4>Poetry & Setup</h4>
-              <p>Isolation locale `.venv` & résolution déterministe.</p>
+              <h4 data-i18n="aipe_step1_title">Poetry & Setup</h4>
+              <p data-i18n="aipe_step1_desc">Isolation locale `.venv` & résolution déterministe.</p>
             </div>
             <div class="step-arrow">→</div>
             <div class="step">
               <div class="step-num">2</div>
-              <h4>Qualité & Hooks</h4>
-              <p>Ruff, Mypy strict & detect-secrets pre-commit.</p>
+              <h4 data-i18n="aipe_step2_title">Qualité & Hooks</h4>
+              <p data-i18n="aipe_step2_desc">Ruff, Mypy strict & detect-secrets pre-commit.</p>
             </div>
             <div class="step-arrow">→</div>
             <div class="step">
               <div class="step-num">3</div>
-              <h4>CLI Makefile</h4>
-              <p>Interface de commande unifiée Zero-Friction.</p>
+              <h4 data-i18n="aipe_step3_title">CLI Makefile</h4>
+              <p data-i18n="aipe_step3_desc">Interface de commande unifiée Zero-Friction.</p>
             </div>
             <div class="step-arrow">→</div>
             <div class="step">
               <div class="step-num">4</div>
-              <h4>API FastAPI</h4>
-              <p>Microservice ASGI & endpoint /health normé.</p>
+              <h4 data-i18n="aipe_step4_title">API FastAPI</h4>
+              <p data-i18n="aipe_step4_desc">Microservice ASGI & endpoint /health normé.</p>
             </div>
             <div class="step-arrow">→</div>
             <div class="step">
               <div class="step-num">5</div>
-              <h4>Docker Hardened</h4>
-              <p>Multi-stage, non-root appuser & HEALTHCHECK.</p>
+              <h4 data-i18n="aipe_step5_title">Docker Hardened</h4>
+              <p data-i18n="aipe_step5_desc">Multi-stage, non-root appuser & HEALTHCHECK.</p>
             </div>
             <div class="step-arrow">→</div>
             <div class="step">
               <div class="step-num">6</div>
-              <h4>IDE & Onboarding</h4>
-              <p>VSCode format-on-save Ruff & KPI simulation < 5 min.</p>
+              <h4 data-i18n="aipe_step6_title">IDE & Onboarding</h4>
+              <p data-i18n="aipe_step6_desc">Paramètres VSCode format-on-save Ruff & KPI simulation < 5 min.</p>
             </div>
           </div>
         </div>
@@ -159,31 +173,31 @@
       <div class="container">
         <div class="section-header">
           <div class="badge badge-accent">QA & Test Suite Studio</div>
-          <h2 class="section-title">Indicateurs de Qualité & Terminal de Tests</h2>
-          <p class="section-subtitle">Exécutez la suite de tests automatisés ou simulez le scénario d'onboarding en temps réel</p>
+          <h2 class="section-title" data-i18n="aipe_qa_title">Indicateurs de Qualité & Terminal de Tests</h2>
+          <p class="section-subtitle" data-i18n="aipe_qa_subtitle">Exécutez la suite de tests automatisés ou simulez le scénario d'onboarding en temps réel</p>
         </div>
 
         <!-- Metrics Counters -->
         <div class="metrics-grid">
           <div class="metric-card">
             <div class="metric-number">64 / 64</div>
-            <div class="metric-label">Tests au Vert (100% Pass)</div>
+            <div class="metric-label" data-i18n="aipe_metric1">Tests au Vert (100% Pass)</div>
           </div>
           <div class="metric-card">
             <div class="metric-number">100 %</div>
-            <div class="metric-label">Couverture de Code (src/)</div>
+            <div class="metric-label" data-i18n="aipe_metric2">Couverture de Code (src/)</div>
           </div>
           <div class="metric-card">
             <div class="metric-number">0 Erreur</div>
-            <div class="metric-label">Typage Strict Mypy</div>
+            <div class="metric-label" data-i18n="aipe_metric3">Typage Strict Mypy</div>
           </div>
           <div class="metric-card">
             <div class="metric-number">&lt; 250 Mo</div>
-            <div class="metric-label">Image Docker Runtime</div>
+            <div class="metric-label" data-i18n="aipe_metric4">Image Docker Runtime</div>
           </div>
           <div class="metric-card">
             <div class="metric-number">2 min 14s</div>
-            <div class="metric-label">KPI Onboarding (&lt; 5 min)</div>
+            <div class="metric-label" data-i18n="aipe_metric5">KPI Onboarding (&lt; 5 min)</div>
           </div>
         </div>
 
@@ -200,11 +214,11 @@
           </div>
 
           <div class="terminal-controls">
-            <button class="test-suite-btn active" data-suite="all">🧪 Toute la suite (64 tests)</button>
-            <button class="test-suite-btn" data-suite="onboarding">🚀 Tests Onboarding (21 tests)</button>
-            <button class="test-suite-btn" data-suite="vscode">🖥️ Configuration VSCode (13 tests)</button>
-            <button class="test-suite-btn" data-suite="docker">🐳 Docker & Hardening (15 tests)</button>
-            <button class="test-suite-btn" data-suite="simulation">⏱️ Simulation Onboarding (< 5 min)</button>
+            <button class="test-suite-btn active" data-suite="all" data-i18n="aipe_btn_suite_all">🧪 Toute la suite (64 tests)</button>
+            <button class="test-suite-btn" data-suite="onboarding" data-i18n="aipe_btn_suite_onboarding">🚀 Tests Onboarding (21 tests)</button>
+            <button class="test-suite-btn" data-suite="vscode" data-i18n="aipe_btn_suite_vscode">🖥️ Configuration VSCode (13 tests)</button>
+            <button class="test-suite-btn" data-suite="docker" data-i18n="aipe_btn_suite_docker">🐳 Docker & Hardening (15 tests)</button>
+            <button class="test-suite-btn" data-suite="simulation" data-i18n="aipe_btn_suite_sim">⏱️ Simulation Onboarding (< 5 min)</button>
           </div>
 
           <div class="terminal-body" id="terminalBody">
@@ -253,16 +267,16 @@ Coverage XML written to file coverage.xml
       <div class="container">
         <div class="section-header">
           <div class="badge">Documentation Vivante & Architecture</div>
-          <h2 class="section-title">Explorateur Interactif du Projet</h2>
-          <p class="section-subtitle">Naviguez dans la feuille de route, le glossaire, la FAQ recruteur et le journal d'apprentissage</p>
+          <h2 class="section-title" data-i18n="aipe_explorer_title">Explorateur Interactif du Projet</h2>
+          <p class="section-subtitle" data-i18n="aipe_explorer_subtitle">Naviguez dans la feuille de route, le glossaire, la FAQ recruteur et le journal d'apprentissage</p>
         </div>
 
         <div class="glass-card">
           <div class="explorer-tabs">
-            <button class="tab-btn active" data-tab="tabRoadmap">🗺️ Feuille de Route (100% Validé)</button>
-            <button class="tab-btn" data-tab="tabGlossary">📖 Glossaire Technique</button>
-            <button class="tab-btn" data-tab="tabFaq">❓ FAQ Entretien (34 questions)</button>
-            <button class="tab-btn" data-tab="tabJournal">📝 Journal (17 Séances)</button>
+            <button class="tab-btn active" data-tab="tabRoadmap" data-i18n="aipe_tab1">🗺️ Feuille de Route (100% Validé)</button>
+            <button class="tab-btn" data-tab="tabGlossary" data-i18n="aipe_tab2">📖 Glossaire Technique</button>
+            <button class="tab-btn" data-tab="tabFaq" data-i18n="aipe_tab3">❓ FAQ Entretien (34 questions)</button>
+            <button class="tab-btn" data-tab="tabJournal" data-i18n="aipe_tab4">📝 Journal (17 Séances)</button>
           </div>
 
           <!-- Tab 1: Roadmap -->
@@ -482,8 +496,8 @@ Coverage XML written to file coverage.xml
 
   <footer class="footer">
     <div class="container">
-      <p>Blueprint AIPE_Framework — AI Product Engineering Infrastructure</p>
-      <p class="footer-sub">Conçu par Michaël Daadoun — Hébergé via GitHub Pages</p>
+      <p data-i18n="footer_aipe_text">Blueprint AIPE_Framework — AI Product Engineering Infrastructure</p>
+      <p class="footer-sub" data-i18n="footer_aipe_sub">Conçu par Michaël Daadoun — Hébergé via GitHub Pages</p>
     </div>
   </footer>
 
