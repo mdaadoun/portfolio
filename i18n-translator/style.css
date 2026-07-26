@@ -82,6 +82,41 @@ html.light-theme .glow-2 {
   transform: translateY(-1px);
 }
 
+/* Language Switcher Button Style */
+.lang-switch-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 14px;
+  background: rgba(99, 102, 241, 0.2);
+  border: 1px solid var(--primary-color);
+  border-radius: 99px;
+  color: var(--text-main);
+  font-family: var(--font-sans);
+  font-size: 0.85rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: var(--transition);
+  user-select: none;
+}
+
+.lang-switch-btn:hover {
+  background: var(--primary-color);
+  color: #ffffff;
+  transform: translateY(-1px);
+}
+
+html.light-theme .lang-switch-btn {
+  background: rgba(79, 70, 229, 0.1);
+  border-color: var(--primary-color);
+  color: #4338ca;
+}
+
+html.light-theme .lang-switch-btn:hover {
+  background: var(--primary-color);
+  color: #ffffff;
+}
+
 
 * {
   box-sizing: border-box;

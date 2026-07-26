@@ -4,7 +4,7 @@
   const TRANSLATIONS = {
     en: {
       // Navbar & Common
-      "nav_parcours": "Experience & Career",
+      "nav_parcours": "Role & Experience",
       "nav_projects": "AI Product Projects",
       "nav_blog": "Blog & Insights",
       "nav_presentation": "Overview",
@@ -181,8 +181,15 @@
       "aipe_hero_badge": "Industrial Blueprint & Product Infrastructure",
       "aipe_hero_title": "Blueprint <span class=\"gradient-text\">AI Product Engineering</span>",
       "aipe_hero_desc": "Standardized industrial and technical foundation designed to accelerate and secure AI product development (LLMs, RAG, Agents). Eliminates initial tech debt by enforcing strict best practices from day one.",
-      "aipe_hero_btn_qa": "Explore Test Suite (64 PASSED)",
-      "aipe_hero_btn_docs": "Read Roadmap & FAQ",
+      "aipe_hero_btn_arch": "Explore Product Architecture",
+      "aipe_hero_btn_github": "Access Source Code (GitHub) ↗",
+      "aipe_pill1": "Poetry (Deterministic)",
+      "aipe_pill2": "Ruff Linter & Formatter",
+      "aipe_pill3": "Strict Mypy (100% Typed)",
+      "aipe_pill4": "Pre-commit & detect-secrets",
+      "aipe_pill5": "FastAPI ASGI",
+      "aipe_pill6": "Docker Multi-Stage Non-Root",
+      "aipe_pill7": "VSCode Format-on-Save",
       "aipe_pres_badge": "Technical Debt Elimination",
       "aipe_pres_title": "The 4 Pillars of AIPE Engineering",
       "aipe_pres_subtitle": "How to transform a spaghetti AI prototype into a production-ready microservice",
@@ -222,14 +229,24 @@
       "aipe_btn_suite_sim": "⏱️ Onboarding Simulation (< 5 min)",
       "aipe_explorer_title": "Interactive Project Explorer",
       "aipe_explorer_subtitle": "Browse the roadmap, glossary, recruiter FAQ, and learning log",
-      "aipe_tab1": "🗺️ Roadmap (100% Validated)",
-      "aipe_tab2": "📖 Technical Glossary",
-      "aipe_tab3": "❓ Interview FAQ (34 questions)",
-      "aipe_tab4": "📝 Journal (17 Sessions)"
+      "aipe_docs_title": "Architecture Documents & Source Code",
+      "aipe_docs_subtitle": "Access raw Markdown specifications directly on GitHub or explore the complete repository.",
+      "aipe_doc1_title": "Full Source Code",
+      "aipe_doc1_desc": "Project Git repository containing FastAPI code, Dockerfile, 64 unit tests, and interactive dashboard.",
+      "aipe_doc1_btn": "Browse on GitHub ↗",
+      "aipe_doc2_title": "Raw Roadmap Specification",
+      "aipe_doc2_desc": "Detailed specification of the 6 phases and 14 steps with chronological validation criteria.",
+      "aipe_doc2_btn": "Read roadmap_details.md (Raw) ↗",
+      "aipe_doc3_title": "Raw Technical Glossary",
+      "aipe_doc3_desc": "In-depth definitions of DevOps, Quality, Security, and IDE engineering concepts.",
+      "aipe_doc3_btn": "Read glossaire.md (Raw) ↗",
+      "aipe_doc4_title": "Technical Interview FAQ",
+      "aipe_doc4_desc": "34 in-depth questions & answers detailing architecture decisions for recruiters.",
+      "aipe_doc4_btn": "Read faq_entretien.md (Raw) ↗"
     },
     fr: {
       // Navbar & Common
-      "nav_parcours": "Parcours & Expériences",
+      "nav_parcours": "Métier & Expériences",
       "nav_projects": "Projets Produit IA",
       "nav_blog": "Blog & Analyses",
       "nav_presentation": "Présentation",
@@ -403,9 +420,18 @@
       "i18n_metric_time": "Temps d'exécution :",
 
       // AIPE Framework Showcase Page
-      "aipe_hero_badge": "Industrial Blueprint & Product Infrastructure",
+      "aipe_hero_badge": "Blueprint Industriel & Infrastructure Produit",
       "aipe_hero_title": "Blueprint <span class=\"gradient-text\">AI Product Engineering</span>",
       "aipe_hero_desc": "Socle technique et industriel standardisé conçu pour accélérer et sécuriser le développement de produits d'intelligence artificielle (LLMs, RAG, Agents). Élimine la dette technique initiale en imposant de bonnes pratiques strictes dès le premier jour.",
+      "aipe_hero_btn_arch": "Découvrir l'Architecture Produit",
+      "aipe_hero_btn_github": "Accéder au Code Source (GitHub) ↗",
+      "aipe_pill1": "Poetry (Déterministe)",
+      "aipe_pill2": "Ruff Linter & Formatter",
+      "aipe_pill3": "Mypy Strict (100% Typé)",
+      "aipe_pill4": "Pre-commit & detect-secrets",
+      "aipe_pill5": "FastAPI ASGI",
+      "aipe_pill6": "Docker Multi-Stage Non-Root",
+      "aipe_pill7": "VSCode Format-on-Save",
       "aipe_hero_btn_qa": "Explorer la Suite de Tests (64 PASSED)",
       "aipe_hero_btn_docs": "Consulter la Roadmap & FAQ",
       "aipe_pres_badge": "Résolution de la Dette Technique",
@@ -450,7 +476,21 @@
       "aipe_tab1": "🗺️ Feuille de Route (100% Validé)",
       "aipe_tab2": "📖 Glossaire Technique",
       "aipe_tab3": "❓ FAQ Entretien (34 questions)",
-      "aipe_tab4": "📝 Journal (17 Séances)"
+      "aipe_tab4": "📝 Journal (17 Séances)",
+      "aipe_docs_title": "Documents d'Architecture & Code Source",
+      "aipe_docs_subtitle": "Accédez directement aux ressources brutes sur GitHub ou au dépôt de code source complet.",
+      "aipe_doc1_title": "Code Source Complet",
+      "aipe_doc1_desc": "Dépôt Git du projet contenant le code FastAPI, le Dockerfile, les 64 tests unitaires et le dashboard interactif.",
+      "aipe_doc1_btn": "Parcourir sur GitHub ↗",
+      "aipe_doc2_title": "Feuille de Route Brute",
+      "aipe_doc2_desc": "Spécification détaillée des 6 phases et 14 étapes avec critères de validation chronologiques.",
+      "aipe_doc2_btn": "Lire roadmap_details.md (Raw) ↗",
+      "aipe_doc3_title": "Glossaire Technique Brut",
+      "aipe_doc3_desc": "Définitions approfondies des concepts DevOps, Qualité, Sécurité et IDE appliqués au framework.",
+      "aipe_doc3_btn": "Lire glossaire.md (Raw) ↗",
+      "aipe_doc4_title": "FAQ Entretien Technique",
+      "aipe_doc4_desc": "34 questions/réponses approfondies expliquant les arbitrages et choix d'architecture pour les recruteurs.",
+      "aipe_doc4_btn": "Lire faq_entretien.md (Raw) ↗"
     }
   };
 
@@ -474,6 +514,21 @@
         el.innerHTML = dict[key];
       }
     });
+
+    // Dynamically update raw GitHub document links for EN vs FR
+    const suffix = lang === 'en' ? '_en' : '_fr';
+    const linkRoadmap = document.getElementById('link-roadmap-raw');
+    if (linkRoadmap) {
+      linkRoadmap.href = `https://raw.githubusercontent.com/mdaadoun/AIPE_Framework/main/docs/roadmap_details${suffix}.md`;
+    }
+    const linkGlossary = document.getElementById('link-glossary-raw');
+    if (linkGlossary) {
+      linkGlossary.href = `https://raw.githubusercontent.com/mdaadoun/AIPE_Framework/main/docs/glossaire${suffix}.md`;
+    }
+    const linkFaq = document.getElementById('link-faq-raw');
+    if (linkFaq) {
+      linkFaq.href = `https://raw.githubusercontent.com/mdaadoun/AIPE_Framework/main/docs/faq_entretien${suffix}.md`;
+    }
 
     updateSwitchButtons(lang);
     if (typeof window.updateThemeButtons === 'function') {
