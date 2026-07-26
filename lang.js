@@ -236,13 +236,13 @@
       "aipe_doc1_btn": "Browse on GitHub ↗",
       "aipe_doc2_title": "Raw Roadmap Specification",
       "aipe_doc2_desc": "Detailed specification of the 6 phases and 14 steps with chronological validation criteria.",
-      "aipe_doc2_btn": "Read roadmap_details.md (Raw) ↗",
+      "aipe_doc2_btn": "Read roadmap_en.md (Raw) ↗",
       "aipe_doc3_title": "Raw Technical Glossary",
       "aipe_doc3_desc": "In-depth definitions of DevOps, Quality, Security, and IDE engineering concepts.",
-      "aipe_doc3_btn": "Read glossaire.md (Raw) ↗",
+      "aipe_doc3_btn": "Read glossary_en.md (Raw) ↗",
       "aipe_doc4_title": "Technical Interview FAQ",
       "aipe_doc4_desc": "34 in-depth questions & answers detailing architecture decisions for recruiters.",
-      "aipe_doc4_btn": "Read faq_entretien.md (Raw) ↗"
+      "aipe_doc4_btn": "Read questions_en.md (Raw) ↗"
     },
     fr: {
       // Navbar & Common
@@ -484,13 +484,13 @@
       "aipe_doc1_btn": "Parcourir sur GitHub ↗",
       "aipe_doc2_title": "Feuille de Route Brute",
       "aipe_doc2_desc": "Spécification détaillée des 6 phases et 14 étapes avec critères de validation chronologiques.",
-      "aipe_doc2_btn": "Lire roadmap_details.md (Raw) ↗",
+      "aipe_doc2_btn": "Lire roadmap_fr.md (Raw) ↗",
       "aipe_doc3_title": "Glossaire Technique Brut",
       "aipe_doc3_desc": "Définitions approfondies des concepts DevOps, Qualité, Sécurité et IDE appliqués au framework.",
-      "aipe_doc3_btn": "Lire glossaire.md (Raw) ↗",
+      "aipe_doc3_btn": "Lire glossary_fr.md (Raw) ↗",
       "aipe_doc4_title": "FAQ Entretien Technique",
       "aipe_doc4_desc": "34 questions/réponses approfondies expliquant les arbitrages et choix d'architecture pour les recruteurs.",
-      "aipe_doc4_btn": "Lire faq_entretien.md (Raw) ↗"
+      "aipe_doc4_btn": "Lire questions_fr.md (Raw) ↗"
     }
   };
 
@@ -519,15 +519,15 @@
     const suffix = lang === 'en' ? '_en' : '_fr';
     const linkRoadmap = document.getElementById('link-roadmap-raw');
     if (linkRoadmap) {
-      linkRoadmap.href = `https://raw.githubusercontent.com/mdaadoun/AIPE_Framework/main/docs/roadmap_details${suffix}.md`;
+      linkRoadmap.href = `https://raw.githubusercontent.com/mdaadoun/AIPE_Framework/main/docs/roadmap${suffix}.md`;
     }
     const linkGlossary = document.getElementById('link-glossary-raw');
     if (linkGlossary) {
-      linkGlossary.href = `https://raw.githubusercontent.com/mdaadoun/AIPE_Framework/main/docs/glossaire${suffix}.md`;
+      linkGlossary.href = `https://raw.githubusercontent.com/mdaadoun/AIPE_Framework/main/docs/glossary${suffix}.md`;
     }
     const linkFaq = document.getElementById('link-faq-raw');
     if (linkFaq) {
-      linkFaq.href = `https://raw.githubusercontent.com/mdaadoun/AIPE_Framework/main/docs/faq_entretien${suffix}.md`;
+      linkFaq.href = `https://raw.githubusercontent.com/mdaadoun/AIPE_Framework/main/docs/questions${suffix}.md`;
     }
 
     updateSwitchButtons(lang);
