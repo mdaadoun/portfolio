@@ -231,9 +231,9 @@
       "aipe_explorer_subtitle": "Browse the roadmap, glossary, recruiter FAQ, and learning log",
       "aipe_docs_title": "Architecture Documents & Source Code",
       "aipe_docs_subtitle": "Access raw Markdown specifications directly on GitHub or explore the complete repository.",
-      "aipe_doc1_title": "Full Source Code",
-      "aipe_doc1_desc": "Project Git repository containing FastAPI code, Dockerfile, 64 unit tests, and interactive dashboard.",
-      "aipe_doc1_btn": "Browse on GitHub ↗",
+      "aipe_doc1_title": "Source Code Architecture Guide",
+      "aipe_doc1_desc": "Detailed architectural specifications for every Python module (main, config, routes, schemas).",
+      "aipe_doc1_btn": "Read code_en.md (Raw) ↗",
       "aipe_doc2_title": "Raw Roadmap Specification",
       "aipe_doc2_desc": "Detailed specification of the 6 phases and 14 steps with chronological validation criteria.",
       "aipe_doc2_btn": "Read roadmap_en.md (Raw) ↗",
@@ -242,7 +242,8 @@
       "aipe_doc3_btn": "Read glossary_en.md (Raw) ↗",
       "aipe_doc4_title": "Technical Interview FAQ",
       "aipe_doc4_desc": "34 in-depth questions & answers detailing architecture decisions for recruiters.",
-      "aipe_doc4_btn": "Read questions_en.md (Raw) ↗"
+      "aipe_doc4_btn": "Read questions_en.md (Raw) ↗",
+      "aipe_full_repo_btn": "🚀 Explore Full Source Code Repository on GitHub ↗"
     },
     fr: {
       // Navbar & Common
@@ -479,9 +480,9 @@
       "aipe_tab4": "📝 Journal (17 Séances)",
       "aipe_docs_title": "Documents d'Architecture & Code Source",
       "aipe_docs_subtitle": "Accédez directement aux ressources brutes sur GitHub ou au dépôt de code source complet.",
-      "aipe_doc1_title": "Code Source Complet",
-      "aipe_doc1_desc": "Dépôt Git du projet contenant le code FastAPI, le Dockerfile, les 64 tests unitaires et le dashboard interactif.",
-      "aipe_doc1_btn": "Parcourir sur GitHub ↗",
+      "aipe_doc1_title": "Guide du Code Source",
+      "aipe_doc1_desc": "Spécifications détaillées et rôle d'architecture de chaque module Python (main, config, routes, schemas).",
+      "aipe_doc1_btn": "Lire code_fr.md (Raw) ↗",
       "aipe_doc2_title": "Feuille de Route Brute",
       "aipe_doc2_desc": "Spécification détaillée des 6 phases et 14 étapes avec critères de validation chronologiques.",
       "aipe_doc2_btn": "Lire roadmap_fr.md (Raw) ↗",
@@ -490,7 +491,8 @@
       "aipe_doc3_btn": "Lire glossary_fr.md (Raw) ↗",
       "aipe_doc4_title": "FAQ Entretien Technique",
       "aipe_doc4_desc": "34 questions/réponses approfondies expliquant les arbitrages et choix d'architecture pour les recruteurs.",
-      "aipe_doc4_btn": "Lire questions_fr.md (Raw) ↗"
+      "aipe_doc4_btn": "Lire questions_fr.md (Raw) ↗",
+      "aipe_full_repo_btn": "🚀 Parcourir l'intégralité du Dépôt Code Source sur GitHub ↗"
     }
   };
 
@@ -517,6 +519,10 @@
 
     // Dynamically update raw GitHub document links for EN vs FR
     const suffix = lang === 'en' ? '_en' : '_fr';
+    const linkCode = document.getElementById('link-code-raw');
+    if (linkCode) {
+      linkCode.href = `https://raw.githubusercontent.com/mdaadoun/AIPE_Framework/main/docs/code${suffix}.md`;
+    }
     const linkRoadmap = document.getElementById('link-roadmap-raw');
     if (linkRoadmap) {
       linkRoadmap.href = `https://raw.githubusercontent.com/mdaadoun/AIPE_Framework/main/docs/roadmap${suffix}.md`;
