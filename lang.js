@@ -4,9 +4,10 @@
   const TRANSLATIONS = {
     en: {
       // Navbar & Common
-      "nav_parcours": "Role & Experience",
-      "nav_projects": "AI Product Projects",
-      "nav_blog": "Blog & Insights",
+      "nav_parcours": "Role",
+      "nav_projects": "Projects",
+      "nav_blog": "Blog",
+      "nav_book": "Book",
       "nav_presentation": "Overview",
       "nav_architecture": "Architecture",
       "nav_docs_sources": "Docs & Sources",
@@ -84,6 +85,27 @@
       "card5_desc": "<strong>Problem:</strong> Multimodal document processing and visual anomaly detection.<br><strong>Architecture:</strong> PyTorch & OpenCV pipeline integrated with Gemini Vision API.<br><strong>Impact:</strong> Real-time OCR and visual semantic extraction.",
       "card5_btn": "Coming Soon",
 
+      // Book Page
+      "book_badge": "Professional Manual 2026",
+      "book_title": "From Junior Dev to <span class=\"gradient-text\">AI Product Engineer</span>",
+      "book_subtitle": "The Major Professional Course: Architecture, Product, and Industrialization — Interactive Edition",
+      "book_toc_title": "📑 Table of Contents",
+      "book_loading": "Loading book content...",
+      "book_toc_toggle": "Hide Table of Contents",
+      "book_part0": "Part 0 — Mindset & Environment",
+      "book_part1": "Part I — Foundations, Async & APIs",
+      "book_part2": "Part II — Data Engineering & RAG",
+      "book_part3": "Part III — Agent Engineering",
+      "book_part4": "Part IV — FinOps, Ops & Industrialization",
+      "book_part5": "Part V — Distributed Backend & Cloud",
+      "book_part6": "Part VI — Product AI UX & Analytics",
+      "book_part7": "Part VII — Employability & Portfolio",
+      "book_capstone": "Capstone — AI Operating System",
+      "book_ch1": "Ch.1 — The AI Product Engineer Manifesto",
+      "book_ch2": "Ch.2 — Model Ecosystem & Token Management",
+      "book_proj0": "Project 0 — The Perfect Kit",
+      "book_proj1": "Project 1 — AI Intelligence CLI Wrapper",
+
       // Blog Portal
       "blog_header_title": "Blog & <span class=\"gradient-text\">Technical Insights</span>",
       "blog_header_subtitle": "Discover my publications on AI software architecture, the Model Context Protocol (MCP), and robust Cloud Agent orchestration.",
@@ -113,6 +135,10 @@
       // Blog Article 4
       "art4_title": "The Great AI Schism: Hegemonic War, Chinese Open-Weight Models, and Guardrails Crisis",
       "art4_summary": "An analysis of the AI schism in summer 2026: the clash between closed-source American Frontier Labs and Chinese open-weight models (Kimi K3, GLM-5.2), inference economics, and agent safety.",
+
+      // Blog Article 5
+      "art5_title": "The Software Factory Paradox: Why AI Will Not Replace Systems Engineering",
+      "art5_summary": "An analysis of autonomous agent software factories, Harness Engineering, the shift from DX to AX (Agent Experience), and avoiding agentic technical debt.",
 
       // i18n Translator Showcase Page
       "i18n_hero_badge": "AI Product Feature & LLM Integration",
@@ -247,9 +273,10 @@
     },
     fr: {
       // Navbar & Common
-      "nav_parcours": "Métier & Expériences",
-      "nav_projects": "Projets Produit IA",
-      "nav_blog": "Blog & Analyses",
+      "nav_parcours": "Métier",
+      "nav_projects": "Projets",
+      "nav_blog": "Blog",
+      "nav_book": "Book",
       "nav_presentation": "Présentation",
       "nav_architecture": "Architecture",
       "nav_docs_sources": "Documents & Sources",
@@ -327,6 +354,27 @@
       "card5_desc": "<strong>Problème :</strong> Analyse documentaire visuelle et détection d'anomalies en temps réel.<br><strong>Architecture :</strong> Pipeline PyTorch & OpenCV couplé à l'API Gemini Vision.<br><strong>Impact :</strong> Extraction sémantique et OCR haute précision.",
       "card5_btn": "Prochainement",
 
+      // Book Page
+      "book_badge": "Manuel Professionnel 2026",
+      "book_title": "Du Junior Dev à l'<span class=\"gradient-text\">AI Product Engineer</span>",
+      "book_subtitle": "Le Grand Cours Professionnalisant : Architecture, Produit et Industrialisation — Édition Interactive",
+      "book_toc_title": "📑 Table des Matières",
+      "book_loading": "Chargement du livre...",
+      "book_toc_toggle": "Masquer la Table des Matières",
+      "book_part0": "Partie 0 — Mindset & Environnement",
+      "book_part1": "Partie I — Fondations, Async & APIs",
+      "book_part2": "Partie II — Data Engineering & RAG",
+      "book_part3": "Partie III — Agent Engineering",
+      "book_part4": "Partie IV — FinOps, Ops & Industrialisation",
+      "book_part5": "Partie V — Backend Distribué & Cloud",
+      "book_part6": "Partie VI — Product AI UX & Analytics",
+      "book_part7": "Partie VII — Employabilité & Portfolio",
+      "book_capstone": "Capstone — AI Operating System",
+      "book_ch1": "Ch.1 — Le Manifeste de l'AI Product Engineer",
+      "book_ch2": "Ch.2 — Écosystème des Modèles & Gestion des Tokens",
+      "book_proj0": "Projet 0 — Le Kit Parfait",
+      "book_proj1": "Projet 1 — Wrapper CLI de Veille IA",
+
       // Blog Portal
       "blog_header_title": "Blog & <span class=\"gradient-text\">Analyses Techniques</span>",
       "blog_header_subtitle": "Retrouvez mes publications sur l'architecture logicielle de l'IA, le Model Context Protocol (MCP), et l'orchestration robuste des Cloud Agents.",
@@ -356,6 +404,10 @@
       // Blog Article 4
       "art4_title": "Le Grand Schisme de l'IA : Entre Guerre Hégémonique, Modèles \"Open-Weight\" Chinois et Crise des Guardrails",
       "art4_summary": "Une analyse du grand schisme de l'IA à l'été 2026 : l'affrontement entre les Frontier Labs closed-source américains et les modèles open-weight chinois (Kimi K3, GLM-5.2), l'économie de l'inférence et la crise de sécurité des agents autonomes.",
+
+      // Blog Article 5
+      "art5_title": "Le Paradoxe des Software Factories : Pourquoi l'IA ne Remplacera Pas l'Ingénierie Système",
+      "art5_summary": "Une analyse des usines logicielles à agents autonomes, du Harness Engineering, du passage de la DX à l'AX (Agent Experience) et de la gestion de la dette technique agentique.",
 
       // i18n Translator Showcase Page
       "i18n_hero_badge": "AI Product Feature & Intégration LLM",
@@ -558,6 +610,9 @@
       }
     });
   }
+
+  // Expose TRANSLATIONS globally for other pages (e.g., book)
+  window.TRANSLATIONS = TRANSLATIONS;
 
   const initialLang = getPreferredLanguage();
   applyLanguage(initialLang);
