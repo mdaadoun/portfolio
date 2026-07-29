@@ -9,6 +9,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Outfit:wght@400;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../style.css?v=3.0">
+  <script src="https://cdn.jsdelivr.net/npm/marked@12.0.0/marked.min.js"></script>
   <script src="../theme.js"></script>
   <script src="../lang.js"></script>
   <style>
@@ -33,7 +34,7 @@
       display: grid;
       grid-template-columns: 1fr;
       gap: 24px;
-      max-width: 800px;
+      max-width: 850px;
       margin: 20px auto 80px auto;
     }
     .blog-card {
@@ -120,6 +121,181 @@
     .blog-card:hover .card-action-text {
       transform: translateX(4px);
     }
+
+    /* Single Article View Styles */
+    .article-container {
+      max-width: 950px;
+      margin: 40px auto 80px auto;
+      padding: 0 24px;
+    }
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      color: var(--primary-color);
+      text-decoration: none;
+      font-size: 0.9rem;
+      font-weight: 600;
+      margin-bottom: 24px;
+      transition: var(--transition);
+      cursor: pointer;
+    }
+    .back-link:hover {
+      color: var(--text-main);
+      transform: translateX(-4px);
+    }
+    .article-header {
+      border-bottom: 1px solid var(--border-color);
+      padding-bottom: 24px;
+      margin-bottom: 32px;
+    }
+    .article-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+      font-size: 0.82rem;
+      color: var(--text-muted);
+      margin-bottom: 16px;
+    }
+    .meta-item {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .meta-tag {
+      color: var(--accent-color);
+      font-weight: 600;
+    }
+    .article-title-main {
+      font-family: var(--font-heading);
+      font-size: 2.2rem;
+      font-weight: 800;
+      color: var(--text-main);
+      line-height: 1.3;
+      margin-bottom: 16px;
+    }
+    .article-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 16px;
+    }
+    .pill {
+      font-size: 0.78rem;
+      background: rgba(99, 102, 241, 0.1);
+      color: var(--primary-color);
+      padding: 4px 12px;
+      border-radius: 99px;
+      border: 1px solid rgba(99, 102, 241, 0.2);
+    }
+    .article-body {
+      line-height: 1.8;
+      font-size: 1.05rem;
+      color: var(--text-muted);
+    }
+    .article-body h1, .article-body h2, .article-body h3, .article-body h4 {
+      font-family: var(--font-heading);
+      color: var(--text-main);
+      margin-top: 40px;
+      margin-bottom: 20px;
+      line-height: 1.3;
+    }
+    .article-body h1 {
+      font-size: 2rem;
+      font-weight: 800;
+    }
+    .article-body h2 {
+      font-size: 1.6rem;
+      border-bottom: 1px solid var(--border-color);
+      padding-bottom: 10px;
+      font-weight: 700;
+    }
+    .article-body h3 {
+      font-size: 1.3rem;
+      border-left: 3px solid var(--primary-color);
+      padding-left: 12px;
+      font-weight: 600;
+    }
+    .article-body h4 {
+      font-size: 1.1rem;
+      color: var(--text-main);
+      font-weight: 600;
+    }
+    .article-body p {
+      margin-bottom: 20px;
+    }
+    .article-body strong {
+      color: var(--text-main);
+    }
+    .article-body ul, .article-body ol {
+      margin-bottom: 24px;
+      padding-left: 24px;
+    }
+    .article-body li {
+      margin-bottom: 8px;
+    }
+    .article-body blockquote {
+      border-left: 4px solid var(--primary-color);
+      padding: 16px 20px;
+      background: rgba(99, 102, 241, 0.08);
+      border-radius: 4px 12px 12px 4px;
+      margin: 24px 0;
+      color: var(--text-main);
+    }
+    .article-body pre {
+      background: #0b0f19;
+      border: 1px solid var(--border-color);
+      border-radius: 12px;
+      padding: 20px;
+      overflow-x: auto;
+      margin: 24px 0;
+      font-family: var(--font-mono);
+      font-size: 0.9rem;
+      color: #e2e8f0;
+    }
+    .article-body code {
+      background: rgba(99, 102, 241, 0.15);
+      color: #a5b4fc;
+      padding: 2px 6px;
+      border-radius: 4px;
+      font-family: var(--font-mono);
+      font-size: 0.9em;
+    }
+    .article-body pre code {
+      background: none;
+      color: inherit;
+      padding: 0;
+    }
+    .article-body table {
+      width: 100%;
+      border-collapse: separate;
+      border-spacing: 0;
+      margin: 28px 0;
+      font-size: 0.92rem;
+      border-radius: 8px;
+      overflow: hidden;
+      border: 1px solid var(--border-color);
+    }
+    .article-body th, .article-body td {
+      padding: 12px 16px;
+      border-bottom: 1px solid var(--border-color);
+      border-right: 1px solid var(--border-color);
+      text-align: left;
+    }
+    .article-body th:last-child, .article-body td:last-child {
+      border-right: none;
+    }
+    .article-body tr:last-child td {
+      border-bottom: none;
+    }
+    .article-body th {
+      background: rgba(99, 102, 241, 0.12);
+      color: var(--text-main);
+      font-weight: 700;
+    }
+    .article-body tr:nth-child(even) {
+      background: rgba(255, 255, 255, 0.02);
+    }
   </style>
 </head>
 <body>
@@ -137,7 +313,7 @@
         <ul class="nav-links">
           <li><a href="../index.html#parcours" data-i18n="nav_parcours">Parcours</a></li>
           <li><a href="../index.html#projects" data-i18n="nav_projects">Projets</a></li>
-          <li><a href="https://github.com/mdaadoun" target="_blank" rel="noopener" class="nav-btn-demo">GitHub ↗</a></li>
+          <li><a href="../book/index.html" data-i18n="nav_book">Manuel</a></li>
           <li>
             <button class="lang-switch-btn" type="button" aria-label="Passer en Français" title="Passer en Français">
               <span class="lang-icon">🌐</span>
@@ -155,8 +331,8 @@
     </div>
   </header>
 
-  <main class="container">
-    <!-- Blog Portal Title -->
+  <!-- Feed View -->
+  <main class="container" id="blogFeedView">
     <header class="blog-header">
       <h1 class="blog-title" data-i18n="blog_header_title">Blog & <span class="gradient-text">Analyses Techniques</span></h1>
       <p class="blog-subtitle" data-i18n="blog_header_subtitle">
@@ -164,159 +340,35 @@
       </p>
     </header>
 
-    <!-- Articles Feed -->
-    <div class="blog-grid">
-      
-      <!-- Article 5 Card -->
-      <a href="./2026-07-28-paradoxe-software-factories-harness-engineering.html" class="glass-card blog-card">
-        <div class="card-meta-row">
-          <span class="card-tag" data-i18n="blog_tag_eng">✨ AI Engineering</span>
-          <div class="card-date-time">
-            <span>📅 28 Juillet 2026</span>
-            <span data-i18n="blog_read_time_8">⏱️ 8 min de lecture</span>
-          </div>
-        </div>
-
-        <div>
-          <h2 class="card-title" data-i18n="art5_title">Le Paradoxe des Software Factories : Pourquoi l'IA ne Remplacera Pas l'Ingénierie Système</h2>
-          <p class="card-summary" data-i18n="art5_summary">
-            Une analyse des usines logicielles à agents autonomes, du Harness Engineering, du passage de la DX à l'AX (Agent Experience) et de la gestion de la dette technique agentique.
-          </p>
-        </div>
-
-        <div class="card-footer">
-          <div class="card-pills">
-            <span>#SoftwareFactories</span>
-            <span>#Harnessing</span>
-            <span>#AX</span>
-            <span>#Architecture</span>
-          </div>
-          <span class="card-action-text" data-i18n="blog_read_article">
-            Lire l'article &rarr;
-          </span>
-        </div>
-      </a>
-      
-      <!-- Article 4 Card -->
-      <a href="./2026-07-24-grand-schisme-ia-modeles-open-weight.html" class="glass-card blog-card">
-        <div class="card-meta-row">
-          <span class="card-tag" data-i18n="blog_tag_strategy">✨ Stratégie & Sécurité</span>
-          <div class="card-date-time">
-            <span>📅 24 Juillet 2026</span>
-            <span data-i18n="blog_read_time_8">⏱️ 8 min de lecture</span>
-          </div>
-        </div>
-
-        <div>
-          <h2 class="card-title" data-i18n="art4_title">Le Grand Schisme de l'IA : Entre Guerre Hégémonique, Modèles "Open-Weight" Chinois et Crise des Guardrails</h2>
-          <p class="card-summary" data-i18n="art4_summary">
-            Une analyse du grand schisme de l'IA à l'été 2026 : l'affrontement entre les Frontier Labs closed-source américains et les modèles open-weight chinois (Kimi K3, GLM-5.2), l'économie de l'inférence et la crise de sécurité des agents autonomes.
-          </p>
-        </div>
-
-        <div class="card-footer">
-          <div class="card-pills">
-            <span>#OpenWeight</span>
-            <span>#Sécurité</span>
-            <span>#Géopolitique</span>
-            <span>#Inférence</span>
-          </div>
-          <span class="card-action-text" data-i18n="blog_read_article">
-            Lire l'article &rarr;
-          </span>
-        </div>
-      </a>
-
-      <!-- Article 3 Card -->
-      <a href="./2026-07-23-kimi-k3-architecture-production.html" class="glass-card blog-card">
-        <div class="card-meta-row">
-          <span class="card-tag" data-i18n="blog_tag_arch">✨ AI Architecture</span>
-          <div class="card-date-time">
-            <span>📅 23 Juillet 2026</span>
-            <span data-i18n="blog_read_time_8">⏱️ 8 min de lecture</span>
-          </div>
-        </div>
-
-        <div>
-          <h2 class="card-title" data-i18n="art3_title">Kimi K3 décortiqué : Architecture, réalités de production et enjeux stratégiques</h2>
-          <p class="card-summary" data-i18n="art3_summary">
-            Analyse approfondie de Kimi K3, le plus grand modèle open-weight au monde avec 2,8 trillions de paramètres. Découvrez ses innovations architecturales, ses performances réelles et ses contraintes économiques de production.
-          </p>
-        </div>
-
-        <div class="card-footer">
-          <div class="card-pills">
-            <span>#KimiK3</span>
-            <span>#MoE</span>
-            <span>#MXFP4</span>
-            <span>#Inference</span>
-          </div>
-          <span class="card-action-text" data-i18n="blog_read_article">
-            Lire l'article &rarr;
-          </span>
-        </div>
-      </a>
-
-      <!-- Article 2 Card -->
-      <a href="./2026-07-23-affaire-openai-huggingface.html" class="glass-card blog-card">
-        <div class="card-meta-row">
-          <span class="card-tag" data-i18n="blog_tag_security">✨ Sécurité & Agents</span>
-          <div class="card-date-time">
-            <span>📅 23 Juillet 2026</span>
-            <span data-i18n="blog_read_time_8">⏱️ 8 min de lecture</span>
-          </div>
-        </div>
-
-        <div>
-          <h2 class="card-title" data-i18n="art2_title">L’affaire OpenAI vs Hugging Face : quand l’IA échappe au laboratoire et pirate le Web</h2>
-          <p class="card-summary" data-i18n="art2_summary">
-            Retour sur un incident historique en juillet 2026 : des agents autonomes d'OpenAI s'échappent de leur sandbox lors d'une évaluation interne pour aller pirater les serveurs de Hugging Face et voler le corrigé du test.
-          </p>
-        </div>
-
-        <div class="card-footer">
-          <div class="card-pills">
-            <span>#Cybersécurité</span>
-            <span>#OpenAI</span>
-            <span>#HuggingFace</span>
-            <span>#RewardHacking</span>
-          </div>
-          <span class="card-action-text" data-i18n="blog_read_article">
-            Lire l'article &rarr;
-          </span>
-        </div>
-      </a>
-
-      <!-- Article 1 Card -->
-      <a href="./2026-07-23-avenement-ai-engineer.html" class="glass-card blog-card">
-        <div class="card-meta-row">
-          <span class="card-tag" data-i18n="blog_tag_eng">✨ AI Engineering</span>
-          <div class="card-date-time">
-            <span>📅 23 Juillet 2026</span>
-            <span data-i18n="blog_read_time_6">⏱️ 6 min de lecture</span>
-          </div>
-        </div>
-
-        <div>
-          <h2 class="card-title" data-i18n="art1_title">L'Avènement de l'AI Engineer : De l'Artisanat du Prompt à l'Usine Logicielle Autonome</h2>
-          <p class="card-summary" data-i18n="art1_summary">
-            Analyse de l'évolution radicale du métier d'AI Engineer entre 2023 et 2026. Découvrez le passage du simple prompt engineering à la conception de Cloud Agents et de JIT Context Routers sous standard MCP.
-          </p>
-        </div>
-
-        <div class="card-footer">
-          <div class="card-pills">
-            <span>#AI-Engineer</span>
-            <span>#MCP</span>
-            <span>#Agents</span>
-          </div>
-          <span class="card-action-text" data-i18n="blog_read_article">
-            Lire l'article &rarr;
-          </span>
-        </div>
-      </a>
-
+    <div class="blog-grid" id="blogGrid">
+      <!-- Dynamically populated by app.js -->
     </div>
+  </main>
+
+  <!-- Article Detail View -->
+  <main class="article-container" id="blogArticleView" style="display: none;">
+    <a href="#" class="back-link" data-i18n="blog_back_to_list">&larr; Retour au blog</a>
+    
+    <article class="glass-card" style="padding: 40px; border-radius: var(--radius);">
+      <header class="article-header">
+        <div class="article-meta">
+          <span class="meta-item meta-tag" id="articleMetaTag">✨ AI Engineering</span>
+          <span class="meta-item" id="articleMetaDate">📅 29 Juillet 2026</span>
+          <span class="meta-item" id="articleMetaReadTime">⏱️ 8 min de lecture</span>
+          <span class="meta-item" data-i18n="blog_by_author">✍️ Par Michaël Daadoun</span>
+        </div>
+
+        <h1 class="article-title-main" id="articleTitle">Title</h1>
+
+        <div class="article-tags" id="articlePills">
+          <!-- Dynamically populated -->
+        </div>
+      </header>
+
+      <div class="article-body" id="articleContent">
+        <!-- Dynamically rendered markdown content -->
+      </div>
+    </article>
   </main>
 
   <footer class="footer">
@@ -325,5 +377,7 @@
       <p class="footer-sub" data-i18n="footer_sub">Hébergé via GitHub Pages</p>
     </div>
   </footer>
+
+  <script src="app.js"></script>
 </body>
 </html>

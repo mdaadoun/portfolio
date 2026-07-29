@@ -9,6 +9,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Outfit:wght@400;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../style.css?v=3.0">
+  <script src="https://cdn.jsdelivr.net/npm/marked@12.0.0/marked.min.js"></script>
   <script src="../theme.js"></script>
   <script src="../lang.js"></script>
   <style>
@@ -176,200 +177,290 @@
       transform: rotate(180deg);
     }
 
-    /* Book Content Area */
+    /* Premium Book Content Typography & Layout */
     .book-content {
       background: var(--bg-card);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
       border: 1px solid var(--border-color);
       border-radius: var(--radius);
-      padding: 44px 48px;
-      min-height: 500px;
-      font-size: 1rem;
-      line-height: 1.75;
+      padding: 48px 56px;
+      min-height: 550px;
+      font-size: 1.02rem;
+      line-height: 1.8;
+      color: var(--text-muted);
+      box-shadow: var(--shadow-card);
     }
 
     .book-content h1 {
       font-family: var(--font-heading);
       font-size: 2.2rem;
       font-weight: 800;
+      margin-top: 16px;
       margin-bottom: 24px;
-      color: var(--text-main);
-      letter-spacing: -0.02em;
+      color: #ffffff;
+      letter-spacing: -0.025em;
+      line-height: 1.3;
+      padding-bottom: 16px;
+      border-bottom: 2px solid var(--primary-color);
+      background: linear-gradient(135deg, #ffffff 0%, #a5b4fc 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
     }
 
     .book-content h2 {
       font-family: var(--font-heading);
-      font-size: 1.6rem;
+      font-size: 1.65rem;
       font-weight: 700;
-      margin-top: 40px;
-      margin-bottom: 16px;
-      color: var(--text-main);
-      padding-bottom: 8px;
-      border-bottom: 1px solid var(--border-color);
+      margin-top: 48px;
+      margin-bottom: 20px;
+      color: #f8fafc;
+      padding-bottom: 10px;
+      border-bottom: 1px solid rgba(99, 102, 241, 0.3);
+      letter-spacing: -0.015em;
+      display: flex;
+      align-items: center;
+      gap: 8px;
     }
 
     .book-content h3 {
       font-family: var(--font-heading);
-      font-size: 1.25rem;
+      font-size: 1.3rem;
+      font-weight: 600;
+      margin-top: 36px;
+      margin-bottom: 14px;
+      color: #e2e8f0;
+      border-left: 3px solid var(--primary-color);
+      padding-left: 12px;
+    }
+
+    .book-content h4, .book-content h5, .book-content h6 {
+      font-family: var(--font-heading);
+      font-size: 1.12rem;
       font-weight: 600;
       margin-top: 28px;
       margin-bottom: 12px;
-      color: var(--text-main);
-    }
-
-    .book-content h4 {
-      font-family: var(--font-heading);
-      font-size: 1.1rem;
-      font-weight: 600;
-      margin-top: 24px;
-      margin-bottom: 10px;
-      color: var(--text-main);
+      color: #cbd5e1;
     }
 
     .book-content p {
       color: var(--text-muted);
-      line-height: 1.75;
-      margin-bottom: 18px;
-      font-size: 0.98rem;
+      line-height: 1.8;
+      margin-bottom: 20px;
+      font-size: 1rem;
     }
 
     .book-content strong {
       color: var(--text-main);
+      font-weight: 600;
     }
 
+    .book-content a {
+      color: var(--primary-color);
+      text-decoration: none;
+      font-weight: 500;
+      border-bottom: 1px dashed rgba(99, 102, 241, 0.4);
+      transition: var(--transition);
+    }
+
+    .book-content a:hover {
+      color: #818cf8;
+      border-bottom-style: solid;
+      border-bottom-color: var(--primary-color);
+    }
+
+    /* Lists styling */
     .book-content ul, .book-content ol {
       color: var(--text-muted);
-      margin-bottom: 18px;
-      padding-left: 28px;
+      margin-bottom: 24px;
+      padding-left: 24px;
     }
 
     .book-content li {
-      margin-bottom: 6px;
-      line-height: 1.7;
+      margin-bottom: 8px;
+      line-height: 1.75;
     }
 
-    .book-content li strong {
-      color: var(--text-main);
-    }
-
-    .book-content blockquote {
-      border-left: 4px solid var(--primary-color);
-      padding: 16px 24px;
-      margin: 24px 0;
-      background: rgba(99, 102, 241, 0.06);
-      border-radius: 0 12px 12px 0;
-      color: var(--text-muted);
-      font-style: italic;
-    }
-
-    .book-content blockquote strong {
+    .book-content ul li::marker {
       color: var(--primary-color);
+    }
+
+    .book-content ol li::marker {
+      color: var(--primary-color);
+      font-weight: 600;
+    }
+
+    /* Callouts & Blockquotes */
+    .book-content blockquote {
+      position: relative;
+      border-left: 4px solid var(--primary-color);
+      padding: 20px 24px;
+      margin: 28px 0;
+      background: rgba(99, 102, 241, 0.07);
+      border-radius: 4px 14px 14px 4px;
+      color: var(--text-main);
+      font-style: normal;
+      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.05);
+    }
+
+    .book-content blockquote.callout {
+      border-left-color: #38bdf8;
+      background: rgba(56, 189, 248, 0.08);
     }
 
     .book-content blockquote p {
       margin-bottom: 0;
+      color: inherit;
     }
 
+    .book-content blockquote .callout-title,
+    .book-content blockquote strong {
+      color: var(--primary-color);
+      font-weight: 700;
+      font-size: 1.02rem;
+    }
+
+    .book-content blockquote.callout .callout-title {
+      color: #38bdf8;
+    }
+
+    /* Inline Code & Code Blocks */
     .book-content code {
-      background: rgba(255, 255, 255, 0.08);
-      padding: 3px 10px;
+      background: rgba(99, 102, 241, 0.12);
+      padding: 3px 8px;
       border-radius: 6px;
       font-family: var(--font-mono);
       font-size: 0.88em;
       color: #a5b4fc;
-      font-weight: 500;
+      border: 1px solid rgba(99, 102, 241, 0.2);
     }
 
     .book-content pre {
-      background: rgba(0, 0, 0, 0.35);
+      background: #0b0f19;
       border: 1px solid var(--border-color);
-      border-radius: 12px;
-      padding: 24px;
+      border-radius: 14px;
+      padding: 24px 28px;
       overflow-x: auto;
-      margin: 24px 0;
-      position: relative;
+      margin: 28px 0;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
     }
 
     .book-content pre code {
       background: none;
+      border: none;
       padding: 0;
-      color: #e5e7eb;
-      font-size: 0.85rem;
-      line-height: 1.6;
+      color: #e2e8f0;
+      font-size: 0.88rem;
+      line-height: 1.65;
       font-weight: 400;
+      display: block;
     }
 
+    /* Table Styling */
     .book-content table {
       width: 100%;
-      border-collapse: collapse;
-      margin: 24px 0;
-      font-size: 0.9rem;
+      border-collapse: separate;
+      border-spacing: 0;
+      margin: 32px 0;
+      font-size: 0.92rem;
       border-radius: 12px;
       overflow: hidden;
-    }
-
-    .book-content th, .book-content td {
-      padding: 14px 18px;
       border: 1px solid var(--border-color);
-      text-align: left;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
     }
 
     .book-content th {
-      background: rgba(99, 102, 241, 0.1);
+      background: rgba(99, 102, 241, 0.14);
       color: var(--text-main);
-      font-weight: 600;
+      font-weight: 700;
       font-size: 0.88rem;
       text-transform: uppercase;
-      letter-spacing: 0.03em;
+      letter-spacing: 0.04em;
+      padding: 16px 20px;
+      border-bottom: 2px solid var(--border-color);
+      text-align: left;
     }
 
     .book-content td {
+      padding: 14px 20px;
+      border-bottom: 1px solid var(--border-color);
       color: var(--text-muted);
+      vertical-align: top;
+      line-height: 1.6;
     }
 
-    .book-content td strong {
-      color: var(--text-main);
+    .book-content tr:last-child td {
+      border-bottom: none;
+    }
+
+    .book-content tr:nth-child(even) {
+      background: rgba(255, 255, 255, 0.02);
+    }
+
+    .book-content tr:hover {
+      background: rgba(99, 102, 241, 0.05);
     }
 
     .book-content hr {
       border: none;
-      border-top: 2px solid var(--border-color);
-      margin: 40px 0;
-      opacity: 0.5;
-    }
-
-    .book-content .gradient-text {
-      color: #818cf8;
-      background: linear-gradient(135deg, #818cf8 0%, #34d399 100%);
-      -webkit-background-clip: text;
-      background-clip: text;
-      -webkit-text-fill-color: transparent;
-    }
-
-    /* Callout / admonition styling */
-    .book-content blockquote p:first-child:has(strong) {
-      font-style: normal;
+      border-top: 1px solid var(--border-color);
+      margin: 48px 0;
+      opacity: 0.6;
     }
 
     /* Light theme overrides for book */
+    html.light-theme .book-content {
+      background: #ffffff;
+      border-color: rgba(15, 23, 42, 0.12);
+      box-shadow: 0 10px 30px rgba(15, 23, 42, 0.06);
+    }
+
     html.light-theme .book-content code {
       background: rgba(79, 70, 229, 0.08);
       color: #4338ca;
+      border-color: rgba(79, 70, 229, 0.2);
     }
 
     html.light-theme .book-content pre {
-      background: #f1f5f9;
-      border-color: #cbd5e1;
+      background: #0f172a;
+      border-color: #1e293b;
     }
 
     html.light-theme .book-content pre code {
-      color: #1e1b4b;
+      color: #f8fafc;
     }
 
     html.light-theme .book-content blockquote {
       background: #f8fafc;
+      color: #334155;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.02);
+    }
+
+    html.light-theme .book-content blockquote.callout {
+      background: #f0f9ff;
+      border-left-color: #0284c7;
+    }
+
+    html.light-theme .book-content blockquote.callout .callout-title {
+      color: #0284c7;
+    }
+
+    html.light-theme .book-content table {
+      border-color: rgba(15, 23, 42, 0.12);
+      box-shadow: 0 4px 15px rgba(15, 23, 42, 0.04);
     }
 
     html.light-theme .book-content th {
+      background: #f1f5f9;
+      color: #0f172a;
+      border-bottom-color: rgba(15, 23, 42, 0.15);
+    }
+
+    html.light-theme .book-content tr:nth-child(even) {
+      background: #f8fafc;
+    }
+
+    html.light-theme .book-content tr:hover {
       background: #f1f5f9;
     }
 
@@ -472,10 +563,12 @@
 
         <!-- Book Content -->
         <div class="book-content" id="bookContent">
-          <div class="book-loading" id="bookLoading">
-            <div class="spinner"></div>
-            <span data-i18n="book_loading">Loading book content...</span>
-          </div>
+          <h2>1. Defining the Role: The Hybrid Engineer of Modern Software</h2>
+          <p>The AI Product Engineer sits at the exact intersection of three worlds: <strong>software engineering</strong>, <strong>artificial intelligence</strong>, and <strong>product vision</strong>.</p>
+          <p>They are pragmatic builders whose mission is to take raw, cutting-edge technology and transform it into a fluid, reliable user interface that creates immediate business value.</p>
+          <blockquote class="callout">
+            <p><strong class="callout-title">Key Positioning</strong>: Bringing foundation models into robust, production-grade applications with FinOps, user-in-the-loop workflows, and ethical guardrails.</p>
+          </blockquote>
         </div>
       </div>
     </div>

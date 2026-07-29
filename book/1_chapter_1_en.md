@@ -1,9 +1,11 @@
-Chapter 1: The AI Product Engineer Manifesto
+# Chapter 1: The AI Product Engineer Manifesto
+
 The software industry is undergoing its greatest mutation since the advent of the Web. For decades, coding consisted of dictating strict rules to a machine through deterministic algorithms. Today, with the explosion of Large Language Models (LLMs), engineers no longer just program logic: they orchestrate intelligence.
 
 At the heart of this technological and cultural shift, a hybrid and highly strategic role is born: the AI Product Engineer.
 
-1. Defining the Role: The Hybrid Engineer of Modern Software
+## 1. Defining the Role: The Hybrid Engineer of Modern Software
+
 The AI Product Engineer sits at the exact intersection of three worlds: **software engineering**, **artificial intelligence**, and **product vision**.
 They are pragmatic builders whose mission is to take raw, cutting-edge technology and transform it into a fluid, reliable user interface that creates immediate business value.
 

@@ -1,27 +1,29 @@
-Projet 0 : Le Kit Parfait
+# Projet 0 : Le Kit Parfait
 
-⚡ Constat d'Impact & Note de Cadrage
+### ⚡ Constat d'Impact & Note de Cadrage
 Ce document formalise les spécifications fonctionnelles et techniques absolues pour la création de l'usine logicielle standardisée qui servira de socle à l'ensemble des projets d'ingénierie du manuel. Conformément aux exigences de la Partie 0, ce livrable définit quoi construire et pourquoi, excluant toute implémentation immédiate. Il s'agit de structurer l'environnement de l'AI Product Engineer : un profil hybride né de la convergence entre le développement web, l'ingénierie de données et la vision produit.
 
------
-1. Contexte & Objectifs Stratégiques
-1.1 Le Problème
+---
+
+## 1. Contexte & Objectifs Stratégiques
+
+### 1.1 Le Problème
 
 80% des projets d'intelligence artificielle échouent ou restent au stade de démonstration en raison d'un environnement mal configuré. Les conflits de dépendances (« *ça marche sur ma machine* »), l'absence de typage strict sur des données non structurées et le manque d'isolation des environnements détruisent la vélocité des équipes et rendent l'industrialisation impossible.
 
-1.2 La Solution : « Le Kit du Parfait Bâtard »
+### 1.2 La Solution : « Le Kit du Parfait Bâtard »
 
 Ce projet consiste à concevoir un template de dépôt de code (*boilerplate*) hautement professionnel, modulaire et 100% reproductible. Il doit permettre à n'importe quel développeur (du junior à l'ingénieur senior) de cloner le dépôt et d'obtenir une infrastructure locale prête pour la production en moins de 5 minutes.
 
-1.3 Alignement avec les Piliers du Manifeste
+### 1.3 Alignement avec les Piliers du Manifeste
 
-Velocity (Vélocité) : Réduire le temps entre l'idée et le prototype. L'environnement doit automatiser toutes les tâches redondantes (*boilerplate code*) pour libérer du temps de conception.
-User-in-the-Loop : Préparer le terrain pour capturer le feedback utilisateur et tracer les flux probabilistes.
-Éthique & Sécurité par défaut : Interdire nativement la fuite de secrets (clés API) et isoler les environnements d'exécution.
+* **Velocity (Vélocité) :** Réduire le temps entre l'idée et le prototype. L'environnement doit automatiser toutes les tâches redondantes (*boilerplate code*) pour libérer du temps de conception.
+* **User-in-the-Loop :** Préparer le terrain pour capturer le feedback utilisateur et tracer les flux probabilistes.
+* **Éthique & Sécurité par défaut :** Interdire nativement la fuite de secrets (clés API) et isoler les environnements d'exécution.
 
------
+---
 
-2. Périmètre Fonctionnel (Le « Quoi »)
+## 2. Périmètre Fonctionnel (Le « Quoi »)
 
 Le kit doit impérativement couvrir cinq besoins fondamentaux :
 
@@ -31,9 +33,9 @@ Le kit doit impérativement couvrir cinq besoins fondamentaux :
 4.  **Contrôle qualité automatisé (Gatekeeping) :** Bloquer à la source l'introduction de code mal formaté, non typé ou non sécurisé avant chaque validation Git.
 5.  **Preuve de concept minimale :** Un script d'amorçage (`main.py` ou un endpoint `/health`) capable de valider la connectivité réseau et la structure d'import sans charger de logique métier.
 
------
+---
 
-3. Architecture de Dossiers Imposée (Arborescence Modulaire)
+## 3. Architecture de Dossiers Imposée (Arborescence Modulaire)
 
 Le dépôt doit se conformer strictement à l'arborescence suivante pour garantir la séparation des privilèges et éviter les fuites de code expérimental en production :
 
@@ -66,12 +68,11 @@ ai-product-engineer-kit/
 ├── Makefile                  # Interface de commandes unifiée pour le cycle de vie du projet
 ├── pyproject.toml            # Manifeste central de configuration et de dépendances
 └── Dockerfile                # Recette de conteneurisation multi-stage
-
 ```
 
------
+---
 
-4. Spécifications Techniques & Choix des Outils
+## 4. Spécifications Techniques & Choix des Outils
 
 | Composant             | Solution Choisie        | Contrainte de Version | Justification Technologique                                                                                                                          |
 | :-------------------- | :---------------------- | :-------------------- | :--------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -84,9 +85,9 @@ ai-product-engineer-kit/
 | **Framework Test**    | Pytest                  | `8+`                  | Flexibilité éprouvée et gestion native des tests asynchrones via `pytest-asyncio`.                                                                   |
 | **Sécurité**          | Detect-Secrets          | S.O.                  | Hook pré-commit obligatoire bloquant le processus d'envoi si une chaîne assimilable à une clé privée ou d'API est détectée.                          |
 
------
+---
 
-5. Critères de Réussite & Limites du Projet
+## 5. Critères de Réussite & Limites du Projet
 
 5.1 Definition of Done (DoD) — Critères d'Acceptation
 
