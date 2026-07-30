@@ -8,9 +8,11 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Outfit:wght@400;600;700;800&family=JetBrains+Mono:wght@400;500;600" rel="stylesheet">
+  <link rel="stylesheet" href="../../style.css?v=3.0">
   <link rel="stylesheet" href="./style.css?v=2.0">
-  <script src="../theme.js"></script>
-  <script src="../lang.js"></script>
+  <script src="../../theme.js"></script>
+  <script src="../../lang.js"></script>
+
 </head>
 <body>
   <div class="background-glow glow-1"></div>
@@ -25,7 +27,8 @@
       </a>
       <nav>
         <ul class="nav-links">
-          <li><a href="../index.html" class="nav-btn-hub" data-i18n="nav_hub">← Hub Portfolio</a></li>
+          <li><a href="../../" class="nav-btn-hub" data-i18n="nav_hub">← Hub Portfolio</a></li>
+
           <li><a href="#presentation" data-i18n="nav_presentation">Présentation</a></li>
           <li><a href="#architecture" data-i18n="nav_architecture">Architecture</a></li>
           <li><a href="#docs-sources" data-i18n="nav_docs_sources">Documents &amp; Sources</a></li>
@@ -37,11 +40,17 @@
             </button>
           </li>
           <li>
-            <button class="theme-toggle-btn" type="button" aria-label="Passer en mode clair" title="Passer en mode clair">
-              <span class="theme-icon">🌙</span>
-              <span class="theme-text">Sombre</span>
-            </button>
+            <select class="theme-select nav-theme-select" aria-label="Sélectionner le thème">
+              <option value="paxfabrica" data-i18n="theme_paxfabrica">🎨 PaxFabrica</option>
+              <option value="dark" data-i18n="theme_dark">🌙 Sombre</option>
+              <option value="light" data-i18n="theme_light">☀️ Clair</option>
+              <option value="dracula">🧛 Dracula</option>
+              <option value="templeos">👾 TempleOS (8-bit)</option>
+            </select>
+
+
           </li>
+
         </ul>
       </nav>
     </div>

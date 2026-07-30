@@ -17,7 +17,11 @@
       "nav_explorer": "Roadmap & Docs",
       "nav_source": "Source Code ↗",
       "footer_text": "Michaël Daadoun Portfolio — AI Product Engineering",
-      "footer_sub": "Hosted on GitHub Pages",
+      "theme_paxfabrica": "🎨 PaxFabrica",
+      "theme_dark": "🌙 Dark",
+      "theme_light": "☀️ Light",
+
+
       "footer_aipe_text": "AIPE_Framework Blueprint — AI Product Engineering Infrastructure",
       "footer_aipe_sub": "Designed by Michaël Daadoun — Hosted on GitHub Pages",
       "footer_i18n_text": "Automatic i18n Microservice — Built with FastAPI & LLM",
@@ -287,7 +291,11 @@
       "nav_explorer": "Roadmap & Documentation",
       "nav_source": "Code Source ↗",
       "footer_text": "Portfolio Michaël Daadoun — AI Product Engineering",
-      "footer_sub": "Hébergé via GitHub Pages",
+      "theme_paxfabrica": "🎨 PaxFabrica",
+      "theme_dark": "🌙 Sombre",
+      "theme_light": "☀️ Clair",
+
+
       "footer_aipe_text": "Blueprint AIPE_Framework — AI Product Engineering Infrastructure",
       "footer_aipe_sub": "Conçu par Michaël Daadoun — Hébergé via GitHub Pages",
       "footer_i18n_text": "Microservice Traducteur Automatique i18n — Conçu avec FastAPI & LLM",

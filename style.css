@@ -158,6 +158,130 @@ html.light-theme .btn-secondary:hover {
   color: var(--primary-color);
 }
 
+/* Dracula Theme Variables Overrides */
+html.dracula-theme {
+  --bg-color: #282a36;
+  --bg-card: rgba(68, 71, 90, 0.75);
+  --bg-card-hover: rgba(68, 71, 90, 0.9);
+  --bg-card-solid: #44475a;
+  --bg-input: #282a36;
+  --border-color: #6272a4;
+  --border-hover: #bd93f9;
+  --border-focus: #ff79c6;
+  --text-main: #f8f8f2;
+  --text-muted: #6272a4;
+  --primary-color: #bd93f9;
+  --primary-hover: #ff79c6;
+  --primary-glow: rgba(189, 147, 249, 0.4);
+  --accent-color: #50fa7b;
+  --accent-glow: rgba(80, 250, 123, 0.35);
+  --shadow-card: 0 10px 30px -5px rgba(0, 0, 0, 0.4);
+  --shadow-hover: 0 20px 40px -10px rgba(189, 147, 249, 0.3);
+}
+
+html.dracula-theme .navbar {
+  background: rgba(40, 42, 54, 0.9);
+  border-bottom: 1px solid #6272a4;
+}
+
+html.dracula-theme .gradient-text {
+  color: #ff79c6;
+  background: linear-gradient(135deg, #ff79c6 0%, #bd93f9 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* TempleOS Retro 8-bit Computer Theme Variables Overrides */
+html.templeos-theme {
+  --bg-color: #0000aa;
+  --bg-card: #000088;
+  --bg-card-hover: #0000aa;
+  --bg-card-solid: #0000aa;
+  --bg-input: #000000;
+  --border-color: #55ffff;
+  --border-hover: #ffff55;
+  --border-focus: #ffffff;
+  --text-main: #ffffff;
+  --text-muted: #55ffff;
+  --primary-color: #ffff55;
+  --primary-hover: #ffffff;
+  --primary-glow: rgba(255, 255, 85, 0.4);
+  --accent-color: #ff55ff;
+  --accent-glow: rgba(255, 85, 255, 0.4);
+  --radius: 0px;
+  --radius-sm: 0px;
+  --shadow-card: none;
+  --shadow-hover: none;
+  --font-sans: 'Courier New', Courier, monospace;
+  --font-heading: 'Courier New', Courier, monospace;
+  --font-mono: 'Courier New', Courier, monospace;
+}
+
+html.templeos-theme * {
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  text-shadow: none !important;
+}
+
+html.templeos-theme .navbar {
+  background: #0000aa;
+  border-bottom: 2px solid #55ffff;
+}
+
+html.templeos-theme .btn {
+  border: 2px solid #ffff55;
+  background: #000000;
+  color: #ffff55;
+  font-weight: bold;
+}
+
+html.templeos-theme .btn:hover {
+  background: #ffff55;
+  color: #000000;
+}
+
+html.templeos-theme .gradient-text {
+  color: #ffff55;
+  background: none;
+  -webkit-text-fill-color: initial;
+}
+
+/* PaxFabrica Theme Variables Overrides */
+html.paxfabrica-theme {
+  --bg-color: #191023;
+  --bg-card: #322d4d;
+  --bg-card-hover: #474394;
+  --bg-card-solid: #322d4d;
+  --bg-input: #191023;
+  --border-color: #5e6a82;
+  --border-hover: #85dfeb;
+  --border-focus: #f8c7a4;
+  --text-main: #f4f5ef;
+  --text-muted: #c8dbdf;
+  --primary-color: #eb9d45;
+  --primary-hover: #f6e455;
+  --primary-glow: rgba(235, 157, 69, 0.4);
+  --accent-color: #8fcb62;
+  --accent-glow: rgba(143, 203, 98, 0.35);
+  --shadow-card: 0 10px 30px -5px rgba(25, 16, 35, 0.6);
+  --shadow-hover: 0 20px 40px -10px rgba(235, 157, 69, 0.3);
+}
+
+html.paxfabrica-theme .navbar {
+  background: rgba(25, 16, 35, 0.9);
+  border-bottom: 1px solid #5e6a82;
+}
+
+html.paxfabrica-theme .gradient-text {
+  color: #f8c7a4;
+  background: linear-gradient(135deg, #f8c7a4 0%, #eb9d45 50%, #e784a8 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+
 html.light-theme .btn-primary {
   color: #ffffff;
   box-shadow: 0 4px 16px rgba(79, 70, 229, 0.35);
@@ -1051,6 +1175,32 @@ body {
   font-size: 0.8rem;
   margin-top: 4px;
 }
+
+.nav-theme-select {
+  padding: 6px 12px;
+  border-radius: var(--radius-sm);
+  background: var(--bg-card);
+  color: var(--text-main);
+  border: 1px solid var(--border-color);
+  font-size: 0.85rem;
+  font-weight: 500;
+  cursor: pointer;
+  outline: none;
+  transition: var(--transition);
+}
+
+.nav-theme-select:hover, .nav-theme-select:focus {
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 2px var(--primary-glow);
+}
+
+html.light-theme .nav-theme-select {
+  background: #ffffff;
+  border-color: rgba(15, 23, 42, 0.15);
+  color: #0f172a;
+}
+
+
 
 /* Responsive */
 @media (max-width: 900px) {

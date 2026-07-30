@@ -1,67 +1,61 @@
 (function () {
   const THEME_KEY = 'portfolio_theme';
+  const VALID_THEMES = ['paxfabrica', 'dark', 'light', 'dracula', 'templeos'];
 
-  // Apply theme immediately to document element to avoid FLASH of unstyled/wrong theme
   function getPreferredTheme() {
     const saved = localStorage.getItem(THEME_KEY);
-    if (saved === 'light' || saved === 'dark') {
+    if (saved && VALID_THEMES.includes(saved)) {
       return saved;
     }
-    // Default to dark as requested
-    return 'dark';
+    return 'paxfabrica';
   }
 
   function applyTheme(theme) {
-    if (theme === 'light') {
-      document.documentElement.classList.add('light-theme');
-      document.documentElement.setAttribute('data-theme', 'light');
-    } else {
-      document.documentElement.classList.remove('light-theme');
-      document.documentElement.setAttribute('data-theme', 'dark');
+    if (!VALID_THEMES.includes(theme)) theme = 'paxfabrica';
+    
+    // Nettoyer les classes de thèmes sur documentElement
+    VALID_THEMES.forEach(t => {
+      if (t !== 'dark') document.documentElement.classList.remove(t + '-theme');
+    });
+    
+    if (theme !== 'dark') {
+      document.documentElement.classList.add(theme + '-theme');
     }
-    updateButtons(theme);
+    document.documentElement.setAttribute('data-theme', theme);
+
+    updateThemeControls(theme);
   }
 
-  function updateButtons(theme) {
-    const lang = document.documentElement.getAttribute('lang') || localStorage.getItem('portfolio_lang') || 'en';
-    const isEn = lang === 'en';
-    const toggles = document.querySelectorAll('.theme-toggle-btn');
-    toggles.forEach(btn => {
-      const icon = btn.querySelector('.theme-icon');
-      const text = btn.querySelector('.theme-text');
-      if (theme === 'light') {
-        if (icon) icon.textContent = '☀️';
-        if (text) text.textContent = isEn ? 'Light' : 'Clair';
-        btn.setAttribute('aria-label', isEn ? 'Switch to dark mode' : 'Passer en mode sombre');
-        btn.setAttribute('title', isEn ? 'Switch to dark mode' : 'Passer en mode sombre');
-      } else {
-        if (icon) icon.textContent = '🌙';
-        if (text) text.textContent = isEn ? 'Dark' : 'Sombre';
-        btn.setAttribute('aria-label', isEn ? 'Switch to light mode' : 'Passer en mode clair');
-        btn.setAttribute('title', isEn ? 'Switch to light mode' : 'Passer en mode clair');
+
+  function updateThemeControls(theme) {
+    const selects = document.querySelectorAll('.theme-select');
+    selects.forEach(select => {
+      if (select.value !== theme) {
+        select.value = theme;
       }
     });
   }
 
   window.updateThemeButtons = function () {
-    const currentTheme = document.documentElement.classList.contains('light-theme') ? 'light' : 'dark';
-    updateButtons(currentTheme);
+    const currentTheme = document.documentElement.getAttribute('data-theme') || getPreferredTheme();
+    updateThemeControls(currentTheme);
   };
 
   const initialTheme = getPreferredTheme();
   applyTheme(initialTheme);
 
   document.addEventListener('DOMContentLoaded', () => {
-    updateButtons(getPreferredTheme());
+    updateThemeControls(getPreferredTheme());
 
-    document.body.addEventListener('click', (e) => {
-      const toggleBtn = e.target.closest('.theme-toggle-btn');
-      if (toggleBtn) {
-        const currentTheme = document.documentElement.classList.contains('light-theme') ? 'light' : 'dark';
-        const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+    // Écouteur pour les selects de thème
+    document.body.addEventListener('change', (e) => {
+      if (e.target.classList.contains('theme-select')) {
+        const newTheme = e.target.value;
         localStorage.setItem(THEME_KEY, newTheme);
         applyTheme(newTheme);
       }
     });
   });
 })();
+
+

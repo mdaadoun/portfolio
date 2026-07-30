@@ -510,13 +510,13 @@
   <!-- Header / Navigation -->
   <header class="navbar" id="navbar">
     <div class="container nav-container">
-      <a href="../index.html" class="logo">
+      <a href="../" class="logo">
         <span class="logo-icon">📖</span>
         <span class="logo-text">AI Product<span> Engineer</span></span>
       </a>
       <nav>
         <ul class="nav-links">
-          <li><a href="../index.html" data-i18n="nav_hub">← Portfolio Hub</a></li>
+          <li><a href="../" data-i18n="nav_hub">← Portfolio Hub</a></li>
           <li>
             <button class="lang-switch-btn" type="button" aria-label="Passer en Français" title="Passer en Français">
               <span class="lang-icon">🌐</span>
@@ -524,11 +524,17 @@
             </button>
           </li>
           <li>
-            <button class="theme-toggle-btn" type="button" aria-label="Passer en mode clair" title="Passer en mode clair">
-              <span class="theme-icon">🌙</span>
-              <span class="theme-text">Sombre</span>
-            </button>
+            <select class="theme-select nav-theme-select" aria-label="Sélectionner le thème">
+              <option value="paxfabrica" data-i18n="theme_paxfabrica">🎨 PaxFabrica</option>
+              <option value="dark" data-i18n="theme_dark">🌙 Sombre</option>
+              <option value="light" data-i18n="theme_light">☀️ Clair</option>
+              <option value="dracula">🧛 Dracula</option>
+              <option value="templeos">👾 TempleOS (8-bit)</option>
+            </select>
+
+
           </li>
+
         </ul>
       </nav>
     </div>
