@@ -3,6 +3,20 @@
 
   const ARTICLES = [
     {
+      slug: '2026-07-30-nouvelle-frontiere-verification-goulots-ia',
+      title_fr: "La Nouvelle Frontière : Vérification et Goulots d'Étranglement à l'Ère de l'IA",
+      title_en: "The New Frontier: Verification and Bottlenecks in the AI Era",
+      desc_fr: "Analyse des nouveaux goulots d'étranglement du développement logiciel avec l'IA, du Vibe Coding aux harnais de vérification et à la mesure de productivité.",
+      desc_en: "Analysis of new software engineering bottlenecks with AI, from Vibe Coding to verification harnesses and productivity measurement.",
+      date_fr: '30 Juillet 2026',
+      date_en: 'July 30, 2026',
+      tag_fr: '✨ Software Engineering',
+      tag_en: '✨ Software Engineering',
+      readTime_fr: '8 min de lecture',
+      readTime_en: '8 min read',
+      pills: ['#Verification', '#HarnessEngineering', '#DevEx', '#Productivity']
+    },
+    {
       slug: '2026-07-29-ere-agents-autonomes-ecosysteme-ouvert',
       title_fr: "L'Ère des Agents Autonomes : Pourquoi l'Avenir de l'IA Entreprise Repose sur un Écosystème Ouvert",
       title_en: "The Era of Autonomous Agents: Why the Future of Enterprise AI Relies on an Open Ecosystem",
