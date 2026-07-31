@@ -44,7 +44,7 @@ By delegating technical execution to autonomous specialized agents (such as Fact
 
 ## 3. Critical Analysis & Technical Problem-Solving
 
-### Contextual Overload vs. Retrieval
+### The Context Overload Problem (*Context Overload vs. Retrieval*)
 
 Developers tend to write vague instructions ("Shot from the hip") omitting implicit constraints, causing agents to make wrong architectural assumptions.
 
@@ -64,10 +64,35 @@ Developers tend to write vague instructions ("Shot from the hip") omitting impli
 ┌────────────────────────────────────────────────────────┐
 │               RESULT: Invalid Code                     │
 │      Engineer rejects PR or manually rewrites          │
-└────────────────────────────────────────────────────────┘
+└──────────────────────────┬─────────────────────────────┘
 ```
 
 **Solution**: Enforce **explicit planning** before execution. Instead of stuffing millions of tokens hoping the model guesses structure, Factory connects targeted retrieval to the global enterprise ecosystem (Slack, Jira, Linear, Notion, Sentry).
+
+### Rapid Model Shifts & The "Shock Absorber" Role
+
+Fast-moving foundational models (Anthropic Sonnet 3.5/3.7, OpenAI o1/o3, Google Gemini 2.5) radically shift LLM tool-use behaviors, fine-tuning requirements, and RL dynamics.
+
+```
+┌──────────────────────────────────────────────────────────────┐
+│                  Underlying LLM Models                       │
+│      (Anthropic Sonnet 3.7, OpenAI o3, Gemini 2.5)           │
+└──────────────────────────────┬───────────────────────────────┘
+                               │
+                               ▼
+┌──────────────────────────────────────────────────────────────┐
+│                 FACTORY AI: Shock Absorber                   │
+│   (Prompt format abstraction & tool execution loops)         │
+└──────────────────────────────┬───────────────────────────────┘
+                               │
+                               ▼
+┌──────────────────────────────────────────────────────────────┐
+│                User / Developer Interface                    │
+│           (Homogeneous & long-term experience)               │
+└──────────────────────────────────────────────────────────────┘
+```
+
+**Solution**: Factory acts as an **abstraction shock absorber**. The platform absorbs behavioral jumps in underlying LLMs to maintain a stable user experience, while enabling customization through enterprise SOP rules (YAML files)—more cost-effective and reliable than model fine-tuning.
 
 ---
 
@@ -88,3 +113,10 @@ Factory AI operates three specialized autonomous agent architectures:
 1. **Speed Is Table Stakes, Taste Is the Differentiator**: When code production costs approach zero, software quality is no longer bottlenecked by engineering throughput, but by product judgment and UX taste.
 2. **Dual Execution Mode (Local vs. Cloud)**: To solve enterprise security and autonomy needs, agents must execute concurrently in cloud sandboxes (for full PR generation) or on local developer workstations (for real-time iteration).
 3. **Enterprise Horizon**: Shifting focus to B2B Enterprise expanded engagement cycles from 1 month (vulnerable to gadget feature churn) to 1-year contracts, justifying long-term architectural investments.
+
+---
+
+## Sources & References
+
+* **Interview Transcript**: *An unfiltered conversation with Matan Grinberg, CEO of Factory AI*.
+* **Speakers**: Matan Grinberg (CEO of Factory AI), Logan Kilpatrick, Nolan.
