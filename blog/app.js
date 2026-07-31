@@ -3,6 +3,48 @@
 
   const ARTICLES = [
     {
+      slug: '2026-07-31-architecte-ia-amplificateur-sans-goulot-etranglement',
+      title_fr: "L’Architecte IA comme « Amplificateur » : Comment Guider vos Équipes sans Devenir un Goulot d'Étranglement",
+      title_en: "The AI Architect as an \"Amplifier\": How to Guide Teams Without Becoming a Bottleneck",
+      desc_fr: "Analyse de la posture moderne de l'architecte par Gregor Hohpe (ex-AWS, Google) : de l'oracle autoritaire à l'amplificateur qui réduit la complexité inhérente.",
+      desc_en: "Analysis of the modern architect posture by Gregor Hohpe (ex-AWS, Google): moving from an authoritative oracle to an amplifier reducing inherent complexity.",
+      date_fr: '31 Juillet 2026',
+      date_en: 'July 31, 2026',
+      tag_fr: '✨ Architecture & Org',
+      tag_en: '✨ Architecture & Org',
+      readTime_fr: '8 min de lecture',
+      readTime_en: '8 min read',
+      pills: ['#Architecture', '#SystemsThinking', '#Leadership', '#DevEx']
+    },
+    {
+      slug: '2026-07-31-nouveau-paradigme-agents-ia-skills-anthropic',
+      title_fr: "Le Nouveau Paradigme des Agents IA : Stop aux Agents Ad Hoc, Place aux \"Skills\"",
+      title_en: "The New AI Agent Paradigm: Stop Building Ad-Hoc Agents, Build Skills Instead",
+      desc_fr: "Analyse de la vision d'Anthropic : pourquoi les boucles d'agents ad hoc s'effacent au profit d'un runtime universel et de dossiers de compétences composables (Skills).",
+      desc_en: "Analysis of Anthropic's vision: why custom agent loops give way to a universal OS runtime and composable procedural Skills.",
+      date_fr: '31 Juillet 2026',
+      date_en: 'July 31, 2026',
+      tag_fr: '✨ Agent Architecture',
+      tag_en: '✨ Agent Architecture',
+      readTime_fr: '8 min de lecture',
+      readTime_en: '8 min read',
+      pills: ['#Anthropic', '#Skills', '#MCP', '#AgentOS']
+    },
+    {
+      slug: '2026-07-31-ere-orchestration-acceleration-logicielle',
+      title_fr: "L'Ère de l'Orchestration et l'Accélération Logicielle",
+      title_en: "The Era of Orchestration & Software Acceleration",
+      desc_fr: "Analyse de l'intervention de Theo Browne (@t3dotgg) : la contraction des coûts de dev, l'abandon du skeuomorphisme et le passage de la profondeur à l'amplitude.",
+      desc_en: "Analysis of Theo Browne's (@t3dotgg) presentation: software contraction, shedding developer skeuomorphism, and the shift from depth to breadth.",
+      date_fr: '31 Juillet 2026',
+      date_en: 'July 31, 2026',
+      tag_fr: '✨ Product Strategy',
+      tag_en: '✨ Product Strategy',
+      readTime_fr: '7 min de lecture',
+      readTime_en: '7 min read',
+      pills: ['#Orchestration', '#ProductStrategy', '#T3', '#AIEngineering']
+    },
+    {
       slug: '2026-07-31-souverainete-ia-guerre-open-source-ai-factories',
       title_fr: "Souveraineté de l'IA : La guerre des modèles open-source et l'émergence des AI Factories",
       title_en: "AI Sovereignty: The Open-Source Model War and the Rise of AI Factories",
