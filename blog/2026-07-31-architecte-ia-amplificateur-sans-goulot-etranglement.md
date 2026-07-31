@@ -14,9 +14,9 @@ Pour comprendre le rôle moderne de l'architecture logicielle et produit, il con
        [ L'ORACLE (À éviter) ]                  [ L'AMPLIFICATEUR (À viser) ]
       ┌────────────────────────┐                ┌────────────────────────┐
       │  Réponses magiques     │                │  Pose les bonnes       │
-      │  Besoins d'autorité   │                │  questions / Cadre     │
+      │  Besoins d'autorité    │                │  questions / Cadre     │
       │  Goulot d'étranglement │                │  Rend l'équipe plus    │
-      │  Irons de complexité   │                │  intelligente          │
+      │  Excès de complexité   │                │  intelligente          │
       └────────────────────────┘                └────────────────────────┘
 ```
 
