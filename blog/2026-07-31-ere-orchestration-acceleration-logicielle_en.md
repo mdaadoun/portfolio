@@ -43,10 +43,24 @@ AI capabilities evolve not just by raw model benchmarks, but by the **interactio
 
 ## Critical Analysis: Skeuomorphism & Project Tier Shift
 
-### The Skeuomorphic Phase of Software Engineering
-Just as early mobile OS designs (iOS 6) imitated physical leather compasses and plastic calculators, current developers cling to legacy rituals (CLI flags, Vim shortcuts, complex Git ceremonies). Software development must shed emotional attachment to traditional syntax writing.
+### 1. The Skeuomorphic Phase of Developers
 
-### The Collapse of Project Tiers
+#### The Problem
+Just as early mobile OS designs (iOS 6) imitated physical leather compasses and plastic calculators, current developers cling to legacy rituals (CLI flags, Vim shortcuts, complex Git ceremonies). 
+
+Legacy habits—such as banning `.env` file commits while building complex ad-hoc secret-sharing tools—stem from historical Git design constraints.
+
+#### The Solution & Critique
+Just as iOS 7 abandoned skeuomorphism for raw utility and display efficiency, software engineering must shed emotional attachment to traditional syntax writing. 
+
+* **Sunk Cost Fallacy**: Accept throwing away code without guilt. Where a human feels psychological reluctance to abandon a Pull Request that took two weeks of effort, an AI agent's work can be discarded instantly at zero emotional cost.
+
+---
+
+### 2. The Collapse of Project Tiers
+
+#### The Problem
+The required effort scale for software construction has collapsed by an order of magnitude.
 
 ```
 +-------------------------------------------------------------+
@@ -58,6 +72,24 @@ Just as early mobile OS designs (iOS 6) imitated physical leather compasses and 
 +----------------------------------+--------------------------+
 ```
 
+Many current SaaS startups are thin wrappers whose functional core fits inside a single `.md` file executed periodically via AI models.
+
+#### Concrete Example
+A complete audit service parsing GitHub PRs, prioritizing backlog issues, and rendering a static HTML dashboard on Amazon S3 fits inside a Markdown specification and a Cron job.
+
+---
+
+### 3. The Paradigm Shift: Breadth vs. Depth
+
+#### The Problem
+Historically, early-stage startups could not compete with giants like AWS or Salesforce. Teams had to focus on a narrow niche (high depth) with limited feature breadth.
+
+#### The Solution (The AWS-Extensible Model)
+With autonomous AI models, small teams cover massive horizontal footprints.
+
+* **Broad Initial Footprint**: Teams ship baseline functional components across wide categories in days (e.g. database + auth + UI).
+* **End-User / Agent Extensibility**: Designed with open architectures (like Slack or flexible APIs), end-users—supported by agents—build missing niche features on demand.
+
 ---
 
 ## Actionable Recommendations for AI Product Engineers
@@ -65,3 +97,10 @@ Just as early mobile OS designs (iOS 6) imitated physical leather compasses and 
 1. **Design for Agentic Delegation**: Structure software architectures so agents can autonomously intervene, extend features, and fix bugs.
 2. **Eliminate Legacy Rituals**: Stop sacralizing historical tooling rituals. Automate maintenance of ephemeral code.
 3. **Aim for Breadth**: Build platform-scale products. AI provides the leverage needed to tackle ambitious horizontal scope once reserved for tech giants.
+
+---
+
+## Sources & References
+
+* **Presentation Title**: *Going Bigger: The AI Software Shift*.
+* **Speaker**: Theo Browne (@t3dotgg).

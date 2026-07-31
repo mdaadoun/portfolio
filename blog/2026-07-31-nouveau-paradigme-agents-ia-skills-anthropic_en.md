@@ -40,27 +40,93 @@ When filing taxes or generating compliant corporate financial reports, you don't
 
 ---
 
-## 2. Technical Architecture & Progressive Disclosure
+## 2. Detailed Presentation Trajectory
 
-### Progressive Disclosure Paradigm
+```
+[Phase 1] Emergence of Universal Runtime (Code = Interface)
+   │
+[Phase 2] Identifying Limits: The Lack of Procedural Expertise
+   │
+[Phase 3] Introducing "Skills" & Progressive Disclosure
+   │
+[Phase 4] Usage Typology & Convergence (MCP + Skills)
+   │
+[Phase 5] Engineering Roadmap & Continuous Learning Vision
+```
 
-1. **At Rest**: Only lightweight **metadata** (name, short description) of installed Skills are loaded into the system prompt context window.
-2. **On Demand**: When a task matches a Skill's metadata, the agent reads `skill.md`.
-3. **Execution**: The agent dynamically loads only necessary scripts and assets into its execution loop.
+### Phase 1: Convergence Toward "Code as the Universal Interface"
+
+* **Ecosystem Evolution**: Generalization of MCP (*Model Context Protocol*) for connectivity and maturity of agentic runtimes (*Claude Code SDK*).
+* **Key Finding**: It is no longer necessary to build custom agents per domain. Code execution (Bash + file system + Python) suffices to query info, manipulate files, and call APIs.
+
+### Phase 2: Limits of Traditional Tools and Context
+
+* **Mindset Shift**: Agents possess raw cognitive power but lack procedural context.
+* **Critique of Standard Tools**:
+  * Classic tools suffer from ambiguous, static instructions.
+  * If a tool fails, the agent cannot rewrite its underlying source code.
+  * Tools constantly consume memory by staying permanently in the context window.
+
+### Phase 3: Technical Architecture of Skills
+
+* **Minimalist Format**: Deliberate choice of directories and text files to guarantee universal compatibility (Git, ZIP, Cloud Drives).
+* **Progressive Disclosure Paradigm**:
+  1. At rest, only lightweight **metadata** of installed Skills are loaded into the prompt context window.
+  2. When a task requires it, the agent reads `skill.md`.
+  3. It then loads only the necessary scripts and assets required for the specific task.
+
+### Phase 4: Ecosystem & MCP Complementarity
+
+* **Skill Categories**:
+  * **Foundational**: Advanced document parsing (PDF/Office) or biomedical data analysis.
+  * **Software Vendors**: Web navigation (*Stagehand/Browserbase*) or workspace search (*Notion*).
+  * **Enterprise / Domain**: Internal SOPs, software engineering standards, or banking compliance rules.
+
+* **Separation of Concerns (MCP vs Skills)**:
+  * **MCP** = Data connectivity and external API access (the plumbing).
+  * **Skills** = Business expertise and procedural workflow orchestration (the know-how).
+
+### Phase 5: Toward Full Software Lifecycle Integration
+
+* **Product Roadmap**:
+  * Treat Skills like code: unit testing, performance evals, versioning, and inter-skill dependency management.
+  * Automated Creation: Agents generate their own Skills (*Skill Creator*) based on user interactions and execution logs.
 
 ---
 
-## 3. Comparative Architecture: MCP vs. Skills
+## 3. Critical Analysis & Impact for AI Product Engineers
 
-| Protocol / Layer | Core Function | Analogy |
+### Major Benefits
+
+| Classic Agentic Issue | Solution Brought by Skills | Product Impact |
 | --- | --- | --- |
-| **Model Context Protocol (MCP)** | Data connectivity, external API access & authentication | Hardware drivers & plumbing |
-| **Skills** | Procedural domain logic, workflow orchestration & scripts | Business software & SOPs |
+| **Context Window Saturation** | Progressive Disclosure (*Metadata-first*) | Massive cost reduction per query and scaling to thousands of skills. |
+| **Tool Hallucination / Instability** | Saved Python scripts modifiable by LLM | Deterministic code execution and self-correction. |
+| **Software Engineer Lock-in** | Markdown / Directory format | Direct ingestion of domain expertise formulated by business teams (HR, Legal, Finance). |
+
+### Unresolved Technical Challenges
+
+1. **Security & Arbitrary Code Execution**: Allowing non-technical users to inject Skills containing executable scripts into the agent runtime exposes systems to prompt injection and malicious code execution inside containers.
+2. **Orchestration Conflicts & Metadata Overlap**: With hundreds of installed Skills having similar metadata, initial routing (deciding which Skill to load) becomes a bottleneck.
+3. **Versioning & Evals Complexity (CI/CD)**: Isolating regressions when updating natural language instructions in a `skill.md` requires automated evaluation frameworks (*Evals*) to prevent behavioral drift.
 
 ---
 
-## 4. Key Takeaways for AI Product Teams
+## Conclusion & Implementation Checklist
 
-* **Stop Custom Agent Loops**: Standardize on a code-executing runtime OS (e.g. Claude Code SDK / Bash runtime).
-* **Decouple Connectivity & Logic**: Use MCP for data piping and Skills for business logic.
-* **Treat Skills as Code**: Implement CI/CD, unit evals, versioning, and automated skill creation (*Skill Creator*).
+For AI product teams, Anthropic's message marks a strategic pivot: **Stop modifying custom agent loops, stabilize the OS runtime, and focus efforts on codifying procedural domain knowledge into Skills**.
+
+### Implementation Checklist:
+
+* [ ] **Standardize Runtime**: Adopt a code-execution and file-manipulation runtime environment.
+* [ ] **Implement MCP**: Decouple data integration (MCP) from business logic (Skills).
+* [ ] **Adopt Progressive Disclosure**: Load metadata at start, fetch full instructions on demand.
+* [ ] **Empower Domain Experts**: Provide tools for non-dev business experts to author and version Markdown Skills.
+
+---
+
+## Sources & References
+
+* **Presentation Title**: *Don't Build Agents, Build Skills Instead*.
+* **Speakers**: Barry Zhang & Mahesh Murag (Anthropic).
+* **Key Tech & Concepts**: *Model Context Protocol (MCP)*, *Claude Code SDK*, *Progressive Disclosure*, *Skill Creator*.
