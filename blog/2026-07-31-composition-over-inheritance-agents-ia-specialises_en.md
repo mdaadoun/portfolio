@@ -61,6 +61,8 @@ The key alternative lies in the principle of **"Composition over Inheritance"**.
 
 ## 2. Anatomy & Architecture of an Ideal Domain-Specific Agent
 
+To design a production-ready domain agent, architecture must go beyond simple prompts with functions. Justin Schroeder details the ideal structure of a domain agent:
+
 ```
 ┌────────────────────────────────────────────────────────────────────────┐
 │                   DOMAIN-SPECIFIC AGENT STRUCTURE                      │
@@ -82,9 +84,42 @@ The key alternative lies in the principle of **"Composition over Inheritance"**.
 └────────────────────────────────────────────────────────────────────────┘
 ```
 
+* **Tool Layer Decomposition**: Tools are not merely executable functions. They can be specialized prompts (e.g., temporarily calling an image generation model) or even **other recursive agents**.
+* **Hooks Usage**: Manages side-effects deterministically (e.g., dynamically injecting date and time into history without cluttering the main system prompt).
+* **Agent Rules**: Enforces guardrails on agentic loops (maximum turns, strict stopping conditions, prior verification).
+* **Sandbox Primitives**: By default, every agent should possess an **isolated local file system** and a **secure code execution environment**.
+
 ---
 
-## 3. Comparative Analysis: Monolithic Generalist vs. DSA Fleet
+## 3. Timeline & Economic Trends (2024-2027)
+
+Adopting specialized agents follows a tight timeline driven by major technical and economic constraints.
+
+```
+2024 - 2025                    Mid-2026                    Late 2026                   2027
+     │                            │                            │                         │
+     ├── Inheritance Boom         ├── Cost Inflection          ├── Massive Emergence     └── Year of Multi-
+     │   (MCP, Skills, Prompts)   │   (Tokens +76% / +29% IQ)  │   of DSA Frameworks         Agent Orchestration
+```
+
+### Facts & Predictions Timeline
+
+* **2024 - Early 2026: The Inheritance Era & Enterprise Frustration**: Enterprises attempted custom monolithic agents. Facing orchestration complexity (looping, fault tolerance, lack of portability), many retreated to shared tool architectures like Anthropic's MCP. However, MCP acts primarily as a tool injection standard and does not solve memory or complexity management.
+* **Mid-2026: Cost Inflection & Realization**: Contrary to popular belief that AI costs would drop indefinitely, 2026 data shows a trend reversal:
+  * Average token costs are **up 76%** year-over-year.
+  * Adjusted for model IQ, costs remain **up 29%**.
+  * Compute infrastructure bottlenecks and RAM (*memory crunch*) impose tight budget limits.
+  * *Landmark Event*: Vercel publishes the **Eve** framework, publicly introducing the term and architecture of *Domain-Specific Agents*.
+* **Late 2026 (Prediction): Acceleration of DSA Frameworks**: Massive rise of frameworks dedicated to creating, packaging, and shipping domain agents.
+* **2027 (Prediction): Year of Multi-Agent Orchestration**: Standardization of network-connected, collaborating autonomous domain agents.
+
+---
+
+## 4. Critical Analysis & Product Synthesis
+
+For a Lead Developer or Head of AI Product, Justin Schroeder's vision offers major advantages while introducing new engineering challenges.
+
+### Comparative Table: Monolithic Generalist Agent vs. DSA Fleet
 
 | Dimension | Monolithic Generalist Agent | Domain-Specific Agent (DSA) Network |
 | --- | --- | --- |
@@ -94,3 +129,30 @@ The key alternative lies in the principle of **"Composition over Inheritance"**.
 | **Cost per Execution** | Extremely high (up to 137x gap) | Drastically reduced |
 | **Security & IT** | Over-privileged / Data leakage risks | Per-agent sandboxing & scoped access (IT approved) |
 | **Composability** | Zero / Non-portable | High (packaged & reusable agents) |
+
+### Key Advantages
+
+1. **Applied AI Economic Equation**: Relying on top-tier (*SOTA*) models for simple tasks is financially unsustainable at scale or in B2C. The DSA approach leverages small specialized models (*Small Language Models* - SLMs), cutting execution costs per task by up to 137x.
+2. **IT Department Peace of Mind (Security & Governance)**: One of the biggest roadblocks to enterprise agent adoption is over-privileged coding/corporate agents. A scoped domain agent restricted to its sandbox immediately reassures infosec teams.
+3. **Parallelization & Portability**: With each micro-agent having its own execution loop, agents run in parallel in the cloud without requiring heavy VPC networking.
+
+### Technical Challenges & Trade-offs
+
+* **Orchestration Overhead**: Replacing a single prompt with an agent hierarchy requires managing a central router/coordinator. Poorly designed routing adds cumulative natural language latency between sub-agents.
+* **Rigorous Task Decomposition**: Building DSAs demands thorough upfront domain modeling. Teams can no longer rely on SOTA "magic" to guess ambiguous requirements.
+
+---
+
+## Conclusion
+
+The Apollo program analogy illustrates the core lesson: humanity did not land on the moon by handing a giant toolbox to a single astronaut. It succeeded through teams of specialized experts equipped with dedicated instruments communicating with one another.
+
+For AI engineers, scaling in 2026/2027 won't happen by infinitely inflating context windows, but through **the discipline of software composition**.
+
+---
+
+## Sources & References
+
+* **Justin Schroeder**, *"The Future Is Domain-Specific Agents"*, Keynote for Standard Agents (`standardagents.ai`).
+* **Cited Projects**: *Demox* (code agent multiplexer), *Aererojs* (Agentic UI framework), *Vercel Eve* (agent framework).
+* **Protocols & SDKs**: *MCP (Model Context Protocol)*, *Vercel AI SDK*.
