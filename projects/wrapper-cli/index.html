@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI Watcher CLI — Surveillance IA & Calculateur FinOps</title>
+  <meta name="description" content="Démonstration interactive et fonctionnement du Wrapper CLI de Veille IA, Ingestion multi-sources et calcul FinOps multi-modèles.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Outfit:wght@400;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../style.css?v=3.0">
+  <link rel="stylesheet" href="./style.css?v=1.0">
+  <script src="../../theme.js"></script>
+  <script src="../../lang.js"></script>
+</head>
+<body>
+  <div class="background-glow glow-1"></div>
+  <div class="background-glow glow-2"></div>
+
+  <!-- Header / Navigation -->
+  <header class="navbar" id="navbar">
+    <div class="container nav-container">
+      <a href="#" class="logo">
+        <span class="logo-icon">⚡</span>
+        <span class="logo-text">ai-watcher<span>.cli</span></span>
+      </a>
+      <nav>
+        <ul class="nav-links">
+          <li><a href="../../" class="nav-btn-hub" data-i18n="nav_hub">← Hub Portfolio</a></li>
+          <li><a href="#presentation" data-i18n="nav_presentation">Présentation</a></li>
+          <li><a href="#architecture" data-i18n="nav_architecture">Architecture</a></li>
+          <li><a href="#demo" class="nav-btn-demo" data-i18n="cli_nav_demo">Démo CLI Live</a></li>
+          <li><a href="#docs-sources" data-i18n="nav_docs_sources">Documents & Sources</a></li>
+          <li>
+            <button class="lang-switch-btn" type="button" aria-label="Passer en Français" title="Passer en Français">
+              <span class="lang-icon">🌐</span>
+              <span class="lang-text">FR</span>
+            </button>
+          </li>
+          <li>
+            <select class="theme-select nav-theme-select" aria-label="Sélectionner le thème">
+              <option value="paxfabrica" data-i18n="theme_paxfabrica">🎨 PaxFabrica</option>
+              <option value="dark" data-i18n="theme_dark">🌙 Sombre</option>
+              <option value="light" data-i18n="theme_light">☀️ Clair</option>
+              <option value="dracula">🧛 Dracula</option>
+              <option value="templeos">👾 TempleOS (8-bit)</option>
+            </select>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- Hero Section -->
+    <section class="hero" id="hero">
+      <div class="container hero-container">
+        <div class="badge">
+          <span class="badge-dot"></span>
+          <span data-i18n="cli_hero_badge">AI Surveillance & FinOps Engine</span>
+        </div>
+        <h1 class="hero-title" data-i18n="cli_hero_title">Automated AI Watcher <span class="gradient-text">CLI Wrapper</span></h1>
+        <p class="hero-desc" data-i18n="cli_hero_desc">
+          Application CLI Python industrielle pour l'automatisation de la veille technologique IA, l'analyse d'impact stratégique et le suivi FinOps des requêtes LLM (40+ modèles gérés).
+        </p>
+
+        <div class="tech-stack-pills">
+          <span class="pill" data-i18n="cli_pill1">Python 3.10+ Strict</span>
+          <span class="pill" data-i18n="cli_pill2">Ingestion Multi-Sources</span>
+          <span class="pill" data-i18n="cli_pill3">Calculateur FinOps Multi-LLM</span>
+          <span class="pill" data-i18n="cli_pill4">Tenacity Backoff & Demo Mode</span>
+          <span class="pill" data-i18n="cli_pill5">Cache SHA-256 TTL</span>
+          <span class="pill" data-i18n="cli_pill7">Docker Multi-Stage Non-Root</span>
+        </div>
+
+        <div class="hero-actions">
+          <a href="#demo" class="btn btn-primary btn-lg">
+            <span data-i18n="cli_hero_btn_demo">Tester le Terminal CLI (Mock Live)</span>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+          <a href="#presentation" class="btn btn-secondary btn-lg" data-i18n="cli_hero_btn_arch">Découvrir l'Architecture</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Presentation Section -->
+    <section class="section" id="presentation">
+      <div class="container">
+        <div class="section-header">
+          <div class="badge" data-i18n="cli_pres_badge">Problématique & Valeur Métier</div>
+          <h2 class="section-title" data-i18n="cli_pres_title">Les 4 Piliers de Veille & FinOps</h2>
+          <p class="section-subtitle" data-i18n="cli_pres_subtitle">Comment structurer l’ingestion de contenu hétérogène et maîtriser les coûts LLM</p>
+        </div>
+
+        <div class="features-grid">
+          <div class="glass-card feature-card">
+            <div class="card-icon">📥</div>
+            <h3 data-i18n="cli_card1_title">1. Ingestion Multi-Sources Auto-Détectée</h3>
+            <p data-i18n="cli_card1_desc">
+              Détection automatique intelligente ou flags explicites (<code>-t</code>, <code>-f</code>, <code>-u</code>) pour ingérer du Texte brut, des Fichiers locaux (<code>.txt</code>, <code>.md</code>) et des URLs Web (scraping BeautifulSoup4).
+            </p>
+          </div>
+
+          <div class="glass-card feature-card">
+            <div class="card-icon">💰</div>
+            <h3 data-i18n="cli_card2_title">2. Moteur FinOps & Métriques Token</h3>
+            <p data-i18n="cli_card2_desc">
+              Calcul précis des coûts en micro-cents USD sur 40+ LLMs (GPT-4o, Claude 3.5 Sonnet, Gemini 1.5 Pro, Llama 3) avec mesure du débit (tokens/seconde) et du temps d'exécution.
+            </p>
+          </div>
+
+          <div class="glass-card feature-card">
+            <div class="card-icon">🛡️</div>
+            <h3 data-i18n="cli_card3_title">3. Transport Résilient & Cache SHA-256</h3>
+            <p data-i18n="cli_card3_desc">
+              Gestion de la tolérance aux pannes via décorateur Tenacity (backoff exponentiel), mode <code>--demo</code> hors-ligne immédiat et cache JSON local indexé par empreinte SHA-256 avec TTL configurable.
+            </p>
+          </div>
+
+          <div class="glass-card feature-card">
+            <div class="card-icon">📊</div>
+            <h3 data-i18n="cli_card4_title">4. Moteur Multi-Export</h3>
+            <p data-i18n="cli_card4_desc">
+              Formatage Console Rich UI couleur, export Markdown (<code>-o report.md</code>) et JSON Pydantic V2 brut (<code>-o json</code>) pour l'intégration dans des pipelines automatisés.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Architecture & Option Flags Section -->
+    <section class="section" id="architecture">
+      <div class="container">
+        <div class="section-header">
+          <div class="badge badge-accent" data-i18n="cli_arch_badge">Spécifications Techniques</div>
+          <h2 class="section-title" data-i18n="cli_arch_title">Architecture Modulaire & Flags CLI</h2>
+          <p class="section-subtitle" data-i18n="cli_arch_subtitle">Invariants stricts, typage Pydantic V2 et zéro crash non intercepté (Policy WatcherError)</p>
+        </div>
+
+        <div class="glass-card specs-table-card">
+          <table class="specs-table">
+            <thead>
+              <tr>
+                <th data-i18n="cli_th_flag">Flag CLI</th>
+                <th data-i18n="cli_th_short">Alias</th>
+                <th data-i18n="cli_th_desc">Description & Rôle</th>
+                <th data-i18n="cli_th_default">Valeur par défaut</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><code>source</code></td>
+                <td><em>Positionnel</em></td>
+                <td data-i18n="cli_flag_source">Source à analyser (String texte, chemin fichier local, ou URL web http/https)</td>
+                <td><strong>Obligatoire</strong></td>
+              </tr>
+              <tr>
+                <td><code>--text</code></td>
+                <td><code>-t</code></td>
+                <td data-i18n="cli_flag_text">Force l'interprétation de la source comme texte brut</td>
+                <td><code>False</code></td>
+              </tr>
+              <tr>
+                <td><code>--file</code></td>
+                <td><code>-f</code></td>
+                <td data-i18n="cli_flag_file">Force l'interprétation comme chemin de fichier local</td>
+                <td><code>False</code></td>
+              </tr>
+              <tr>
+                <td><code>--url</code></td>
+                <td><code>-u</code></td>
+                <td data-i18n="cli_flag_url">Force le scraping d'une URL web (BeautifulSoup4)</td>
+                <td><code>False</code></td>
+              </tr>
+              <tr>
+                <td><code>--output</code></td>
+                <td><code>-o</code></td>
+                <td data-i18n="cli_flag_output">Destination d'export : <code>console</code> (Rich UI), <code>json</code> (stdout), ou fichier (<code>.md</code>, <code>.json</code>)</td>
+                <td><code>console</code></td>
+              </tr>
+              <tr>
+                <td><code>--demo</code></td>
+                <td><code>-d</code></td>
+                <td data-i18n="cli_flag_demo">Exécute en mode hors-ligne avec simulation de réponse LLM (sans API Key)</td>
+                <td><code>False</code></td>
+              </tr>
+              <tr>
+                <td><code>--cache-ttl</code></td>
+                <td>-</td>
+                <td data-i18n="cli_flag_cache">Durée de vie du cache en secondes (0 désactive la lecture cache)</td>
+                <td><code>3600</code></td>
+              </tr>
+              <tr>
+                <td><code>--no-cache</code></td>
+                <td>-</td>
+                <td data-i18n="cli_flag_nocache">Bypasse la lecture et l'écriture dans le cache SHA-256 local</td>
+                <td><code>False</code></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- Interactive Live Demo Section -->
+    <section class="section" id="demo">
+      <div class="container">
+        <div class="section-header">
+          <div class="badge badge-accent" data-i18n="cli_demo_badge">Émulateur Interactif</div>
+          <h2 class="section-title" data-i18n="cli_demo_title">Démo Live Terminal & Simulateur FinOps</h2>
+          <p class="section-subtitle" data-i18n="cli_demo_subtitle">Sélectionnez un scénario ou tapez des arguments pour tester <code>ai-watcher scan</code> en direct</p>
+        </div>
+
+        <!-- CLI Option Toggles -->
+        <div class="cli-options-bar">
+          <label class="toggle-label">
+            <span data-i18n="cli_opt_source_type">Type de source :</span>
+            <select id="selSourceType" class="option-select">
+              <option value="auto">Auto-detect</option>
+              <option value="text">--text (-t)</option>
+              <option value="file">--file (-f)</option>
+              <option value="url">--url (-u)</option>
+            </select>
+          </label>
+
+          <label class="toggle-label">
+            <span data-i18n="cli_opt_output">Format Sortie :</span>
+            <select id="selOutput" class="option-select">
+              <option value="console">console (Rich UI)</option>
+              <option value="json">json (stdout)</option>
+              <option value="file_md">summary.md (Markdown File)</option>
+            </select>
+          </label>
+
+          <label class="toggle-label">
+            <span data-i18n="cli_opt_model">Modèle FinOps :</span>
+            <select id="selModel" class="option-select">
+              <option value="gemini-1.5-pro">Google Gemini 1.5 Pro</option>
+              <option value="gpt-4o">OpenAI GPT-4o</option>
+              <option value="claude-3-5-sonnet">Anthropic Claude 3.5 Sonnet</option>
+              <option value="llama-3-1-70b">Meta Llama 3.1 70B</option>
+            </select>
+          </label>
+
+          <label class="toggle-label">
+            <input type="checkbox" id="chkDemo" class="toggle-checkbox" checked>
+            <span data-i18n="cli_opt_demo">Mode Demo Offline (--demo)</span>
+          </label>
+        </div>
+
+        <!-- Terminal Window Mockup -->
+        <div class="terminal-card">
+          <div class="terminal-header">
+            <div class="terminal-dots">
+              <span class="dot dot-red"></span>
+              <span class="dot dot-yellow"></span>
+              <span class="dot dot-green"></span>
+            </div>
+            <div class="terminal-title">bash — ai-watcher scan (Python 3.10 venv)</div>
+            <div></div>
+          </div>
+
+          <div class="terminal-controls-bar">
+            <span style="font-size:0.8rem; color:var(--text-muted);" data-i18n="cli_presets_label">Scénarios préconfigurés :</span>
+            <div class="preset-group">
+              <button class="preset-btn active" id="btnPresetText" data-i18n="cli_preset1">📝 1. Raw Text</button>
+              <button class="preset-btn" id="btnPresetFile" data-i18n="cli_preset2">📄 2. Local File (.md)</button>
+              <button class="preset-btn" id="btnPresetUrl" data-i18n="cli_preset3">🌐 3. Web Scraping (URL)</button>
+              <button class="preset-btn" id="btnPresetJson" data-i18n="cli_preset4">📊 4. Export JSON</button>
+              <button class="preset-btn" id="btnPresetCache" data-i18n="cli_preset5">⚡ 5. Cache SHA-256 Hit</button>
+            </div>
+          </div>
+
+          <div class="terminal-body" id="terminalOutput">
+<!-- CLI Output rendered dynamically via JS -->
+          </div>
+
+          <div class="prompt-line">
+            <span class="prompt-symbol">$</span>
+            <div class="prompt-input-wrapper">
+              <input type="text" id="cliCommandInput" class="prompt-input" value="ai-watcher scan &quot;Google announces Gemini 1.5 Pro with 2M token context window.&quot; --demo">
+            </div>
+            <button class="btn-run-cli" id="btnRunCli" data-i18n="cli_btn_run">Executer ↵</button>
+          </div>
+        </div>
+
+        <!-- FinOps Metrics Display Cards -->
+        <div class="finops-grid">
+          <div class="finops-card">
+            <div class="finops-label" data-i18n="cli_metric_prompt">Prompt Tokens</div>
+            <div class="finops-value" id="valPromptTokens">142</div>
+          </div>
+          <div class="finops-card">
+            <div class="finops-label" data-i18n="cli_metric_completion">Completion Tokens</div>
+            <div class="finops-value" id="valCompletionTokens">310</div>
+          </div>
+          <div class="finops-card">
+            <div class="finops-label" data-i18n="cli_metric_tps">Débit (Tokens / sec)</div>
+            <div class="finops-value" id="valTps">452.1 t/s</div>
+          </div>
+          <div class="finops-card">
+            <div class="finops-label" data-i18n="cli_metric_cost">Coût Est. USD</div>
+            <div class="finops-value" id="valCostUsd">$0.000483</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Documents & Sources Section (At the bottom of the page, same as AIPE Framework) -->
+    <section class="section" id="docs-sources">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-title" data-i18n="cli_docs_title">Documents d'Architecture & Code Source</h2>
+          <p class="section-subtitle" data-i18n="cli_docs_subtitle">Accédez directement aux ressources brutes sur GitHub ou au dépôt de code source complet.</p>
+        </div>
+
+        <div class="features-grid">
+          <!-- Link 1: Guide du Code Source -->
+          <a href="https://raw.githubusercontent.com/mdaadoun/3_Wrapper_CLI/main/docs/code_en.md" target="_blank" rel="noopener noreferrer" class="glass-card feature-card" style="text-decoration: none; color: inherit; height: 100%;">
+            <div class="card-icon" style="color: var(--primary-color);">💻</div>
+            <h3 data-i18n="cli_doc1_title">Guide du Code Source</h3>
+            <p data-i18n="cli_doc1_desc">Spécifications détaillées et rôle d'architecture de chaque module Python (main, core, clients, formatters, schemas).</p>
+            <span class="read-link" style="margin-top: auto; color: var(--primary-color); font-weight: 600; display: inline-flex; align-items: center; gap: 4px; font-size: 0.9rem;" data-i18n="cli_doc1_btn">
+              Lire code_en.md (Raw) ↗
+            </span>
+          </a>
+
+          <!-- Link 2: Spécifications d'Architecture -->
+          <a href="https://raw.githubusercontent.com/mdaadoun/3_Wrapper_CLI/main/docs/architecture.md" target="_blank" rel="noopener noreferrer" class="glass-card feature-card" style="text-decoration: none; color: inherit; height: 100%;">
+            <div class="card-icon" style="color: var(--accent-color);">🏛️</div>
+            <h3 data-i18n="cli_doc2_title">Spécifications d'Architecture</h3>
+            <p data-i18n="cli_doc2_desc">Topologie du système, invariants de dépendance, hiérarchie WatcherError et gestion du cache SHA-256.</p>
+            <span class="read-link" style="margin-top: auto; color: var(--accent-color); font-weight: 600; display: inline-flex; align-items: center; gap: 4px; font-size: 0.9rem;" data-i18n="cli_doc2_btn">
+              Lire architecture.md (Raw) ↗
+            </span>
+          </a>
+
+          <!-- Link 3: Glossaire Technique -->
+          <a href="https://raw.githubusercontent.com/mdaadoun/3_Wrapper_CLI/main/docs/glossary_en.md" target="_blank" rel="noopener noreferrer" class="glass-card feature-card" style="text-decoration: none; color: inherit; height: 100%;">
+            <div class="card-icon" style="color: #3b82f6;">📚</div>
+            <h3 data-i18n="cli_doc3_title">Glossaire Technique Brut</h3>
+            <p data-i18n="cli_doc3_desc">Définitions approfondies des concepts FinOps, tokenomics, Tenacity retry et extraction multi-sources.</p>
+            <span class="read-link" style="margin-top: auto; color: #3b82f6; font-weight: 600; display: inline-flex; align-items: center; gap: 4px; font-size: 0.9rem;" data-i18n="cli_doc3_btn">
+              Lire glossary_en.md (Raw) ↗
+            </span>
+          </a>
+
+          <!-- Link 4: FAQ Entretien Technique -->
+          <a href="https://raw.githubusercontent.com/mdaadoun/3_Wrapper_CLI/main/docs/questions_en.md" target="_blank" rel="noopener noreferrer" class="glass-card feature-card" style="text-decoration: none; color: inherit; height: 100%;">
+            <div class="card-icon" style="color: var(--warning-color);">❓</div>
+            <h3 data-i18n="cli_doc4_title">FAQ Entretien Technique</h3>
+            <p data-i18n="cli_doc4_desc">Questions/réponses approfondies expliquant les arbitrages de design et le contrôle des coûts API pour les recruteurs.</p>
+            <span class="read-link" style="margin-top: auto; color: var(--warning-color); font-weight: 600; display: inline-flex; align-items: center; gap: 4px; font-size: 0.9rem;" data-i18n="cli_doc4_btn">
+              Lire questions_en.md (Raw) ↗
+            </span>
+          </a>
+        </div>
+
+        <!-- Full Repository Access Banner -->
+        <div style="margin-top: 40px; text-align: center;">
+          <a href="https://github.com/mdaadoun/3_Wrapper_CLI" target="_blank" rel="noopener noreferrer" class="btn btn-secondary btn-lg" style="display: inline-flex; align-items: center; gap: 8px;" data-i18n="cli_full_repo_btn">
+            <span>🚀 Parcourir l'intégralité du Dépôt Code Source sur GitHub ↗</span>
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <p data-i18n="footer_cli_text">AI Watcher CLI (Wrapper_CLI) — Projets AI Product Engineering</p>
+      <p class="footer-sub" data-i18n="footer_cli_sub">Conçu par Michaël Daadoun — Hébergé sur GitHub Pages</p>
+    </div>
+  </footer>
+
+  <script src="./app.js"></script>
+</body>
+</html>

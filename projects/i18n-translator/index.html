@@ -223,30 +223,9 @@
     <section class="section demo-section" id="demo">
       <div class="container">
         <div class="section-header">
-          <div class="badge badge-accent">Interactive Studio</div>
-          <h2 class="section-title" data-i18n="i18n_demo_title">Démo Live de Traduction</h2>
-          <p class="section-subtitle" data-i18n="i18n_demo_subtitle">Testez le traducteur en temps réel sur du texte ou un dictionnaire i18n JSON</p>
-        </div>
-
-        <!-- API Config Bar -->
-        <div class="glass-card api-config-card" style="display: none;">
-          <div class="api-config-header">
-            <div class="api-status" id="apiStatus">
-              <span class="status-dot demo-mode"></span>
-              <span class="status-text" id="apiStatusText">Mode Démo (Simulé) — URL API non configurée</span>
-            </div>
-            <button class="btn-toggle-config" id="btnToggleApiInput" type="button">
-              ⚙️ Configurer l'URL API
-            </button>
-          </div>
-          <div class="api-input-wrapper hidden" id="apiInputContainer">
-            <label for="apiUrlInput">URL de votre API Traducteur (FastAPI / Cloud Run) :</label>
-            <div class="input-group">
-              <input type="url" id="apiUrlInput" placeholder="https://votre-service-cloud-run.a.run.app/api/translate" value="">
-              <button class="btn btn-sm btn-primary" id="btnSaveApiUrl" type="button">Enregistrer</button>
-            </div>
-            <span class="api-help">Entrez l'URL de votre microservice FastAPI pour basculer en mode direct temps réel.</span>
-          </div>
+          <div class="badge badge-accent" data-i18n="i18n_demo_badge">Mock Test & Pipeline Studio</div>
+          <h2 class="section-title" data-i18n="i18n_demo_title">Simulateur Interactif de l'API (Mock Test)</h2>
+          <p class="section-subtitle" data-i18n="i18n_demo_subtitle">Testez le fonctionnement interne du pipeline de traduction structurée LLM & Structured Outputs</p>
         </div>
 
         <!-- Demo Studio Workspace -->
@@ -354,7 +333,7 @@
   <footer class="footer">
     <div class="container">
       <p data-i18n="footer_i18n_text">Microservice Traducteur Automatique i18n — Conçu avec FastAPI & LLM</p>
-      <p class="footer-sub" data-i18n="footer_i18n_sub">Hébergé via GitHub Pages & service en ligne sur Google Cloud Run</p>
+      <p class="footer-sub" data-i18n="footer_i18n_sub">Hébergé via GitHub Pages — Démo interactive mockée</p>
     </div>
   </footer>
 
