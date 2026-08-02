@@ -7,7 +7,9 @@
     ch1: { en: '1_chapter_1_en.md', fr: '1_chapter_1_fr.md' },
     proj0: { en: '1_project_1_en.md', fr: '1_project_1_fr.md' },
     ch2: { en: '2_chapter_2_en.md', fr: '2_chapter_2_fr.md' },
-    proj1: { en: '2_project_2_en.md', fr: '2_project_2_fr.md' }
+    proj1: { en: '2_project_2_en.md', fr: '2_project_2_fr.md' },
+    ch3: { en: '3_chapter_3_en.md', fr: '3_chapter_3_fr.md' },
+    proj2: { en: '3_project_3_en.md', fr: '3_project_3_fr.md' }
   };
 
   // TOC structure: defines the order and sections
@@ -18,7 +20,9 @@
     { type: 'item', labelKey: 'book_proj0', fileKey: 'proj0' },
     { type: 'section', key: 'book_part1' },
     { type: 'item', labelKey: 'book_ch2', fileKey: 'ch2' },
-    { type: 'item', labelKey: 'book_proj1', fileKey: 'proj1' }
+    { type: 'item', labelKey: 'book_proj1', fileKey: 'proj1' },
+    { type: 'item', labelKey: 'book_ch3', fileKey: 'ch3' },
+    { type: 'item', labelKey: 'book_proj2', fileKey: 'proj2' }
   ];
 
   let currentFileKey = 'summary';

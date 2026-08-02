@@ -205,6 +205,8 @@
       "book_ch2": "Ch.2 — Model Ecosystem & Token Management",
       "book_proj0": "Project 0 — The Perfect Kit",
       "book_proj1": "Project 1 — AI Intelligence CLI Wrapper",
+      "book_ch3": "Ch.3 — Systemic Prompt Engineering & Output Control",
+      "book_proj2": "Project 2 — Automated Structured Content Generator",
 
       // Blog Portal
       "blog_header_title": "Blog & <span class=\"gradient-text\">Technical Insights</span>",
@@ -574,6 +576,8 @@
       "book_ch2": "Ch.2 — Écosystème des Modèles & Gestion des Tokens",
       "book_proj0": "Projet 0 — Le Kit Parfait",
       "book_proj1": "Projet 1 — Wrapper CLI de Veille IA",
+      "book_ch3": "Ch.3 — Prompt Engineering Systémique & Contrôle des Outputs",
+      "book_proj2": "Projet 2 — Générateur Automatisé de Contenu Structuré",
 
       // Blog Portal
       "blog_header_title": "Blog & <span class=\"gradient-text\">Analyses Techniques</span>",
