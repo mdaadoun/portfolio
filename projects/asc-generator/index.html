@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ASCGenerator — Ingestion IA & Pare-Feu Pydantic V2</title>
+  <meta name="description" content="Microservice d'ingestion de flux d'actualités et d'extraction de données structurées via FastAPI, Instructor et validation Pydantic V2 sans dérive de schéma.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Outfit:wght@400;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../style.css?v=3.0">
+  <link rel="stylesheet" href="./style.css?v=1.0">
+  <script src="../../theme.js"></script>
+  <script src="../../lang.js"></script>
+</head>
+<body>
+  <div class="background-glow glow-1"></div>
+  <div class="background-glow glow-2"></div>
+
+  <!-- Header / Navigation -->
+  <header class="navbar" id="navbar">
+    <div class="container nav-container">
+      <a href="#" class="logo">
+        <span class="logo-icon">⚡</span>
+        <span class="logo-text">asc<span>.generator</span></span>
+      </a>
+      <nav>
+        <ul class="nav-links">
+          <li><a href="../../" class="nav-btn-hub" data-i18n="nav_hub">← Hub Portfolio</a></li>
+          <li><a href="#presentation" data-i18n="nav_presentation">Présentation</a></li>
+          <li><a href="#architecture" data-i18n="nav_architecture">Architecture</a></li>
+          <li><a href="#demo" class="nav-btn-demo" data-i18n="asc_nav_demo">Démo Live & Dashboard</a></li>
+          <li><a href="#docs-sources" data-i18n="nav_docs_sources">Documents & Sources</a></li>
+          <li>
+            <button class="lang-switch-btn" type="button" aria-label="Passer en Français" title="Passer en Français">
+              <span class="lang-icon">🌐</span>
+              <span class="lang-text">FR</span>
+            </button>
+          </li>
+          <li>
+            <select class="theme-select nav-theme-select" aria-label="Sélectionner le thème">
+              <option value="paxfabrica" data-i18n="theme_paxfabrica">🎨 PaxFabrica</option>
+              <option value="dark" data-i18n="theme_dark">🌙 Sombre</option>
+              <option value="light" data-i18n="theme_light">☀️ Clair</option>
+              <option value="dracula">🧛 Dracula</option>
+              <option value="templeos">👾 TempleOS (8-bit)</option>
+            </select>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- Hero Section -->
+    <section class="hero" id="hero">
+      <div class="container hero-container">
+        <div class="badge">
+          <span class="badge-dot"></span>
+          <span data-i18n="asc_hero_badge">Structured Extraction & Schema Firewall</span>
+        </div>
+        <h1 class="hero-title" data-i18n="asc_hero_title">Automated Structured Content <span class="gradient-text">Generator</span></h1>
+        <p class="hero-desc" data-i18n="asc_hero_desc">
+          Microservice FastAPI industriel qui transforme des flux d'actualités non structurés (Texte, HTML, RSS) en enregistrements JSON strictement typés via Pydantic V2 & Instructor sans dérive de schéma.
+        </p>
+
+        <tech-stack-pills class="tech-stack-pills">
+          <span class="pill" data-i18n="asc_pill1">Python 3.11+ Strict</span>
+          <span class="pill" data-i18n="asc_pill2">FastAPI & Pydantic V2 Firewall</span>
+          <span class="pill" data-i18n="asc_pill3">Instructor SDK & Schema Self-Correction</span>
+          <span class="pill" data-i18n="asc_pill4">Isolation XML & Defensive Prompts</span>
+          <span class="pill" data-i18n="asc_pill5">Cache SHA-256 Deduplication</span>
+          <span class="pill" data-i18n="asc_pill6">Next.js 14 Dashboard</span>
+          <span class="pill" data-i18n="asc_pill7">Docker Multi-Stage Non-Root</span>
+        </tech-stack-pills>
+
+        <div class="hero-actions">
+          <a href="#demo" class="btn btn-primary btn-lg">
+            <span data-i18n="asc_hero_btn_demo">Tester l'Extraction Live (Dashboard)</span>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+          <a href="#presentation" class="btn btn-secondary btn-lg" data-i18n="asc_hero_btn_arch">Découvrir l'Architecture</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Presentation Section -->
+    <section class="section" id="presentation">
+      <div class="container">
+        <div class="section-header">
+          <div class="badge" data-i18n="asc_pres_badge">Problématique & Valeur Métier</div>
+          <h2 class="section-title" data-i18n="asc_pres_title">Les 4 Piliers d'ASCGenerator</h2>
+          <p class="section-subtitle" data-i18n="asc_pres_subtitle">Comment éliminer la dérive de schéma et garantir une extraction 100% typée et sécurisée</p>
+        </div>
+
+        <div class="features-grid">
+          <div class="glass-card feature-card">
+            <div class="card-icon">📥</div>
+            <h3 data-i18n="asc_card1_title">1. Ingestion Multi-Format & Isolation XML</h3>
+            <p data-i18n="asc_card1_desc">
+              Ingestion sécurisée de textes bruts, fichiers et contenus web avec encapsulation systématique dans des balises isolées <code>&lt;untrusted_news_payload&gt;</code> pour neutraliser les attaques par injection de prompt.
+            </p>
+          </div>
+
+          <div class="glass-card feature-card">
+            <div class="card-icon">🧱</div>
+            <h3 data-i18n="asc_card2_title">2. Pare-feu Pydantic V2 & Invariants Stricts</h3>
+            <p data-i18n="asc_card2_desc">
+              Validation stricte des contrats JSON à l'exécution : bornes d'intervalles (ex: <code>confidence_score</code> ∈ [0.0, 1.0]), typage des UUID, taxonomies d'énumérations et extraction normalisée d'entités et métriques.
+            </p>
+          </div>
+
+          <div class="glass-card feature-card">
+            <div class="card-icon">🛡️</div>
+            <h3 data-i18n="asc_card3_title">3. Tolérance aux Pannes à 2 Niveaux</h3>
+            <p data-i18n="asc_card3_desc">
+              Niveau 1 : Décorateur Tenacity avec backoff exponentiel contre les erreurs 429/5xx réseau. Niveau 2 : Boucle d'auto-correction Instructor renvoyant l'erreur de validation au LLM pour correction immédiate du schéma.
+            </p>
+          </div>
+
+          <div class="glass-card feature-card">
+            <div class="card-icon">📊</div>
+            <h3 data-i18n="asc_card4_title">4. Dashboard Monitoring & Batch Processing</h3>
+            <p data-i18n="asc_card4_desc">
+              Interface Web Next.js 14 pour l'inspection interactive des schémas, le traitement asynchrone par lot (Async Batch), le suivi du budget FinOps et l'export direct vers les bases de données downstream.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Architecture & Specifications Section -->
+    <section class="section" id="architecture">
+      <div class="container">
+        <div class="section-header">
+          <div class="badge badge-accent" data-i18n="asc_arch_badge">Spécifications Techniques</div>
+          <h2 class="section-title" data-i18n="asc_arch_title">Endpoints Microservice & Contrats de Données</h2>
+          <p class="section-subtitle" data-i18n="asc_arch_subtitle">Invariants de domaine, typage Pydantic V2 et zéro crash non intercepté</p>
+        </div>
+
+        <div class="glass-card specs-table-card">
+          <table class="specs-table">
+            <thead>
+              <tr>
+                <th data-i18n="asc_th_endpoint">Endpoint / Composant</th>
+                <th data-i18n="asc_th_method">Méthode / Type</th>
+                <th data-i18n="asc_th_desc">Description & Rôle d'Architecture</th>
+                <th data-i18n="asc_th_contract">Contrat & Schema Pydantic</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><code>/v1/extract</code></td>
+                <td><code>POST</code></td>
+                <td data-i18n="asc_ep_extract">Extraction synchrone d'un payload d'actualité unique en record JSON typé</td>
+                <td><code>ArticleExtractionRecord</code></td>
+              </tr>
+              <tr>
+                <td><code>/v1/extract/batch</code></td>
+                <td><code>POST</code></td>
+                <td data-i18n="asc_ep_batch">Extraction asynchrone par lot avec contrôle de concurrence (semaphores)</td>
+                <td><code>BatchExtractionResponse</code></td>
+              </tr>
+              <tr>
+                <td><code>/v1/schemas</code></td>
+                <td><code>GET</code></td>
+                <td data-i18n="asc_ep_schemas">Exposition du schéma OpenAPI / JSON Schema des contrats pour les consommateurs client</td>
+                <td><code>JSONSchema Dict</code></td>
+              </tr>
+              <tr>
+                <td><code>/health</code></td>
+                <td><code>GET</code></td>
+                <td data-i18n="asc_ep_health">Sonde de santé pour orchestration Docker & Kubernetes (liveness/readiness)</td>
+                <td><code>{"status": "healthy"}</code></td>
+              </tr>
+              <tr>
+                <td><code>security.py</code></td>
+                <td><code>Sanitizer</code></td>
+                <td data-i18n="asc_comp_security">Pare-feu d'isolation XML contre le prompt injection (&lt;untrusted_news_payload&gt;)</td>
+                <td><code>String Sanitization</code></td>
+              </tr>
+              <tr>
+                <td><code>cache.py</code></td>
+                <td><code>SHA-256</code></td>
+                <td data-i18n="asc_comp_cache">Cache de dédoublonnage pour éviter les requêtes LLM redondantes (TTL configurable)</td>
+                <td><code>Redis / In-Memory</code></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- Interactive Live Extraction Demo Section -->
+    <section class="section" id="demo">
+      <div class="container">
+        <div class="section-header">
+          <div class="badge badge-accent" data-i18n="asc_demo_badge">Playground Interactif</div>
+          <h2 class="section-title" data-i18n="asc_demo_title">Démo Live Extraction & Simulator Dashboard</h2>
+          <p class="section-subtitle" data-i18n="asc_demo_subtitle">Sélectionnez une dépêche d'actualité ou saisissez votre texte pour tester le pare-feu Pydantic V2</p>
+        </div>
+
+        <!-- Playground Option Controls Bar -->
+        <div class="cli-options-bar">
+          <label class="toggle-label">
+            <span data-i18n="asc_opt_output_fmt">Vue Sortie :</span>
+            <select id="selOutputFmt" class="option-select">
+              <option value="formatted">Formated Dashboard Card</option>
+              <option value="json">Raw Pydantic V2 JSON</option>
+              <option value="trace">System Execution Trace</option>
+            </select>
+          </label>
+
+          <label class="toggle-label">
+            <span data-i18n="asc_opt_model">Modèle LLM :</span>
+            <select id="selModel" class="option-select">
+              <option value="gemini-1.5-pro">Google Gemini 1.5 Pro</option>
+              <option value="gpt-4o">OpenAI GPT-4o</option>
+              <option value="claude-3-5-sonnet">Anthropic Claude 3.5 Sonnet</option>
+              <option value="llama-3-1-70b">Meta Llama 3.1 70B</option>
+            </select>
+          </label>
+
+          <label class="toggle-label">
+            <input type="checkbox" id="chkSelfCorrect" class="toggle-checkbox" checked>
+            <span data-i18n="asc_opt_selfcorrect">Instructor Tier-2 Self-Correction Loop</span>
+          </label>
+        </div>
+
+        <!-- Terminal Window Mockup -->
+        <div class="terminal-card">
+          <div class="terminal-header">
+            <div class="terminal-dots">
+              <span class="dot dot-red"></span>
+              <span class="dot dot-yellow"></span>
+              <span class="dot dot-green"></span>
+            </div>
+            <div class="terminal-title">FastAPI Microservice — POST /v1/extract (Pydantic V2 Firewall)</div>
+            <div></div>
+          </div>
+
+          <div class="terminal-controls-bar">
+            <span style="font-size:0.8rem; color:var(--text-muted);" data-i18n="asc_presets_label">Dépêches préconfigurées :</span>
+            <div class="preset-group">
+              <button class="preset-btn active" id="btnPresetTech" data-i18n="asc_preset1">🚀 1. Lancement Tech (Gemini)</button>
+              <button class="preset-btn" id="btnPresetFinance" data-i18n="asc_preset2">💰 2. Résultats Financiers (NVIDIA)</button>
+              <button class="preset-btn" id="btnPresetPolitics" data-i18n="asc_preset3">🏛️ 3. EU AI Act (Politique)</button>
+              <button class="preset-btn" id="btnPresetSecurity" data-i18n="asc_preset4">🛡️ 4. Test Prompt Injection</button>
+              <button class="preset-btn" id="btnPresetCache" data-i18n="asc_preset5">⚡ 5. Cache SHA-256 Hit</button>
+            </div>
+          </div>
+
+          <div class="terminal-body" id="terminalOutput">
+            <!-- Extraction preview output dynamically rendered by JS -->
+          </div>
+
+          <div class="prompt-line">
+            <span class="prompt-symbol">&gt;</span>
+            <div class="prompt-input-wrapper">
+              <input type="text" id="payloadInput" class="prompt-input" value="Google Cloud today announced the general availability of Gemini 1.5 Pro featuring an extended 2 million token context window.">
+            </div>
+            <button class="btn-run-cli" id="btnRunExtract" data-i18n="asc_btn_run">Extraire (Post) ↵</button>
+          </div>
+        </div>
+
+        <!-- FinOps & Resilience Metrics Cards -->
+        <div class="finops-grid">
+          <div class="finops-card">
+            <div class="finops-label" data-i18n="asc_metric_validation">Validation Pydantic</div>
+            <div class="finops-value" id="valValidation">🟢 100% Valid</div>
+          </div>
+          <div class="finops-card">
+            <div class="finops-label" data-i18n="asc_metric_confidence">Score Confiance</div>
+            <div class="finops-value" id="valConfidence">0.98 / 1.00</div>
+          </div>
+          <div class="finops-card">
+            <div class="finops-label" data-i18n="asc_metric_resilience">Statut Résilience</div>
+            <div class="finops-value" id="valResilience">Tier 1 Ok / 0 Retry</div>
+          </div>
+          <div class="finops-card">
+            <div class="finops-label" data-i18n="asc_metric_cost">Coût Est. USD</div>
+            <div class="finops-value" id="valCostUsd">$0.000312</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Documents & Sources Section -->
+    <section class="section" id="docs-sources">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-title" data-i18n="asc_docs_title">Documents d'Architecture & Code Source</h2>
+          <p class="section-subtitle" data-i18n="asc_docs_subtitle">Accédez directement aux ressources brutes sur GitHub ou au dépôt de code source complet.</p>
+        </div>
+
+        <div class="features-grid">
+          <!-- Link 1: Source Code Guide -->
+          <a href="https://raw.githubusercontent.com/mdaadoun/4_ASCGenerator/main/docs/code_en.md" target="_blank" rel="noopener noreferrer" class="glass-card feature-card" style="text-decoration: none; color: inherit; height: 100%;">
+            <div class="card-icon" style="color: var(--primary-color);">💻</div>
+            <h3 data-i18n="asc_doc1_title">Guide du Code Source</h3>
+            <p data-i18n="asc_doc1_desc">Spécifications détaillées et rôle d'architecture de chaque module Python (main, engine, schemas, security, config).</p>
+            <span class="read-link" style="margin-top: auto; color: var(--primary-color); font-weight: 600; display: inline-flex; align-items: center; gap: 4px; font-size: 0.9rem;" data-i18n="asc_doc1_btn">
+              Lire code_en.md (Raw) ↗
+            </span>
+          </a>
+
+          <!-- Link 2: Architecture Specs -->
+          <a href="https://raw.githubusercontent.com/mdaadoun/4_ASCGenerator/main/docs/architecture_en.md" target="_blank" rel="noopener noreferrer" class="glass-card feature-card" style="text-decoration: none; color: inherit; height: 100%;">
+            <div class="card-icon" style="color: var(--accent-color);">🏛️</div>
+            <h3 data-i18n="asc_doc2_title">Spécifications d'Architecture</h3>
+            <p data-i18n="asc_doc2_desc">Topologie du microservice, invariants de dépendance Pydantic V2, résilience à 2 niveaux et isolation des prompts.</p>
+            <span class="read-link" style="margin-top: auto; color: var(--accent-color); font-weight: 600; display: inline-flex; align-items: center; gap: 4px; font-size: 0.9rem;" data-i18n="asc_doc2_btn">
+              Lire architecture_en.md (Raw) ↗
+            </span>
+          </a>
+
+          <!-- Link 3: Technical Glossary -->
+          <a href="https://raw.githubusercontent.com/mdaadoun/4_ASCGenerator/main/docs/glossary_en.md" target="_blank" rel="noopener noreferrer" class="glass-card feature-card" style="text-decoration: none; color: inherit; height: 100%;">
+            <div class="card-icon" style="color: #3b82f6;">📚</div>
+            <h3 data-i18n="asc_doc3_title">Glossaire Technique Brut</h3>
+            <p data-i18n="asc_doc3_desc">Définitions approfondies des concepts de Structured Outputs, pare-feu Pydantic V2, Instructor self-correction et FinOps.</p>
+            <span class="read-link" style="margin-top: auto; color: #3b82f6; font-weight: 600; display: inline-flex; align-items: center; gap: 4px; font-size: 0.9rem;" data-i18n="asc_doc3_btn">
+              Lire glossary_en.md (Raw) ↗
+            </span>
+          </a>
+
+          <!-- Link 4: Functional Specifications -->
+          <a href="https://raw.githubusercontent.com/mdaadoun/4_ASCGenerator/main/docs/specifications_en.md" target="_blank" rel="noopener noreferrer" class="glass-card feature-card" style="text-decoration: none; color: inherit; height: 100%;">
+            <div class="card-icon" style="color: var(--warning-color);">📋</div>
+            <h3 data-i18n="asc_doc4_title">Spécifications Fonctionnelles</h3>
+            <p data-i18n="asc_doc4_desc">Cahier des charges, modélisation des entités nommées, métriques financières et exigences de performance microservice.</p>
+            <span class="read-link" style="margin-top: auto; color: var(--warning-color); font-weight: 600; display: inline-flex; align-items: center; gap: 4px; font-size: 0.9rem;" data-i18n="asc_doc4_btn">
+              Lire specifications_en.md (Raw) ↗
+            </span>
+          </a>
+        </div>
+
+        <!-- Full Repository Access Banner -->
+        <div style="margin-top: 40px; text-align: center;">
+          <a href="https://github.com/mdaadoun/4_ASCGenerator" target="_blank" rel="noopener noreferrer" class="btn btn-secondary btn-lg" style="display: inline-flex; align-items: center; gap: 8px;" data-i18n="asc_full_repo_btn">
+            <span>🚀 Parcourir l'intégralité du Dépôt Code Source sur GitHub ↗</span>
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <p data-i18n="footer_asc_text">ASCGenerator (Automated Structured Content Generator) — Projets AI Product Engineering</p>
+      <p class="footer-sub" data-i18n="footer_asc_sub">Conçu par Michaël Daadoun — Hébergé sur GitHub Pages</p>
+    </div>
+  </footer>
+
+  <script src="./app.js"></script>
+</body>
+</html>
