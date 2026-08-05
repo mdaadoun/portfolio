@@ -1,18 +1,18 @@
-# Project Specification: Production-Grade Low-Latency Real-Time Web Chatbot
+# Project 3: Low-Latency Real-Time Web Chatbot
 
-**Module:** Backend Architecture for AI: Asynchronicity and Streaming UI
-
-**Format:** Production Engineering Specification & Deliverable Blueprint
+> **Module:** Chapter 4 Deliverable | **Type:** Production Web Application  
+> **Domain:** Backend Architecture for AI, Asynchronicity & Streaming UI  
+> **Stack:** Python 3.11+, FastAPI (ASGI), Uvicorn, AsyncOpenAI / httpx, Server-Sent Events (SSE), React 18+, TypeScript, Vite, Tailwind CSS, Poetry, Ruff, Mypy  
 
 ---
 
-## 1. Context & Educational Objective
+## Executive Summary
 
 In Projects 2 and 3, you validated your ability to programmatically interface with Large Language Models (LLMs), implement production retry/backoff mechanisms, and enforce structured outputs via Pydantic schemas. However, those implementations were single-user, synchronous CLI/batch scripts: an input was dispatched, the thread blocked while awaiting a response, and the script terminated.
 
 Real-world AI products do not operate under single-user synchronous constraints. They must serve dozens to thousands of concurrent users simultaneously—where every active connection invokes an LLM whose response generation takes seconds or even tens of seconds.
 
-**Project 4 marks your transition into full-stack AI Product Engineering.**
+**Project 3 marks your transition into full-stack AI Product Engineering.**
 
 You will build a production-grade, low-latency web application featuring a non-blocking FastAPI backend (ASGI) connected to an interactive React frontend via Server-Sent Events (SSE). The core mandate is to eliminate thread-starvation bugs, lower Time-To-First-Token (TTFT) to under 100ms, and maintain system throughput regardless of concurrent user load.
 
@@ -609,7 +609,7 @@ Your submitted project will be evaluated against six primary capabilities:
 
 ## 7. Submission Deliverables
 
-To complete Project 4, submit a clean repository containing:
+To complete Project 3, submit a clean repository containing:
 
 1. **Fully Executable Source Code:** Complete backend (FastAPI) and frontend (React/TypeScript) codebases matching the architecture specified.
 2. **Deterministic Configuration:** Valid `pyproject.toml` (Poetry) and `package.json` lockfiles.

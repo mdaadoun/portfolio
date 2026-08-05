@@ -1,18 +1,18 @@
-# Spécification du projet : Chatbot Web temps réel à faible latence prêt pour la production
+# Projet 3 : Chatbot Web Temps Réel à Faible Latence
 
-**Module :** Architecture Backend pour l'IA : Asynchronisme et Interface UI en Streaming
-
-**Format :** Spécification d'ingénierie de production & plan de livrable
+> **Module :** Livrable du Chapitre 4 | **Type :** Application Web de Production  
+> **Domaine :** Architecture Backend pour l'IA, Asynchronisme & Interface UI en Streaming  
+> **Stack :** Python 3.11+, FastAPI (ASGI), Uvicorn, AsyncOpenAI / httpx, Server-Sent Events (SSE), React 18+, TypeScript, Vite, Tailwind CSS, Poetry, Ruff, Mypy  
 
 ---
 
-## 1. Contexte & objectif pédagogique
+## Synthèse Explicative
 
 Dans les Projets 2 et 3, vous avez validé votre capacité à dialoguer de façon programmatique avec des grands modèles de langage (LLM), à mettre en œuvre des mécanismes de retry/backoff prêts pour la production et à imposer des sorties structurées via des schémas Pydantic. Cependant, ces implémentations étaient des scripts par lots/CLI mono-utilisateur et synchrones : une entrée était envoyée, le thread se bloquait en attendant une réponse, puis le script se terminait.
 
 Les produits d'IA du monde réel ne fonctionnent pas sous des contraintes synchrones mono-utilisateur. Ils doivent servir des dizaines à des milliers d'utilisateurs simultanés — où chaque connexion active invoque un LLM dont la génération de réponse prend des secondes, voire des dizaines de secondes.
 
-**Le Projet 4 marque votre transition vers l'ingénierie complète de produits d'IA (Full-Stack AI Product Engineering).**
+**Le Projet 3 marque votre transition vers l'ingénierie complète de produits d'IA (Full-Stack AI Product Engineering).**
 
 Vous allez construire une application web complète prêt pour la production, à faible latence, dotée d'un backend FastAPI non bloquant (ASGI) connecté à une interface interactive React via Server-Sent Events (SSE). Le mandat principal est d'éliminer les bugs de saturation de threads (*thread starvation*), de réduire le temps d'apparition du premier token (TTFT) à moins de 100 ms et de maintenir le débit du système indépendamment de la charge d'utilisateurs concurrents.
 
@@ -609,7 +609,7 @@ Le projet soumis sera évalué selon six capacités principales :
 
 ## 7. Livrables à soumettre
 
-Pour valider le Projet 4, soumettez un dépôt propre contenant :
+Pour valider le Projet 3, soumettez un dépôt propre contenant :
 
 1. **Code source entièrement exécutable :** Codebase complet du backend (FastAPI) et du frontend (React/TypeScript) correspondant à l'architecture spécifiée.
 2. **Configuration déterministe :** Fichiers verrou valides `pyproject.toml` (Poetry) et `package.json`.
