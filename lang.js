@@ -16,14 +16,14 @@
       "nav_quality": "QA & Tests",
       "nav_explorer": "Roadmap & Docs",
       "nav_source": "Source Code ↗",
-      "footer_text": "Michaël Daadoun Portfolio — AI Product Engineering",
+      "footer_text": "Pax Fabrica Portfolio — AI Product Engineering",
       "theme_paxfabrica": "🎨 PaxFabrica",
       "theme_dark": "🌙 Dark",
       "theme_light": "☀️ Light",
 
 
       "footer_aipe_text": "AIPE_Framework Blueprint — AI Product Engineering Infrastructure",
-      "footer_aipe_sub": "Designed by Michaël Daadoun — Hosted on GitHub Pages",
+      "footer_aipe_sub": "Designed by Pax Fabrica — Hosted on GitHub Pages",
       "footer_i18n_text": "Automatic i18n Microservice — Built with FastAPI & LLM",
       "footer_i18n_sub": "Hosted on GitHub Pages & live service on Google Cloud Run",
       
@@ -176,7 +176,7 @@
       "cli_dash_f3_title": "Technical Interview FAQ",
       "cli_dash_f3_desc": "In-depth recruiter answers on design choices, security, and API cost controls.",
       "footer_cli_text": "AI Watcher CLI (Wrapper_CLI) — AI Product Engineering Projects",
-      "footer_cli_sub": "Designed by Michaël Daadoun — Hosted on GitHub Pages",
+      "footer_cli_sub": "Designed by Pax Fabrica — Hosted on GitHub Pages",
       "card_status_live_asc": "Live API & Interactive Dashboard",
       "card4_title": "Automated Structured Content Generator (ASCGenerator)",
       "card4_desc": "<strong>Problem:</strong> Noisy unstructured news payloads & runtime LLM schema drift.<br><strong>How it works:</strong> Defensive XML isolation, Pydantic V2 schema firewall, 2-tier resilience (Tenacity retry + Instructor self-correction loop), SHA-256 deduplication cache & Next.js dashboard.<br><strong>Impact:</strong> Zero runtime schema drift, 100% typed structured JSON records, micro-cent FinOps control.",
@@ -256,7 +256,7 @@
       "asc_metric_resilience": "Resilience Status",
       "asc_metric_cost": "Est. Cost USD",
       "footer_asc_text": "ASCGenerator (Automated Structured Content Generator) — AI Product Engineering Projects",
-      "footer_asc_sub": "Designed by Michaël Daadoun — Hosted on GitHub Pages",
+      "footer_asc_sub": "Designed by Pax Fabrica — Hosted on GitHub Pages",
 
       // Book Page
       "book_badge": "Professional Manual 2026",
@@ -293,7 +293,7 @@
       "blog_read_time_8": "⏱️ 8 min read",
       "blog_read_article": "Read article &rarr;",
       "blog_back_to_list": "Back to blog",
-      "blog_by_author": "✍️ By Michaël Daadoun",
+      "blog_by_author": "✍️ By Pax Fabrica",
       "blog_tag_label": "🏷️ AI Engineering / Architecture",
 
       // Blog Article 1
@@ -461,14 +461,14 @@
       "nav_quality": "Qualité & Tests",
       "nav_explorer": "Roadmap & Documentation",
       "nav_source": "Code Source ↗",
-      "footer_text": "Portfolio Michaël Daadoun — AI Product Engineering",
+      "footer_text": "Portfolio Pax Fabrica — AI Product Engineering",
       "theme_paxfabrica": "🎨 PaxFabrica",
       "theme_dark": "🌙 Sombre",
       "theme_light": "☀️ Clair",
 
 
       "footer_aipe_text": "Blueprint AIPE_Framework — AI Product Engineering Infrastructure",
-      "footer_aipe_sub": "Conçu par Michaël Daadoun — Hébergé via GitHub Pages",
+      "footer_aipe_sub": "Conçu par Pax Fabrica — Hébergé via GitHub Pages",
       "footer_i18n_text": "Microservice Traducteur Automatique i18n — Conçu avec FastAPI & LLM",
       "footer_i18n_sub": "Hébergé via GitHub Pages & service en ligne sur Google Cloud Run",
 
@@ -621,7 +621,7 @@
       "cli_dash_f3_title": "FAQ d'Entretien Technique",
       "cli_dash_f3_desc": "Réponses détaillées aux questions de recruteurs sur les choix de design, la sécurité et la gestion des coûts API.",
       "footer_cli_text": "AI Watcher CLI (Wrapper_CLI) — Projets AI Product Engineering",
-      "footer_cli_sub": "Conçu par Michaël Daadoun — Hébergé sur GitHub Pages",
+      "footer_cli_sub": "Conçu par Pax Fabrica — Hébergé sur GitHub Pages",
       "card_status_live_asc": "API Live & Dashboard Interactif",
       "card4_title": "Générateur Automatique de Contenu Structuré (ASCGenerator)",
       "card4_desc": "<strong>Problème :</strong> Payloads d'actualités non structurés & dérive de schéma LLM à l'exécution.<br><strong>Fonctionnement :</strong> Isolation XML défensive, pare-feu Pydantic V2, résilience 2 niveaux (Tenacity retry + boucle d'autocorrection Instructor), cache SHA-256 & dashboard Next.js.<br><strong>Impact :</strong> 0 dérive de schéma, 100% enregistrements JSON typés, contrôle FinOps au micro-cent.",
@@ -701,7 +701,7 @@
       "asc_metric_resilience": "Statut Résilience",
       "asc_metric_cost": "Coût Est. USD",
       "footer_asc_text": "ASCGenerator (Automated Structured Content Generator) — Projets AI Product Engineering",
-      "footer_asc_sub": "Conçu par Michaël Daadoun — Hébergé sur GitHub Pages",
+      "footer_asc_sub": "Conçu par Pax Fabrica — Hébergé sur GitHub Pages",
 
       // Book Page
       "book_badge": "Manuel Professionnel 2026",
@@ -738,7 +738,7 @@
       "blog_read_time_8": "⏱️ 8 min de lecture",
       "blog_read_article": "Lire l'article &rarr;",
       "blog_back_to_list": "Retour au blog",
-      "blog_by_author": "✍️ Par Michaël Daadoun",
+      "blog_by_author": "✍️ Par Pax Fabrica",
       "blog_tag_label": "🏷️ AI Engineering / Architecture",
 
       // Blog Article 1
