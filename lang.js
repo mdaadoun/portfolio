@@ -281,6 +281,8 @@
       "book_proj1": "Project 1 — AI Intelligence CLI Wrapper",
       "book_ch3": "Ch.3 — Systemic Prompt Engineering & Output Control",
       "book_proj2": "Project 2 — Automated Structured Content Generator",
+      "book_ch4": "Ch.4 — Backend Architecture for AI: Asynchronicity and Streaming UI",
+      "book_proj3": "Project 3 — Low-Latency Real-Time Web Chatbot",
 
       // Blog Portal
       "blog_header_title": "Blog & <span class=\"gradient-text\">Technical Insights</span>",
@@ -726,6 +728,8 @@
       "book_proj1": "Projet 1 — Wrapper CLI de Veille IA",
       "book_ch3": "Ch.3 — Prompt Engineering Systémique & Contrôle des Outputs",
       "book_proj2": "Projet 2 — Générateur Automatisé de Contenu Structuré",
+      "book_ch4": "Ch.4 — Architecture Backend pour l'IA : Asynchronisme et Interface UI en Streaming",
+      "book_proj3": "Projet 3 — Chatbot Web Temps Réel à Faible Latence",
 
       // Blog Portal
       "blog_header_title": "Blog & <span class=\"gradient-text\">Analyses Techniques</span>",

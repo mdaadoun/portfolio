@@ -9,7 +9,9 @@
     ch2: { en: '2_chapter_2_en.md', fr: '2_chapter_2_fr.md' },
     proj1: { en: '2_project_2_en.md', fr: '2_project_2_fr.md' },
     ch3: { en: '3_chapter_3_en.md', fr: '3_chapter_3_fr.md' },
-    proj2: { en: '3_project_3_en.md', fr: '3_project_3_fr.md' }
+    proj2: { en: '3_project_3_en.md', fr: '3_project_3_fr.md' },
+    ch4: { en: '4_chapter_4_en.md', fr: '4_chapter_4_fr.md' },
+    proj3: { en: '4_project_4_en.md', fr: '4_project_4_fr.md' }
   };
 
   // TOC structure: defines the order and sections
@@ -22,7 +24,9 @@
     { type: 'item', labelKey: 'book_ch2', fileKey: 'ch2' },
     { type: 'item', labelKey: 'book_proj1', fileKey: 'proj1' },
     { type: 'item', labelKey: 'book_ch3', fileKey: 'ch3' },
-    { type: 'item', labelKey: 'book_proj2', fileKey: 'proj2' }
+    { type: 'item', labelKey: 'book_proj2', fileKey: 'proj2' },
+    { type: 'item', labelKey: 'book_ch4', fileKey: 'ch4' },
+    { type: 'item', labelKey: 'book_proj3', fileKey: 'proj3' }
   ];
 
   let currentFileKey = 'summary';
