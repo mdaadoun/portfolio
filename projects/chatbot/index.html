@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Real-Time Web Chatbot — Asynchronous SSE & Low-Latency Streaming</title>
+  <meta name="description" content="Microservice de Chatbot web temps réel bas-latence basé sur FastAPI async (ASGI), Server-Sent Events (SSE), Pydantic V2 et React Vite UI.">
+  <link rel="icon" href="../../favicon.ico" type="image/x-icon">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Outfit:wght@400;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../style.css?v=3.0">
+  <link rel="stylesheet" href="./style.css?v=1.0">
+  <script src="../../theme.js"></script>
+  <script src="../../lang.js"></script>
+</head>
+<body>
+  <div class="background-glow glow-1"></div>
+  <div class="background-glow glow-2"></div>
+
+  <!-- Header / Navigation -->
+  <header class="navbar" id="navbar">
+    <div class="container nav-container">
+      <div class="nav-brand-group">
+        <a href="../../" class="logo">
+          <span class="logo-icon">💬</span>
+          <span class="logo-text">realtime<span>.chatbot</span></span>
+        </a>
+        <div class="nav-breadcrumb">
+          <a href="../../" data-i18n="nav_hub">← Hub Portfolio</a>
+        </div>
+      </div>
+
+      <button class="mobile-menu-toggle" aria-label="Toggle navigation menu" aria-expanded="false">
+        ☰
+      </button>
+
+      <div class="nav-links-wrapper">
+        <nav>
+          <ul class="nav-links">
+            <li><a href="#presentation" data-i18n="nav_presentation">Overview</a></li>
+            <li><a href="#architecture" data-i18n="nav_architecture">Architecture</a></li>
+            <li><a href="#specs" data-i18n="nav_specs">Technical Specs</a></li>
+            <li><a href="#demo" data-i18n="bot_nav_demo">Interactive Mock Playground</a></li>
+            <li><a href="#docs-sources" data-i18n="nav_docs_sources">Docs & GitHub ↗</a></li>
+          </ul>
+        </nav>
+
+        <div class="nav-controls">
+          <button class="lang-switch-btn" type="button" aria-label="Passer en Français" title="Passer en Français">
+            <span class="lang-icon">🌐</span>
+            <span class="lang-text">FR</span>
+          </button>
+          <select class="theme-select nav-theme-select" aria-label="Sélectionner le thème">
+            <option value="paxfabrica" data-i18n="theme_paxfabrica">🎨 PaxFabrica</option>
+            <option value="dark" data-i18n="theme_dark">🌙 Sombre</option>
+            <option value="light" data-i18n="theme_light">☀️ Clair</option>
+            <option value="dracula">🧛 Dracula</option>
+            <option value="templeos">👾 TempleOS (8-bit)</option>
+          </select>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- Hero Section -->
+    <section class="hero" id="hero">
+      <div class="container hero-container">
+        <div class="badge">
+          <span class="badge-dot"></span>
+          <span data-i18n="bot_hero_badge">Low-Latency SSE Streaming Chatbot</span>
+        </div>
+        <h1 class="hero-title" data-i18n="bot_hero_title">Real-Time Asynchronous Web <span class="gradient-text">Chatbot</span></h1>
+        <p class="hero-desc" data-i18n="bot_hero_desc">
+          Application web de chat haute-concurrence et basse latence (TTFT &lt; 100ms) basée sur FastAPI async (ASGI), streaming Server-Sent Events (SSE), garde-fous de sécurité Pydantic V2 et interface réactive React Vite.
+        </p>
+
+        <div class="tech-stack-pills">
+          <span class="pill" data-i18n="bot_pill1">Python 3.11+ Async (ASGI)</span>
+          <span class="pill" data-i18n="bot_pill2">Server-Sent Events (SSE)</span>
+          <span class="pill" data-i18n="bot_pill3">FastAPI & Pydantic V2 Strict</span>
+          <span class="pill" data-i18n="bot_pill4">Sanitizer & Prompt Injection Defense</span>
+          <span class="pill" data-i18n="bot_pill5">Tenacity Exponential Backoff</span>
+          <span class="pill" data-i18n="bot_pill6">React + Vite UI Frontend</span>
+          <span class="pill" data-i18n="bot_pill7">FinOps Telemetry & Evals</span>
+        </div>
+
+        <div class="hero-actions">
+          <a href="#demo" class="btn btn-primary btn-lg">
+            <span data-i18n="bot_hero_btn_demo">Tester le Stream Interactif</span>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+          <a href="#presentation" class="btn btn-secondary btn-lg" data-i18n="bot_hero_btn_arch">Découvrir l'Architecture</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Presentation Section -->
+    <section class="section" id="presentation">
+      <div class="container">
+        <div class="section-header">
+          <div class="badge" data-i18n="bot_pres_badge">Problématique & Performance</div>
+          <h2 class="section-title" data-i18n="bot_pres_title">Les 4 Piliers du Chatbot Temps Réel</h2>
+          <p class="section-subtitle" data-i18n="bot_pres_subtitle">Comment garantir une réponse instantanée, sécurisée et suivie financièrement</p>
+        </div>
+
+        <div class="features-grid">
+          <div class="glass-card feature-card">
+            <div class="card-icon">⚡</div>
+            <h3 data-i18n="bot_card1_title">1. Latence &amp; Streaming SSE</h3>
+            <p data-i18n="bot_card1_desc">
+              Boucle d'événements asynchrone non-bloquante (ASGI Uvicorn + AsyncOpenAI) diffusant les jetons via Server-Sent Events avec un Time-To-First-Token (TTFT) inférieur à 100ms.
+            </p>
+          </div>
+
+          <div class="glass-card feature-card">
+            <div class="card-icon">🛡️</div>
+            <h3 data-i18n="bot_card2_title">2. Sécurité &amp; Garde-Fous Pydantic V2</h3>
+            <p data-i18n="bot_card2_desc">
+              Sanitisation stricte des entrées utilisateur, neutralisation des attaques par injection de prompt et contrats de données validés via Pydantic V2 et Mypy 100% strict.
+            </p>
+          </div>
+
+          <div class="glass-card feature-card">
+            <div class="card-icon">🔄</div>
+            <h3 data-i18n="bot_card3_title">3. Résilience Tenacity &amp; Disponibilité</h3>
+            <p data-i18n="bot_card3_desc">
+              Stratégie de retry automatique asynchrone avec backoff exponentiel (Tenacity) sur erreurs sockets HTTP 429 et 5xx pour une tolérance totale aux pannes réseau en amont.
+            </p>
+          </div>
+
+          <div class="glass-card feature-card">
+            <div class="card-icon">📊</div>
+            <h3 data-i18n="bot_card4_title">4. Télémétrie FinOps &amp; Suivi de Coûts</h3>
+            <p data-i18n="bot_card4_desc">
+              Comptage précis des jetons de prompt et de complétion en post-streaming pour calculer et afficher en temps réel le coût exact de chaque session de chat.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Interactive Live Demo & Streaming Playground Section -->
+    <section class="section" id="demo">
+      <div class="container">
+        <div class="section-header">
+          <div class="badge badge-accent" data-i18n="bot_demo_badge">Playground Interactif</div>
+          <h2 class="section-title" data-i18n="bot_demo_title">Simulateur de Stream Chat SSE &amp; FinOps</h2>
+          <p class="section-subtitle" data-i18n="bot_demo_subtitle">Testez le comportement du streaming temps réel, la neutralisation de sécurité et la télémétrie</p>
+        </div>
+
+        <!-- Mock Disclaimer Alert Banner -->
+        <div class="glass-card" style="margin-bottom: 24px; padding: 14px 20px; background: rgba(99, 102, 241, 0.1); border-color: rgba(99, 102, 241, 0.3); display: flex; align-items: center; gap: 12px; font-size: 0.9rem; color: var(--text-main);">
+          <span style="font-size: 1.2rem;">💡</span>
+          <span data-i18n="mock_disclaimer_chatbot">
+            <strong>Note de démonstration :</strong> Ce playground est une simulation côté client (Mock SSE Client-Side) représentant le comportement exact du backend FastAPI &amp; du client React. Il n'exécute pas de requêtes LLM en production sur ce site statique.
+          </span>
+        </div>
+
+        <div class="chatbot-playground-grid">
+          <!-- Chat Interface Box -->
+          <div class="glass-card chat-window-card">
+            <div class="chat-window-header">
+              <div class="chat-header-info">
+                <span class="chat-status-dot"></span>
+                <span class="chat-header-title">FastAPI SSE Chat Session (Mock)</span>
+              </div>
+              <div class="chat-preset-buttons">
+                <span class="preset-label" data-i18n="bot_presets_label">Presets:</span>
+                <button class="btn btn-sm btn-outline" id="btn-preset-ai" type="button">AI Arch</button>
+                <button class="btn btn-sm btn-outline" id="btn-preset-code" type="button">FastAPI</button>
+                <button class="btn btn-sm btn-outline btn-warning" id="btn-preset-attack" type="button">⚠️ Prompt Attack</button>
+              </div>
+            </div>
+
+            <!-- Chat Messages Log -->
+            <div class="chat-messages-container" id="chat-messages">
+              <div class="chat-message message-system">
+                <div class="message-avatar">⚙️</div>
+                <div class="message-content">
+                  <p><strong>System initialized:</strong> Asynchronous FastAPI SSE streaming endpoint connected (Mock Client Mode). Pick a preset or send a message.</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Chat Input Bar -->
+            <form class="chat-input-form" id="chat-form">
+              <input type="text" id="chat-input" class="chat-input-field" placeholder="Posez une question technique ou testez une injection..." required autocomplete="off">
+              <button type="submit" class="btn btn-primary" id="btn-send">
+                <span data-i18n="bot_btn_send">Envoyer</span>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z"/></svg>
+              </button>
+            </form>
+          </div>
+
+          <!-- Telemetry & Options Sidebar -->
+          <div class="glass-card chat-telemetry-card">
+            <h3 class="telemetry-title" data-i18n="bot_telemetry_title">Télémétrie &amp; Paramètres</h3>
+
+            <div class="telemetry-group">
+              <label for="select-model" class="telemetry-label" data-i18n="bot_model_label">Modèle LLM:</label>
+              <select id="select-model" class="telemetry-select">
+                <option value="gpt-4o">OpenAI GPT-4o ($2.50 / $10.00 Mtok)</option>
+                <option value="claude-3-5-sonnet">Anthropic Claude 3.5 Sonnet ($3.00 / $15.00 Mtok)</option>
+                <option value="gemini-1.5-pro">Google Gemini 1.5 Pro ($1.25 / $5.00 Mtok)</option>
+                <option value="llama-3-1-70b">Meta Llama 3.1 70B ($0.90 / $0.90 Mtok)</option>
+              </select>
+            </div>
+
+            <div class="telemetry-metrics">
+              <div class="telemetry-metric-box">
+                <span class="metric-label">TTFT (Time To First Token)</span>
+                <span class="metric-value" id="val-ttft">-- ms</span>
+              </div>
+              <div class="telemetry-metric-box">
+                <span class="metric-label">Tokens / seconde</span>
+                <span class="metric-value" id="val-speed">-- t/s</span>
+              </div>
+              <div class="telemetry-metric-box">
+                <span class="metric-label">Total Prompt Tokens</span>
+                <span class="metric-value" id="val-prompt-tokens">0</span>
+              </div>
+              <div class="telemetry-metric-box">
+                <span class="metric-label">Total Completion Tokens</span>
+                <span class="metric-value" id="val-completion-tokens">0</span>
+              </div>
+              <div class="telemetry-metric-box highlight-box">
+                <span class="metric-label">Est. Session Cost (USD)</span>
+                <span class="metric-value" id="val-cost">$0.000000</span>
+              </div>
+            </div>
+
+            <div class="security-status-box" id="security-status-box">
+              <span class="security-badge-label">🛡️ Security Guardrail:</span>
+              <span class="security-status-text" id="security-status-text">Active (100% Sanitized)</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Technical Specifications & Architecture Section -->
+    <section class="section" id="specs">
+      <div class="container">
+        <div class="section-header">
+          <div class="badge badge-accent" data-i18n="bot_arch_badge">Spécifications Techniques</div>
+          <h2 class="section-title" data-i18n="bot_arch_title">Architecture &amp; Technical Specifications</h2>
+          <p class="section-subtitle" data-i18n="bot_arch_subtitle">Flux de données Server-Sent Events et isolation multi-couches</p>
+        </div>
+
+        <div class="glass-card arch-diagram-card" id="architecture">
+          <pre class="arch-flow-diagram">
+┌────────────────────────────────────────────────────────┐
+│                    REACT FRONTEND (Vite)               │
+│ [Optimistic UI] ──► [Fetch + ReadableStream] ──► UI    │
+└───────────────────────────┬────────────────────────────┘
+                            │
+     1. POST /api/v1/chat   │ 2. text/event-stream
+        (ChatPayload)       │    (event: token | event: done)
+                            ▼
+┌────────────────────────────────────────────────────────┐
+│                 FASTAPI BACKEND (ASGI)                 │
+│                                                        │
+│  ┌──────────────┐   ┌────────────────┐   ┌──────────┐  │
+│  │ Router/Auth  │──►│ Input Guard    │──►│ Streamer │  │
+│  └──────────────┘   └────────────────┘   └────┬─────┘  │
+└───────────────────────────────────────────────┼────────┘
+                                                │
+                           3. Async Socket Stream│ (AsyncOpenAI)
+                                                ▼
+                                    ┌──────────────────────┐
+                                    │ Upstream LLM Client  │
+                                    └──────────────────────┘
+          </pre>
+        </div>
+      </div>
+    </section>
+
+    <!-- Documentation & GitHub Source Code Links Section -->
+    <section class="section" id="docs-sources">
+      <div class="container">
+        <div class="section-header">
+          <div class="badge" data-i18n="bot_docs_badge">Documents &amp; Sources</div>
+          <h2 class="section-title" data-i18n="bot_docs_title">Ressources &amp; Spécifications GitHub</h2>
+          <p class="section-subtitle" data-i18n="bot_docs_subtitle">Accédez directement aux spécifications architecturales brutes et au code source sur GitHub</p>
+        </div>
+
+        <div class="features-grid">
+          <a href="https://raw.githubusercontent.com/mdaadoun/5_Chatbot/main/docs/architecture.md" target="_blank" rel="noopener noreferrer" class="glass-card feature-card" style="text-decoration: none; color: inherit;">
+            <div class="card-icon">📄</div>
+            <h3>Architecture Specifications</h3>
+            <p>Spécifications techniques détaillées du streaming SSE, invariants asynchrones et gestion des exceptions.</p>
+            <span style="margin-top: 12px; color: var(--primary-color); font-weight: 600; display: inline-flex; align-items: center; gap: 4px; font-size: 0.9rem;">Lire architecture.md (Raw) ↗</span>
+          </a>
+
+          <a href="https://raw.githubusercontent.com/mdaadoun/5_Chatbot/main/docs/specifications.md" target="_blank" rel="noopener noreferrer" class="glass-card feature-card" style="text-decoration: none; color: inherit;">
+            <div class="card-icon">📋</div>
+            <h3>Product Specifications</h3>
+            <p>Exigences fonctionnelles, KPIs de performance (latence, concurrence) et contrats de garde-fous.</p>
+            <span style="margin-top: 12px; color: var(--primary-color); font-weight: 600; display: inline-flex; align-items: center; gap: 4px; font-size: 0.9rem;">Lire specifications.md (Raw) ↗</span>
+          </a>
+
+          <a href="https://raw.githubusercontent.com/mdaadoun/5_Chatbot/main/docs/presentation.md" target="_blank" rel="noopener noreferrer" class="glass-card feature-card" style="text-decoration: none; color: inherit;">
+            <div class="card-icon">🚀</div>
+            <h3>Executive Presentation</h3>
+            <p>Présentation produit et executive summary démontrant la valeur métier et l'alignement AIPE.</p>
+            <span style="margin-top: 12px; color: var(--primary-color); font-weight: 600; display: inline-flex; align-items: center; gap: 4px; font-size: 0.9rem;">Lire presentation.md (Raw) ↗</span>
+          </a>
+        </div>
+
+        <!-- Repository Link Button -->
+        <div style="margin-top: 40px; text-align: center;">
+          <a href="https://github.com/mdaadoun/5_Chatbot" target="_blank" rel="noopener noreferrer" class="btn btn-secondary btn-lg" style="display: inline-flex; align-items: center; gap: 8px;">
+            <span>🚀 Parcourir l'intégralité du Dépôt Code Source sur GitHub ↗</span>
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <p data-i18n="footer_chatbot_text">Real-Time Web Chatbot — Built with FastAPI Async, SSE & React</p>
+      <p class="footer-sub" data-i18n="footer_sub">Hébergé via GitHub Pages</p>
+    </div>
+  </footer>
+
+  <script src="./app.js"></script>
+</body>
+</html>

@@ -305,35 +305,43 @@
   <!-- Header / Navigation -->
   <header class="navbar" id="navbar">
     <div class="container nav-container">
-      <a href="../" class="logo">
-        <span class="logo-icon">🚀</span>
-        <span class="logo-text">Pax<span>.Fabrica</span></span>
-      </a>
-      <nav>
-        <ul class="nav-links">
-          <li><a href="../#parcours" data-i18n="nav_parcours">Parcours</a></li>
-          <li><a href="../#projects" data-i18n="nav_projects">Projets</a></li>
-          <li><a href="../book/" data-i18n="nav_book">Manuel</a></li>
-          <li>
-            <button class="lang-switch-btn" type="button" aria-label="Passer en Français" title="Passer en Français">
-              <span class="lang-icon">🌐</span>
-              <span class="lang-text">FR</span>
-            </button>
-          </li>
-          <li>
-            <select class="theme-select nav-theme-select" aria-label="Sélectionner le thème">
-              <option value="paxfabrica" data-i18n="theme_paxfabrica">🎨 PaxFabrica</option>
-              <option value="dark" data-i18n="theme_dark">🌙 Sombre</option>
-              <option value="light" data-i18n="theme_light">☀️ Clair</option>
-              <option value="dracula">🧛 Dracula</option>
-              <option value="templeos">👾 TempleOS (8-bit)</option>
-            </select>
+      <div class="nav-brand-group">
+        <a href="../" class="logo">
+          <span class="logo-icon">🚀</span>
+          <span class="logo-text">Pax<span>.Fabrica</span></span>
+        </a>
+        <div class="nav-breadcrumb">
+          <a href="../" data-i18n="nav_hub">← Hub Portfolio</a>
+        </div>
+      </div>
 
+      <button class="mobile-menu-toggle" aria-label="Toggle navigation menu" aria-expanded="false">
+        ☰
+      </button>
 
-          </li>
+      <div class="nav-links-wrapper">
+        <nav>
+          <ul class="nav-links">
+            <li><a href="../#parcours" data-i18n="nav_parcours">Métier</a></li>
+            <li><a href="../#projects" data-i18n="nav_projects">Projets</a></li>
+            <li><a href="../book/" data-i18n="nav_book">Book</a></li>
+          </ul>
+        </nav>
 
-        </ul>
-      </nav>
+        <div class="nav-controls">
+          <button class="lang-switch-btn" type="button" aria-label="Passer en Français" title="Passer en Français">
+            <span class="lang-icon">🌐</span>
+            <span class="lang-text">FR</span>
+          </button>
+          <select class="theme-select nav-theme-select" aria-label="Sélectionner le thème">
+            <option value="paxfabrica" data-i18n="theme_paxfabrica">🎨 PaxFabrica</option>
+            <option value="dark" data-i18n="theme_dark">🌙 Sombre</option>
+            <option value="light" data-i18n="theme_light">☀️ Clair</option>
+            <option value="dracula">🧛 Dracula</option>
+            <option value="templeos">👾 TempleOS (8-bit)</option>
+          </select>
+        </div>
+      </div>
     </div>
   </header>
 

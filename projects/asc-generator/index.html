@@ -20,34 +20,45 @@
   <!-- Header / Navigation -->
   <header class="navbar" id="navbar">
     <div class="container nav-container">
-      <a href="#" class="logo">
-        <span class="logo-icon">⚡</span>
-        <span class="logo-text">asc<span>.generator</span></span>
-      </a>
-      <nav>
-        <ul class="nav-links">
-          <li><a href="../../" class="nav-btn-hub" data-i18n="nav_hub">← Hub Portfolio</a></li>
-          <li><a href="#presentation" data-i18n="nav_presentation">Présentation</a></li>
-          <li><a href="#architecture" data-i18n="nav_architecture">Architecture</a></li>
-          <li><a href="#demo" class="nav-btn-demo" data-i18n="asc_nav_demo">Démo Live & Dashboard</a></li>
-          <li><a href="#docs-sources" data-i18n="nav_docs_sources">Documents & Sources</a></li>
-          <li>
-            <button class="lang-switch-btn" type="button" aria-label="Passer en Français" title="Passer en Français">
-              <span class="lang-icon">🌐</span>
-              <span class="lang-text">FR</span>
-            </button>
-          </li>
-          <li>
-            <select class="theme-select nav-theme-select" aria-label="Sélectionner le thème">
-              <option value="paxfabrica" data-i18n="theme_paxfabrica">🎨 PaxFabrica</option>
-              <option value="dark" data-i18n="theme_dark">🌙 Sombre</option>
-              <option value="light" data-i18n="theme_light">☀️ Clair</option>
-              <option value="dracula">🧛 Dracula</option>
-              <option value="templeos">👾 TempleOS (8-bit)</option>
-            </select>
-          </li>
-        </ul>
-      </nav>
+      <div class="nav-brand-group">
+        <a href="../../" class="logo">
+          <span class="logo-icon">⚡</span>
+          <span class="logo-text">asc<span>.generator</span></span>
+        </a>
+        <div class="nav-breadcrumb">
+          <a href="../../" data-i18n="nav_hub">← Hub Portfolio</a>
+        </div>
+      </div>
+
+      <button class="mobile-menu-toggle" aria-label="Toggle navigation menu" aria-expanded="false">
+        ☰
+      </button>
+
+      <div class="nav-links-wrapper">
+        <nav>
+          <ul class="nav-links">
+            <li><a href="#presentation" data-i18n="nav_presentation">Overview</a></li>
+            <li><a href="#architecture" data-i18n="nav_architecture">Architecture</a></li>
+            <li><a href="#presentation" data-i18n="nav_specs">Technical Specs</a></li>
+            <li><a href="#demo" data-i18n="asc_nav_demo">Interactive Mock Playground</a></li>
+            <li><a href="#docs-sources" data-i18n="nav_docs_sources">Docs & GitHub ↗</a></li>
+          </ul>
+        </nav>
+
+        <div class="nav-controls">
+          <button class="lang-switch-btn" type="button" aria-label="Passer en Français" title="Passer en Français">
+            <span class="lang-icon">🌐</span>
+            <span class="lang-text">FR</span>
+          </button>
+          <select class="theme-select nav-theme-select" aria-label="Sélectionner le thème">
+            <option value="paxfabrica" data-i18n="theme_paxfabrica">🎨 PaxFabrica</option>
+            <option value="dark" data-i18n="theme_dark">🌙 Sombre</option>
+            <option value="light" data-i18n="theme_light">☀️ Clair</option>
+            <option value="dracula">🧛 Dracula</option>
+            <option value="templeos">👾 TempleOS (8-bit)</option>
+          </select>
+        </div>
+      </div>
     </div>
   </header>
 
@@ -194,10 +205,12 @@
     <!-- Interactive Live Extraction Demo Section -->
     <section class="section" id="demo">
       <div class="container">
-        <div class="section-header">
-          <div class="badge badge-accent" data-i18n="asc_demo_badge">Playground Interactif</div>
-          <h2 class="section-title" data-i18n="asc_demo_title">Démo Live Extraction & Simulator Dashboard</h2>
-          <p class="section-subtitle" data-i18n="asc_demo_subtitle">Sélectionnez une dépêche d'actualité ou saisissez votre texte pour tester le pare-feu Pydantic V2</p>
+        <!-- Mock Disclaimer Alert Banner -->
+        <div class="glass-card" style="margin-bottom: 24px; padding: 14px 20px; background: rgba(99, 102, 241, 0.1); border-color: rgba(99, 102, 241, 0.3); display: flex; align-items: center; gap: 12px; font-size: 0.9rem; color: var(--text-main);">
+          <span style="font-size: 1.2rem;">💡</span>
+          <span>
+            <strong>Note de démonstration :</strong> Ce dashboard interactif est une simulation côté client (Mock Dashboard) reproduisant la validation Pydantic V2 et la correction Instructor. Il ne réalise pas d'appels API en production sur ce site statique.
+          </span>
         </div>
 
         <!-- Playground Option Controls Bar -->
