@@ -151,11 +151,14 @@
         </div>
 
         <!-- Mock Disclaimer Alert Banner -->
-        <div class="glass-card" style="margin-bottom: 24px; padding: 14px 20px; background: rgba(99, 102, 241, 0.1); border-color: rgba(99, 102, 241, 0.3); display: flex; align-items: center; gap: 12px; font-size: 0.9rem; color: var(--text-main);">
-          <span style="font-size: 1.2rem;">💡</span>
-          <span data-i18n="mock_disclaimer_chatbot">
-            <strong>Note de démonstration :</strong> Ce playground est une simulation côté client (Mock SSE Client-Side) représentant le comportement exact du backend FastAPI &amp; du client React. Il n'exécute pas de requêtes LLM en production sur ce site statique.
-          </span>
+        <div class="glass-card" style="margin-bottom: 28px; padding: 18px 24px; background: rgba(99, 102, 241, 0.12); border: 1px solid rgba(99, 102, 241, 0.4); border-radius: 12px; display: flex; align-items: flex-start; gap: 14px; font-size: 0.93rem; color: var(--text-main); line-height: 1.6;">
+          <span style="font-size: 1.4rem; line-height: 1;">⚠️</span>
+          <div>
+            <strong style="color: #a5b4fc;">Environnement de Démonstration (Simulateur Mock Côté Client) :</strong>
+            <span style="color: var(--text-muted); display: block; margin-top: 4px;">
+              Ce site étant hébergé sur une infrastructure entièrement statique (GitHub Pages), ce playground est une <strong>émulation simulée (Mock Stream)</strong> reproduisant fidèlement les événements Server-Sent Events (SSE), la latence TTFT &lt; 100ms, l'isolation des injections de prompt et le suivi FinOps. <strong>Aucune requête réseau en production vers un backend FastAPI actif n'est exécutée ici.</strong>
+            </span>
+          </div>
         </div>
 
         <div class="chatbot-playground-grid">
@@ -245,11 +248,13 @@
       <div class="container">
         <div class="section-header">
           <div class="badge badge-accent" data-i18n="bot_arch_badge">Spécifications Techniques</div>
-          <h2 class="section-title" data-i18n="bot_arch_title">Architecture &amp; Technical Specifications</h2>
-          <p class="section-subtitle" data-i18n="bot_arch_subtitle">Flux de données Server-Sent Events et isolation multi-couches</p>
+          <h2 class="section-title" data-i18n="bot_arch_title">Architecture System &amp; Non-Blocking Specs</h2>
+          <p class="section-subtitle" data-i18n="bot_arch_subtitle">Invariants d'asynchronisme, streaming SSE, garde-fous de sécurité et métriques FinOps</p>
         </div>
 
-        <div class="glass-card arch-diagram-card" id="architecture">
+        <!-- System Flow Diagram Card -->
+        <div class="glass-card arch-diagram-card" id="architecture" style="margin-bottom: 32px;">
+          <h3 style="margin-bottom: 16px; font-size: 1.1rem; color: var(--text-main);">┌─ Topology &amp; Non-Blocking Data Flow</h3>
           <pre class="arch-flow-diagram">
 ┌────────────────────────────────────────────────────────┐
 │                    REACT FRONTEND (Vite)               │
@@ -273,6 +278,52 @@
                                     │ Upstream LLM Client  │
                                     └──────────────────────┘
           </pre>
+        </div>
+
+        <!-- Technical Specification Matrix Table -->
+        <div class="glass-card specs-table-card">
+          <h3 style="margin-bottom: 20px; font-size: 1.1rem; color: var(--text-main);">┌─ Stack Engineering &amp; Architectural Invariants</h3>
+          <table class="specs-table" style="width: 100%; border-collapse: collapse; font-size: 0.92rem;">
+            <thead>
+              <tr style="border-bottom: 2px solid var(--border-color); text-align: left;">
+                <th style="padding: 12px; color: var(--text-main);">Composant / Layer</th>
+                <th style="padding: 12px; color: var(--text-main);">Technologie</th>
+                <th style="padding: 12px; color: var(--text-main);">Exigence &amp; Invariant d'Architecture</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr style="border-bottom: 1px solid var(--border-color);">
+                <td style="padding: 12px;"><strong>Backend Core</strong></td>
+                <td style="padding: 12px;"><code>Python 3.11+ / FastAPI</code></td>
+                <td style="padding: 12px;">ASGI event-loop scheduling, 100% <code>Mypy --strict</code>, zero blocking calls (<code>time.sleep</code> forbidden).</td>
+              </tr>
+              <tr style="border-bottom: 1px solid var(--border-color);">
+                <td style="padding: 12px;"><strong>Client Async</strong></td>
+                <td style="padding: 12px;"><code>AsyncOpenAI / httpx</code></td>
+                <td style="padding: 12px;">Client poulé unique initialisé dans le <code>lifespan</code> FastAPI (recyclage d'attente à la fermeture).</td>
+              </tr>
+              <tr style="border-bottom: 1px solid var(--border-color);">
+                <td style="padding: 12px;"><strong>Transport Stream</strong></td>
+                <td style="padding: 12px;"><code>Server-Sent Events (SSE)</code></td>
+                <td style="padding: 12px;">Header <code>X-Accel-Buffering: no</code>, TTFT &lt; 100ms, événements typés (<code>token</code>, <code>error</code>, <code>done</code>).</td>
+              </tr>
+              <tr style="border-bottom: 1px solid var(--border-color);">
+                <td style="padding: 12px;"><strong>Contrats &amp; Schemas</strong></td>
+                <td style="padding: 12px;"><code>Pydantic V2 Strict</code></td>
+                <td style="padding: 12px;">Data contracts immutables (<code>frozen=True</code>, <code>extra="forbid"</code>), validation per-chunk.</td>
+              </tr>
+              <tr style="border-bottom: 1px solid var(--border-color);">
+                <td style="padding: 12px;"><strong>Sécurité &amp; Prompt</strong></td>
+                <td style="padding: 12px;"><code>Defensive Guardrails</code></td>
+                <td style="padding: 12px;">Sanitisation des entrées utilisateur, neutralisation des surcharges de prompt system et des payloads malveillants.</td>
+              </tr>
+              <tr>
+                <td style="padding: 12px;"><strong>Résilience Sockets</strong></td>
+                <td style="padding: 12px;"><code>Tenacity Backoff</code></td>
+                <td style="padding: 12px;">Retry exponentiel avec jitter à l'établissement socket (429/5xx), gestion du <code>AbortController</code> à la déconnexion.</td>
+              </tr>
+            </tbody>
+          </table>
         </div>
       </div>
     </section>
