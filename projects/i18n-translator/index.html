@@ -333,6 +333,63 @@
           </div>
         </div>
       </div>
+    <!-- Documentation & Source Code Links Section -->
+    <section class="section" id="docs-sources">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-title" data-i18n="cli_docs_title">Documents d'Architecture & Code Source</h2>
+          <p class="section-subtitle" data-i18n="cli_docs_subtitle">Accédez directement aux ressources brutes sur GitHub ou au dépôt de code source complet.</p>
+        </div>
+
+        <div class="features-grid">
+          <!-- Link 1: Guide du Code Source -->
+          <a href="https://raw.githubusercontent.com/mdaadoun/1_traducteur_i18n/main/README.md" target="_blank" rel="noopener noreferrer" class="glass-card feature-card" style="text-decoration: none; color: inherit; height: 100%;">
+            <div class="card-icon" style="color: var(--primary-color);">💻</div>
+            <h3>Guide du Code Source & CLI</h3>
+            <p>Spécifications du traducteur batch JSON/Markdown et intégration GCP Cloud Run.</p>
+            <span class="read-link" style="margin-top: auto; color: var(--primary-color); font-weight: 600; display: inline-flex; align-items: center; gap: 4px; font-size: 0.9rem;">
+              Lire README.md (Raw) ↗
+            </span>
+          </a>
+
+          <!-- Link 2: Module Regex & Checkpoint -->
+          <a href="https://raw.githubusercontent.com/mdaadoun/1_traducteur_i18n/main/src/regex_utils.py" target="_blank" rel="noopener noreferrer" class="glass-card feature-card" style="text-decoration: none; color: inherit; height: 100%;">
+            <div class="card-icon" style="color: var(--accent-color);">🛡️</div>
+            <h3>Protection des Variables & Checkpoint</h3>
+            <p>Règles d'isolation regex pour les balises i18n et sauvegarde atomique de l'état de traduction sur disque.</p>
+            <span class="read-link" style="margin-top: auto; color: var(--accent-color); font-weight: 600; display: inline-flex; align-items: center; gap: 4px; font-size: 0.9rem;">
+              Consulter regex_utils.py (Raw) ↗
+            </span>
+          </a>
+
+          <!-- Link 3: Modèles Pydantic & Retry -->
+          <a href="https://raw.githubusercontent.com/mdaadoun/1_traducteur_i18n/main/src/retry.py" target="_blank" rel="noopener noreferrer" class="glass-card feature-card" style="text-decoration: none; color: inherit; height: 100%;">
+            <div class="card-icon" style="color: #3b82f6;">🔄</div>
+            <h3>Stratégie Retry & Backoff LLM</h3>
+            <p>Gestion déterministe des quotas d'API, relances exponentielles et assainissement des réponses JSON.</p>
+            <span class="read-link" style="margin-top: auto; color: #3b82f6; font-weight: 600; display: inline-flex; align-items: center; gap: 4px; font-size: 0.9rem;">
+              Consulter retry.py (Raw) ↗
+            </span>
+          </a>
+
+          <!-- Link 4: Déploiement Cloud Run -->
+          <a href="https://raw.githubusercontent.com/mdaadoun/1_traducteur_i18n/main/deploy_gcp_cloud_run.sh" target="_blank" rel="noopener noreferrer" class="glass-card feature-card" style="text-decoration: none; color: inherit; height: 100%;">
+            <div class="card-icon" style="color: var(--warning-color);">🚀</div>
+            <h3>Script de Déploiement GCP</h3>
+            <p>Automates bash pour la compilation du conteneur Docker et le déploiement serverless sur Google Cloud Run.</p>
+            <span class="read-link" style="margin-top: auto; color: var(--warning-color); font-weight: 600; display: inline-flex; align-items: center; gap: 4px; font-size: 0.9rem;">
+              Consulter deploy_gcp.sh (Raw) ↗
+            </span>
+          </a>
+        </div>
+
+        <!-- Full Repository Access Banner -->
+        <div style="margin-top: 40px; text-align: center;">
+          <a href="https://github.com/mdaadoun/1_traducteur_i18n" target="_blank" rel="noopener noreferrer" class="btn btn-secondary btn-lg" style="display: inline-flex; align-items: center; gap: 8px;">
+            <span>🚀 Parcourir l'intégralité du Dépôt Code Source sur GitHub ↗</span>
+          </a>
+        </div>
+      </div>
     </section>
   </main>
 
