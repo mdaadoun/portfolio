@@ -217,11 +217,14 @@
     <section class="section" id="demo">
       <div class="container">
         <!-- Mock Disclaimer Alert Banner -->
-        <div class="glass-card" style="margin-bottom: 24px; padding: 14px 20px; background: rgba(99, 102, 241, 0.1); border-color: rgba(99, 102, 241, 0.3); display: flex; align-items: center; gap: 12px; font-size: 0.9rem; color: var(--text-main);">
-          <span style="font-size: 1.2rem;">💡</span>
-          <span>
-            <strong>Note de démonstration :</strong> Cet émulateur terminal est une simulation côté client (Mock CLI Emulator) reproduisant la Rich UI Typer et le moteur FinOps. Il ne lance pas de processus CLI en production sur ce site statique.
-          </span>
+        <div class="glass-card" style="margin-bottom: 24px; padding: 16px 22px; background: rgba(99, 102, 241, 0.12); border: 1px solid rgba(99, 102, 241, 0.4); border-radius: 12px; display: flex; align-items: flex-start; gap: 14px; font-size: 0.93rem; color: var(--text-main); line-height: 1.6;">
+          <span style="font-size: 1.4rem; line-height: 1;">⚠️</span>
+          <div>
+            <strong style="color: #a5b4fc;" data-i18n="mock_disclaimer_cli_title">Environnement de Démonstration (Simulateur Mock Côté Client) :</strong>
+            <span style="color: var(--text-muted); display: block; margin-top: 4px;" data-i18n="mock_disclaimer_cli_desc">
+              Cet émulateur terminal est une <strong>simulation côté client (Mock CLI Emulator)</strong> reproduisant la Rich UI Typer et le moteur FinOps. <strong>Aucun processus CLI ni appel API en production n'est lancé sur ce site statique.</strong>
+            </span>
+          </div>
         </div>
 
         <!-- CLI Option Toggles -->
