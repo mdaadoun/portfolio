@@ -256,11 +256,29 @@
           <p class="section-subtitle" data-i18n="client_rdv_subtitle">Sélectionnez un créneau dans l'agenda ci-dessous pour échanger directement sur vos besoins documentaires ou lancer un Pilote Flash.</p>
         </div>
 
-        <div class="glass-card" style="padding: 16px; border-color: rgba(99, 102, 241, 0.3); border-radius: 16px; overflow: hidden; background: rgba(15, 23, 42, 0.6);">
-          <!-- Calendly inline widget begin -->
-          <div class="calendly-inline-widget" data-url="https://calendly.com/d/d3k4-xz8-pwt?background_color=435edb&text_color=f4f5ef&primary_color=eb9d45" style="min-width:320px;height:700px;"></div>
-          <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
-          <!-- Calendly inline widget end -->
+        <div class="glass-card" style="padding: 32px 24px; text-align: center; border-color: rgba(99, 102, 241, 0.3); border-radius: 16px; background: rgba(15, 23, 42, 0.6);">
+          <div id="rdvPromptBox">
+            <p style="font-size: 1.05rem; color: var(--text-muted); margin-bottom: 24px; max-width: 680px; margin-left: auto; margin-right: auto;" data-i18n="client_rdv_prompt">
+              Réservez un créneau directement dans notre agenda en ligne pour discuter de vos pièces écrites (DPGF / CCTP) ou lancer votre Pilote Flash.
+            </p>
+            <button type="button" class="btn btn-primary btn-lg" id="btnOpenCalendly" style="cursor: pointer; display: inline-flex; align-items: center; gap: 10px;">
+              <span data-i18n="client_rdv_btn_open">📅 Ouvrir l'agenda de prise de rendez-vous</span>
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 9l-7 7-7-7"/></svg>
+            </button>
+          </div>
+
+          <div id="calendlyFrameWrapper" style="display: none; margin-top: 24px; text-align: left;">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px; padding-bottom: 12px; border-bottom: 1px solid rgba(255,255,255,0.1);">
+              <span style="font-size: 0.95rem; font-weight: 600; color: var(--text-color);">📅 Agenda interactif Calendly</span>
+              <button type="button" class="btn btn-secondary btn-sm" id="btnCloseCalendly" style="padding: 6px 14px; font-size: 0.85rem; cursor: pointer;">
+                <span data-i18n="client_rdv_btn_close">✖ Masquer l'agenda</span>
+              </button>
+            </div>
+            <!-- Calendly inline widget begin -->
+            <div class="calendly-inline-widget" data-url="https://calendly.com/d/d3k4-xz8-pwt?background_color=435edb&text_color=f4f5ef&primary_color=eb9d45" style="min-width:320px;height:700px;"></div>
+            <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
+            <!-- Calendly inline widget end -->
+          </div>
         </div>
       </div>
     </section>
@@ -451,6 +469,36 @@
         hoursInput.addEventListener('input', updateRoi);
         updateRoi();
       }
+
+      // Calendly Frame Toggle & CTA Intercept Logic
+      const btnOpenCalendly = document.getElementById('btnOpenCalendly');
+      const btnCloseCalendly = document.getElementById('btnCloseCalendly');
+      const calendlyWrapper = document.getElementById('calendlyFrameWrapper');
+
+      function showCalendly() {
+        if (calendlyWrapper) {
+          calendlyWrapper.style.display = 'block';
+        }
+      }
+
+      function hideCalendly() {
+        if (calendlyWrapper) {
+          calendlyWrapper.style.display = 'none';
+        }
+      }
+
+      if (btnOpenCalendly) {
+        btnOpenCalendly.addEventListener('click', showCalendly);
+      }
+      if (btnCloseCalendly) {
+        btnCloseCalendly.addEventListener('click', hideCalendly);
+      }
+
+      document.querySelectorAll('a[href="#rdv"]').forEach(link => {
+        link.addEventListener('click', () => {
+          showCalendly();
+        });
+      });
     });
   </script>
 </body>
