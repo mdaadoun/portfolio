@@ -1,0 +1,174 @@
+/* ==============================================================================
+   RAG Ingestion Pipeline & Quality Audit — Project Specific Styles
+   ============================================================================== */
+
+.rag-playground-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  margin-top: 32px;
+}
+
+@media (max-width: 992px) {
+  .rag-playground-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.rag-card {
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.input-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.input-label {
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: var(--text-muted, #94a3b8);
+}
+
+.input-select, .input-textarea {
+  background: rgba(15, 23, 42, 0.6);
+  border: 1px solid var(--border-color, rgba(255, 255, 255, 0.15));
+  border-radius: 8px;
+  padding: 10px 14px;
+  color: var(--text-main, #fff);
+  font-family: inherit;
+  font-size: 0.9rem;
+  outline: none;
+  transition: var(--transition, all 0.2s);
+}
+
+.input-textarea {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.85rem;
+  min-height: 160px;
+  resize: vertical;
+}
+
+.input-select:focus, .input-textarea:focus {
+  border-color: var(--primary-color, #6366f1);
+  box-shadow: 0 0 0 2px rgba(99, 102, 241, 0.2);
+}
+
+.controls-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+.audit-metrics-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+}
+
+@media (max-width: 768px) {
+  .audit-metrics-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.metric-card {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid var(--border-color, rgba(255, 255, 255, 0.08));
+  border-radius: 10px;
+  padding: 12px 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.metric-card-title {
+  font-size: 0.75rem;
+  color: var(--text-muted, #94a3b8);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.metric-card-val {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--text-main, #fff);
+}
+
+.metric-card-val.status-pass {
+  color: #10b981;
+}
+
+.chunks-list-container {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  max-height: 420px;
+  overflow-y: auto;
+  padding-right: 4px;
+}
+
+.chunk-card {
+  background: rgba(15, 23, 42, 0.5);
+  border: 1px solid var(--border-color, rgba(255, 255, 255, 0.1));
+  border-radius: 8px;
+  padding: 12px 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.chunk-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.8rem;
+}
+
+.chunk-id {
+  font-family: 'JetBrains Mono', monospace;
+  font-weight: 600;
+  color: var(--primary-color, #818cf8);
+}
+
+.chunk-meta {
+  color: var(--text-muted, #94a3b8);
+}
+
+.chunk-text {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.82rem;
+  line-height: 1.4;
+  color: var(--text-main, #e2e8f0);
+  background: rgba(0, 0, 0, 0.2);
+  padding: 8px 10px;
+  border-radius: 6px;
+  white-space: pre-wrap;
+}
+
+.audit-json-box {
+  background: #0f172a;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  padding: 14px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.82rem;
+  color: #38bdf8;
+  max-height: 200px;
+  overflow-y: auto;
+  white-space: pre;
+}
+
+.arch-flow-diagram {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.85rem;
+  line-height: 1.4;
+  color: var(--primary-color, #818cf8);
+  margin: 0;
+  white-space: pre;
+}

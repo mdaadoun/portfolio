@@ -1,7 +1,3 @@
-Voici la traduction complète et fidèle en français du chapitre **Chapter 5: Data Ingestion & Continuous ETL Pipelines**.
-
----
-
 # Chapitre 5 : Ingestion des données et pipelines ETL continus
 
 > *"Garbage in, gospel out ? Pas tout à fait. Garbage in, garbage embedded — et c'est bien pire."*

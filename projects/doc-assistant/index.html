@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Enterprise Document Assistant ("Chat with your Doc") — Advanced RAG Engine</title>
+  <meta name="description" content="Assistant documentaire d'entreprise basé sur la recherche hybride (BM25 + Vectoriel), le re-ranking FlashRank et des garde-fous de grounding anti-hallucination.">
+  <link rel="icon" href="../../favicon.ico" type="image/x-icon">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Outfit:wght@400;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../style.css?v=3.0">
+  <link rel="stylesheet" href="./style.css?v=1.0">
+  <script src="../../theme.js"></script>
+  <script src="../../lang.js"></script>
+</head>
+<body>
+  <div class="background-glow glow-1"></div>
+  <div class="background-glow glow-2"></div>
+
+  <!-- Header / Navigation -->
+  <header class="navbar" id="navbar">
+    <div class="container nav-container">
+      <div class="nav-brand-group">
+        <a href="../../" class="logo">
+          <span class="logo-icon">🔍</span>
+          <span class="logo-text">doc<span>.assistant</span></span>
+        </a>
+        <div class="nav-breadcrumb">
+          <a href="../../" data-i18n="nav_hub">← Hub Portfolio</a>
+        </div>
+      </div>
+
+      <button class="mobile-menu-toggle" aria-label="Toggle navigation menu" aria-expanded="false">
+        ☰
+      </button>
+
+      <div class="nav-links-wrapper">
+        <nav>
+          <ul class="nav-links">
+            <li><a href="#presentation" data-i18n="nav_presentation">Overview</a></li>
+            <li><a href="#architecture" data-i18n="nav_architecture">Architecture</a></li>
+            <li><a href="#demo" data-i18n="doc_nav_demo">Interactive RAG Playground</a></li>
+            <li><a href="#docs-sources" data-i18n="nav_docs_sources">Docs & GitHub ↗</a></li>
+          </ul>
+        </nav>
+
+        <div class="nav-controls">
+          <button class="lang-switch-btn" type="button" aria-label="Passer en Français" title="Passer en Français">
+            <span class="lang-icon">🌐</span>
+            <span class="lang-text">FR</span>
+          </button>
+          <select class="theme-select nav-theme-select" aria-label="Sélectionner le thème">
+            <option value="paxfabrica" data-i18n="theme_paxfabrica">🎨 PaxFabrica</option>
+            <option value="dark" data-i18n="theme_dark">🌙 Sombre</option>
+            <option value="light" data-i18n="theme_light">☀️ Clair</option>
+            <option value="dracula">🧛 Dracula</option>
+          </select>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- Hero Section -->
+    <section class="hero" id="hero">
+      <div class="container hero-container">
+        <div class="badge">
+          <span class="badge-dot"></span>
+          <span data-i18n="doc_hero_badge">Enterprise Advanced RAG Engine</span>
+        </div>
+        <h1 class="hero-title" data-i18n="doc_hero_title">Enterprise Document Assistant <span class="gradient-text">("Chat with your Doc")</span></h1>
+        <p class="hero-desc" data-i18n="doc_hero_desc">
+          Moteur RAG d'entreprise à zéro hallucination capable d'interroger plus de 5 000 pages avec une recherche hybride (BM25 + Vectoriel), re-ranking FlashRank et citations obligatoires de sources d'origine.
+        </p>
+
+        <div class="tech-stack-pills">
+          <span class="pill">Hybrid Search (BM25 + Vector)</span>
+          <span class="pill">Qdrant / PGVector</span>
+          <span class="pill">FlashRank Re-ranking</span>
+          <span class="pill">Strict Grounding Filter</span>
+          <span class="pill">Source Citation Chips</span>
+          <span class="pill">FastAPI &amp; React UI</span>
+          <span class="pill">FinOps Cost Evals</span>
+        </div>
+
+        <div class="hero-actions">
+          <a href="#demo" class="btn btn-primary btn-lg">
+            <span data-i18n="doc_hero_btn_demo">Tester le Playground RAG</span>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+          <a href="#presentation" class="btn btn-secondary btn-lg" data-i18n="doc_hero_btn_arch">Découvrir l'Architecture</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Presentation Section -->
+    <section class="section" id="presentation">
+      <div class="container">
+        <div class="section-header">
+          <div class="badge" data-i18n="doc_pres_badge">Performance &amp; Grounding RAG</div>
+          <h2 class="section-title" data-i18n="doc_pres_title">Les 4 Piliers du Chatbot Documentaire d'Entreprise</h2>
+          <p class="section-subtitle" data-i18n="doc_pres_subtitle">Garantir des réponses précises, ancrées dans la vérité terrain et vérifiables</p>
+        </div>
+
+        <div class="features-grid">
+          <div class="glass-card feature-card">
+            <div class="card-icon">🔀</div>
+            <h3 data-i18n="doc_card1_title">1. Recherche Hybride (BM25 + Dense)</h3>
+            <p data-i18n="doc_card1_desc">
+              Fusion par Reciprocal Rank Fusion (RRF) combinant la précision exacte de la recherche lexicale (BM25) et la compréhension conceptuelle des embeddings vectoriels.
+            </p>
+          </div>
+
+          <div class="glass-card feature-card">
+            <div class="card-icon">🎯</div>
+            <h3 data-i18n="doc_card2_title">2. Re-Ranking FlashRank Cross-Encoder</h3>
+            <p data-i18n="doc_card2_desc">
+              Raffinage ultra-rapide des 20 premiers résultats via un modèle Cross-Encoder local (FlashRank) éliminant les faux positifs avant transmission au LLM.
+            </p>
+          </div>
+
+          <div class="glass-card feature-card">
+            <div class="card-icon">🛡️</div>
+            <h3 data-i18n="doc_card3_title">3. Filtre de Grounding Strict &amp; Anti-Hallucination</h3>
+            <p data-i18n="doc_card3_desc">
+              Injection d'une consigne de franchise obligatoire ("Je ne sais pas") si le score de similarité du corpus est inférieur au seuil de pertinence minimal.
+            </p>
+          </div>
+
+          <div class="glass-card feature-card">
+            <div class="card-icon">📍</div>
+            <h3 data-i18n="doc_card4_title">4. Citations &amp; Provenance Traçable</h3>
+            <p data-i18n="doc_card4_desc">
+              Chaque affirmation générée est obligatoirement accompagnée d'un badge de provenance renvoyant vers le document et le numéro de paragraphe exact.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Architecture Section -->
+    <section class="section" id="architecture">
+      <div class="container">
+        <div class="section-header">
+          <div class="badge" data-i18n="doc_arch_badge">Spécifications Techniques</div>
+          <h2 class="section-title" data-i18n="doc_arch_title">Architecture du Moteur RAG Hybride</h2>
+          <p class="section-subtitle" data-i18n="doc_arch_subtitle">Cycle de vie d'une requête documentaire de l'indexation jusqu'à la réponse générée</p>
+        </div>
+
+        <div class="glass-card arch-diagram-card">
+          <pre class="arch-flow-diagram">
++----------------+      +-----------------------+      +--------------------------+
+| User Query     | ---> | Dual Retrieval Engine | ---> | Reciprocal Rank Fusion   |
+| (Natural Lang) |      | (BM25 + Cosine Vector)|      | (RRF Candidates)         |
++----------------+      +-----------------------+      +--------------------------+
+                                                                     |
+                                                                     v
++----------------+      +-----------------------+      +--------------------------+
+| Grounded LLM   | <--- | Grounding Filter &    | <--- | FlashRank Cross-Encoder  |
+| Answer & Chips |      | System Prompt Framing |      | (Top-K Re-ranking)       |
++----------------+      +-----------------------+      +--------------------------+
+          </pre>
+        </div>
+      </div>
+    </section>
+
+    <!-- Interactive Live Demo & RAG Playground -->
+    <section class="section" id="demo">
+      <div class="container">
+        <div class="section-header">
+          <div class="badge badge-accent" data-i18n="doc_demo_badge">Playground Interactif</div>
+          <h2 class="section-title" data-i18n="doc_demo_title">Simulateur RAG Hybride &amp; Assistant Documentaire</h2>
+          <p class="section-subtitle" data-i18n="doc_demo_subtitle">Posez des questions sur le corpus technique pour observer la recherche hybride, le re-ranking et les citations</p>
+        </div>
+
+        <div class="glass-card" style="margin-bottom: 20px; border-left: 4px solid var(--primary-color);">
+          <div style="font-weight: 700; font-size: 0.95rem; margin-bottom: 4px;" data-i18n="mock_disclaimer_doc_title">
+            Environnement de Démonstration (Simulateur Mock Client) :
+          </div>
+          <div style="font-size: 0.88rem; color: var(--text-muted);" data-i18n="mock_disclaimer_doc_desc">
+            Ce playground RAG est une <strong>simulation client (Moteur RAG Mock)</strong> démontrant la fusion de recherche hybride (BM25 + Vectoriel), le score de re-ranking FlashRank, la citation des sources et la génération ancrée.
+          </div>
+        </div>
+
+        <div class="doc-playground-grid">
+          <!-- Left: Query Form & Answer Display -->
+          <div class="glass-card doc-card">
+            <h3 style="font-size: 1.1rem; font-weight: 700;">💬 Posez votre question au Corpus</h3>
+
+            <div class="preset-pills-row">
+              <span class="preset-label">Exemples de requêtes :</span>
+              <button class="preset-pill-btn" data-preset="hybrid">🔍 Search Hybride &amp; BM25</button>
+              <button class="preset-pill-btn" data-preset="pydantic">🛡️ Pydantic V2 &amp; Sécurité</button>
+              <button class="preset-pill-btn" data-preset="finops">💰 Tarification GPT-4o &amp; FinOps</button>
+              <button class="preset-pill-btn" data-preset="injection">🔒 Attaques Prompt Injection</button>
+              <button class="preset-pill-btn" data-preset="unknown">⚠️ Question Hors-Corpus</button>
+            </div>
+
+            <div class="rag-query-form">
+              <input type="text" id="ragQueryInput" class="rag-query-input" placeholder="Tapez une question en langage naturel...">
+              <button id="btnSubmitQuery" class="btn btn-primary" type="button">Interroger ↵</button>
+            </div>
+
+            <div style="margin-top: 10px;">
+              <h4 style="font-size: 0.9rem; font-weight: 600; color: var(--text-muted); margin-bottom: 8px;">1. Chunks Pertinents Extraits &amp; Re-Rankés :</h4>
+              <div id="retrievedChunksContainer" class="chunks-retrieved-container"></div>
+            </div>
+
+            <div class="answer-output-card">
+              <h4 style="font-size: 0.95rem; font-weight: 700; color: var(--primary-color);">2. Réponse Ancrée (Grounded Answer) :</h4>
+              <div id="ragAnswerText" class="answer-text"></div>
+            </div>
+          </div>
+
+          <!-- Right: Telemetry & Controls Sidebar -->
+          <div class="glass-card doc-card">
+            <h3 style="font-size: 1.1rem; font-weight: 700;">⚙️ Télémétrie RAG &amp; Metrics</h3>
+
+            <div class="telemetry-item">
+              <span style="color: var(--text-muted);">Latence de Recherche :</span>
+              <span class="telemetry-val" id="telLatency">0 ms</span>
+            </div>
+
+            <div class="telemetry-item">
+              <span style="color: var(--text-muted);">Confiance Grounding % :</span>
+              <span class="telemetry-val" id="telConfidence" style="color: #34d399;">100%</span>
+            </div>
+
+            <div class="telemetry-item">
+              <span style="color: var(--text-muted);">Top-K Chunks Utilisés :</span>
+              <span class="telemetry-val" id="telTopK">0</span>
+            </div>
+
+            <div class="telemetry-item">
+              <span style="color: var(--text-muted);">Coût Est. Session (USD) :</span>
+              <span class="telemetry-val" id="telCost">$0.0000</span>
+            </div>
+
+            <hr style="border: none; border-top: 1px solid var(--border-color); margin: 8px 0;">
+
+            <h4 style="font-size: 0.88rem; font-weight: 600;">Stratégies d'Indexation Active :</h4>
+            <div style="font-size: 0.82rem; color: var(--text-muted); line-height: 1.5;">
+              • Engine: Qdrant Vector DB (384-dim text-embedding-3-small)<br>
+              • Lexical: BM25 Okapi Index<br>
+              • Reranker: FlashRank ms-marco-MiniLM-L-6-v2<br>
+              • Citation Mode: Strict In-line Pointer
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Docs & Sources Section -->
+    <section class="section" id="docs-sources">
+      <div class="container">
+        <div class="section-header">
+          <div class="badge" data-i18n="nav_docs_sources">Docs &amp; Sources</div>
+          <h2 class="section-title">Spécifications &amp; Code Source du RAG Assistant</h2>
+          <p class="section-subtitle">Consultez la documentation technique détaillée de l'assistant documentaire</p>
+        </div>
+
+        <div class="features-grid">
+          <div class="glass-card doc-resource-card">
+            <h3>📖 Spécifications Techniques (specifications.md)</h3>
+            <p>Architecture détaillée de la recherche hybride, des filtres de grounding et du re-ranking.</p>
+            <a href="https://github.com/mdaadoun/ai-engineering/blob/main/projects/7_doc_assistant/docs/specifications.md" target="_blank" rel="noopener" class="btn btn-secondary btn-full" style="margin-top: 12px;">Voir specifications.md ↗</a>
+          </div>
+        </div>
+
+        <div style="text-align: center; margin-top: 32px;">
+          <a href="https://github.com/mdaadoun/ai-engineering/tree/main/projects/7_doc_assistant" target="_blank" rel="noopener" class="btn btn-primary btn-lg">
+            🚀 Parcourir le Dépôt GitHub du Projet 7_doc_assistant ↗
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <p>Enterprise Document Assistant ("Chat with your Doc") — Hybrid RAG &amp; Strict Grounding</p>
+      <p class="footer-sub">Hébergé sur GitHub Pages</p>
+    </div>
+  </footer>
+
+  <script src="./app.js"></script>
+</body>
+</html>

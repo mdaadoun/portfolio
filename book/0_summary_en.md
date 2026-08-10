@@ -105,13 +105,13 @@
 ### Project 8: The FinOps Optimizer
 * Integration of a Redis semantic caching layer on an existing application, cutting API costs by 3x while dropping latency to < 50ms.
 
-### Chapter 10: Continuous Evaluation (LLM-as-a-Judge) & Observability
+<!-- ### Chapter 10: Continuous Evaluation (LLM-as-a-Judge) & Observability
 * Why traditional unit tests fail with non-deterministic AI.
 * Automated evaluation frameworks (Ragas, TruLens): Scientifically measuring faithfulness, context relevance, and toxicity.
 * Advanced Tracing & Observability: Tracking every step of a multi-agent graph with LangSmith, Helicone, or Phoenix.
 
 ### Project 9: The CI/CD Gatekeeper
-* Automated pipeline (GitHub Actions) generating synthetic test datasets, evaluating RAG response quality via *LLM-as-a-judge*, and blocking deployments if relevance drops.
+* Automated pipeline (GitHub Actions) generating synthetic test datasets, evaluating RAG response quality via *LLM-as-a-judge*, and blocking deployments if relevance drops. -->
 
 ### Chapter 11: Security, Guardrails & Regulatory Framework (AI Act)
 * Advanced protection against Data Leakage and indirect prompt injection.
@@ -134,13 +134,13 @@
 ### Project 11: Distributed Report Generation Engine
 * Distributed backend processing heavy AI generation tasks in the background, notifying frontend via WebSockets upon completion.
 
-### Chapter 13: Open-Source Hosting & Modern Fine-Tuning
+<!-- ### Chapter 13: Open-Source Hosting & Modern Fine-Tuning
 * When to choose Fine-Tuning over RAG? (Strict output formats, code syntax, or brand voice).
 * Lightweight model adaptation: PEFT, LoRA, QLoRA, and clean dataset preparation.
 * Deploying open-source models to production using high-performance inference servers (vLLM, TGI).
 
 ### Project 12: Open-Source Model Specialization
-* Fine-tuning a mid-sized model (e.g. Llama 3 or Mistral) on proprietary programming languages, deployed via vLLM.
+* Fine-tuning a mid-sized model (e.g. Llama 3 or Mistral) on proprietary programming languages, deployed via vLLM. -->
 
 ---
 
@@ -158,7 +158,7 @@
 
 ---
 
-## 💼 PART VII — Employability & Portfolio
+<!-- ## 💼 PART VII — Employability & Portfolio
 
 *Objective: Package your work to convince tech recruiters immediately.*
 
@@ -168,7 +168,7 @@
 * Preparing for AI System Design interviews, live coding, and real-world case studies.
 
 ### Project 14: Portfolio Hub Launch
-* Creating and deploying your professional showcase highlighting 3 core projects selected from book deliverables with architecture diagrams.
+* Creating and deploying your professional showcase highlighting 3 core projects selected from book deliverables with architecture diagrams. -->
 
 ---
 

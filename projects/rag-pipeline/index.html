@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Automated Document Ingestion & Quality Audit Pipeline — RAG ETL</title>
+  <meta name="description" content="Pipeline d'ingestion documentaire et d'audit de qualité pour architectures RAG. Multi-format, chunking Strategy Pattern et audit anti-perte de contexte.">
+  <link rel="icon" href="../../favicon.ico" type="image/x-icon">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Outfit:wght@400;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../style.css?v=3.0">
+  <link rel="stylesheet" href="./style.css?v=1.0">
+  <script src="../../theme.js"></script>
+  <script src="../../lang.js"></script>
+</head>
+<body>
+  <div class="background-glow glow-1"></div>
+  <div class="background-glow glow-2"></div>
+
+  <!-- Header / Navigation -->
+  <header class="navbar" id="navbar">
+    <div class="container nav-container">
+      <div class="nav-brand-group">
+        <a href="../../" class="logo">
+          <span class="logo-icon">📚</span>
+          <span class="logo-text">rag<span>.pipeline</span></span>
+        </a>
+        <div class="nav-breadcrumb">
+          <a href="../../" data-i18n="nav_hub">← Hub Portfolio</a>
+        </div>
+      </div>
+
+      <button class="mobile-menu-toggle" aria-label="Toggle navigation menu" aria-expanded="false">
+        ☰
+      </button>
+
+      <div class="nav-links-wrapper">
+        <nav>
+          <ul class="nav-links">
+            <li><a href="#presentation" data-i18n="nav_presentation">Overview</a></li>
+            <li><a href="#architecture" data-i18n="nav_architecture">Architecture</a></li>
+            <li><a href="#demo" data-i18n="rag_nav_demo">Interactive Ingestion Simulator</a></li>
+            <li><a href="#docs-sources" data-i18n="nav_docs_sources">Docs & GitHub ↗</a></li>
+          </ul>
+        </nav>
+
+        <div class="nav-controls">
+          <button class="lang-switch-btn" type="button" aria-label="Passer en Français" title="Passer en Français">
+            <span class="lang-icon">🌐</span>
+            <span class="lang-text">FR</span>
+          </button>
+          <select class="theme-select nav-theme-select" aria-label="Sélectionner le thème">
+            <option value="paxfabrica" data-i18n="theme_paxfabrica">🎨 PaxFabrica</option>
+            <option value="dark" data-i18n="theme_dark">🌙 Sombre</option>
+            <option value="light" data-i18n="theme_light">☀️ Clair</option>
+            <option value="dracula">🧛 Dracula</option>
+          </select>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- Hero Section -->
+    <section class="hero" id="hero">
+      <div class="container hero-container">
+        <div class="badge">
+          <span class="badge-dot"></span>
+          <span data-i18n="rag_hero_badge">RAG Data Ingestion & Quality Gate</span>
+        </div>
+        <h1 class="hero-title" data-i18n="rag_hero_title">Automated Document Ingestion &amp; <span class="gradient-text">Quality Audit Pipeline</span></h1>
+        <p class="hero-desc" data-i18n="rag_hero_desc">
+          Moteur d'ingestion documentaire continu et d'audit automatisé prévenant les échecs de RAG. Support multi-format, découpage Strategy Pattern (Fixe, Structurel, Sémantique) et calcul du ratio de rétention de caractères.
+        </p>
+
+        <div class="tech-stack-pills">
+          <span class="pill">Python 3.11+</span>
+          <span class="pill">Strategy Pattern Chunking</span>
+          <span class="pill">Pydantic V2 Strict</span>
+          <span class="pill">Retention Ratio Audit</span>
+          <span class="pill">Orphan Block Detector</span>
+          <span class="pill">Typer &amp; Rich CLI</span>
+          <span class="pill">Structlog Telemetry</span>
+        </div>
+
+        <div class="hero-actions">
+          <a href="#demo" class="btn btn-primary btn-lg">
+            <span data-i18n="rag_hero_btn_demo">Tester le Simulateur d'Ingestion</span>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+          <a href="#presentation" class="btn btn-secondary btn-lg" data-i18n="rag_hero_btn_arch">Découvrir l'Architecture</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Presentation Section -->
+    <section class="section" id="presentation">
+      <div class="container">
+        <div class="section-header">
+          <div class="badge" data-i18n="rag_pres_badge">Ingestion &amp; Qualité RAG</div>
+          <h2 class="section-title" data-i18n="rag_pres_title">Les 4 Piliers du Pipeline d'Ingestion Documentaire</h2>
+          <p class="section-subtitle" data-i18n="rag_pres_subtitle">Éliminer le bruit et la perte de contexte avant la vectorisation</p>
+        </div>
+
+        <div class="features-grid">
+          <div class="glass-card feature-card">
+            <div class="card-icon">📑</div>
+            <h3 data-i18n="rag_card1_title">1. Parsing &amp; Loaders Multi-Formats</h3>
+            <p data-i18n="rag_card1_desc">
+              Architecture de chargeurs extensibles (`TextLoader`, `MarkdownLoader`) préservant la hiérarchie des titres (H1-H6), les blocs de code et les tableaux.
+            </p>
+          </div>
+
+          <div class="glass-card feature-card">
+            <div class="card-icon">🧩</div>
+            <h3 data-i18n="rag_card2_title">2. Stratégies de Chunking Adaptatives</h3>
+            <p data-i18n="rag_card2_desc">
+              Pattern Strategy permettant d'alterner dynamiquement entre découpage fixe (fenêtre glissante), structurel (Markdown aware) et découpage sémantique.
+            </p>
+          </div>
+
+          <div class="glass-card feature-card">
+            <div class="card-icon">📊</div>
+            <h3 data-i18n="rag_card3_title">3. Audit du Ratio de Rétention</h3>
+            <p data-i18n="rag_card3_desc">
+              Calcul mathématique strict du ratio de rétention (caractères extraits vs caractères bruts) avec détection et alerte des blocs de texte orphelins.
+            </p>
+          </div>
+
+          <div class="glass-card feature-card">
+            <div class="card-icon">🛡️</div>
+            <h3 data-i18n="rag_card4_title">4. Télémétrie JSON Structurée &amp; Quality Gate</h3>
+            <p data-i18n="rag_card4_desc">
+              Export d'un rapport JSON d'audit structuré via `structlog` bloquant l'indexation vectorielle si le taux de perte de contexte dépasse le seuil toléré.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Architecture Section -->
+    <section class="section" id="architecture">
+      <div class="container">
+        <div class="section-header">
+          <div class="badge" data-i18n="rag_arch_badge">Spécifications Techniques</div>
+          <h2 class="section-title" data-i18n="rag_arch_title">Architecture du Pipeline ETL RAG</h2>
+          <p class="section-subtitle" data-i18n="rag_arch_subtitle">Flux de traitement des documents et barrières de contrôle qualité</p>
+        </div>
+
+        <div class="glass-card arch-diagram-card">
+          <pre class="arch-flow-diagram">
++--------------------+      +-----------------------+      +--------------------------+
+| Heterogeneous Docs | ---> | Multi-Format Loaders | ---> | Strategy Pattern Chunker |
+| (PDF, MD, Text)    |      | (Normalization)       |      | (Fixed / Struct / Sem)   |
++--------------------+      +-----------------------+      +--------------------------+
+                                                                     |
+                                                                     v
++--------------------+      +-----------------------+      +--------------------------+
+| Vector DB Storage  | <--- | Quality Audit Gate    | <--- | Retention Ratio &        |
+| (Qdrant / PGVector)|      | (JSON Telemetry & Pass|      | Orphan Block Detector    |
++--------------------+      +-----------------------+      +--------------------------+
+          </pre>
+        </div>
+      </div>
+    </section>
+
+    <!-- Interactive Live Demo & Ingestion Simulator -->
+    <section class="section" id="demo">
+      <div class="container">
+        <div class="section-header">
+          <div class="badge badge-accent" data-i18n="rag_demo_badge">Playground Interactif</div>
+          <h2 class="section-title" data-i18n="rag_demo_title">Simulateur d'Ingestion Documentaire &amp; Audit</h2>
+          <p class="section-subtitle" data-i18n="rag_demo_subtitle">Testez en direct les stratégies de découpage et le contrôle d'absence de perte de contexte</p>
+        </div>
+
+        <div class="glass-card" style="margin-bottom: 20px; border-left: 4px solid var(--primary-color);">
+          <div style="font-weight: 700; font-size: 0.95rem; margin-bottom: 4px;" data-i18n="mock_disclaimer_rag_title">
+            Environnement de Démonstration (Simulateur Mock Client) :
+          </div>
+          <div style="font-size: 0.88rem; color: var(--text-muted);" data-i18n="mock_disclaimer_rag_desc">
+            Ce dashboard interactif est une <strong>simulation client (Simulateur d'Ingestion Mock)</strong> reproduisant le parsing de document, les stratégies de chunking, le calcul du ratio de rétention et la détection de blocs orphelins.
+          </div>
+        </div>
+
+        <div class="rag-playground-grid">
+          <!-- Input & Config Card -->
+          <div class="glass-card rag-card">
+            <h3 style="font-size: 1.1rem; font-weight: 700;">⚙️ Configuration du Document &amp; Chunking</h3>
+
+            <div class="input-group">
+              <label class="input-label" for="docSelect">Exemple de Document :</label>
+              <select id="docSelect" class="input-select">
+                <option value="whitepaper">📄 Whitepaper Architecture RAG (Markdown)</option>
+                <option value="api_specs">⚡ Spécifications API FastAPI (Code &amp; Schema)</option>
+                <option value="policy">🔒 Politique de Sécurité &amp; Gouvernance IA</option>
+              </select>
+            </div>
+
+            <div class="input-group">
+              <label class="input-label" for="docInput">Contenu du Document Brut :</label>
+              <textarea id="docInput" class="input-textarea"></textarea>
+            </div>
+
+            <div class="controls-row">
+              <div class="input-group">
+                <label class="input-label" for="strategySelect">Stratégie :</label>
+                <select id="strategySelect" class="input-select">
+                  <option value="structural">📐 Structural (Markdown Aware)</option>
+                  <option value="fixed">📏 Fixe (Character Window)</option>
+                  <option value="recursive">🧠 Sémantique (Paragraphes)</option>
+                </select>
+              </div>
+
+              <div class="input-group">
+                <label class="input-label" for="chunkSizeSelect">Taille Max Chunk :</label>
+                <select id="chunkSizeSelect" class="input-select">
+                  <option value="300">300 Caractères</option>
+                  <option value="500" selected>500 Caractères</option>
+                  <option value="1000">1000 Caractères</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="input-group">
+              <label class="input-label" for="overlapSelect">Chevauchement (Overlap) :</label>
+              <select id="overlapSelect" class="input-select">
+                <option value="0">0 Caractères</option>
+                <option value="50" selected>50 Caractères</option>
+                <option value="100">100 Caractères</option>
+              </select>
+            </div>
+
+            <button id="btnRunIngest" class="btn btn-primary btn-full" type="button">
+              Lancer l'Ingestion &amp; l'Audit Qualité ↵
+            </button>
+          </div>
+
+          <!-- Output Metrics & Chunks Panel -->
+          <div class="glass-card rag-card">
+            <h3 style="font-size: 1.1rem; font-weight: 700;">📊 Résultats de l'Audit Qualité</h3>
+
+            <div class="audit-metrics-grid">
+              <div class="metric-card">
+                <span class="metric-card-title">Source Chars</span>
+                <span class="metric-card-val" id="metricSourceChars">0</span>
+              </div>
+              <div class="metric-card">
+                <span class="metric-card-title">Chunks</span>
+                <span class="metric-card-val" id="metricChunkCount">0</span>
+              </div>
+              <div class="metric-card">
+                <span class="metric-card-title">Rétention %</span>
+                <span class="metric-card-val status-pass" id="metricRetention">100%</span>
+              </div>
+              <div class="metric-card">
+                <span class="metric-card-title">Orphelins</span>
+                <span class="metric-card-val" id="metricOrphans">0</span>
+              </div>
+            </div>
+
+            <div class="input-group">
+              <label class="input-label">Statut du Gate Quality :</label>
+              <div class="metric-card-val status-pass" id="metricAuditStatus" style="font-size: 1rem;">PASS (100% Quality)</div>
+            </div>
+
+            <div class="input-group">
+              <label class="input-label">Aperçu des Chunks Générés :</label>
+              <div id="chunksList" class="chunks-list-container"></div>
+            </div>
+
+            <div class="input-group">
+              <label class="input-label">Rapport Telemetry JSON (`structlog`) :</label>
+              <div id="auditJsonReport" class="audit-json-box">{}</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Docs & Sources Section -->
+    <section class="section" id="docs-sources">
+      <div class="container">
+        <div class="section-header">
+          <div class="badge" data-i18n="nav_docs_sources">Docs &amp; Sources</div>
+          <h2 class="section-title">Ressources &amp; Code Source sur GitHub</h2>
+          <p class="section-subtitle">Consultez la documentation technique et le code source complet de la suite d'ingestion</p>
+        </div>
+
+        <div class="features-grid">
+          <div class="glass-card doc-resource-card">
+            <h3>📖 Documentation Ingestion (README.md)</h3>
+            <p>Spécifications détaillées des loader patterns, du chunker et des métriques d'audit.</p>
+            <a href="https://github.com/mdaadoun/ai-engineering/blob/main/projects/6_RAG_pipeline/README.md" target="_blank" rel="noopener" class="btn btn-secondary btn-full" style="margin-top: 12px;">Voir sur GitHub ↗</a>
+          </div>
+
+          <div class="glass-card doc-resource-card">
+            <h3>🔬 Rapport d'Audit &amp; Quality Metrics</h3>
+            <p>Guide d'implémentation de la détection de blocs orphelins et des tests Pytest.</p>
+            <a href="https://github.com/mdaadoun/ai-engineering/blob/main/projects/6_RAG_pipeline/audit.md" target="_blank" rel="noopener" class="btn btn-secondary btn-full" style="margin-top: 12px;">Voir audit.md ↗</a>
+          </div>
+        </div>
+
+        <div style="text-align: center; margin-top: 32px;">
+          <a href="https://github.com/mdaadoun/ai-engineering/tree/main/projects/6_RAG_pipeline" target="_blank" rel="noopener" class="btn btn-primary btn-lg">
+            🚀 Parcourir le Dépôt GitHub du Projet 6_RAG_pipeline ↗
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <p>Automated RAG Ingestion &amp; Quality Audit Pipeline — Built with Python, Pydantic V2 &amp; Strategy Pattern</p>
+      <p class="footer-sub">Hébergé sur GitHub Pages</p>
+    </div>
+  </footer>
+
+  <script src="./app.js"></script>
+</body>
+</html>

@@ -1,0 +1,168 @@
+/* ==============================================================================
+   Enterprise Document Assistant ("Chat with your Doc") — Project Specific Styles
+   ============================================================================== */
+
+.doc-playground-grid {
+  display: grid;
+  grid-template-columns: 1.8fr 1fr;
+  gap: 24px;
+  margin-top: 32px;
+}
+
+@media (max-width: 992px) {
+  .doc-playground-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.doc-card {
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.rag-query-form {
+  display: flex;
+  gap: 12px;
+}
+
+.rag-query-input {
+  flex: 1;
+  background: rgba(15, 23, 42, 0.6);
+  border: 1px solid var(--border-color, rgba(255, 255, 255, 0.15));
+  border-radius: 8px;
+  padding: 12px 16px;
+  color: var(--text-main, #fff);
+  font-family: inherit;
+  font-size: 0.95rem;
+  outline: none;
+  transition: var(--transition, all 0.2s);
+}
+
+.rag-query-input:focus {
+  border-color: var(--primary-color, #6366f1);
+  box-shadow: 0 0 0 2px rgba(99, 102, 241, 0.2);
+}
+
+.preset-pills-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.preset-pill-btn {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--border-color, rgba(255, 255, 255, 0.12));
+  border-radius: 20px;
+  padding: 6px 14px;
+  font-size: 0.8rem;
+  color: var(--text-muted, #cbd5e1);
+  cursor: pointer;
+  transition: var(--transition, all 0.2s);
+}
+
+.preset-pill-btn:hover {
+  background: rgba(99, 102, 241, 0.2);
+  border-color: rgba(99, 102, 241, 0.4);
+  color: #fff;
+}
+
+.chunks-retrieved-container {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  max-height: 280px;
+  overflow-y: auto;
+}
+
+.retrieved-chunk-item {
+  background: rgba(15, 23, 42, 0.5);
+  border: 1px solid var(--border-color, rgba(255, 255, 255, 0.1));
+  border-radius: 8px;
+  padding: 10px 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.retrieved-chunk-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.8rem;
+}
+
+.chunk-source-tag {
+  font-weight: 600;
+  color: var(--primary-color, #818cf8);
+}
+
+.scores-group {
+  display: flex;
+  gap: 10px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.75rem;
+  color: var(--text-muted, #94a3b8);
+}
+
+.score-badge {
+  background: rgba(255, 255, 255, 0.06);
+  padding: 2px 6px;
+  border-radius: 4px;
+}
+
+.score-badge.highlight {
+  background: rgba(16, 185, 129, 0.15);
+  color: #34d399;
+}
+
+.answer-output-card {
+  background: rgba(15, 23, 42, 0.7);
+  border: 1px solid var(--border-color, rgba(255, 255, 255, 0.15));
+  border-radius: 12px;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.answer-text {
+  font-size: 0.94rem;
+  line-height: 1.6;
+  color: var(--text-main, #f8fafc);
+}
+
+.citation-chip {
+  display: inline-block;
+  background: rgba(99, 102, 241, 0.2);
+  border: 1px solid rgba(99, 102, 241, 0.4);
+  color: #a5b4fc;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.78rem;
+  padding: 2px 8px;
+  border-radius: 4px;
+  margin: 0 4px;
+  cursor: pointer;
+}
+
+.citation-chip:hover {
+  background: rgba(99, 102, 241, 0.4);
+  color: #fff;
+}
+
+.telemetry-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 12px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid var(--border-color, rgba(255, 255, 255, 0.08));
+  border-radius: 8px;
+  font-size: 0.85rem;
+}
+
+.telemetry-val {
+  font-family: 'JetBrains Mono', monospace;
+  font-weight: 600;
+}

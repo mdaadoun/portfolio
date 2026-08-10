@@ -77,6 +77,12 @@
       "card5_title": "Real-Time Asynchronous Web Chatbot",
       "card5_desc": "<strong>Problem:</strong> Synchronous blocking LLM responses causing poor UI responsiveness & unhandled network socket drops.<br><strong>How it works:</strong> Asynchronous FastAPI (ASGI Uvicorn), Server-Sent Events (SSE) streaming (TTFT &lt; 100ms), Pydantic V2 security guardrails & Tenacity exponential backoff.<br><strong>Impact:</strong> Low-latency streaming, 100% typed contracts, real-time FinOps cost tracking per chat session.",
       "card5_btn": "Access Product Demo & Stream",
+      "card6_title": "Automated Document Ingestion & Quality Audit Pipeline",
+      "card6_desc": "<strong>Problem:</strong> Noisy unstructured PDFs & loss of critical context during chunking.<br><strong>How it works:</strong> Extensible multi-format loaders, Strategy pattern chunkers (Fixed, Structural, Semantic), character retention ratio tracking & orphan block detection.<br><strong>Impact:</strong> Zero structural text loss, automated quality audit report, 100% loss monitoring.",
+      "card6_btn": "Access Product Specs & Ingestion Simulator",
+      "card7_title": "Enterprise Document Assistant (\"Chat with your Doc\")",
+      "card7_desc": "<strong>Problem:</strong> Hallucinations & slow retrieval over multi-thousand page document corpora.<br><strong>How it works:</strong> Hybrid Search (BM25 + Vector Similarity), FlashRank Re-ranking, strict grounding guardrails & mandatory source citations.<br><strong>Impact:</strong> Precise zero-hallucination answers, sub-second query latency over 5,000+ pages.",
+      "card7_btn": "Access Product Specs & RAG Simulator",
 
       // Chatbot Showcase Page
       "bot_nav_demo": "Live Demo & Stream",
@@ -325,6 +331,10 @@
       "book_proj2": "Project 2 — Automated Structured Content Generator",
       "book_ch4": "Ch.4 — Backend Architecture for AI: Asynchronicity and Streaming UI",
       "book_proj3": "Project 3 — Low-Latency Real-Time Web Chatbot",
+      "book_ch5": "Ch.5 — Data Ingestion & Continuous ETL Pipelines",
+      "book_proj4": "Project 4 — Automated Document Ingestion Pipeline",
+      "book_ch6": "Ch.6 — Vectorization, Semantic Search & Advanced RAG",
+      "book_proj5": "Project 5 — Enterprise Document Assistant (\"Chat with your Doc\")",
 
       // Blog Portal
       "blog_header_title": "Blog & <span class=\"gradient-text\">Technical Insights</span>",
@@ -779,6 +789,10 @@
       "book_proj2": "Projet 2 — Générateur Automatisé de Contenu Structuré",
       "book_ch4": "Ch.4 — Architecture Backend pour l'IA : Asynchronisme et Interface UI en Streaming",
       "book_proj3": "Projet 3 — Chatbot Web Temps Réel à Faible Latence",
+      "book_ch5": "Ch.5 — Ingestion de Données & Pipelines ETL Continues",
+      "book_proj4": "Projet 4 — Pipeline d'Ingestion Documentaire Automatisé",
+      "book_ch6": "Ch.6 — Vectorisation, Recherche Sémantique & RAG Avancé",
+      "book_proj5": "Projet 5 — Assistant Documentaire d'Entreprise (\"Chat with your Doc\")",
 
       // Blog Portal
       "blog_header_title": "Blog & <span class=\"gradient-text\">Analyses Techniques</span>",
