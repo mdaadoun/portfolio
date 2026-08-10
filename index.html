@@ -68,7 +68,7 @@
         </p>
 
         <div class="tech-stack-pills">
-          <span class="pill" data-i18n="client_pill_1">⚡ Ne ressaisissez plus vos DPGF &amp; CCTP</span>
+          <span class="pill" data-i18n="client_pill_1">⚡ Réduisez drastiquement la ressaisie de vos DPGF &amp; CCTP</span>
           <span class="pill" data-i18n="client_pill_2">🔎 Contrôle &amp; Traçabilité des incertitudes</span>
           <span class="pill" data-i18n="client_pill_3">🔒 Confidentialité &amp; Traitement sécurisé</span>
           <span class="pill" data-i18n="client_pill_4">⏱️ Pilote Flash livré sous 48h (490 € HT)</span>
@@ -143,7 +143,7 @@
         <div class="section-header">
           <div class="badge badge-accent" data-i18n="client_offers_badge">Parcours d'Accompagnement &amp; Pilote</div>
           <h2 class="section-title" data-i18n="client_offers_title">Des Solutions Pragmatiques &amp; Testables sur vos Propres Dossiers</h2>
-          <p class="section-subtitle" data-i18n="client_offers_subtitle">Démarrez sans risque avec notre Offre Pilote Flash sur l'un de vos véritables dossiers du moment.</p>
+          <p class="section-subtitle" data-i18n="client_offers_subtitle">Démarrez sur un dossier réel, sans engagement sur une intégration plus large.</p>
         </div>
 
         <div class="hub-projects-grid">
@@ -186,7 +186,8 @@
             <p class="project-card-desc" data-i18n="client_offer2_desc">
               <strong>Problème :</strong> Information technique dispersée dans des milliers de PDF et dossiers archivés.<br>
               <strong>Solution :</strong> Moteur de recherche interne interrogeant l'historique de vos anciens CCTP et normes DTU pour retrouver une clause en 3 secondes.<br>
-              <strong>Traçabilité :</strong> Chaque extrait retrouve la page et le document source exact.
+              <strong>Traçabilité :</strong> Chaque extrait retrouve la page et le document source exact.<br>
+              <em>Démonstration sur données de test BTP. Déploiement disponible sur devis après validation du Pilote Flash.</em>
             </p>
             <div class="project-card-tags">
               <span class="pill">Accès instantané</span>
@@ -195,7 +196,7 @@
             </div>
             <div class="project-card-action">
               <a href="./projects/doc-assistant/" class="btn btn-primary btn-full">
-                <span data-i18n="client_offer2_btn">Explorer la démo interactive ↗</span>
+                <span data-i18n="client_offer2_btn">Explorer le prototype interactif ↗</span>
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
               </a>
             </div>
@@ -259,7 +260,7 @@
           <div class="roi-results-box">
             <div>
               <div class="roi-result-metric" id="roiHoursVal">648 h</div>
-              <div class="roi-result-sub">Heures de saisie/vérification potentiellement optimisées par an</div>
+              <div class="roi-result-sub">Heures qualifiées potentiellement récupérables par an</div>
             </div>
             <div style="border-top: 1px dashed rgba(255,255,255,0.15); margin-top: 12px; padding-top: 12px;">
               <div class="roi-result-metric" style="color: var(--primary-color);" id="roiEuroVal">22 680 €</div>
@@ -269,7 +270,7 @@
         </div>
 
         <p style="font-size: 0.8rem; color: var(--text-muted); margin-top: 16px; text-align: center;">
-          * Note : Les heures économisées sont directement réinjectées dans l'analyse technique et le contrôle à haute valeur ajoutée.
+          * Note : Estimation indicative calculée sur une base de 48 semaines/an et un taux d'optimisation prudent de 45% du temps de saisie/vérification (valorisé à 35 €/h). Le gain exact est mesuré lors de votre Pilote Flash.
         </p>
       </div>
     </section>
@@ -294,33 +295,33 @@
               <p data-i18n="client_acc1_desc">
                 Flux de traitement structurés avec sorties contraintes et contrôles de validation strictes.
               </p>
-              <div class="tech-mapping-badge">Tech Stack: LangGraph, CrewAI, Python Async (ASGI Uvicorn / FastAPI)</div>
+              <div class="tech-mapping-badge">Tech Stack: Python Async (FastAPI / Uvicorn), LangGraph</div>
             </div>
           </div>
 
           <!-- Item 2 -->
           <div class="accordion-item">
             <button class="accordion-header" type="button">
-              <span data-i18n="client_acc2_title">02. Bases de données vectorielles sécurisées</span>
+              <span data-i18n="client_acc2_title">02. Recherche documentaire contrôlée &amp; Sourcing</span>
               <span class="accordion-icon">▼</span>
             </button>
             <div class="accordion-content">
               <p data-i18n="client_acc2_desc">
                 Combinaison de la recherche lexicale (BM25) et sémantique pour retrouver les clauses exactes.
               </p>
-              <div class="tech-mapping-badge">Tech Stack: Qdrant Vector DB, PGVector, BM25 Okapi, FlashRank Reranker</div>
+              <div class="tech-mapping-badge">Tech Stack: Qdrant Vector DB, BM25 Okapi, Hybrid Search</div>
             </div>
           </div>
 
           <!-- Item 3 -->
           <div class="accordion-item">
             <button class="accordion-header" type="button">
-              <span data-i18n="client_acc3_title">03. Anonymisation &amp; filtres de sécurité</span>
+              <span data-i18n="client_acc3_title">03. Contrôles &amp; Traitement des données sensibles</span>
               <span class="accordion-icon">▼</span>
             </button>
             <div class="accordion-content">
               <p data-i18n="client_acc3_desc">
-                Masquage des données sensibles et contrôle strict des schémas via Pydantic V2.
+                Filtrage des informations sensibles et validation stricte des schémas de données via Pydantic V2.
               </p>
               <div class="tech-mapping-badge">Tech Stack: Pydantic V2 Strict, Microsoft Presidio, NeMo Guardrails</div>
             </div>
