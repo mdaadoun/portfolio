@@ -1,15 +1,15 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Pax Fabrica — Portfolio AI Product Engineer</title>
-  <meta name="description" content="Portfolio de projets IA, AI Product Engineering, intégration LLM et orchestration d'agents par Pax Fabrica.">
+  <title>Pax Fabrica — Solutions d'IA Souveraines pour l'Ingénierie, le BTP & les PME</title>
+  <meta name="description" content="Automatisation sur-mesure et assistants documentaires souverains pour le BTP, les Bureaux d'Études et PME. Répondez à 2x plus d'Appels d'Offres et gagnez 15h par semaine.">
+  <link rel="icon" href="./favicon.ico" type="image/x-icon">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Outfit:wght@400;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
-  <link rel="icon" href="./favicon.ico" type="image/x-icon">
-  <link rel="stylesheet" href="./style.css?v=3.0">
+  <link rel="stylesheet" href="./style.css?v=4.0">
   <script src="./theme.js"></script>
   <script src="./lang.js"></script>
 </head>
@@ -22,7 +22,7 @@
     <div class="container nav-container">
       <div class="nav-brand-group">
         <a href="#" class="logo">
-          <span class="logo-icon">🚀</span>
+          <span class="logo-icon">🏛️</span>
           <span class="logo-text">Pax<span>.Fabrica</span></span>
         </a>
       </div>
@@ -34,10 +34,12 @@
       <div class="nav-links-wrapper">
         <nav>
           <ul class="nav-links">
-            <li><a href="#parcours" data-i18n="nav_parcours">Métier</a></li>
-            <li><a href="#projects" data-i18n="nav_projects">Projets</a></li>
-            <li><a href="./blog/" data-i18n="nav_blog">Blog</a></li>
+            <li><a href="#solutions" data-i18n="nav_solutions">Solutions Métier</a></li>
+            <li><a href="#offres" data-i18n="nav_offres">Nos 3 Offres &amp; PoC</a></li>
+            <li><a href="#roi" data-i18n="nav_roi">Calculateur ROI</a></li>
+            <li><a href="#securite" data-i18n="client_tech_badge">Sous le Capot</a></li>
             <li><a href="./book/" data-i18n="nav_book">Book</a></li>
+            <li><a href="./tech.html" class="nav-btn-demo" data-i18n="nav_tech_view">Vue Technique (DSI) ↗</a></li>
           </ul>
         </nav>
 
@@ -51,7 +53,6 @@
             <option value="dark" data-i18n="theme_dark">🌙 Sombre</option>
             <option value="light" data-i18n="theme_light">☀️ Clair</option>
             <option value="dracula">🧛 Dracula</option>
-            <option value="templeos">👾 TempleOS (8-bit)</option>
           </select>
         </div>
       </div>
@@ -64,350 +65,342 @@
       <div class="container hero-container">
         <div class="badge">
           <span class="badge-dot"></span>
-          <span data-i18n="hub_badge">Applied AI Product Engineer</span>
+          <span data-i18n="client_hero_badge">Partenaire Solide &amp; Solutions IA Sur-Mesure</span>
         </div>
-        <h1 class="hero-title" data-i18n="hub_hero_title">Building Sovereign, Secure & <span class="gradient-text">Production-Grade AI Systems</span></h1>
-        <p class="hero-desc" data-i18n="hub_hero_desc">
-          Bridging the gap between cutting-edge AI capabilities—<strong>Multimodal, Agentic RAG, Autonomous Workflows</strong>—and <strong>enterprise-grade safety, sovereignty & ethics</strong>.
+        <h1 class="hero-title" data-i18n="client_hero_title">
+          L'IA au service de l'<span class="gradient-text">Ingénierie, du BTP et des PME</span>
+        </h1>
+        <p class="hero-desc" data-i18n="client_hero_subtitle">
+          Réglez vos goulots d'étranglement administratifs et répondez à 2x plus d'Appels d'Offres sans embaucher.
         </p>
-        <p class="hero-link-blog" style="margin-top: -12px; margin-bottom: 24px; font-size: 0.95rem; color: var(--text-muted);">
-          <span data-i18n="hub_hero_read_also">📖 Read also:</span> <a href="./blog/#2026-07-23-avenement-ai-engineer" style="color: var(--primary-color); text-decoration: none; font-weight: 600; border-bottom: 1px dashed var(--primary-color); transition: var(--transition);" onmouseover="this.style.color='var(--text-main)'; this.style.borderBottomColor='var(--text-main)';" onmouseout="this.style.color='var(--primary-color)'; this.style.borderBottomColor='var(--primary-color)';" data-i18n="hub_hero_article_link">AI Engineer role</a>
-        </p>
-
 
         <div class="tech-stack-pills">
-          <span class="pill">Agentic Systems</span>
-          <span class="pill">Advanced Hybrid RAG</span>
-          <span class="pill">Sovereign & Safe LLMs</span>
-          <span class="pill">Structured Outputs</span>
-          <span class="pill">Multimodal & Robotics</span>
+          <span class="pill" data-i18n="client_pill_1">⚡ -90% de temps de saisie</span>
+          <span class="pill" data-i18n="client_pill_2">📄 Réponse aux Appels d'Offres x2</span>
+          <span class="pill" data-i18n="client_pill_3">🔒 100% Souverain &amp; Confidentiel</span>
+          <span class="pill" data-i18n="client_pill_4">⏱️ Sprint PoC en 5 jours</span>
         </div>
+
+        <p style="font-size: 0.95rem; color: var(--text-muted); max-width: 680px; margin: 12px auto 0 auto; line-height: 1.6;" data-i18n="client_hero_desc">
+          Conception sur-mesure d'outils d'automatisation et d'assistants documentaires souverains. Vos données restent à 100 % confidentielles et sous votre contrôle.
+        </p>
 
         <div class="hero-actions">
-          <a href="#projects" class="btn btn-primary btn-lg">
-            <span data-i18n="hub_btn_discover">Explore Projects & Stack</span>
+          <a href="#offres" class="btn btn-primary btn-lg">
+            <span data-i18n="client_hero_btn_poc">🚀 Découvrir le Sprint PoC (5 Jours)</span>
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
           </a>
-          <a href="#parcours" class="btn btn-secondary btn-lg" data-i18n="hub_btn_parcours">How I Build with AI</a>
+          <a href="#solutions" class="btn btn-secondary btn-lg" data-i18n="client_hero_btn_solutions">💡 Explorer les 4 Piliers Métier</a>
         </div>
       </div>
     </section>
 
-    <!-- 4 Pillars Section ("How I Build with AI") -->
-    <section class="section" id="parcours">
+    <!-- 4 Business Pillars Section -->
+    <section class="section" id="solutions">
       <div class="container">
         <div class="section-header">
-          <div class="badge" data-i18n="pillars_badge">Engineering Philosophy</div>
-          <h2 class="section-title" data-i18n="pillars_title">How I Build with AI — The 4 Engineering Pillars</h2>
-          <p class="section-subtitle" data-i18n="pillars_subtitle">Delivering measurable product value through robust architecture, security, and user experience</p>
+          <div class="badge" data-i18n="client_pillars_badge">Bénéfices Opérationnels</div>
+          <h2 class="section-title" data-i18n="client_pillars_title">Comment l'IA Transforme votre Gestion Métier</h2>
+          <p class="section-subtitle" data-i18n="client_pillars_subtitle">Des outils concrets conçus pour libérer vos équipes des tâches répétitives et sécuriser vos données</p>
         </div>
 
-        <div class="pillars-grid">
-          <div class="glass-card feature-card pillar-card">
-            <span class="pillar-num" data-i18n="pillar1_num">01. AGENTIC SYSTEMS</span>
-            <h3 data-i18n="pillar1_title">Agentic Orchestration & Workflows</h3>
-            <p data-i18n="pillar1_desc">Designing autonomous agents capable of planning, tool/API execution, and multi-step tasks with deterministic reliability and structured fallbacks.</p>
+        <div class="features-grid">
+          <!-- Pillar 1 -->
+          <div class="glass-card feature-card">
+            <div class="card-icon">⚡</div>
+            <h3 data-i18n="client_pillar1_title">01. Automatisations Inter-Logiciels</h3>
+            <p data-i18n="client_pillar1_desc">
+              Connexion intelligente entre vos e-mails, votre CRM et votre ERP pour supprimer la saisie manuelle et accélérer le traitement des dossiers.
+            </p>
           </div>
 
-          <div class="glass-card feature-card pillar-card">
-            <span class="pillar-num" data-i18n="pillar2_num">02. ADVANCED RAG</span>
-            <h3 data-i18n="pillar2_title">Enterprise & Advanced RAG</h3>
-            <p data-i18n="pillar2_desc">Hybrid search architectures (semantic, vector, BM25, reranking, Knowledge Graphs) guaranteeing precise, zero-hallucination domain knowledge retrieval.</p>
+          <!-- Pillar 2 -->
+          <div class="glass-card feature-card">
+            <div class="card-icon">🔍</div>
+            <h3 data-i18n="client_pillar2_title">02. Recherche Documentaire Intelligente</h3>
+            <p data-i18n="client_pillar2_desc">
+              Interrogez instantanément l'historique de vos CCTP, normes DTU et dossiers techniques. Divisez par 5 le temps de recherche d'information.
+            </p>
           </div>
 
-          <div class="glass-card feature-card pillar-card">
-            <span class="pillar-num" data-i18n="pillar3_num">03. SOVEREIGN & SAFE</span>
-            <h3 data-i18n="pillar3_title">Security, Ethics & Sovereignty</h3>
-            <p data-i18n="pillar3_desc">Deploying sovereign AI (Local/Open-Source LLMs, private cloud), zero PII data leaks, hard guardrails, and compliance with European regulations (EU AI Act).</p>
+          <!-- Pillar 3 -->
+          <div class="glass-card feature-card">
+            <div class="card-icon">🔒</div>
+            <h3 data-i18n="client_pillar3_title">03. Confidentialité &amp; Sécurité Totale</h3>
+            <p data-i18n="client_pillar3_desc">
+              Vos secrets d'affaires et données clients ne servent jamais à entraîner des modèles publics. Conformité RGPD et souveraineté garantie.
+            </p>
           </div>
 
-          <div class="glass-card feature-card pillar-card">
-            <span class="pillar-num" data-i18n="pillar4_num">04. MULTIMODAL & UX</span>
-            <h3 data-i18n="pillar4_title">Multimodal & Real-World Interaction</h3>
-            <p data-i18n="pillar4_desc">Integrating vision and audio models with robotics gateways to extend AI beyond text into reactive, physical, and real-time interaction.</p>
+          <!-- Pillar 4 -->
+          <div class="glass-card feature-card">
+            <div class="card-icon">📑</div>
+            <h3 data-i18n="client_pillar4_title">04. Extraction PDF &amp; Scans Métier</h3>
+            <p data-i18n="client_pillar4_desc">
+              Lecture automatique des devis d'artisans, factures, plans et pièces d'Appels d'Offres sous format PDF/Excel avec 0 % d'erreur de frappe.
+            </p>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Technical Stack Section -->
-    <section class="section" id="stack">
+    <!-- Turnkey Offers Section -->
+    <section class="section" id="offres">
       <div class="container">
         <div class="section-header">
-          <div class="badge badge-accent" data-i18n="stack_badge">Engineering Layers</div>
-          <h2 class="section-title" data-i18n="stack_title">Technical Stack & Architecture Matrix</h2>
-          <p class="section-subtitle" data-i18n="stack_subtitle">Production-tested tools and frameworks organized by engineering layer</p>
-        </div>
-
-        <div class="glass-card stack-table-card">
-          <table class="stack-table">
-            <thead>
-              <tr>
-                <th data-i18n="stack_col_domain">Engineering Domain</th>
-                <th data-i18n="stack_col_techs">Technologies & Frameworks</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td class="stack-domain" data-i18n="stack_d1">Orchestration & Agents</td>
-                <td>
-                  <div class="stack-techs">
-                    <span class="pill">LangGraph</span>
-                    <span class="pill">LlamaIndex</span>
-                    <span class="pill">CrewAI</span>
-                    <span class="pill">AutoGen</span>
-                    <span class="pill">MCP Protocol</span>
-                  </div>
-                </td>
-              </tr>
-              <tr>
-                <td class="stack-domain" data-i18n="stack_d2">RAG & Vector DBs</td>
-                <td>
-                  <div class="stack-techs">
-                    <span class="pill">Qdrant</span>
-                    <span class="pill">Pinecone</span>
-                    <span class="pill">pgvector</span>
-                    <span class="pill">BM25 / Hybrid Search</span>
-                    <span class="pill">Cohere / BGE Rerankers</span>
-                  </div>
-                </td>
-              </tr>
-              <tr>
-                <td class="stack-domain" data-i18n="stack_d3">Sovereignty & LLMs</td>
-                <td>
-                  <div class="stack-techs">
-                    <span class="pill">Ollama</span>
-                    <span class="pill">vLLM</span>
-                    <span class="pill">Hugging Face</span>
-                    <span class="pill">Fine-Tuning (LoRA)</span>
-                    <span class="pill">Llama 3 / Mistral / Kimi</span>
-                  </div>
-                </td>
-              </tr>
-              <tr>
-                <td class="stack-domain" data-i18n="stack_d4">Evaluation & Safety</td>
-                <td>
-                  <div class="stack-techs">
-                    <span class="pill">LangSmith</span>
-                    <span class="pill">Ragas (Evals)</span>
-                    <span class="pill">NeMo Guardrails</span>
-                    <span class="pill">Presidio (PII)</span>
-                    <span class="pill">detect-secrets</span>
-                  </div>
-                </td>
-              </tr>
-              <tr>
-                <td class="stack-domain" data-i18n="stack_d5">Engineering & Product</td>
-                <td>
-                  <div class="stack-techs">
-                    <span class="pill">Python</span>
-                    <span class="pill">TypeScript</span>
-                    <span class="pill">FastAPI</span>
-                    <span class="pill">Docker Multi-Stage</span>
-                    <span class="pill">Cloud (GCP / AWS)</span>
-                  </div>
-                </td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-      </div>
-    </section>
-
-    <!-- Projects / Case Studies Section -->
-    <section class="section" id="projects">
-      <div class="container">
-        <div class="section-header">
-          <div class="badge badge-accent" data-i18n="projects_badge">Production Case Studies</div>
-          <h2 class="section-title" data-i18n="projects_title">AI Product Case Studies & Demos</h2>
-          <p class="section-subtitle" data-i18n="projects_subtitle">Enterprise-ready intelligent applications built for real-world impact and strict safety</p>
+          <div class="badge badge-accent" data-i18n="client_offers_badge">Offres Clé en Main</div>
+          <h2 class="section-title" data-i18n="client_offers_title">Des Solutions Prêtes à Déployer dans votre Entreprise</h2>
+          <p class="section-subtitle" data-i18n="client_offers_subtitle">Des cas d'usage éprouvés en production, testables immédiatement sur vos données</p>
         </div>
 
         <div class="hub-projects-grid">
-          <!-- Case Study 1: i18n Translator -->
+          <!-- Offer 1 -->
           <div class="glass-card hub-project-card active-card">
             <div class="project-header-top">
-              <span class="project-header-icon">🌍</span>
-              <h3 class="project-card-title" data-i18n="card1_title">Automatic i18n JSON Translator</h3>
+              <span class="project-header-icon">📑</span>
+              <h3 class="project-card-title" data-i18n="client_offer1_title">1. Le Robot de Saisie Automatisée (Extraction PDF/Excel)</h3>
             </div>
-            <p class="project-card-desc" data-i18n="card1_desc">
-              <strong>Problem:</strong> Software localization corruption on interpolation variables.<br>
-              <strong>Architecture:</strong> FastAPI microservice, Pydantic Structured Outputs, Regex protection & atomic disk checkpointing.<br>
-              <strong>Impact:</strong> 100% variable safety, 0 key loss, deployed on Cloud Run.
+            <p class="project-card-desc" data-i18n="client_offer1_desc">
+              <strong>Problème :</strong> Temps considérable perdu à ressaisir des devis et des pièces d'AO.<br>
+              <strong>Solution :</strong> Extraction automatique structurée vers vos bases Excel/ERP avec 0% d'erreur de frappe.<br>
+              <strong>Impact :</strong> Supprime 90% du temps de saisie (gain immédiat de 15h/semaine par collaborateur).
             </p>
             <div class="project-card-tags">
-              <span class="pill">Structured Outputs</span>
-              <span class="pill">UX Produit</span>
-              <span class="pill">FastAPI</span>
-            </div>
-            <div class="project-card-action">
-              <a href="./projects/i18n-translator/" class="btn btn-primary btn-full">
-                <span data-i18n="card1_btn">Access Product Specs & Mock</span>
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-              </a>
-            </div>
-          </div>
-
-          <!-- Case Study 2: AIPE Framework -->
-          <div class="glass-card hub-project-card active-card">
-            <div class="project-header-top">
-              <span class="project-header-icon">🚀</span>
-              <h3 class="project-card-title" data-i18n="card2_title">AI Product Engineering Blueprint (AIPE)</h3>
-            </div>
-            <p class="project-card-desc" data-i18n="card2_desc">
-              <strong>Problem:</strong> Initial technical debt and security leaks in AI projects.<br>
-              <strong>Architecture:</strong> Poetry isolation, Ruff linter/formatter, Mypy strict (100%), non-root multi-stage Docker & pre-commit gatekeeping.<br>
-              <strong>Impact:</strong> Developer onboarding &lt; 5 min, 64/64 tests passed.
-            </p>
-            <div class="project-card-tags">
-              <span class="pill">DevOps & QA</span>
-              <span class="pill">FastAPI & Docker</span>
-              <span class="pill">Ruff & Mypy</span>
-            </div>
-            <div class="project-card-action">
-              <a href="./projects/aipe-framework/" class="btn btn-primary btn-full">
-                <span data-i18n="card2_btn">Explore the Blueprint</span>
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-              </a>
-            </div>
-          </div>
-
-          <!-- Case Study 3: AI Watcher CLI -->
-          <div class="glass-card hub-project-card active-card">
-            <div class="project-header-top">
-              <span class="project-header-icon">⚡</span>
-              <h3 class="project-card-title" data-i18n="card3_title">Automated AI Watcher CLI (Wrapper_CLI)</h3>
-            </div>
-            <p class="project-card-desc" data-i18n="card3_desc">
-              <strong>Problem:</strong> Heterogeneous AI technological surveillance & uncontrolled LLM API costs.<br>
-              <strong>How it works:</strong> Multi-source ingestion (Text, Files, Web URLs), automated LLM analysis, FinOps pricing engine (40+ LLMs), Tenacity exponential backoff & SHA-256 caching.<br>
-              <strong>Impact:</strong> Instant multi-format reports (Console, JSON, Markdown), zero-cost offline demo mode.
-            </p>
-            <div class="project-card-tags">
-              <span class="pill">Python CLI</span>
-              <span class="pill">FinOps & Cost Control</span>
-              <span class="pill">Multi-Source Ingestion</span>
-              <span class="pill">Typer & Rich</span>
-            </div>
-            <div class="project-card-action">
-              <a href="./projects/wrapper-cli/" class="btn btn-primary btn-full">
-                <span data-i18n="card3_btn">Access Product Specs & Mock</span>
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-              </a>
-            </div>
-          </div>
-
-          <!-- Case Study 4: Automated Structured Content Generator -->
-          <div class="glass-card hub-project-card active-card">
-            <div class="project-header-top">
-              <span class="project-header-icon">🎯</span>
-              <h3 class="project-card-title" data-i18n="card4_title">Automated Structured Content Generator (ASCGenerator)</h3>
-            </div>
-            <p class="project-card-desc" data-i18n="card4_desc">
-              <strong>Problem:</strong> Noisy unstructured news payloads & runtime LLM schema drift.<br>
-              <strong>How it works:</strong> Defensive XML isolation, Pydantic V2 schema firewall, 2-tier resilience (Tenacity retry + Instructor self-correction loop), SHA-256 deduplication cache & Next.js dashboard.<br>
-              <strong>Impact:</strong> Zero runtime schema drift, 100% typed structured JSON records, micro-cent FinOps control.
-            </p>
-            <div class="project-card-tags">
-              <span class="pill">FastAPI & Pydantic V2</span>
-              <span class="pill">Instructor SDK</span>
-              <span class="pill">Two-Tier Resilience</span>
-              <span class="pill">Next.js 14 Dashboard</span>
-            </div>
-            <div class="project-card-action">
-              <a href="./projects/asc-generator/" class="btn btn-primary btn-full">
-                <span data-i18n="card4_btn">Access Product Specs & Mock</span>
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-              </a>
-            </div>
-          </div>
-
-          <!-- Case Study 5: Real-Time Web Chatbot -->
-          <div class="glass-card hub-project-card active-card">
-            <div class="project-header-top">
-              <span class="project-header-icon">💬</span>
-              <h3 class="project-card-title" data-i18n="card5_title">Real-Time Asynchronous Web Chatbot</h3>
-            </div>
-            <p class="project-card-desc" data-i18n="card5_desc">
-              <strong>Problem:</strong> Synchronous blocking LLM responses causing poor UI responsiveness & unhandled network socket drops.<br>
-              <strong>How it works:</strong> Asynchronous FastAPI (ASGI Uvicorn), Server-Sent Events (SSE) streaming (TTFT &lt; 100ms), Pydantic V2 security guardrails & Tenacity exponential backoff.<br>
-              <strong>Impact:</strong> Low-latency streaming, 100% typed contracts, real-time FinOps cost tracking per chat session.
-            </p>
-            <div class="project-card-tags">
-              <span class="pill">FastAPI Async (ASGI)</span>
-              <span class="pill">Server-Sent Events (SSE)</span>
-              <span class="pill">Sanitizer Guardrails</span>
-              <span class="pill">React & FinOps Evals</span>
-            </div>
-            <div class="project-card-action">
-              <a href="./projects/chatbot/" class="btn btn-primary btn-full">
-                <span data-i18n="card5_btn">Access Product Specs & Mock</span>
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-              </a>
-            </div>
-          </div>
-
-          <!-- Case Study 6: RAG Ingestion Pipeline & Quality Audit -->
-          <div class="glass-card hub-project-card active-card">
-            <div class="project-header-top">
-              <span class="project-header-icon">📚</span>
-              <h3 class="project-card-title" data-i18n="card6_title">Automated Document Ingestion & Quality Audit Pipeline</h3>
-            </div>
-            <p class="project-card-desc" data-i18n="card6_desc">
-              <strong>Problem:</strong> Noisy unstructured PDFs & loss of critical context during chunking.<br>
-              <strong>How it works:</strong> Extensible multi-format loaders, Strategy pattern chunkers (Fixed, Structural, Semantic), character retention ratio tracking & orphan block detection.<br>
-              <strong>Impact:</strong> Zero structural text loss, automated quality audit report, 100% loss monitoring.
-            </p>
-            <div class="project-card-tags">
-              <span class="pill">Strategy Chunking</span>
-              <span class="pill">Quality Audit Gate</span>
-              <span class="pill">Pydantic V2 Strict</span>
-              <span class="pill">Structlog JSON</span>
+              <span class="pill">Extraction PDF / Excel</span>
+              <span class="pill">0% Erreur de frappe</span>
+              <span class="pill">Gain 15h/semaine</span>
             </div>
             <div class="project-card-action">
               <a href="./projects/rag-pipeline/" class="btn btn-primary btn-full">
-                <span data-i18n="card6_btn">Access Product Specs & Ingestion Simulator</span>
+                <span data-i18n="client_offer1_btn">Accéder à la Démo Interactive ↗</span>
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
               </a>
             </div>
           </div>
 
-          <!-- Case Study 7: Enterprise Document Assistant -->
+          <!-- Offer 2 -->
           <div class="glass-card hub-project-card active-card">
             <div class="project-header-top">
               <span class="project-header-icon">🔍</span>
-              <h3 class="project-card-title" data-i18n="card7_title">Enterprise Document Assistant ("Chat with your Doc")</h3>
+              <h3 class="project-card-title" data-i18n="client_offer2_title">2. La Mémoire Centrale d'Entreprise (Assistant Documentaire)</h3>
             </div>
-            <p class="project-card-desc" data-i18n="card7_desc">
-              <strong>Problem:</strong> Hallucinations & slow retrieval over multi-thousand page document corpora.<br>
-              <strong>How it works:</strong> Hybrid Search (BM25 + Vector Similarity), FlashRank Re-ranking, strict grounding guardrails & mandatory source citations.<br>
-              <strong>Impact:</strong> Precise zero-hallucination answers, sub-second query latency over 5,000+ pages.
+            <p class="project-card-desc" data-i18n="client_offer2_desc">
+              <strong>Problème :</strong> Information technique dispersée dans des milliers de PDF et dossiers archivés.<br>
+              <strong>Solution :</strong> Moteur de recherche souverain interrogeant instantanément l'historique de vos CCTP et normes.<br>
+              <strong>Impact :</strong> Accès en 3 secondes à n'importe quelle clause, 0 hallucination, citations de provenance exactes.
             </p>
             <div class="project-card-tags">
-              <span class="pill">Hybrid Search (BM25 + Dense)</span>
-              <span class="pill">FlashRank Reranking</span>
-              <span class="pill">Strict Grounding Filter</span>
-              <span class="pill">Source Citations</span>
+              <span class="pill">Recherche en 3s</span>
+              <span class="pill">0 Hallucination</span>
+              <span class="pill">Citations Exactes</span>
             </div>
             <div class="project-card-action">
               <a href="./projects/doc-assistant/" class="btn btn-primary btn-full">
-                <span data-i18n="card7_btn">Access Product Specs & RAG Simulator</span>
+                <span data-i18n="client_offer2_btn">Tester l'Assistant Documentaire ↗</span>
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
               </a>
             </div>
           </div>
 
+          <!-- Offer 3 -->
+          <div class="glass-card hub-project-card active-card">
+            <div class="project-header-top">
+              <span class="project-header-icon">🚀</span>
+              <h3 class="project-card-title" data-i18n="client_offer3_title">3. Sprint PoC (5 Jours) — Réponse aux Appels d'Offres</h3>
+            </div>
+            <p class="project-card-desc" data-i18n="client_offer3_desc">
+              <strong>Problème :</strong> Opportunités d'AO manquées faute de temps pour rédiger les mémoires techniques.<br>
+              <strong>Solution :</strong> Test sur-mesure en 5 jours sur l'un de vos véritables Appels d'Offres.<br>
+              <strong>Impact :</strong> Pré-rédaction automatique de 80% du mémoire technique. Répondez à 2x plus d'AO sans embaucher.
+            </p>
+            <div class="project-card-tags">
+              <span class="pill">Sprint PoC 5 Jours</span>
+              <span class="pill">Pré-rédaction 80%</span>
+              <span class="pill">AO Capacity x2</span>
+            </div>
+            <div class="project-card-action">
+              <a href="./projects/chatbot/" class="btn btn-primary btn-full">
+                <span data-i18n="client_offer3_btn">Tester le Générateur Temps Réel ↗</span>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ROI Calculator Section -->
+    <section class="section" id="roi">
+      <div class="container">
+        <div class="section-header">
+          <div class="badge" data-i18n="nav_roi">Calculateur ROI</div>
+          <h2 class="section-title" data-i18n="roi_title">Simulateur de Gain de Temps &amp; ROI Métier</h2>
+          <p class="section-subtitle" data-i18n="roi_subtitle">Estimez les heures gagnées et la capacité supplémentaire générée par l'automatisation</p>
+        </div>
+
+        <div class="glass-card roi-card">
+          <div class="roi-inputs">
+            <div class="roi-slider-group">
+              <div class="roi-slider-label">
+                <span data-i18n="roi_label_staff">Nombre de collaborateurs concernés :</span>
+                <span id="valStaff" class="roi-slider-val">5 personnes</span>
+              </div>
+              <input type="range" id="sliderStaff" min="1" max="50" value="5" class="roi-slider-input">
+            </div>
+
+            <div class="roi-slider-group">
+              <div class="roi-slider-label">
+                <span data-i18n="roi_label_hours">Heures de saisie &amp; recherche par personne / semaine :</span>
+                <span id="valHours" class="roi-slider-val">10 h / semaine</span>
+              </div>
+              <input type="range" id="sliderHours" min="2" max="30" value="10" class="roi-slider-input">
+            </div>
+          </div>
+
+          <div class="roi-results-box">
+            <div>
+              <div class="roi-result-metric" id="roiHoursVal">2 400 h</div>
+              <div class="roi-result-sub">Heures de travail économisées par an pour vos équipes</div>
+            </div>
+            <div style="border-top: 1px dashed rgba(255,255,255,0.15); pt-3; margin-top: 4px; padding-top: 12px;">
+              <div class="roi-result-metric" style="color: var(--primary-color);" id="roiEuroVal">72 000 €</div>
+              <div class="roi-result-sub">Valeur financière brute d'heures qualifiées récupérées</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Under the Hood / Tech Accordion Section (For CTO / DSI) -->
+    <section class="section" id="securite">
+      <div class="container">
+        <div class="section-header">
+          <div class="badge" data-i18n="client_tech_badge">Sous le Capot — Ingénierie Souveraine</div>
+          <h2 class="section-title" data-i18n="client_tech_title">Une Ingénierie Logicielle Robuste, Sécurisée &amp; Auditable</h2>
+          <p class="section-subtitle" data-i18n="client_tech_subtitle">Pour les DSI, Directeurs Techniques et curieux : cliquez sur un module pour inspecter l'architecture sous-jacente</p>
+        </div>
+
+        <div class="tech-accordion">
+          <!-- Item 1 -->
+          <div class="accordion-item">
+            <button class="accordion-header" type="button">
+              <span data-i18n="client_acc1_title">Moteurs d'orchestration déterministes (Flux complexes)</span>
+              <span class="accordion-icon">▼</span>
+            </button>
+            <div class="accordion-content">
+              <p data-i18n="client_acc1_desc">
+                Orchestration autonome des tâches multi-étapes sans boucle infinie. Utilisation de graphes d'états déterministes garantissant une fiabilité absolue et des fallbacks structurés.
+              </p>
+              <div class="tech-mapping-badge">Tech Stack: LangGraph, CrewAI, Python Async (ASGI Uvicorn / FastAPI)</div>
+            </div>
+          </div>
+
+          <!-- Item 2 -->
+          <div class="accordion-item">
+            <button class="accordion-header" type="button">
+              <span data-i18n="client_acc2_title">Bases de données vectorielles sécurisées &amp; Recherche Hybride</span>
+              <span class="accordion-icon">▼</span>
+            </button>
+            <div class="accordion-content">
+              <p data-i18n="client_acc2_desc">
+                Combinaison de la recherche lexicale (BM25) et vectorielle (Dense Cosine Similarity) suivie d'un re-ranking Cross-Encoder. Garantit une récupération zéro-hallucination sur des millions de documents.
+              </p>
+              <div class="tech-mapping-badge">Tech Stack: Qdrant Vector DB, PGVector, BM25 Okapi, FlashRank Reranker</div>
+            </div>
+          </div>
+
+          <!-- Item 3 -->
+          <div class="accordion-item">
+            <button class="accordion-header" type="button">
+              <span data-i18n="client_acc3_title">Système d'anonymisation et filtres de sécurité des données</span>
+              <span class="accordion-icon">▼</span>
+            </button>
+            <div class="accordion-content">
+              <p data-i18n="client_acc3_desc">
+                Masquage automatique des données personnelles (PII), contrats de données validés via Pydantic V2 et neutralisation préventive des attaques par injection de prompt.
+              </p>
+              <div class="tech-mapping-badge">Tech Stack: Pydantic V2 Strict, Microsoft Presidio, NeMo Guardrails</div>
+            </div>
+          </div>
+
+          <!-- Item 4 -->
+          <div class="accordion-item">
+            <button class="accordion-header" type="button">
+              <span data-i18n="client_acc4_title">Architecture logicielle industrielle et conteneurisée</span>
+              <span class="accordion-icon">▼</span>
+            </button>
+            <div class="accordion-content">
+              <p data-i18n="client_acc4_desc">
+                Images Docker non-root multi-stage ultra-légères (&lt; 250 Mo), validation Mypy strict à 100%, linter Ruff et absence de dette technique.
+              </p>
+              <div class="tech-mapping-badge">Tech Stack: Docker Multi-Stage, Ruff, Mypy Strict (100%), Poetry</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="glass-card" style="margin-top: 32px; padding: 24px; text-align: center; background: rgba(99, 102, 241, 0.08); border-color: rgba(99, 102, 241, 0.3);">
+          <h3 style="font-size: 1.1rem; font-weight: 700; margin-bottom: 8px;" data-i18n="client_tech_banner_title">
+            Vous souhaitez inspecter le code source, les benchmarks et les architectures complètes ?
+          </h3>
+          <p style="font-size: 0.9rem; color: var(--text-muted); margin-bottom: 16px;">
+            Consultez le Hub d'Ingénierie Technique détaillé pour les développeurs et architectes logicielle.
+          </p>
+          <a href="./tech.html" class="btn btn-primary btn-lg">
+            <span data-i18n="client_tech_banner_btn">🚀 Explorer la Vue Technique &amp; Dev Hub ↗</span>
+          </a>
         </div>
       </div>
     </section>
   </main>
 
-
   <footer class="footer">
     <div class="container">
-      <p data-i18n="footer_text">Portfolio Pax Fabrica — AI Product Engineering</p>
-      <p class="footer-sub" data-i18n="footer_sub">Hébergé via GitHub Pages</p>
+      <p data-i18n="footer_text">Pax Fabrica Portfolio — Sovereign AI Business Solutions</p>
+      <p class="footer-sub">Hébergé via GitHub Pages</p>
     </div>
   </footer>
+
+  <script>
+    // Accordion Toggle Logic
+    document.addEventListener('DOMContentLoaded', () => {
+      const accordionHeaders = document.querySelectorAll('.accordion-header');
+      accordionHeaders.forEach(header => {
+        header.addEventListener('click', () => {
+          const item = header.parentElement;
+          item.classList.toggle('active');
+        });
+      });
+
+      // ROI Calculator Logic
+      const staffInput = document.getElementById('sliderStaff');
+      const hoursInput = document.getElementById('sliderHours');
+      const valStaff = document.getElementById('valStaff');
+      const valHours = document.getElementById('valHours');
+      const roiHoursVal = document.getElementById('roiHoursVal');
+      const roiEuroVal = document.getElementById('roiEuroVal');
+
+      function updateRoi() {
+        if (!staffInput || !hoursInput) return;
+        const staff = parseInt(staffInput.value, 10);
+        const hoursPerWeek = parseInt(hoursInput.value, 10);
+
+        valStaff.textContent = staff + (staff > 1 ? ' personnes' : ' personne');
+        valHours.textContent = hoursPerWeek + ' h / semaine';
+
+        // 48 working weeks / year, 50% time saved via automation
+        const yearlySavedHours = Math.round(staff * hoursPerWeek * 48 * 0.5);
+        const yearlySavedEuros = Math.round(yearlySavedHours * 30); // 30€/h cost basis
+
+        roiHoursVal.textContent = yearlySavedHours.toLocaleString('fr-FR') + ' h';
+        roiEuroVal.textContent = yearlySavedEuros.toLocaleString('fr-FR') + ' €';
+      }
+
+      if (staffInput && hoursInput) {
+        staffInput.addEventListener('input', updateRoi);
+        hoursInput.addEventListener('input', updateRoi);
+        updateRoi();
+      }
+    });
+  </script>
 </body>
 </html>
