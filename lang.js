@@ -1140,16 +1140,18 @@
   function updateSwitchButtons(lang) {
     const switches = document.querySelectorAll('.lang-switch-btn');
     switches.forEach(btn => {
+      const iconSpan = btn.querySelector('.lang-icon');
       const textSpan = btn.querySelector('.lang-text');
-      const nextLang = lang === 'en' ? 'fr' : 'en';
       if (lang === 'en') {
+        if (iconSpan) iconSpan.textContent = '🇫🇷';
         if (textSpan) textSpan.textContent = 'FR';
         btn.setAttribute('aria-label', 'Changer la langue en Français');
-        btn.setAttribute('title', 'Passer en Français');
+        btn.setAttribute('title', 'Passer en Français (FR)');
       } else {
+        if (iconSpan) iconSpan.textContent = '🇬🇧';
         if (textSpan) textSpan.textContent = 'EN';
         btn.setAttribute('aria-label', 'Switch language to English');
-        btn.setAttribute('title', 'Switch to English');
+        btn.setAttribute('title', 'Switch to English (EN)');
       }
     });
   }

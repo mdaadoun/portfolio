@@ -44,15 +44,9 @@
 
         <div class="nav-controls">
           <button class="lang-switch-btn" type="button" aria-label="Passer en Français" title="Passer en Français">
-            <span class="lang-icon">🌐</span>
+            <span class="lang-icon">🇫🇷</span>
             <span class="lang-text">FR</span>
           </button>
-          <select class="theme-select nav-theme-select" aria-label="Sélectionner le thème">
-            <option value="paxfabrica" data-i18n="theme_paxfabrica">🎨 PaxFabrica</option>
-            <option value="dark" data-i18n="theme_dark">🌙 Sombre</option>
-            <option value="light" data-i18n="theme_light">☀️ Clair</option>
-            <option value="dracula">🧛 Dracula</option>
-          </select>
         </div>
       </div>
     </div>
@@ -353,9 +347,20 @@
   </main>
 
   <footer class="footer">
-    <div class="container">
-      <p data-i18n="footer_text">Pax Fabrica Portfolio — Sovereign AI Business Solutions</p>
-      <p class="footer-sub">Hébergé via GitHub Pages</p>
+    <div class="container footer-container">
+      <div class="footer-info">
+        <p data-i18n="footer_text">Pax Fabrica Portfolio — Sovereign AI Business Solutions</p>
+        <p class="footer-sub">Hébergé via GitHub Pages</p>
+      </div>
+      <div class="footer-controls">
+        <span class="footer-theme-label">🎨 Thème :</span>
+        <select class="theme-select footer-theme-select" aria-label="Sélectionner le thème">
+          <option value="paxfabrica" data-i18n="theme_paxfabrica">🎨 PaxFabrica</option>
+          <option value="dark" data-i18n="theme_dark">🌙 Sombre</option>
+          <option value="light" data-i18n="theme_light">☀️ Clair</option>
+          <option value="dracula">🧛 Dracula</option>
+        </select>
+      </div>
     </div>
   </footer>
 

@@ -1269,11 +1269,47 @@ body {
 /* Footer */
 .footer {
   padding: 40px 0;
-  text-align: center;
   border-top: 1px solid var(--border-color);
   margin-top: 60px;
   color: var(--text-muted);
   font-size: 0.9rem;
+}
+
+.footer-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+@media (max-width: 768px) {
+  .footer-container {
+    flex-direction: column;
+    text-align: center;
+  }
+}
+
+.footer-controls {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.footer-theme-label {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+}
+
+.footer-theme-select {
+  padding: 6px 12px;
+  border-radius: var(--radius-sm);
+  background: var(--bg-card);
+  color: var(--text-main);
+  border: 1px solid var(--border-color);
+  font-size: 0.85rem;
+  outline: none;
+  cursor: pointer;
 }
 
 .footer-sub {
