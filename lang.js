@@ -17,6 +17,7 @@
       "nav_solutions": "Business Pillars",
       "nav_offres": "Pilot → Tool → Extensions",
       "nav_roi": "ROI Calculator",
+      "nav_cta_poc": "🚀 Test my file (€490)",
       "nav_tech_view": "Technical View (CTO/DSI) ↗",
       "nav_quality": "QA & Tests",
       "nav_explorer": "Roadmap & Docs",
@@ -614,6 +615,7 @@
       "nav_solutions": "Solutions Métier",
       "nav_offres": "Pilote → Outil → Extensions",
       "nav_roi": "Calculateur ROI",
+      "nav_cta_poc": "🚀 Tester mon dossier (490 €)",
       "nav_tech_view": "Vue Technique (DSI/Devs) ↗",
 
       // Client Page (Bureaux d'Études & Économistes du BTP)

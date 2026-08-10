@@ -612,6 +612,23 @@ body {
   transform: translateY(-1px);
 }
 
+.nav-btn-cta {
+  padding: 6px 16px;
+  background: var(--primary-color) !important;
+  border: 1px solid var(--primary-color);
+  border-radius: 99px;
+  color: #ffffff !important;
+  font-weight: 600 !important;
+  box-shadow: 0 4px 16px rgba(99, 102, 241, 0.35);
+  transition: all 0.2s ease;
+}
+
+.nav-btn-cta:hover {
+  background: var(--primary-hover) !important;
+  transform: translateY(-1px);
+  box-shadow: 0 6px 20px rgba(99, 102, 241, 0.5);
+}
+
 .nav-controls {
   display: flex;
   align-items: center;
