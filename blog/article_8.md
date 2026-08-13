@@ -19,16 +19,13 @@ Pour un ingénieur produit, un outil MCP classique fonctionne de manière basiqu
 
 Cependant, les cas d'usage industriels réels (ex. traitement d'un bon de commande avec contrôle d'inventaire, paiement et validation humaine) prennent des minutes, des heures, voire des jours. Dans ce contexte, maintenir une connexion TCP/HTTP ouverte est impossible :
 
-* 
-**Interruptions réseau** et déconnexions intempestives.
+* **Interruptions réseau** et déconnexions intempestives.
 
 
-* 
-**Crashs de composants** (crash du serveur MCP ou du client IA/runner de workflows).
+* **Crashs de composants** (crash du serveur MCP ou du client IA/runner de workflows).
 
 
-* 
-**Délais humains** (*Human-in-the-Loop*) irréalistes pour des sessions synchrones.
+* **Délais humains** (*Human-in-the-Loop*) irréalistes pour des sessions synchrones.
 
 
 
@@ -65,20 +62,16 @@ Pour comprendre pourquoi les développeurs de clients et d'agents sont restés f
 
 ```
 
-* 
-**Novembre 2024** : Publication de la spécification MCP Tasks V1 (marquée comme expérimentale).
+* **Novembre 2024** : Publication de la spécification MCP Tasks V1 (marquée comme expérimentale).
 
 
-* 
-**Mars–Mai 2025** : Retours d'expérience de la communauté (notamment via la *Agentic AI Foundation*) soulignant l'extrême complexité côté client et les goulets d'étranglement à l'échelle.
+* **Mars–Mai 2025** : Retours d'expérience de la communauté (notamment via la *Agentic AI Foundation*) soulignant l'extrême complexité côté client et les goulets d'étranglement à l'échelle.
 
 
-* 
-**Mai 2025** : Annonce officielle du passage à une architecture *stateless* (V2).
+* **Mai 2025** : Annonce officielle du passage à une architecture *stateless* (V2).
 
 
-* 
-**Abonnement/Notifications** : Évolution vers des architectures pilotées par les événements pour éviter le *polling* passif à grande échelle.
+* **Abonnement/Notifications** : Évolution vers des architectures pilotées par les événements pour éviter le *polling* passif à grande échelle.
 
 
 
@@ -128,8 +121,7 @@ Le tableau ci-dessous résume les différences majeures entre la première moutu
 
 En V1, la spécification mettait la responsabilité de l'état sur le serveur avec un endpoint `task/list`.
 
-* 
-**Critique** : Cet endpoint ne supportait pas de filtrage. Dans un environnement de production exécutant un million de tâches en arrière-plan, le client devait télécharger l'intégralité des tâches pour retrouver celle le concernant. Une hérésie pour tout système distribué à fort volume.
+* **Critique** : Cet endpoint ne supportait pas de filtrage. Dans un environnement de production exécutant un million de tâches en arrière-plan, le client devait télécharger l'intégralité des tâches pour retrouver celle le concernant. Une hérésie pour tout système distribué à fort volume.
 
 
 
@@ -137,8 +129,7 @@ En V1, la spécification mettait la responsabilité de l'état sur le serveur av
 
 L'acquisition d'entrées utilisateur (*input required*) en V1 imposait d'ouvrir une connexion longue portée (*long-running session*) où le serveur sollicitait le client à travers le canal de résultat.
 
-* 
-**Critique** : Si la connexion réseau coupait pendant la demande d'information, la gestion de reprise (*re-handshake*) créait un code spaghetti ingérable au niveau du client. De plus, les implémentations de référence traitaient les requêtes en mode séquentiel strict (FIFO), bloquant le traitement en parallèle d'autres tâches en attente d'entrées.
+* **Critique** : Si la connexion réseau coupait pendant la demande d'information, la gestion de reprise (*re-handshake*) créait un code spaghetti ingérable au niveau du client. De plus, les implémentations de référence traitaient les requêtes en mode séquentiel strict (FIFO), bloquant le traitement en parallèle d'autres tâches en attente d'entrées.
 
 
 
@@ -147,12 +138,10 @@ L'acquisition d'entrées utilisateur (*input required*) en V1 imposait d'ouvrir 
 La V2 supprime `task/list` et remplace le tunnel de résultat par l'endpoint `task/update`.
 
 * **Critique** :
-* 
-**Avantage** : Le client envoie un signal directement au workflow (similaire au mécanisme de *Signals* des moteurs d'orchestration distribués comme Temporal). La gestion devient prévisible et sans état côté protocole transport.
+* **Avantage** : Le client envoie un signal directement au workflow (similaire au mécanisme de *Signals* des moteurs d'orchestration distribués comme Temporal). La gestion devient prévisible et sans état côté protocole transport.
 
 
-* 
-**Contrainte cachée** : La suppression de `task/list` oblige désormais le client à **persister obligatoirement les ID de tâches** de son côté. Si le client crash sans avoir sauvegardé le `task_id`, la tâche devient orpheline et irrécupérable sur le serveur.
+* **Contrainte cachée** : La suppression de `task/list` oblige désormais le client à **persister obligatoirement les ID de tâches** de son côté. Si le client crash sans avoir sauvegardé le `task_id`, la tâche devient orpheline et irrécupérable sur le serveur.
 
 
 
@@ -162,8 +151,7 @@ La V2 supprime `task/list` et remplace le tunnel de résultat par l'endpoint `ta
 
 Même avec la simplification V2, si un agent gère des milliers de tâches, faire des requêtes `task/get` répétées sur chaque tâche n'est pas viable à l'échelle.
 
-* 
-**Critique** : La V2 doit impérativement s'accompagner du **protocole de notifications** (*Notifications Protocol*). Plutôt que de scruter chaque tâche (*polling*), le client s'abonne à un unique endpoint d'événements push.
+* **Critique** : La V2 doit impérativement s'accompagner du **protocole de notifications** (*Notifications Protocol*). Plutôt que de scruter chaque tâche (*polling*), le client s'abonne à un unique endpoint d'événements push.
 
 
 
@@ -215,17 +203,13 @@ Assurez-vous de faire correspondre la machine d'état du protocole MCP (`working
 
 Cet article s'inspire directement des retours d'expérience et des analyses techniques présentés par la communauté MCP :
 
-* 
-**Cornelia Davis (Temporal)** – *MCP Tasks (async): Why Aren't Any Agents Supporting Them?* (Présentation technique sur l'architecture des tâches asynchrones, la durabilité et la transition V1/V2).
+* **Cornelia Davis (Temporal)** – *MCP Tasks (async): Why Aren't Any Agents Supporting Them?* (Présentation technique sur l'architecture des tâches asynchrones, la durabilité et la transition V1/V2).
 
 
-* 
-**Cornelia Davis** – *Server-side MCP Tasks Durability* (Talk présenté au MCP DevSummit).
+* **Cornelia Davis** – *Server-side MCP Tasks Durability* (Talk présenté au MCP DevSummit).
 
 
-* 
-**Angie Jones (Agentic AI Foundation)** – *Announcing the Stateless Core Architecture for MCP V2* (Publication officielle sur le passage du protocole au modèle *stateless* et modulaire).
+* **Angie Jones (Agentic AI Foundation)** – *Announcing the Stateless Core Architecture for MCP V2* (Publication officielle sur le passage du protocole au modèle *stateless* et modulaire).
 
 
-* 
-**FastMCP Framework** – Documentation et implémentation de référence des handlers de protocole client/serveur pour MCP.
+* **FastMCP Framework** – Documentation et implémentation de référence des handlers de protocole client/serveur pour MCP.
