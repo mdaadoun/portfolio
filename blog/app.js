@@ -3,7 +3,7 @@
 
   const ARTICLES = [
     {
-      slug: 'article_10',
+      slug: '2026-08-12-optimiser-ia-locale-switch-pcie-harnesses',
       title_fr: "Optimiser l'IA Locale : L'Impact Crucial du Switch PCIe et de l'Agentique (\"Harnesses\")",
       title_en: "Optimizing Local AI: The Crucial Impact of PCIe Switches and Agentic Frameworks (\"Harnesses\")",
       desc_fr: "Analyse d'expérimentations sur architectures GPU locales : pourquoi la puissance brute du matériel ne sert à rien sans communication PCIe optimale, et comment un modèle moyen couplé au bon harness peut surpasser un grand modèle.",
@@ -17,7 +17,7 @@
       pills: ['#PCIe', '#GPU', '#Harness', '#LocalAI']
     },
     {
-      slug: 'article_9',
+      slug: '2026-08-12-stack-ia-souveraine-france',
       title_fr: "La Stack IA Souveraine en France : Le guide sans langue de bois pour AI Product Engineers",
       title_en: "The Sovereign AI Stack in France: A No-Nonsense Guide for AI Product Engineers",
       desc_fr: "Guide pratique pour concevoir des produits IA sécurisés et souverains en France : infrastructure GPU, modèles de fondation, bases vectorielles et garde-fous agentiques face au Cloud Act et au FISA.",
@@ -31,7 +31,7 @@
       pills: ['#SovereignAI', '#France', '#Security', '#CloudAct']
     },
     {
-      slug: 'article_8',
+      slug: '2026-08-12-agents-ignorent-taches-asynchrones-mcp',
       title_fr: "Pourquoi les agents ignorent-ils (encore) les tâches asynchrones MCP ? Analyse & Rétro-ingénierie du protocole",
       title_en: "Why Are AI Agents (Still) Ignoring Async MCP Tasks? Analysis & Protocol Reverse-Engineering",
       desc_fr: "Analyse complète des défis techniques des opérations de longue durée dans MCP, de l'évolution du protocole de la V1 à la V2, et des solutions pour intégrer ces mécanismes dans vos architectures produit.",
@@ -45,7 +45,7 @@
       pills: ['#MCP', '#Async', '#Tasks', '#Protocol']
     },
     {
-      slug: 'article_7',
+      slug: '2026-08-07-architecture-memoire-agentique-tencent-db',
       title_fr: "L'Architecture de la Mémoire Agentique : Décryptage de Tencent DB et de la Révolution de la Sobriété Contextuelle",
       title_en: "Agentic Memory Architecture: Deciphering Tencent DB and the Revolution of Contextual Sobriety",
       desc_fr: "Analyse du projet open source Tencent DB qui remet en cause le dogme des contextes infinis : aider l'agent à se souvenir de moins de choses, mais de manière structurée.",
@@ -59,7 +59,7 @@
       pills: ['#Memory', '#TencentDB', '#Context', '#Agents']
     },
     {
-      slug: 'article_6',
+      slug: '2026-08-07-mcp-apps-avenement-web-agentique',
       title_fr: "MCP Apps : L'Avènement du Web Agentique et la Fin du Web par Onglets",
       title_en: "MCP Apps: The Dawn of the Agentic Web and the End of Tab-Based Browsing",
       desc_fr: "Analyse des MCP Apps : comment les serveurs MCP envoient des composants d'interface graphique interactifs directement dans les clients de chat, préservant l'identité visuelle et l'interactivité.",
@@ -73,7 +73,7 @@
       pills: ['#MCP', '#AgenticWeb', '#UI', '#MicroUI']
     },
     {
-      slug: 'article_5',
+      slug: '2026-08-07-evolution-routage-modeles-orchestration-multi-modeles',
       title_fr: "L'Évolution du Routage de Modèles et de l'Orchestration Multi-Modèles",
       title_en: "The Evolution of Model Routing and Multi-Model Orchestration",
       desc_fr: "Analyse du routage de modèles et de l'orchestration multi-modèles : optimiser le compromis entre coût, latence et performances dans les applications agentiques.",
@@ -87,7 +87,7 @@
       pills: ['#ModelRouting', '#Orchestration', '#CostOptimization', '#Agents']
     },
     {
-      slug: 'article_3',
+      slug: '2026-08-07-agents-ia-autonomes-long-horizon-architecture',
       title_fr: "Concevoir des Agents IA Autonomes à Long Horizon : Guide d'Architecture et d'Ingénierie Produit",
       title_en: "Designing Long-Horizon Autonomous AI Agents: An Architectural and Product Engineering Guide",
       desc_fr: "Guide d'architecture pour construire des agents autonomes capables d'exécuter des flux métiers complexes pendant des heures ou des jours, basé sur le retour d'expérience de Basis.",
@@ -101,7 +101,7 @@
       pills: ['#LongHorizon', '#Agents', '#Architecture', '#Autonomy']
     },
     {
-      slug: 'article_2',
+      slug: '2026-08-07-compresser-sans-degrader-reduction-modeles-llm',
       title_fr: "Compresser sans dégrader : L'art de la réduction de modèles LLM pour les Ingenieurs Produit IA",
       title_en: "Compress Without Degrading: The Art of LLM Model Reduction for AI Product Engineers",
       desc_fr: "Analyse des compromis, architectures et perspectives stratégiques de la compression de modèles LLM (quantification, distillation) pour des applications IA légères et économiquement viables.",
@@ -115,7 +115,7 @@
       pills: ['#Compression', '#Quantization', '#LLM', '#Edge']
     },
     {
-      slug: 'article_1',
+      slug: '2026-08-07-avenir-souverainete-modeles-ouverts-overlays-ia-locaux',
       title_fr: "L'Avenir de la Souveraineté : Modèles Ouverts et Overlays IA Locaux",
       title_en: "The Future of Sovereignty: Open Models and Local AI Overlays",
       desc_fr: "Analyse de la table ronde sur les modèles locaux : pourquoi l'avenir du produit IA réside dans la personnalisation, l'optimisation ciblée et l'alignement entre le modèle et son harnais applicatif.",
