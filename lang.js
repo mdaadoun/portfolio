@@ -24,7 +24,9 @@
       "nav_explorer": "Roadmap & Docs",
       "nav_source": "Source Code ↗",
       "footer_text": "Pax Fabrica Portfolio — Sovereign AI Business Solutions",
-      "theme_paxfabrica": "🎨 PaxFabrica",
+      "theme_paxfabrica": "🏛️ Pax Fabrica Dark",
+      "theme_pax_dark": "🏛️ Pax Fabrica Dark",
+      "theme_pax_light": "🏛️ Pax Fabrica Light",
       "theme_dark": "🌙 Dark",
       "theme_light": "☀️ Light",
 
@@ -597,7 +599,9 @@
       "nav_explorer": "Roadmap & Documentation",
       "nav_source": "Code Source ↗",
       "footer_text": "Portfolio Pax Fabrica — AI Product Engineering",
-      "theme_paxfabrica": "🎨 PaxFabrica",
+      "theme_paxfabrica": "🏛️ Pax Fabrica Sombre",
+      "theme_pax_dark": "🏛️ Pax Fabrica Sombre",
+      "theme_pax_light": "🏛️ Pax Fabrica Clair",
       "theme_dark": "🌙 Sombre",
       "theme_light": "☀️ Clair",
 

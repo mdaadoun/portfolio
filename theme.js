@@ -1,38 +1,61 @@
 (function () {
   const THEME_KEY = 'portfolio_theme';
-  const VALID_THEMES = ['paxfabrica', 'dark', 'light', 'dracula', 'templeos'];
 
   function getPreferredTheme() {
     const saved = localStorage.getItem(THEME_KEY);
-    if (saved && VALID_THEMES.includes(saved)) {
-      return saved;
+    if (saved === 'pax-dark' || saved === 'dark') {
+      return 'pax-dark';
     }
-    return 'paxfabrica';
+    return 'pax-light';
   }
 
   function applyTheme(theme) {
-    if (!VALID_THEMES.includes(theme)) theme = 'paxfabrica';
-    
-    // Nettoyer les classes de thèmes sur documentElement
-    VALID_THEMES.forEach(t => {
-      if (t !== 'dark') document.documentElement.classList.remove(t + '-theme');
-    });
-    
-    if (theme !== 'dark') {
-      document.documentElement.classList.add(theme + '-theme');
+    if (theme !== 'pax-light') {
+      theme = 'pax-dark';
     }
-    document.documentElement.setAttribute('data-theme', theme);
+
+    // Clean up all legacy and active theme classes
+    document.documentElement.classList.remove(
+      'pax-dark-theme',
+      'pax-light-theme',
+      'paxfabrica-theme',
+      'dark-theme',
+      'light-theme',
+      'dracula-theme',
+      'templeos-theme'
+    );
+
+    if (theme === 'pax-light') {
+      document.documentElement.classList.add('pax-light-theme');
+      document.documentElement.setAttribute('data-theme', 'pax-light');
+    } else {
+      document.documentElement.classList.add('pax-dark-theme', 'paxfabrica-theme');
+      document.documentElement.setAttribute('data-theme', 'pax-dark');
+    }
+
+    try {
+      localStorage.setItem(THEME_KEY, theme);
+    } catch (e) {
+      /* ignore storage quota / disabled errors */
+    }
 
     updateThemeControls(theme);
   }
 
-
   function updateThemeControls(theme) {
-    const selects = document.querySelectorAll('.theme-select');
-    selects.forEach(select => {
-      if (select.value !== theme) {
-        select.value = theme;
-      }
+    const currentLang = document.documentElement.getAttribute('lang') || 'fr';
+    const isLight = theme === 'pax-light';
+    const buttons = document.querySelectorAll('.theme-toggle-btn');
+
+    buttons.forEach((btn) => {
+      const icon = isLight ? '🌙' : '☀️';
+      const label = isLight
+        ? (currentLang === 'en' ? 'Switch to dark mode' : 'Passer au mode sombre')
+        : (currentLang === 'en' ? 'Switch to light mode' : 'Passer au mode clair');
+
+      btn.setAttribute('aria-label', label);
+      btn.setAttribute('title', label);
+      btn.innerHTML = `<span class="theme-toggle-icon">${icon}</span>`;
     });
   }
 
@@ -41,17 +64,19 @@
     updateThemeControls(currentTheme);
   };
 
+  // Immediate theme application to prevent unstyled flash
   const initialTheme = getPreferredTheme();
   applyTheme(initialTheme);
 
   document.addEventListener('DOMContentLoaded', () => {
     updateThemeControls(getPreferredTheme());
 
-    // Listener for theme select controls
-    document.body.addEventListener('change', (e) => {
-      if (e.target.classList.contains('theme-select')) {
-        const newTheme = e.target.value;
-        localStorage.setItem(THEME_KEY, newTheme);
+    // Toggle theme on button click
+    document.body.addEventListener('click', (e) => {
+      const toggleBtn = e.target.closest('.theme-toggle-btn');
+      if (toggleBtn) {
+        const currentTheme = document.documentElement.getAttribute('data-theme') || 'pax-light';
+        const newTheme = currentTheme === 'pax-light' ? 'pax-dark' : 'pax-light';
         applyTheme(newTheme);
       }
     });
@@ -66,7 +91,7 @@
       });
 
       // Close menu when clicking a link inside mobile drawer
-      linksWrapper.querySelectorAll('a').forEach(link => {
+      linksWrapper.querySelectorAll('a').forEach((link) => {
         link.addEventListener('click', () => {
           linksWrapper.classList.remove('open');
           toggleBtn.setAttribute('aria-expanded', 'false');
@@ -81,7 +106,8 @@
       backToTopBtn.className = 'back-to-top-btn';
       backToTopBtn.setAttribute('aria-label', 'Back to Top');
       backToTopBtn.setAttribute('title', 'Back to Top');
-      backToTopBtn.innerHTML = '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 15l-6-6-6 6"/></svg>';
+      backToTopBtn.innerHTML =
+        '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 15l-6-6-6 6"/></svg>';
       document.body.appendChild(backToTopBtn);
     }
 
@@ -93,36 +119,36 @@
     const sections = document.querySelectorAll('section[id]');
     const navAnchors = document.querySelectorAll('.nav-links a[href^="#"]');
 
-    window.addEventListener('scroll', () => {
-      const scrollPos = window.scrollY || document.documentElement.scrollTop;
+    window.addEventListener(
+      'scroll',
+      () => {
+        const scrollPos = window.scrollY || document.documentElement.scrollTop;
 
-      // Show/Hide Back to Top
-      if (scrollPos > 300) {
-        backToTopBtn.classList.add('visible');
-      } else {
-        backToTopBtn.classList.remove('visible');
-      }
-
-      // Active Section ScrollSpy
-      let currentSectionId = '';
-      sections.forEach(section => {
-        const sectionTop = section.offsetTop - 120;
-        const sectionHeight = section.offsetHeight;
-        if (scrollPos >= sectionTop && scrollPos < sectionTop + sectionHeight) {
-          currentSectionId = section.getAttribute('id');
-        }
-      });
-
-      navAnchors.forEach(anchor => {
-        const targetId = anchor.getAttribute('href').replace('#', '');
-        if (targetId === currentSectionId && currentSectionId !== '') {
-          anchor.classList.add('active');
+        if (scrollPos > 300) {
+          backToTopBtn.classList.add('visible');
         } else {
-          anchor.classList.remove('active');
+          backToTopBtn.classList.remove('visible');
         }
-      });
-    }, { passive: true });
+
+        let currentSectionId = '';
+        sections.forEach((section) => {
+          const sectionTop = section.offsetTop - 120;
+          const sectionHeight = section.offsetHeight;
+          if (scrollPos >= sectionTop && scrollPos < sectionTop + sectionHeight) {
+            currentSectionId = section.getAttribute('id');
+          }
+        });
+
+        navAnchors.forEach((anchor) => {
+          const targetId = anchor.getAttribute('href').replace('#', '');
+          if (targetId === currentSectionId && currentSectionId !== '') {
+            anchor.classList.add('active');
+          } else {
+            anchor.classList.remove('active');
+          }
+        });
+      },
+      { passive: true }
+    );
   });
 })();
-
-
