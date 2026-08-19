@@ -3,10 +3,10 @@
 
   function getPreferredTheme() {
     const saved = localStorage.getItem(THEME_KEY);
-    if (saved === 'pax-dark' || saved === 'dark') {
-      return 'pax-dark';
+    if (saved === 'pax-light' || saved === 'light') {
+      return 'pax-light';
     }
-    return 'pax-light';
+    return 'pax-dark';
   }
 
   function applyTheme(theme) {
@@ -52,10 +52,24 @@
       const label = isLight
         ? (currentLang === 'en' ? 'Switch to dark mode' : 'Passer au mode sombre')
         : (currentLang === 'en' ? 'Switch to light mode' : 'Passer au mode clair');
+      const text = isLight
+        ? (currentLang === 'en' ? 'Sombre' : 'Sombre')
+        : (currentLang === 'en' ? 'Clair' : 'Clair');
 
       btn.setAttribute('aria-label', label);
       btn.setAttribute('title', label);
-      btn.innerHTML = `<span class="theme-toggle-icon">${icon}</span>`;
+
+      const iconSpan = btn.querySelector('.theme-toggle-icon');
+      const textSpan = btn.querySelector('.theme-toggle-text');
+      if (iconSpan) {
+        iconSpan.textContent = icon;
+      }
+      if (textSpan) {
+        textSpan.textContent = text;
+      }
+      if (!iconSpan && !textSpan) {
+        btn.innerHTML = `<span class="theme-toggle-icon">${icon}</span>`;
+      }
     });
   }
 
