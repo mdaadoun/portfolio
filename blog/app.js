@@ -3,6 +3,20 @@
 
   const ARTICLES = [
     {
+      slug: '2026-08-20-ia-btp-decryptage-produit-revolution-terrain',
+      title_fr: "IA et BTP : Décryptage Produit d'une Révolution sur le Terrain",
+      title_en: "AI and Construction (AEC): Product Analysis of an On-Site Revolution",
+      desc_fr: "Analyse des opportunités et écueils du déploiement de produits IA dans le BTP : cartographie chronologique, product-market fit terrain, explicabilité et retours d'expérience.",
+      desc_en: "Analysis of opportunities and pitfalls in deploying AI products in construction: chronological mapping, on-site product-market fit, explainability, and practical takeaways.",
+      date_fr: '20 Août 2026',
+      date_en: 'August 20, 2026',
+      tag_fr: '✨ IA & BTP',
+      tag_en: '✨ AI & Construction',
+      readTime_fr: '9 min de lecture',
+      readTime_en: '9 min read',
+      pills: ['#BTP', '#ProductEngineering', '#ComputerVision', '#LLM']
+    },
+    {
       slug: '2026-08-12-optimiser-ia-locale-switch-pcie-harnesses',
       title_fr: "Optimiser l'IA Locale : L'Impact Crucial du Switch PCIe et de l'Agentique (\"Harnesses\")",
       title_en: "Optimizing Local AI: The Crucial Impact of PCIe Switches and Agentic Frameworks (\"Harnesses\")",
