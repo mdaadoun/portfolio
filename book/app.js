@@ -39,7 +39,7 @@
   ];
 
   let currentFileKey = 'summary';
-  let currentLang = 'en';
+  let currentLang = 'fr';
   let tocListEl;
   let bookContentEl;
   let bookLoadingEl;
@@ -128,7 +128,7 @@
     if (!tocListEl) return;
     tocListEl.innerHTML = '';
 
-    const getLangDict = () => window.TRANSLATIONS ? (window.TRANSLATIONS[currentLang] || window.TRANSLATIONS.en || {}) : {};
+    const getLangDict = () => window.TRANSLATIONS ? (window.TRANSLATIONS[currentLang] || window.TRANSLATIONS.fr || window.TRANSLATIONS.en || {}) : {};
     const langDict = getLangDict();
 
     TOC_STRUCTURE.forEach(item => {
@@ -174,7 +174,7 @@
   // Listen for language changes from the global lang.js
   function setupLanguageListener() {
     const observer = new MutationObserver(() => {
-      const newLang = document.documentElement.getAttribute('lang') || 'en';
+      const newLang = document.documentElement.getAttribute('lang') || 'fr';
       if (newLang !== currentLang) {
         currentLang = newLang;
         buildToc();
@@ -188,7 +188,7 @@
     tocListEl = document.getElementById('tocList');
     bookContentEl = document.getElementById('bookContent');
     bookLoadingEl = document.getElementById('bookLoading');
-    currentLang = document.documentElement.getAttribute('lang') || 'en';
+    currentLang = document.documentElement.getAttribute('lang') || 'fr';
     buildToc();
     loadFile('summary');
     setupLanguageListener();

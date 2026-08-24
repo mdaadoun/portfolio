@@ -3,34 +3,32 @@
 
   function getPreferredTheme() {
     const saved = localStorage.getItem(THEME_KEY);
-    if (saved === 'pax-light' || saved === 'light') {
-      return 'pax-light';
+    if (saved === 'dark' || saved === 'pax-dark') {
+      return 'dark';
     }
-    return 'pax-dark';
+    return 'light';
   }
 
   function applyTheme(theme) {
-    if (theme !== 'pax-light') {
-      theme = 'pax-dark';
-    }
+    theme = theme === 'dark' ? 'dark' : 'light';
 
     // Clean up all legacy and active theme classes
     document.documentElement.classList.remove(
+      'dark-theme',
+      'light-theme',
       'pax-dark-theme',
       'pax-light-theme',
       'paxfabrica-theme',
-      'dark-theme',
-      'light-theme',
       'dracula-theme',
       'templeos-theme'
     );
 
-    if (theme === 'pax-light') {
-      document.documentElement.classList.add('pax-light-theme');
-      document.documentElement.setAttribute('data-theme', 'pax-light');
+    if (theme === 'dark') {
+      document.documentElement.classList.add('dark-theme');
+      document.documentElement.setAttribute('data-theme', 'dark');
     } else {
-      document.documentElement.classList.add('pax-dark-theme', 'paxfabrica-theme');
-      document.documentElement.setAttribute('data-theme', 'pax-dark');
+      document.documentElement.classList.add('light-theme');
+      document.documentElement.setAttribute('data-theme', 'light');
     }
 
     try {
@@ -44,17 +42,19 @@
 
   function updateThemeControls(theme) {
     const currentLang = document.documentElement.getAttribute('lang') || 'fr';
-    const isLight = theme === 'pax-light';
+    const isLight = theme === 'light';
     const buttons = document.querySelectorAll('.theme-toggle-btn');
 
     buttons.forEach((btn) => {
+      // In Light mode -> target action is Dark mode (🌙 Sombre)
+      // In Dark mode  -> target action is Light mode (☀️ Clair)
       const icon = isLight ? '🌙' : '☀️';
       const label = isLight
         ? (currentLang === 'en' ? 'Switch to dark mode' : 'Passer au mode sombre')
         : (currentLang === 'en' ? 'Switch to light mode' : 'Passer au mode clair');
       const text = isLight
-        ? (currentLang === 'en' ? 'Sombre' : 'Sombre')
-        : (currentLang === 'en' ? 'Clair' : 'Clair');
+        ? (currentLang === 'en' ? 'Dark' : 'Sombre')
+        : (currentLang === 'en' ? 'Light' : 'Clair');
 
       btn.setAttribute('aria-label', label);
       btn.setAttribute('title', label);
@@ -89,8 +89,8 @@
     document.body.addEventListener('click', (e) => {
       const toggleBtn = e.target.closest('.theme-toggle-btn');
       if (toggleBtn) {
-        const currentTheme = document.documentElement.getAttribute('data-theme') || 'pax-light';
-        const newTheme = currentTheme === 'pax-light' ? 'pax-dark' : 'pax-light';
+        const currentTheme = document.documentElement.getAttribute('data-theme') || 'light';
+        const newTheme = currentTheme === 'light' ? 'dark' : 'light';
         applyTheme(newTheme);
       }
     });

@@ -410,7 +410,7 @@
     }
   ];
 
-  let currentLang = 'en';
+  let currentLang = 'fr';
   let activeSlug = null;
 
   function renderMarkdown(md) {
@@ -532,7 +532,7 @@
   }
 
   function handleRoute() {
-    currentLang = document.documentElement.getAttribute('lang') || 'en';
+    currentLang = document.documentElement.getAttribute('lang') || 'fr';
     const hash = window.location.hash.replace(/^#/, '');
 
     const feedView = document.getElementById('blogFeedView');
@@ -550,7 +550,7 @@
 
   function setupLanguageListener() {
     const observer = new MutationObserver(() => {
-      const newLang = document.documentElement.getAttribute('lang') || 'en';
+      const newLang = document.documentElement.getAttribute('lang') || 'fr';
       if (newLang !== currentLang) {
         currentLang = newLang;
         if (activeSlug) {
@@ -564,7 +564,7 @@
   }
 
   function init() {
-    currentLang = document.documentElement.getAttribute('lang') || 'en';
+    currentLang = document.documentElement.getAttribute('lang') || 'fr';
     setupLanguageListener();
     window.addEventListener('hashchange', handleRoute);
     handleRoute();

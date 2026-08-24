@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="fr" class="light-theme" data-theme="light">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,9 +9,9 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Outfit:wght@400;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="./style.css?v=4.0">
-  <script src="./theme.js"></script>
-  <script src="./lang.js"></script>
+  <link rel="stylesheet" href="./style.css?v=7.2">
+  <script src="./theme.js?v=7.2"></script>
+  <script src="./lang.js?v=7.2"></script>
 </head>
 <body>
   <div class="background-glow glow-1"></div>
@@ -186,7 +186,7 @@
           <div class="glass-card hub-project-card active-card" style="border-color: rgba(99, 102, 241, 0.4);">
             <div class="project-header-top">
               <span class="project-header-icon">💻</span>
-              <h3 class="project-card-title" data-i18n="client_offer2_title">2. Votre Outil Métier — Conversion Documentaire</h3>
+              <h3 class="project-card-title" data-i18n="client_offer2_title">2. Mise en production de Votre Outil Métier</h3>
             </div>
             <div style="margin-bottom: 12px;">
               <span class="pill" style="background: rgba(99, 102, 241, 0.15); color: var(--primary-color);" data-i18n="client_offer2_tag">SUITE LOGIQUE — PRODUIT HÉBERGÉ</span>
@@ -195,10 +195,10 @@
               <strong>Principe :</strong> Après validation du Pilote, transformez vos dossiers récurrents en autonomie via votre propre espace web privé.<br>
               <strong>Fonctionnalités :</strong> Conversion PDF/scans vers Excel, OCR, détection automatique d'incertitudes et traçabilité ligne par ligne.<br>
               <strong>Zéro friction technique :</strong> Aucun serveur à installer, aucun logiciel à déployer, aucune clé API à configurer. Pax Fabrica héberge et maintient l'outil pour vous.<br>
-              <strong>Tarif indicatif :</strong> 1 500 € à 2 500 € HT <em>(Pilote Flash de 490 € déduit)</em>.
+              <strong>Tarif indicatif :</strong> 2 990 € HT <em>(Pilote Flash de 490 € déduit)</em>.
             </p>
             <div class="project-card-tags">
-              <span class="pill">1 500–2 500 € HT</span>
+              <span class="pill">2 990 € HT</span>
               <span class="pill">Pilote déduit</span>
               <span class="pill">Hébergé &amp; Géré</span>
               <span class="pill">Interface Web</span>
@@ -246,44 +246,69 @@
           <h3 style="font-size: 1.1rem; font-weight: 700; margin-bottom: 8px;" data-i18n="client_friction_title">☁️ Vous n'avez rien à installer</h3>
           <p style="font-size: 0.92rem; color: var(--text-muted); line-height: 1.6; margin: 0;" data-i18n="client_friction_desc">
             Après le Pilote Flash, votre outil est déployé sous forme d'application web privée utilisable directement depuis votre navigateur web. Pax Fabrica gère l'hébergement, la sécurité et la maintenance.
-            <br><strong style="color: var(--text-color);">Pas de serveur à acheter · Pas de logiciel à installer · Pas de clé API à gérer.</strong>
+            <br><strong style="color: var(--text-main);">Pas de serveur à acheter · Pas de logiciel à installer · Pas de clé API à gérer.</strong>
           </p>
         </div>
       </div>
     </section>
 
-    <!-- Appointment / Calendly Section -->
+    <!-- Appointment / Action Section -->
     <section class="section" id="rdv">
       <div class="container">
         <div class="section-header">
-          <div class="badge" data-i18n="client_rdv_badge">Pilote Réel 48h</div>
-          <h2 class="section-title" data-i18n="client_rdv_title">Tester sur un DPGF Réel — 490 € HT</h2>
-          <p class="section-subtitle" data-i18n="client_rdv_subtitle">Vous avez un DPGF sous la main ? Envoyez-le. Nous vous livrons le fichier Excel structuré et le rapport d'anomalies sous 48h.</p>
+          <div class="badge" data-i18n="client_rdv_badge">Passage à l'Action &amp; Pilote</div>
+          <h2 class="section-title" data-i18n="client_rdv_title">Lancez Votre Pilote ou Échangeons en Démo Directe</h2>
+          <p class="section-subtitle" data-i18n="client_rdv_subtitle">Deux options simples et concrètes pour évaluer Pax Fabrica sur vos pièces écrites sans aucun risque.</p>
         </div>
 
-        <div class="glass-card" style="padding: 32px 24px; text-align: center; border-color: rgba(99, 102, 241, 0.3); border-radius: 16px; background: rgba(15, 23, 42, 0.6);">
-          <div id="rdvPromptBox">
-            <p style="font-size: 1.05rem; color: var(--text-muted); margin-bottom: 24px; max-width: 680px; margin-left: auto; margin-right: auto;" data-i18n="client_rdv_prompt">
-              Vous avez un DPGF sous la main ? Envoyez-le ou réservez un créneau ci-dessous pour lancer votre pilote livré sous 48 h.
-            </p>
-            <button type="button" class="btn btn-primary btn-lg" id="btnOpenCalendly" style="cursor: pointer; display: inline-flex; align-items: center; gap: 10px;">
-              <span data-i18n="client_rdv_btn_open">📅 Ouvrir l'agenda de prise de rendez-vous</span>
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 9l-7 7-7-7"/></svg>
-            </button>
-          </div>
-
-          <div id="calendlyFrameWrapper" style="display: none; margin-top: 24px; text-align: left;">
-            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px; padding-bottom: 12px; border-bottom: 1px solid rgba(255,255,255,0.1);">
-              <span style="font-size: 0.95rem; font-weight: 600; color: var(--text-color);">📅 Agenda interactif Calendly</span>
-              <button type="button" class="btn btn-secondary btn-sm" id="btnCloseCalendly" style="padding: 6px 14px; font-size: 0.85rem; cursor: pointer;">
-                <span data-i18n="client_rdv_btn_close">✖ Masquer l'agenda</span>
+        <div class="rdv-two-options-grid">
+          <!-- Option 1: Démo lors d'un RDV -->
+          <div class="glass-card rdv-option-card">
+            <div class="rdv-card-header">
+              <div class="badge badge-accent" data-i18n="client_rdv_opt1_badge">🎥 Option 1 — Visio 15 min</div>
+              <h3 class="rdv-option-title" data-i18n="client_rdv_opt1_title">Tester la démo lors d'un RDV</h3>
+              <p class="rdv-option-desc" data-i18n="client_rdv_opt1_desc">
+                Découvrez l'outil en direct sur un DPGF type, posez vos questions techniques ou métier, et évaluez l'adéquation exacte avec vos processus d'études de prix.
+              </p>
+            </div>
+            <div class="rdv-card-action">
+              <button type="button" class="btn btn-secondary btn-lg btn-full" id="btnOpenCalendly" style="cursor: pointer; display: inline-flex; align-items: center; justify-content: center; gap: 8px;">
+                <span data-i18n="client_rdv_btn_open">📅 Réserver un créneau de démo</span>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 9l-7 7-7-7"/></svg>
               </button>
             </div>
-            <!-- Calendly inline widget begin -->
-            <div class="calendly-inline-widget" data-url="https://calendly.com/d/d3k4-xz8-pwt?background_color=435edb&text_color=f4f5ef&primary_color=eb9d45" style="min-width:320px;height:700px;"></div>
-            <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
-            <!-- Calendly inline widget end -->
           </div>
+
+          <!-- Option 2: Pilote Flash 48h direct -->
+          <div class="glass-card rdv-option-card rdv-option-featured">
+            <div class="rdv-featured-tag" data-i18n="client_rdv_featured_tag">Recommandé — Gain Immédiat</div>
+            <div class="rdv-card-header">
+              <div class="badge badge-success" data-i18n="client_rdv_opt2_badge">⚡ Option 2 — Pilote Réel 48 h</div>
+              <h3 class="rdv-option-title" data-i18n="client_rdv_opt2_title">Déjà convaincu ? Envoyez votre DPGF</h3>
+              <p class="rdv-option-desc" data-i18n="client_rdv_opt2_desc">
+                Vous avez un DPGF sous la main ? Envoyez-le ci-dessous pour lancer votre pilote livré sous 48 h. Nous vous livrons le fichier Excel structuré et le rapport d'anomalies (490 € HT, 100% déductible).
+              </p>
+            </div>
+            <div class="rdv-card-action">
+              <a href="mailto:contact@paxfabrica.com?subject=Lancement%20Pilote%20DPGF%2048h&body=Bonjour%20l%27%C3%A9quipe%20Pax%20Fabrica%2C%0A%0AVeuillez%20trouver%20ci-joint%20notre%20fichier%20DPGF%20(PDF)%20pour%20la%20r%C3%A9alisation%20du%20Pilote%20Flash%20livr%C3%A9%20sous%2048h.%0A%0ANom%20de%20l%27entreprise%20%2F%20Bureau%20d%27%C3%A9tudes%20%3A%20%0AContact%20%3A%20%0AT%C3%A9l%C3%A9phone%20%3A%20" class="btn btn-primary btn-lg btn-full" style="text-decoration: none; display: inline-flex; align-items: center; justify-content: center; gap: 8px;">
+                <span data-i18n="client_rdv_opt2_btn">📤 Envoyer mon DPGF (Livraison 48 h)</span>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Calendly Frame Wrapper (expandable below options) -->
+        <div id="calendlyFrameWrapper" class="glass-card" style="display: none; margin-top: 32px; text-align: left; max-width: 1000px; margin-left: auto; margin-right: auto; padding: 24px;">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px; padding-bottom: 12px; border-bottom: 1px solid var(--border-color);">
+            <span style="font-size: 0.95rem; font-weight: 600; color: var(--text-main);">📅 Agenda interactif Calendly</span>
+            <button type="button" class="btn btn-secondary btn-sm" id="btnCloseCalendly" style="padding: 6px 14px; font-size: 0.85rem; cursor: pointer;">
+              <span data-i18n="client_rdv_btn_close">✖ Masquer l'agenda</span>
+            </button>
+          </div>
+          <!-- Calendly inline widget begin -->
+          <div class="calendly-inline-widget" data-url="https://calendly.com/d/d3k4-xz8-pwt?background_color=f4f5ef&text_color=191023&primary_color=474394" style="min-width:320px;height:700px;"></div>
+          <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
+          <!-- Calendly inline widget end -->
         </div>
       </div>
     </section>
@@ -424,9 +449,9 @@
       </div>
       <div class="footer-controls">
         <span class="footer-theme-label">🎨 Thème :</span>
-        <button class="theme-toggle-btn footer-theme-toggle" type="button" aria-label="Passer au mode clair" title="Passer au mode clair">
-          <span class="theme-toggle-icon">☀️</span>
-          <span class="theme-toggle-text">Clair</span>
+        <button class="theme-toggle-btn footer-theme-toggle" type="button" aria-label="Passer au mode sombre" title="Passer au mode sombre">
+          <span class="theme-toggle-icon">🌙</span>
+          <span class="theme-toggle-text">Sombre</span>
         </button>
       </div>
     </div>
@@ -481,6 +506,7 @@
       function showCalendly() {
         if (calendlyWrapper) {
           calendlyWrapper.style.display = 'block';
+          calendlyWrapper.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
         }
       }
 
@@ -496,12 +522,6 @@
       if (btnCloseCalendly) {
         btnCloseCalendly.addEventListener('click', hideCalendly);
       }
-
-      document.querySelectorAll('a[href="#rdv"]').forEach(link => {
-        link.addEventListener('click', () => {
-          showCalendly();
-        });
-      });
     });
   </script>
 </body>

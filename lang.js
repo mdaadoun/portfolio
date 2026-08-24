@@ -53,12 +53,19 @@
       "client_hero_btn_poc": "Test my DPGF — €490 excl. VAT",
       "client_hero_btn_solutions": "See how it works",
 
-      "client_rdv_badge": "48h Real Pilot",
-      "client_rdv_title": "Test on a Real DPGF — €490 excl. VAT",
-      "client_rdv_subtitle": "Have a DPGF ready? Send it over. We deliver your structured Excel file and anomaly report within 48h.",
-      "client_rdv_prompt": "Have a DPGF ready? Send it over or pick a timeslot below to launch your 48h pilot.",
-      "client_rdv_btn_open": "📅 Open Appointment Calendar",
+      "client_rdv_badge": "Action & Pilot Launch",
+      "client_rdv_title": "Launch Your Pilot or Meet Us for a Live Demo",
+      "client_rdv_subtitle": "Two clear ways to evaluate Pax Fabrica on your DPGFs with zero friction and guaranteed results.",
+      "client_rdv_opt1_badge": "🎥 Option 1 — 15 min Video Call",
+      "client_rdv_opt1_title": "Test the Demo During a Meeting",
+      "client_rdv_opt1_desc": "Discover the tool live on a typical DPGF file, ask technical and business questions directly to our engineers, and assess fit with your estimation workflows.",
+      "client_rdv_btn_open": "📅 Book a Live Demo Timeslot",
       "client_rdv_btn_close": "✖ Hide Calendar",
+      "client_rdv_featured_tag": "Recommended — Instant Value",
+      "client_rdv_opt2_badge": "⚡ Option 2 — 48h Real Pilot",
+      "client_rdv_opt2_title": "Already Convinced? Send Your DPGF",
+      "client_rdv_opt2_desc": "Have a DPGF ready? Send it below to launch your pilot delivered within 48h. We deliver the structured Excel file and full anomaly report (€490 excl. VAT, 100% deductible).",
+      "client_rdv_opt2_btn": "📤 Send My DPGF (48h Delivery)",
       "client_pill_1": "⚡ Drastically eliminate manual DPGF data entry",
       "client_pill_2": "🔎 Anomaly Detection & Source Traceability",
       "client_pill_3": "🔒 Confidentiality & Sovereign Processing",
@@ -87,8 +94,8 @@
       "client_offer1_btn": "Request a Flash Pilot on my file ↗",
 
       "client_offer2_tag": "LOGICAL NEXT STEP — HOSTED PRODUCT",
-      "client_offer2_title": "2. Your Business Tool — Document Conversion",
-      "client_offer2_desc": "<strong>Concept:</strong> After validating the Pilot, convert your recurring files independently via your private web portal.<br><strong>Features:</strong> PDF/scan to Excel conversion, OCR, automatic uncertainty detection, and line-by-line traceability.<br><strong>Zero technical friction:</strong> No server to set up, no software to install, no API key to configure. Pax Fabrica hosts and maintains the tool for you.<br><strong>Indicative Price:</strong> €1,500 – €2,500 excl. VAT <em>(€490 Flash Pilot deducted)</em>.",
+      "client_offer2_title": "2. Production Deployment of Your Business Tool",
+      "client_offer2_desc": "<strong>Concept:</strong> After validating the Pilot, convert your recurring files independently via your private web portal.<br><strong>Features:</strong> PDF/scan to Excel conversion, OCR, automatic uncertainty detection, and line-by-line traceability.<br><strong>Zero technical friction:</strong> No server to set up, no software to install, no API key to configure. Pax Fabrica hosts and maintains the tool for you.<br><strong>Indicative Price:</strong> €2,990 excl. VAT <em>(€490 Flash Pilot deducted)</em>.",
       "client_offer2_btn": "Deploy My Business Tool ↗",
 
       "client_offer3_tag": "OPTIONAL EXTENSIONS",
@@ -639,12 +646,19 @@
       "client_hero_btn_poc": "Tester mon DPGF — 490 € HT",
       "client_hero_btn_solutions": "Voir comment ça fonctionne",
 
-      "client_rdv_badge": "Pilote Réel 48h",
-      "client_rdv_title": "Tester sur un DPGF Réel — 490 € HT",
-      "client_rdv_subtitle": "Vous avez un DPGF sous la main ? Envoyez-le. Nous vous livrons le fichier Excel structuré et le rapport d'anomalies sous 48h.",
-      "client_rdv_prompt": "Vous avez un DPGF sous la main ? Envoyez-le ou réservez un créneau ci-dessous pour lancer votre pilote livré sous 48 h.",
-      "client_rdv_btn_open": "📅 Ouvrir l'agenda de prise de rendez-vous",
+      "client_rdv_badge": "Passage à l'Action & Pilote",
+      "client_rdv_title": "Lancez Votre Pilote ou Échangeons en Démo Directe",
+      "client_rdv_subtitle": "Deux options simples et concrètes pour évaluer Pax Fabrica sur vos pièces écrites sans aucun risque.",
+      "client_rdv_opt1_badge": "🎥 Option 1 — Visio 15 min",
+      "client_rdv_opt1_title": "Tester la démo lors d'un RDV",
+      "client_rdv_opt1_desc": "Découvrez l'outil en direct sur un DPGF type, posez vos questions techniques ou métier, et évaluez l'adéquation exacte avec vos processus d'études de prix.",
+      "client_rdv_btn_open": "📅 Réserver un créneau de démo",
       "client_rdv_btn_close": "✖ Masquer l'agenda",
+      "client_rdv_featured_tag": "Recommandé — Gain Immédiat",
+      "client_rdv_opt2_badge": "⚡ Option 2 — Pilote Réel 48 h",
+      "client_rdv_opt2_title": "Déjà convaincu ? Envoyez votre DPGF",
+      "client_rdv_opt2_desc": "Vous avez un DPGF sous la main ? Envoyez-le ci-dessous pour lancer votre pilote livré sous 48 h. Nous vous livrons le fichier Excel structuré et le rapport d'anomalies (490 € HT, 100% déductible).",
+      "client_rdv_opt2_btn": "📤 Envoyer mon DPGF (Livraison 48 h)",
       "client_pill_1": "⚡ Réduisez drastiquement la ressaisie de vos DPGF",
       "client_pill_2": "🔎 Détection d'anomalies & Traçabilité source",
       "client_pill_3": "🔒 Confidentialité & Données souveraines",
@@ -673,8 +687,8 @@
       "client_offer1_btn": "Demander un Pilote Flash sur mon dossier ↗",
 
       "client_offer2_tag": "SUITE LOGIQUE — PRODUIT HÉBERGÉ",
-      "client_offer2_title": "2. Votre Outil Métier — Conversion Documentaire",
-      "client_offer2_desc": "<strong>Principe :</strong> Après validation du Pilote, transformez vos dossiers récurrents en autonomie via votre propre espace web privé.<br><strong>Fonctionnalités :</strong> Conversion PDF/scans vers Excel, OCR, détection automatique d'incertitudes et traçabilité ligne par ligne.<br><strong>Zéro friction technique :</strong> Aucun serveur à installer, aucun logiciel à déployer, aucune clé API à configurer. Pax Fabrica héberge et maintient l'outil pour vous.<br><strong>Tarif indicatif :</strong> 1 500 € à 2 500 € HT <em>(Pilote Flash de 490 € déduit)</em>.",
+      "client_offer2_title": "2. Mise en production de Votre Outil Métier",
+      "client_offer2_desc": "<strong>Principe :</strong> Après validation du Pilote, transformez vos dossiers récurrents en autonomie via votre propre espace web privé.<br><strong>Fonctionnalités :</strong> Conversion PDF/scans vers Excel, OCR, détection automatique d'incertitudes et traçabilité ligne par ligne.<br><strong>Zéro friction technique :</strong> Aucun serveur à installer, aucun logiciel à déployer, aucune clé API à configurer. Pax Fabrica héberge et maintient l'outil pour vous.<br><strong>Tarif indicatif :</strong> 2 990 € HT <em>(Pilote Flash de 490 € déduit)</em>.",
       "client_offer2_btn": "Déployer mon Outil Métier ↗",
 
       "client_offer3_tag": "EXTENSIONS À LA CARTE",
@@ -1142,13 +1156,13 @@
     if (saved === 'en' || saved === 'fr') {
       return saved;
     }
-    // Default to English as requested
-    return 'en';
+    // Default to French
+    return 'fr';
   }
 
   function applyLanguage(lang) {
     document.documentElement.setAttribute('lang', lang);
-    const dict = TRANSLATIONS[lang] || TRANSLATIONS.en;
+    const dict = TRANSLATIONS[lang] || TRANSLATIONS.fr || TRANSLATIONS.en;
 
     const elements = document.querySelectorAll('[data-i18n]');
     elements.forEach(el => {
@@ -1214,7 +1228,7 @@
     document.body.addEventListener('click', (e) => {
       const switchBtn = e.target.closest('.lang-switch-btn');
       if (switchBtn) {
-        const currentLang = document.documentElement.getAttribute('lang') || 'en';
+        const currentLang = document.documentElement.getAttribute('lang') || 'fr';
         const newLang = currentLang === 'en' ? 'fr' : 'en';
         localStorage.setItem(LANG_KEY, newLang);
         applyLanguage(newLang);
