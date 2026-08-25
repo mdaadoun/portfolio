@@ -1,5 +1,5 @@
 // portfolio-static/booking.js
-// Portfolio Gateway Frontend: Adaptive mode (Démo Visio vs Pilote 48h DPGF), dynamic slots, honeypot & submission.
+// Portfolio Gateway Frontend: Adaptive modal overlay (Démo vs Pilote 48h DPGF), dynamic slots, honeypot & submission.
 
 const DEFAULT_API_URL = typeof window !== 'undefined' && window.PAX_API_URL
   ? window.PAX_API_URL
@@ -86,11 +86,13 @@ export async function confirmBookingByToken(apiBaseUrl = DEFAULT_API_URL, token 
 }
 
 export function initBookingGateway(root = document) {
+  const overlay = root.getElementById('gatewayModalOverlay');
+  const backdrop = root.getElementById('gatewayModalBackdrop');
+  const btnClose = root.getElementById('btnCloseGatewayModal');
   const form = root.getElementById('gatewayBookingForm');
   const slotSelect = root.getElementById('gatewaySlotSelect');
   const slotLabel = root.getElementById('gatewaySlotLabel');
   const fileLabel = root.getElementById('gatewayFileLabel');
-  const fileDropzone = root.getElementById('gatewayFileDropzone');
   const nameInput = root.getElementById('gatewayNameInput');
   const emailInput = root.getElementById('gatewayEmailInput');
   const companyInput = root.getElementById('gatewayCompanyInput');
@@ -103,7 +105,6 @@ export function initBookingGateway(root = document) {
   const modeBtnPilote = root.getElementById('modeBtnPilote');
   const btnSelectDemo = root.getElementById('btnSelectModeDemo');
   const btnSelectPilote = root.getElementById('btnSelectModePilote');
-  const card = root.getElementById('gatewayBookingCard');
 
   let currentMode = 'demo';
   let turnstileToken = 'mock-valid-token';
@@ -128,34 +129,38 @@ export function initBookingGateway(root = document) {
     }
   }
 
-  function scrollToCard(highlightElem) {
-    if (card) {
-      if (typeof card.scrollIntoView === 'function') {
-        card.scrollIntoView({ behavior: 'smooth', block: 'center' });
-      }
-      if (highlightElem) {
-        highlightElem.classList.remove('gateway-pulse-highlight');
-        void highlightElem.offsetWidth;
-        highlightElem.classList.add('gateway-pulse-highlight');
+  function openModal(mode = 'demo') {
+    setMode(mode);
+    if (overlay) {
+      overlay.classList.add('active');
+      overlay.setAttribute('aria-hidden', 'false');
+      if (typeof document !== 'undefined' && document.body) {
+        document.body.style.overflow = 'hidden';
       }
     }
   }
 
+  function closeModal() {
+    if (overlay) {
+      overlay.classList.remove('active');
+      overlay.setAttribute('aria-hidden', 'true');
+      if (typeof document !== 'undefined' && document.body) {
+        document.body.style.overflow = '';
+      }
+    }
+  }
+
+  if (btnSelectDemo) btnSelectDemo.addEventListener('click', () => openModal('demo'));
+  if (btnSelectPilote) btnSelectPilote.addEventListener('click', () => openModal('pilote'));
+  if (btnClose) btnClose.addEventListener('click', closeModal);
+  if (backdrop) backdrop.addEventListener('click', closeModal);
+
   if (modeBtnDemo) modeBtnDemo.addEventListener('click', () => setMode('demo'));
   if (modeBtnPilote) modeBtnPilote.addEventListener('click', () => setMode('pilote'));
 
-  if (btnSelectDemo) {
-    btnSelectDemo.addEventListener('click', () => {
-      setMode('demo');
-      scrollToCard(slotSelect);
-      slotSelect?.focus();
-    });
-  }
-
-  if (btnSelectPilote) {
-    btnSelectPilote.addEventListener('click', () => {
-      setMode('pilote');
-      scrollToCard(fileDropzone);
+  if (typeof root.addEventListener === 'function') {
+    root.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && overlay?.classList.contains('active')) closeModal();
     });
   }
 
@@ -164,6 +169,7 @@ export function initBookingGateway(root = document) {
     const params = new URLSearchParams(window.location.search);
     const confirmToken = params.get('confirm_token') || params.get('token');
     if (confirmToken && feedback) {
+      openModal('demo');
       feedback.className = 'gateway-feedback-banner pending';
       feedback.textContent = 'Validation de votre confirmation en cours...';
       feedback.style.display = 'block';

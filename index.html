@@ -137,7 +137,7 @@
             <div class="card-icon">🔒</div>
             <h3 data-i18n="client_pillar4_title">04. Confidentialité des Dossiers</h3>
             <p data-i18n="client_pillar4_desc">
-              Vos pièces de marchés et secrets d'affaires ne servent jamais à entraîner des modèles d'IA publics. Données traitées en environnement sécurisé.
+              Vos pièces de marchés et secrets d'affaires ne servent jamais à entraîner des modèles d'IA publics. Données traitées en environnement sécurisé. Les modèles IA et les serveurs sont hébergés en France, sans fuite vers des services tiers.
             </p>
           </div>
         </div>
@@ -298,73 +298,81 @@
           </div>
         </div>
 
-        <!-- Interactive Gateway Booking Card (Dynamic Slots & DPGF Upload) -->
-        <div class="gateway-booking-card" id="gatewayBookingCard" style="margin-top: 32px;">
-          <div class="gateway-form-header">
-            <div class="badge badge-accent" style="margin-bottom: 8px;">🚀 Passerelle Démo &amp; Pilote Flash Directe</div>
-            <h3 class="gateway-form-title">Réservez votre créneau et déposez votre DPGF</h3>
-            <p class="gateway-form-subtitle">Choisissez votre formule ci-dessous. Votre demande est traitée instantanément avec créneau réservé et protection anti-spam.</p>
+        <!-- Modal Overlay for Gateway Direct Booking & Pilot Ingestion -->
+        <div id="gatewayModalOverlay" class="gateway-modal-overlay" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="gatewayModalTitle">
+          <div class="gateway-modal-backdrop" id="gatewayModalBackdrop"></div>
+          <div class="gateway-modal-dialog">
+            <button type="button" class="gateway-modal-close" id="btnCloseGatewayModal" aria-label="Fermer la fenêtre">✕</button>
+
+            <!-- Interactive Gateway Booking Card -->
+            <div class="gateway-booking-card" id="gatewayBookingCard">
+              <div class="gateway-form-header">
+                <div class="badge badge-accent" style="margin-bottom: 8px;">🚀 Passerelle Démo &amp; Pilote Flash Directe</div>
+                <h3 class="gateway-form-title" id="gatewayModalTitle">Réservez votre créneau et déposez votre DPGF</h3>
+                <p class="gateway-form-subtitle">Choisissez votre formule ci-dessous. Votre demande est traitée instantanément avec créneau réservé et protection anti-spam.</p>
+              </div>
+
+              <!-- Mode Toggle Switcher -->
+              <div class="gateway-mode-selector">
+                <button type="button" class="gateway-mode-btn mode-demo active" id="modeBtnDemo">
+                  🎥 Option 1 — Visio Démo 15 min
+                </button>
+                <button type="button" class="gateway-mode-btn mode-pilote" id="modeBtnPilote">
+                  ⚡ Option 2 — Pilote Réel 48 h (DPGF)
+                </button>
+              </div>
+
+              <form id="gatewayBookingForm" novalidate>
+                <!-- Honeypot invisible pour contrer les robots automatisés -->
+                <input type="text" name="website_url" style="display:none !important;" tabindex="-1" autocomplete="off">
+
+                <div class="gateway-form-grid">
+                  <div class="gateway-input-group" id="gatewaySlotGroup">
+                    <label for="gatewaySlotSelect" id="gatewaySlotLabel" class="gateway-label">1. Créneau de démo disponible *</label>
+                    <select id="gatewaySlotSelect" name="slotId" class="gateway-select" required>
+                      <option value="">Chargement des créneaux en direct...</option>
+                    </select>
+                  </div>
+
+                  <div class="gateway-input-group">
+                    <label for="gatewayNameInput" class="gateway-label">2. Nom &amp; Prénom *</label>
+                    <input type="text" id="gatewayNameInput" name="name" class="gateway-input" placeholder="ex. Jean Dupont" required>
+                  </div>
+
+                  <div class="gateway-input-group">
+                    <label for="gatewayEmailInput" class="gateway-label">3. Adresse e-mail professionnelle *</label>
+                    <input type="email" id="gatewayEmailInput" name="email" class="gateway-input" placeholder="jean.dupont@entreprise-btp.fr" required>
+                  </div>
+
+                  <div class="gateway-input-group">
+                    <label for="gatewayCompanyInput" class="gateway-label">4. Société / Bureau d'études</label>
+                    <input type="text" id="gatewayCompanyInput" name="company" class="gateway-input" placeholder="ex. Dupont Ingénierie BTP">
+                  </div>
+                </div>
+
+                <!-- DPGF PDF File Upload Dropzone -->
+                <div class="gateway-file-wrapper" id="gatewayDropzoneGroup">
+                  <label class="gateway-label" id="gatewayFileLabel">5. Joindre un DPGF ou CCTP exemple (Optionnel, max 5 Mo)</label>
+                  <div class="gateway-file-dropzone" id="gatewayFileDropzone" onclick="document.getElementById('gatewayPdfInput').click()">
+                    <div class="gateway-file-icon">📄</div>
+                    <div class="gateway-file-text">Cliquez ou glissez-déposez votre DPGF (PDF) ici</div>
+                    <div class="gateway-file-subtext">Traitement souverain &amp; confidentiel — Limite : 5 Mo</div>
+                    <input type="file" id="gatewayPdfInput" name="pdfFile" accept="application/pdf" style="display:none;">
+                  </div>
+                  <div id="gatewayFileSelectedDisplay" class="gateway-file-selected" style="display: none;"></div>
+                </div>
+
+                <!-- Feedback Notification Banner -->
+                <div id="gatewayFeedback" class="gateway-feedback-banner"></div>
+
+                <div class="gateway-actions">
+                  <button type="submit" id="btnSubmitGatewayBooking" class="btn btn-primary btn-lg" style="width: 100%;">
+                    <span>📅 Valider ma réservation de Démo (15 min)</span>
+                  </button>
+                </div>
+              </form>
+            </div>
           </div>
-
-          <!-- Mode Toggle Switcher -->
-          <div class="gateway-mode-selector">
-            <button type="button" class="gateway-mode-btn mode-demo active" id="modeBtnDemo">
-              🎥 Option 1 — Visio Démo 15 min
-            </button>
-            <button type="button" class="gateway-mode-btn mode-pilote" id="modeBtnPilote">
-              ⚡ Option 2 — Pilote Réel 48 h (DPGF)
-            </button>
-          </div>
-
-          <form id="gatewayBookingForm" novalidate>
-            <!-- Honeypot invisible pour contrer les robots automatisés -->
-            <input type="text" name="website_url" style="display:none !important;" tabindex="-1" autocomplete="off">
-
-            <div class="gateway-form-grid">
-              <div class="gateway-input-group" id="gatewaySlotGroup">
-                <label for="gatewaySlotSelect" id="gatewaySlotLabel" class="gateway-label">1. Créneau de démo disponible *</label>
-                <select id="gatewaySlotSelect" name="slotId" class="gateway-select" required>
-                  <option value="">Chargement des créneaux en direct...</option>
-                </select>
-              </div>
-
-              <div class="gateway-input-group">
-                <label for="gatewayNameInput" class="gateway-label">2. Nom &amp; Prénom *</label>
-                <input type="text" id="gatewayNameInput" name="name" class="gateway-input" placeholder="ex. Jean Dupont" required>
-              </div>
-
-              <div class="gateway-input-group">
-                <label for="gatewayEmailInput" class="gateway-label">3. Adresse e-mail professionnelle *</label>
-                <input type="email" id="gatewayEmailInput" name="email" class="gateway-input" placeholder="jean.dupont@entreprise-btp.fr" required>
-              </div>
-
-              <div class="gateway-input-group">
-                <label for="gatewayCompanyInput" class="gateway-label">4. Société / Bureau d'études</label>
-                <input type="text" id="gatewayCompanyInput" name="company" class="gateway-input" placeholder="ex. Dupont Ingénierie BTP">
-              </div>
-            </div>
-
-            <!-- DPGF PDF File Upload Dropzone -->
-            <div class="gateway-file-wrapper" id="gatewayDropzoneGroup">
-              <label class="gateway-label" id="gatewayFileLabel">5. Joindre un DPGF ou CCTP exemple (Optionnel, max 5 Mo)</label>
-              <div class="gateway-file-dropzone" id="gatewayFileDropzone" onclick="document.getElementById('gatewayPdfInput').click()">
-                <div class="gateway-file-icon">📄</div>
-                <div class="gateway-file-text">Cliquez ou glissez-déposez votre DPGF (PDF) ici</div>
-                <div class="gateway-file-subtext">Traitement souverain &amp; confidentiel — Limite : 5 Mo</div>
-                <input type="file" id="gatewayPdfInput" name="pdfFile" accept="application/pdf" style="display:none;">
-              </div>
-              <div id="gatewayFileSelectedDisplay" class="gateway-file-selected" style="display: none;"></div>
-            </div>
-
-            <!-- Feedback Notification Banner -->
-            <div id="gatewayFeedback" class="gateway-feedback-banner"></div>
-
-            <div class="gateway-actions">
-              <button type="submit" id="btnSubmitGatewayBooking" class="btn btn-primary btn-lg" style="width: 100%;">
-                <span>📅 Valider ma réservation de Démo (15 min)</span>
-              </button>
-            </div>
-          </form>
         </div>
       </div>
     </section>
