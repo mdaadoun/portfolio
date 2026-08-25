@@ -1,5 +1,5 @@
 (function () {
-  const THEME_KEY = 'portfolio_theme';
+  const THEME_KEY = 'pxfa-theme-portfolio';
 
   function getPreferredTheme() {
     const saved = localStorage.getItem(THEME_KEY);
