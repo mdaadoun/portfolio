@@ -82,7 +82,7 @@
       "client_pillar3_title": "03. Traceability & Source Citation",
       "client_pillar3_desc": "Every extracted line is linked to the exact page of the source document. No 'black box': you retain full control over data accuracy.",
       "client_pillar4_title": "04. File Confidentiality",
-      "client_pillar4_desc": "Your tender documents and trade secrets are never used to train public AI models. Data processed in secure environment.",
+      "client_pillar4_desc": "Your tender documents and trade secrets are never used to train public AI models. Data processed in secure environments. AI models and servers are hosted in France, with zero data leaks to third-party services.",
 
       "client_offers_badge": "Product Journey & Deployment",
       "client_offers_title": "A Clear Journey: From Initial Test to Your Dedicated Business Tool",
@@ -675,7 +675,7 @@
       "client_pillar3_title": "03. Traçabilité & Sources d'Origine",
       "client_pillar3_desc": "Chaque ligne extraite est rattachée à la page exacte du document source. Aucune 'boîte noire' : vous gardez le contrôle total sur la donnée.",
       "client_pillar4_title": "04. Confidentialité des Dossiers",
-      "client_pillar4_desc": "Vos pièces de marchés et secrets d'affaires ne servent jamais à entraîner des modèles d'IA publics. Données traitées en environnement sécurisé.",
+      "client_pillar4_desc": "Vos pièces de marchés et secrets d'affaires ne servent jamais à entraîner des modèles d'IA publics. Données traitées en environnement sécurisé. Les modèles IA et les serveurs sont hébergés en France, sans fuite vers des services tiers.",
 
       "client_offers_badge": "Parcours Produit & Accompagnement",
       "client_offers_title": "Un Parcours Limpide : du Test à Votre Outil Métier",
