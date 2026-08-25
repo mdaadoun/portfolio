@@ -264,7 +264,7 @@
 
         <div class="rdv-two-options-grid">
           <!-- Option 1: Démo lors d'un RDV -->
-          <div class="glass-card rdv-option-card">
+          <div class="glass-card rdv-option-card rdv-card-opt1">
             <div class="rdv-card-header">
               <div class="badge badge-accent" data-i18n="client_rdv_opt1_badge">🎥 Option 1 — Visio 15 min</div>
               <h3 class="rdv-option-title" data-i18n="client_rdv_opt1_title">Tester la démo lors d'un RDV</h3>
@@ -273,7 +273,7 @@
               </p>
             </div>
             <div class="rdv-card-action">
-              <button type="button" class="btn btn-secondary btn-lg btn-full" id="btnOpenCalendly" style="cursor: pointer; display: inline-flex; align-items: center; justify-content: center; gap: 8px;">
+              <button type="button" class="btn btn-secondary btn-lg btn-full" id="btnSelectModeDemo" style="cursor: pointer; display: inline-flex; align-items: center; justify-content: center; gap: 8px;">
                 <span data-i18n="client_rdv_btn_open">📅 Réserver un créneau de démo</span>
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 9l-7 7-7-7"/></svg>
               </button>
@@ -281,29 +281,39 @@
           </div>
 
           <!-- Option 2: Pilote Flash 48h direct -->
-          <div class="glass-card rdv-option-card rdv-option-featured">
-            <div class="rdv-featured-tag" data-i18n="client_rdv_featured_tag">Recommandé — Gain Immédiat</div>
+          <div class="glass-card rdv-option-card rdv-card-opt2">
             <div class="rdv-card-header">
               <div class="badge badge-success" data-i18n="client_rdv_opt2_badge">⚡ Option 2 — Pilote Réel 48 h</div>
               <h3 class="rdv-option-title" data-i18n="client_rdv_opt2_title">Déjà convaincu ? Envoyez votre DPGF</h3>
               <p class="rdv-option-desc" data-i18n="client_rdv_opt2_desc">
-                Vous avez un DPGF sous la main ? Envoyez-le ci-dessous pour lancer votre pilote livré sous 48 h. Nous vous livrons le fichier Excel structuré et le rapport d'anomalies (490 € HT, 100% déductible).
+                Vous avez un DPGF sous la main ? Déposez-le ci-dessous pour lancer votre pilote livré sous 48 h. Nous vous livrons le fichier Excel structuré et le rapport d'anomalies (490 € HT, 100% déductible).
               </p>
             </div>
             <div class="rdv-card-action">
-              <a href="mailto:contact@paxfabrica.com?subject=Lancement%20Pilote%20DPGF%2048h&body=Bonjour%20l%27%C3%A9quipe%20Pax%20Fabrica%2C%0A%0AVeuillez%20trouver%20ci-joint%20notre%20fichier%20DPGF%20(PDF)%20pour%20la%20r%C3%A9alisation%20du%20Pilote%20Flash%20livr%C3%A9%20sous%2048h.%0A%0ANom%20de%20l%27entreprise%20%2F%20Bureau%20d%27%C3%A9tudes%20%3A%20%0AContact%20%3A%20%0AT%C3%A9l%C3%A9phone%20%3A%20" class="btn btn-primary btn-lg btn-full" style="text-decoration: none; display: inline-flex; align-items: center; justify-content: center; gap: 8px;">
-                <span data-i18n="client_rdv_opt2_btn">📤 Envoyer mon DPGF (Livraison 48 h)</span>
-              </a>
+              <button type="button" class="btn btn-primary btn-lg btn-full" id="btnSelectModePilote" style="cursor: pointer; display: inline-flex; align-items: center; justify-content: center; gap: 8px;">
+                <span data-i18n="client_rdv_opt2_btn">📤 Déposer mon DPGF (Pilote 48 h)</span>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 9l-7 7-7-7"/></svg>
+              </button>
             </div>
           </div>
         </div>
 
         <!-- Interactive Gateway Booking Card (Dynamic Slots & DPGF Upload) -->
-        <div class="gateway-booking-card" id="gatewayBookingCard">
+        <div class="gateway-booking-card" id="gatewayBookingCard" style="margin-top: 32px;">
           <div class="gateway-form-header">
             <div class="badge badge-accent" style="margin-bottom: 8px;">🚀 Passerelle Démo &amp; Pilote Flash Directe</div>
             <h3 class="gateway-form-title">Réservez votre créneau et déposez votre DPGF</h3>
-            <p class="gateway-form-subtitle">Choisissez votre date parmi les disponibilités en direct. Votre créneau est réservé instantanément pendant 15 minutes.</p>
+            <p class="gateway-form-subtitle">Choisissez votre formule ci-dessous. Votre demande est traitée instantanément avec créneau réservé et protection anti-spam.</p>
+          </div>
+
+          <!-- Mode Toggle Switcher -->
+          <div class="gateway-mode-selector">
+            <button type="button" class="gateway-mode-btn mode-demo active" id="modeBtnDemo">
+              🎥 Option 1 — Visio Démo 15 min
+            </button>
+            <button type="button" class="gateway-mode-btn mode-pilote" id="modeBtnPilote">
+              ⚡ Option 2 — Pilote Réel 48 h (DPGF)
+            </button>
           </div>
 
           <form id="gatewayBookingForm" novalidate>
@@ -311,8 +321,8 @@
             <input type="text" name="website_url" style="display:none !important;" tabindex="-1" autocomplete="off">
 
             <div class="gateway-form-grid">
-              <div class="gateway-input-group">
-                <label for="gatewaySlotSelect" class="gateway-label">1. Créneau de démo disponible *</label>
+              <div class="gateway-input-group" id="gatewaySlotGroup">
+                <label for="gatewaySlotSelect" id="gatewaySlotLabel" class="gateway-label">1. Créneau de démo disponible *</label>
                 <select id="gatewaySlotSelect" name="slotId" class="gateway-select" required>
                   <option value="">Chargement des créneaux en direct...</option>
                 </select>
@@ -335,9 +345,9 @@
             </div>
 
             <!-- DPGF PDF File Upload Dropzone -->
-            <div class="gateway-file-wrapper">
-              <label class="gateway-label">5. Joindre votre DPGF ou CCTP pour le pilote (PDF, max 5 Mo)</label>
-              <div class="gateway-file-dropzone" onclick="document.getElementById('gatewayPdfInput').click()">
+            <div class="gateway-file-wrapper" id="gatewayDropzoneGroup">
+              <label class="gateway-label" id="gatewayFileLabel">5. Joindre un DPGF ou CCTP exemple (Optionnel, max 5 Mo)</label>
+              <div class="gateway-file-dropzone" id="gatewayFileDropzone" onclick="document.getElementById('gatewayPdfInput').click()">
                 <div class="gateway-file-icon">📄</div>
                 <div class="gateway-file-text">Cliquez ou glissez-déposez votre DPGF (PDF) ici</div>
                 <div class="gateway-file-subtext">Traitement souverain &amp; confidentiel — Limite : 5 Mo</div>
@@ -351,24 +361,10 @@
 
             <div class="gateway-actions">
               <button type="submit" id="btnSubmitGatewayBooking" class="btn btn-primary btn-lg" style="width: 100%;">
-                <span>🔒 Valider ma réservation &amp; Transmettre mon DPGF</span>
+                <span>📅 Valider ma réservation de Démo (15 min)</span>
               </button>
             </div>
           </form>
-        </div>
-
-        <!-- Calendly Frame Wrapper (expandable below options) -->
-        <div id="calendlyFrameWrapper" class="glass-card" style="display: none; margin-top: 32px; text-align: left; max-width: 1000px; margin-left: auto; margin-right: auto; padding: 24px;">
-          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px; padding-bottom: 12px; border-bottom: 1px solid var(--border-color);">
-            <span style="font-size: 0.95rem; font-weight: 600; color: var(--text-main);">📅 Agenda interactif Calendly</span>
-            <button type="button" class="btn btn-secondary btn-sm" id="btnCloseCalendly" style="padding: 6px 14px; font-size: 0.85rem; cursor: pointer;">
-              <span data-i18n="client_rdv_btn_close">✖ Masquer l'agenda</span>
-            </button>
-          </div>
-          <!-- Calendly inline widget begin -->
-          <div class="calendly-inline-widget" data-url="https://calendly.com/d/d3k4-xz8-pwt?background_color=f4f5ef&text_color=191023&primary_color=474394" style="min-width:320px;height:700px;"></div>
-          <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
-          <!-- Calendly inline widget end -->
         </div>
       </div>
     </section>
@@ -556,31 +552,6 @@
         staffInput.addEventListener('input', updateRoi);
         hoursInput.addEventListener('input', updateRoi);
         updateRoi();
-      }
-
-      // Calendly Frame Toggle & CTA Intercept Logic
-      const btnOpenCalendly = document.getElementById('btnOpenCalendly');
-      const btnCloseCalendly = document.getElementById('btnCloseCalendly');
-      const calendlyWrapper = document.getElementById('calendlyFrameWrapper');
-
-      function showCalendly() {
-        if (calendlyWrapper) {
-          calendlyWrapper.style.display = 'block';
-          calendlyWrapper.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-        }
-      }
-
-      function hideCalendly() {
-        if (calendlyWrapper) {
-          calendlyWrapper.style.display = 'none';
-        }
-      }
-
-      if (btnOpenCalendly) {
-        btnOpenCalendly.addEventListener('click', showCalendly);
-      }
-      if (btnCloseCalendly) {
-        btnCloseCalendly.addEventListener('click', hideCalendly);
       }
     });
   </script>
