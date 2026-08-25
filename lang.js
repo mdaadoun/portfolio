@@ -49,8 +49,8 @@
       "client_hero_badge": "Documentary AI for Construction",
       "client_hero_title": "Turn your <span class=\"gradient-text\">PDF DPGFs into Usable Excel</span> — Zero Re-typing",
       "client_hero_subtitle": "Our tool extracts line items, quantities, units, and amounts from your DPGFs, detects anomalies, and pinpoints exact source locations to verify.",
-      "client_hero_desc": "<strong>Have a DPGF ready? Send it over.</strong> Delivered within 48h — €490 excl. VAT with a complete Excel spreadsheet, anomaly detection, and direct source pinning.",
-      "client_hero_btn_poc": "Test my DPGF — €490 excl. VAT",
+      "client_hero_desc": "<strong>Have a DPGF ready? Send it over.</strong> Delivered within 48h — €490 net with a complete Excel spreadsheet, anomaly detection, and direct source pinning.",
+      "client_hero_btn_poc": "Test my DPGF — €490 net",
       "client_hero_btn_solutions": "See how it works",
 
       "client_rdv_badge": "Action & Pilot Launch",
@@ -64,12 +64,12 @@
       "client_rdv_featured_tag": "Recommended — Instant Value",
       "client_rdv_opt2_badge": "⚡ Option 2 — 48h Real Pilot",
       "client_rdv_opt2_title": "Already Convinced? Send Your DPGF",
-      "client_rdv_opt2_desc": "Have a DPGF ready? Send it below to launch your pilot delivered within 48h. We deliver the structured Excel file and full anomaly report (€490 excl. VAT, 100% deductible).",
+      "client_rdv_opt2_desc": "Have a DPGF ready? Send it below to launch your pilot delivered within 48h. We deliver the structured Excel file and full anomaly report (€490 net, 100% deductible).",
       "client_rdv_opt2_btn": "📤 Send My DPGF (48h Delivery)",
       "client_pill_1": "⚡ Drastically eliminate manual DPGF data entry",
       "client_pill_2": "🔎 Anomaly Detection & Source Traceability",
       "client_pill_3": "🔒 Confidentiality & Sovereign Processing",
-      "client_pill_4": "⏱️ Real Pilot — €490 excl. VAT — Delivered in 48h",
+      "client_pill_4": "⏱️ Real Pilot — €490 net — Delivered in 48h",
       "client_pill_5": "☁️ Turnkey: zero setup, zero API key required",
       
       "client_pillars_badge": "Extraction & Validation",
@@ -89,13 +89,13 @@
       "client_offers_subtitle": "Test risk-free on a live file, then deploy your hosted web tool.",
       
       "client_offer1_tag": "STARTING POINT",
-      "client_offer1_title": "1. Live File Flash Pilot — €490 (excl. VAT)",
+      "client_offer1_title": "1. Live File Flash Pilot — €490 net",
       "client_offer1_desc": "<strong>Concept:</strong> Provide 1 live file (PDF DPGF or CCTP) currently pending on your desk.<br><strong>48h Deliverables:</strong> Structured Excel/CSV file + Anomaly Report + Custom Loom video demo.<br><strong>Goal:</strong> Measure actual time savings on your own file before deciding freely whether to deploy a standalone tool.<br><em>The Flash Pilot amount is fully deducted from your Business Tool price.</em>",
       "client_offer1_btn": "Request a Flash Pilot on my file ↗",
 
       "client_offer2_tag": "LOGICAL NEXT STEP — HOSTED PRODUCT",
       "client_offer2_title": "2. Production Deployment of Your Business Tool",
-      "client_offer2_desc": "<strong>Concept:</strong> After validating the Pilot, convert your recurring files independently via your private web portal.<br><strong>Features:</strong> PDF/scan to Excel conversion, OCR, automatic uncertainty detection, and line-by-line traceability.<br><strong>Zero technical friction:</strong> No server to set up, no software to install, no API key to configure. Pax Fabrica hosts and maintains the tool for you.<br><strong>Indicative Price:</strong> €2,990 excl. VAT <em>(€490 Flash Pilot deducted)</em>.",
+      "client_offer2_desc": "<strong>Concept:</strong> After validating the Pilot, convert your recurring files independently via your private web portal.<br><strong>Features:</strong> PDF/scan to Excel conversion, OCR, automatic uncertainty detection, and line-by-line traceability.<br><strong>Zero technical friction:</strong> No server to set up, no software to install, no API key to configure. Pax Fabrica hosts and maintains the tool for you.<br><strong>Indicative Price:</strong> €2,990 net <em>(€490 Flash Pilot deducted)</em>.",
       "client_offer2_btn": "Deploy My Business Tool ↗",
 
       "client_offer3_tag": "OPTIONAL EXTENSIONS",
@@ -105,6 +105,7 @@
 
       "client_friction_title": "☁️ You have nothing to install",
       "client_friction_desc": "After the Flash Pilot, your tool is deployed as a private web application directly accessible from your browser. Pax Fabrica manages hosting, security, and maintenance.<br><strong style=\"color: var(--text-main);\">No server to buy · No software to install · No API key to manage.</strong>",
+      "client_offers_tax_notice": "Net pricing — VAT not applicable, art. 293 B of French CGI",
 
       "client_tech_badge": "Security, Confidentiality & Architecture",
       "client_tech_title": "Robust, Secure & Auditable Software Engineering",
@@ -642,8 +643,8 @@
       "client_hero_badge": "IA documentaire pour le BTP",
       "client_hero_title": "Transformez vos <span class=\"gradient-text\">DPGF PDF en Excel exploitable</span> — sans ressaisie",
       "client_hero_subtitle": "Notre outil extrait les lignes, quantités, unités et montants de vos DPGF, détecte les anomalies et vous indique exactement où vérifier dans le document source.",
-      "client_hero_desc": "<strong>Vous avez un DPGF sous la main ? Envoyez-le.</strong> Livré sous 48 h — 490 € HT avec son tableur Excel structuré, la détection des anomalies et le pointage direct vers votre PDF source.",
-      "client_hero_btn_poc": "Tester mon DPGF — 490 € HT",
+      "client_hero_desc": "<strong>Vous avez un DPGF sous la main ? Envoyez-le.</strong> Livré sous 48 h — 490 € net avec son tableur Excel structuré, la détection des anomalies et le pointage direct vers votre PDF source.",
+      "client_hero_btn_poc": "Tester mon DPGF — 490 € net",
       "client_hero_btn_solutions": "Voir comment ça fonctionne",
 
       "client_rdv_badge": "Passage à l'Action & Pilote",
@@ -657,12 +658,12 @@
       "client_rdv_featured_tag": "Recommandé — Gain Immédiat",
       "client_rdv_opt2_badge": "⚡ Option 2 — Pilote Réel 48 h",
       "client_rdv_opt2_title": "Déjà convaincu ? Envoyez votre DPGF",
-      "client_rdv_opt2_desc": "Vous avez un DPGF sous la main ? Envoyez-le ci-dessous pour lancer votre pilote livré sous 48 h. Nous vous livrons le fichier Excel structuré et le rapport d'anomalies (490 € HT, 100% déductible).",
+      "client_rdv_opt2_desc": "Vous avez un DPGF sous la main ? Envoyez-le ci-dessous pour lancer votre pilote livré sous 48 h. Nous vous livrons le fichier Excel structuré et le rapport d'anomalies (490 € net, 100% déductible).",
       "client_rdv_opt2_btn": "📤 Envoyer mon DPGF (Livraison 48 h)",
       "client_pill_1": "⚡ Réduisez drastiquement la ressaisie de vos DPGF",
       "client_pill_2": "🔎 Détection d'anomalies & Traçabilité source",
       "client_pill_3": "🔒 Confidentialité & Données souveraines",
-      "client_pill_4": "⏱️ Pilote réel — 490 € HT — livré sous 48 h",
+      "client_pill_4": "⏱️ Pilote réel — 490 € net — livré sous 48 h",
       "client_pill_5": "☁️ Clé en main : zéro installation, zéro clé API",
       
       "client_pillars_badge": "Extraction & Contrôle",
@@ -682,13 +683,13 @@
       "client_offers_subtitle": "Testez sans risque sur un dossier réel, puis déployez votre propre outil web hébergé.",
       
       "client_offer1_tag": "POINT DE DÉPART",
-      "client_offer1_title": "1. Le Pilote Flash sur un Dossier Réel — 490 € HT",
+      "client_offer1_title": "1. Le Pilote Flash sur un Dossier Réel — 490 € net",
       "client_offer1_desc": "<strong>Principe :</strong> Donnez-nous 1 vrai dossier (DPGF ou CCTP PDF) actuellement en attente sur votre bureau.<br><strong>Livrables sous 48h :</strong> Fichier Excel/CSV structuré + Rapport d'anomalies isolées + Démo vidéo Loom personnalisée.<br><strong>Objectif :</strong> Mesurer le gain réel sur votre propre dossier avant de décider, librement, si vous souhaitez poursuivre avec un outil autonome.<br><em>Le montant du Pilote Flash est intégralement déduit de votre Outil Métier.</em>",
       "client_offer1_btn": "Demander un Pilote Flash sur mon dossier ↗",
 
       "client_offer2_tag": "SUITE LOGIQUE — PRODUIT HÉBERGÉ",
       "client_offer2_title": "2. Mise en production de Votre Outil Métier",
-      "client_offer2_desc": "<strong>Principe :</strong> Après validation du Pilote, transformez vos dossiers récurrents en autonomie via votre propre espace web privé.<br><strong>Fonctionnalités :</strong> Conversion PDF/scans vers Excel, OCR, détection automatique d'incertitudes et traçabilité ligne par ligne.<br><strong>Zéro friction technique :</strong> Aucun serveur à installer, aucun logiciel à déployer, aucune clé API à configurer. Pax Fabrica héberge et maintient l'outil pour vous.<br><strong>Tarif indicatif :</strong> 2 990 € HT <em>(Pilote Flash de 490 € déduit)</em>.",
+      "client_offer2_desc": "<strong>Principe :</strong> Après validation du Pilote, transformez vos dossiers récurrents en autonomie via votre propre espace web privé.<br><strong>Fonctionnalités :</strong> Conversion PDF/scans vers Excel, OCR, détection automatique d'incertitudes et traçabilité ligne par ligne.<br><strong>Zéro friction technique :</strong> Aucun serveur à installer, aucun logiciel à déployer, aucune clé API à configurer. Pax Fabrica héberge et maintient l'outil pour vous.<br><strong>Tarif indicatif :</strong> 2 990 € net <em>(Pilote Flash de 490 € déduit)</em>.",
       "client_offer2_btn": "Déployer mon Outil Métier ↗",
 
       "client_offer3_tag": "EXTENSIONS À LA CARTE",
@@ -698,6 +699,7 @@
 
       "client_friction_title": "☁️ Vous n'avez rien à installer",
       "client_friction_desc": "Après le Pilote Flash, votre outil est déployé sous forme d'application web privée utilisable directement depuis votre navigateur web. Pax Fabrica gère l'hébergement, la sécurité et la maintenance.<br><strong style=\"color: var(--text-main);\">Pas de serveur à acheter · Pas de logiciel à installer · Pas de clé API à gérer.</strong>",
+      "client_offers_tax_notice": "Tarifs nets — TVA non applicable, art. 293 B du CGI",
 
       "client_tech_badge": "Sécurité, Confidentialité & Architecture",
       "client_tech_title": "Une Ingénierie Logicielle Robuste, Sécurisée & Auditable",
