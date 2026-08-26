@@ -41,7 +41,7 @@ export function validateBookingForm(values, file, mode = 'demo') {
     errors.push('Veuillez sélectionner un créneau de rendez-vous.');
   }
   if (mode === 'pilote' && !file && !values.slotId) {
-    errors.push('Veuillez déposer votre fichier DPGF (PDF) ou choisir un créneau.');
+    errors.push('Veuillez déposer votre fichier (PDF) ou choisir un créneau.');
   }
   if (file) {
     if (file.size > MAX_FILE_SIZE_BYTES) {
@@ -96,15 +96,25 @@ export function initBookingGateway(root = document) {
   const nameInput = root.getElementById('gatewayNameInput');
   const emailInput = root.getElementById('gatewayEmailInput');
   const companyInput = root.getElementById('gatewayCompanyInput');
+  const messageInput = root.getElementById('gatewayMessageInput');
+  const messageLabel = root.getElementById('gatewayMessageLabel');
+  const modalTitle = root.getElementById('gatewayModalTitle');
+  const modalSubtitle = root.getElementById('gatewayModalSubtitle');
   const honeypotInput = root.querySelector('input[name="website_url"]');
   const feedback = root.getElementById('gatewayFeedback');
   const submitBtn = root.getElementById('btnSubmitGatewayBooking');
   const fileInput = root.getElementById('gatewayPdfInput');
   const fileDisplay = root.getElementById('gatewayFileSelectedDisplay');
+
   const modeBtnDemo = root.getElementById('modeBtnDemo');
   const modeBtnPilote = root.getElementById('modeBtnPilote');
+  const modeBtnDeploy = root.getElementById('modeBtnDeploy');
+  const modeBtnContact = root.getElementById('modeBtnContact');
+
   const btnSelectDemo = root.getElementById('btnSelectModeDemo');
   const btnSelectPilote = root.getElementById('btnSelectModePilote');
+  const btnSelectDeploy = root.getElementById('btnSelectModeDeploy');
+  const btnSelectContact = root.getElementById('btnSelectModeContact');
 
   let currentMode = 'demo';
   let turnstileToken = 'mock-valid-token';
@@ -118,14 +128,37 @@ export function initBookingGateway(root = document) {
     currentMode = mode;
     if (modeBtnDemo) modeBtnDemo.classList.toggle('active', mode === 'demo');
     if (modeBtnPilote) modeBtnPilote.classList.toggle('active', mode === 'pilote');
+    if (modeBtnDeploy) modeBtnDeploy.classList.toggle('active', mode === 'deploy');
+    if (modeBtnContact) modeBtnContact.classList.toggle('active', mode === 'contact');
+
     if (mode === 'demo') {
+      if (modalTitle) modalTitle.textContent = '0. Démo Directe en Visio (15 min)';
+      if (modalSubtitle) modalSubtitle.textContent = 'Découvrez l\'outil en direct sur un DPGF type et posez vos questions techniques ou métier.';
       if (slotLabel) slotLabel.textContent = '1. Créneau de démo disponible *';
       if (fileLabel) fileLabel.textContent = '5. Joindre un DPGF ou CCTP exemple (Optionnel, max 5 Mo)';
+      if (messageLabel) messageLabel.textContent = '6. Questions ou points particuliers à aborder (Optionnel)';
       if (submitBtn) submitBtn.innerHTML = '<span>📅 Valider ma réservation de Démo (15 min)</span>';
-    } else {
-      if (fileLabel) fileLabel.textContent = '1. Joindre votre DPGF (PDF) pour le Pilote 48h *';
-      if (slotLabel) slotLabel.textContent = '5. Créneau d\'échange / restitution (Optionnel)';
-      if (submitBtn) submitBtn.innerHTML = '<span>📤 Transmettre mon DPGF &amp; Lancer le Pilote 48h</span>';
+    } else if (mode === 'pilote') {
+      if (modalTitle) modalTitle.textContent = '1. Lancer votre Pilote Flash 48 h (490 € net)';
+      if (modalSubtitle) modalSubtitle.textContent = 'Déposez votre DPGF ou CCTP. Livraison sous 48h du fichier Excel structuré et du rapport d\'anomalies (100% déductible).';
+      if (fileLabel) fileLabel.textContent = '1. Joindre votre DPGF ou CCTP (PDF) pour le Pilote 48h *';
+      if (slotLabel) slotLabel.textContent = '5. Créneau d\'échange / restitution vidéo (Optionnel)';
+      if (messageLabel) messageLabel.textContent = '6. Précisions sur votre dossier (Optionnel)';
+      if (submitBtn) submitBtn.innerHTML = '<span>📤 Transmettre mon fichier &amp; Lancer le Pilote 48h</span>';
+    } else if (mode === 'deploy') {
+      if (modalTitle) modalTitle.textContent = '2. Mise en Production de Votre Outil Métier';
+      if (modalSubtitle) modalSubtitle.textContent = 'Déploiement de votre espace web privé dédié (2 990 € net — Pilote 490 € déduit — 1 an de service inclus).';
+      if (slotLabel) slotLabel.textContent = '1. Créneau d\'échange pour cadrage technique (Optionnel)';
+      if (fileLabel) fileLabel.textContent = '5. Joindre un cahier des charges ou trame type (Optionnel, max 5 Mo)';
+      if (messageLabel) messageLabel.textContent = '6. Précisions sur vos volumes ou vos besoins d\'intégration';
+      if (submitBtn) submitBtn.innerHTML = '<span>💻 Échanger pour déployer l\'Outil Métier</span>';
+    } else if (mode === 'contact') {
+      if (modalTitle) modalTitle.textContent = '3. Extensions & Automatisation Sur-Mesure';
+      if (modalSubtitle) modalSubtitle.textContent = 'Recherche dans les archives CCTP/DTU, connecteurs logiciels, workflows sur-mesure.';
+      if (slotLabel) slotLabel.textContent = '1. Créneau d\'échange souhaité (Optionnel)';
+      if (fileLabel) fileLabel.textContent = '5. Joindre un document exemple / spécifications (Optionnel, max 5 Mo)';
+      if (messageLabel) messageLabel.textContent = '6. Décrivez vos besoins d\'automatisation ou d\'extensions';
+      if (submitBtn) submitBtn.innerHTML = '<span>💬 Envoyer ma demande de contact / devis</span>';
     }
   }
 
@@ -152,11 +185,16 @@ export function initBookingGateway(root = document) {
 
   if (btnSelectDemo) btnSelectDemo.addEventListener('click', () => openModal('demo'));
   if (btnSelectPilote) btnSelectPilote.addEventListener('click', () => openModal('pilote'));
+  if (btnSelectDeploy) btnSelectDeploy.addEventListener('click', () => openModal('deploy'));
+  if (btnSelectContact) btnSelectContact.addEventListener('click', () => openModal('contact'));
+
   if (btnClose) btnClose.addEventListener('click', closeModal);
   if (backdrop) backdrop.addEventListener('click', closeModal);
 
   if (modeBtnDemo) modeBtnDemo.addEventListener('click', () => setMode('demo'));
   if (modeBtnPilote) modeBtnPilote.addEventListener('click', () => setMode('pilote'));
+  if (modeBtnDeploy) modeBtnDeploy.addEventListener('click', () => setMode('deploy'));
+  if (modeBtnContact) modeBtnContact.addEventListener('click', () => setMode('contact'));
 
   if (typeof root.addEventListener === 'function') {
     root.addEventListener('keydown', (e) => {
@@ -221,10 +259,12 @@ export function initBookingGateway(root = document) {
     form.addEventListener('submit', async (e) => {
       e.preventDefault();
       const values = {
+        mode: currentMode,
         slotId: slotSelect?.value || '',
         name: nameInput?.value || '',
         email: emailInput?.value || '',
         company: companyInput?.value || '',
+        message: messageInput?.value || '',
         website_url: honeypotInput?.value || '',
         cf_turnstile_response: turnstileToken,
       };

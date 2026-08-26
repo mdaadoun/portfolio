@@ -1572,6 +1572,126 @@ html[data-theme="dark"] .gradient-text {
   }
 }
 
+/* Tiered Customer Journey Layout (Line 1: Demo, Line 2: Offers 1 & 2, Line 3: Offer 3) */
+.journey-tiered-layout {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  margin-top: 24px;
+}
+
+.journey-core-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+  align-items: stretch;
+}
+
+@media (max-width: 860px) {
+  .journey-core-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+}
+
+.journey-card-horizontal {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  gap: 32px;
+  padding: 28px 32px;
+}
+
+.journey-card-horizontal .journey-card-left {
+  flex: 1;
+}
+
+.journey-card-horizontal .journey-card-right {
+  flex-shrink: 0;
+  min-width: 270px;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 14px;
+}
+
+.journey-card-horizontal .project-card-desc {
+  margin-bottom: 0;
+}
+
+@media (max-width: 900px) {
+  .journey-card-horizontal {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 20px;
+    padding: 24px 20px;
+  }
+  .journey-card-horizontal .journey-card-right {
+    min-width: 100%;
+  }
+}
+
+.journey-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  position: relative;
+  border-radius: var(--radius);
+  padding: 28px 24px;
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  transition: var(--transition);
+}
+
+.journey-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--primary-color);
+  box-shadow: 0 12px 30px rgba(99, 102, 241, 0.2);
+}
+
+.journey-card-0 {
+  border: 1px solid rgba(99, 102, 241, 0.35);
+  background: rgba(99, 102, 241, 0.03);
+}
+
+.journey-card-1 {
+  border: 2px solid var(--primary-color) !important;
+  box-shadow: 0 8px 30px rgba(99, 102, 241, 0.18);
+  background: linear-gradient(180deg, rgba(99, 102, 241, 0.06) 0%, var(--bg-card) 100%);
+  padding: 32px 28px;
+}
+
+.journey-card-2 {
+  border: 2px solid rgba(16, 185, 129, 0.6) !important;
+  box-shadow: 0 8px 30px rgba(16, 185, 129, 0.14);
+  background: linear-gradient(180deg, rgba(16, 185, 129, 0.05) 0%, var(--bg-card) 100%);
+  padding: 32px 28px;
+}
+
+.journey-card-3 {
+  border: 1px solid var(--border-color);
+  background: rgba(255, 255, 255, 0.02);
+}
+
+.journey-card .project-card-desc {
+  font-size: 0.9rem;
+  line-height: 1.55;
+  color: var(--text-muted);
+  margin-bottom: 20px;
+}
+
+.journey-card .project-card-title {
+  font-size: 1.15rem;
+  font-weight: 700;
+  line-height: 1.3;
+}
+
+.journey-card .project-card-tags {
+  margin-top: auto;
+  margin-bottom: 16px;
+}
+
 .hub-project-card {
   display: flex;
   flex-direction: column;
@@ -2096,14 +2216,18 @@ html.dark-theme .roi-result-metric {
    Portfolio Gateway & Booking Form Styles
    ========================================================================== */
 .gateway-booking-card {
-  margin-top: 32px;
-  padding: 32px;
-  border-radius: var(--radius-lg);
-  background: var(--glass-bg);
-  border: 1px solid var(--border-color);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  box-shadow: var(--card-shadow);
+  margin-top: 0;
+  padding: 36px 32px;
+  border-radius: 20px;
+  background: #ffffff;
+  border: 1px solid rgba(35, 30, 55, 0.14);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
+}
+
+html.dark-theme .gateway-booking-card {
+  background: #191023;
+  border-color: rgba(255, 255, 255, 0.15);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6);
 }
 
 .gateway-form-header {
@@ -2148,9 +2272,9 @@ html.dark-theme .roi-result-metric {
 .gateway-select {
   width: 100%;
   padding: 12px 16px;
-  border-radius: var(--radius);
-  border: 1px solid var(--border-color);
-  background: rgba(255, 255, 255, 0.04);
+  border-radius: var(--radius-sm, 10px);
+  border: 1.5px solid rgba(35, 30, 55, 0.2);
+  background: #ffffff;
   color: var(--text-main);
   font-family: var(--font-sans);
   font-size: 0.95rem;
@@ -2161,8 +2285,22 @@ html.dark-theme .roi-result-metric {
 .gateway-input:focus,
 .gateway-select:focus {
   border-color: var(--primary-color);
+  box-shadow: 0 0 0 3px rgba(59, 54, 140, 0.15);
+  background: #ffffff;
+}
+
+html.dark-theme .gateway-input,
+html.dark-theme .gateway-select {
+  border-color: rgba(255, 255, 255, 0.18);
+  background: rgba(255, 255, 255, 0.05);
+  color: #f8fafc;
+}
+
+html.dark-theme .gateway-input:focus,
+html.dark-theme .gateway-select:focus {
+  border-color: var(--primary-color);
   box-shadow: 0 0 0 3px var(--primary-glow);
-  background: rgba(255, 255, 255, 0.08);
+  background: rgba(255, 255, 255, 0.09);
 }
 
 .gateway-file-wrapper {
@@ -2171,19 +2309,30 @@ html.dark-theme .roi-result-metric {
 }
 
 .gateway-file-dropzone {
-  border: 2px dashed var(--border-color);
-  border-radius: var(--radius);
+  border: 2px dashed rgba(35, 30, 55, 0.25);
+  border-radius: var(--radius-sm, 10px);
   padding: 20px;
   text-align: center;
   cursor: pointer;
-  background: rgba(255, 255, 255, 0.02);
+  background: #f8f9fa;
   transition: var(--transition);
 }
 
 .gateway-file-dropzone:hover,
 .gateway-file-dropzone.dragover {
   border-color: var(--primary-color);
-  background: rgba(255, 255, 255, 0.05);
+  background: rgba(59, 54, 140, 0.05);
+}
+
+html.dark-theme .gateway-file-dropzone {
+  border-color: rgba(255, 255, 255, 0.2);
+  background: rgba(255, 255, 255, 0.03);
+}
+
+html.dark-theme .gateway-file-dropzone:hover,
+html.dark-theme .gateway-file-dropzone.dragover {
+  border-color: var(--primary-color);
+  background: rgba(99, 102, 241, 0.1);
 }
 
 .gateway-file-icon {
@@ -2283,30 +2432,46 @@ html.dark-theme .gateway-countdown-badge {
 
 /* Gateway Form Mode Toggle Selector */
 .gateway-mode-selector {
-  display: flex;
-  gap: 10px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 8px;
   margin-bottom: 24px;
-  background: var(--surface-secondary, rgba(0, 0, 0, 0.04));
+  background: #f1f3f7;
   padding: 6px;
   border-radius: 12px;
-  border: 1px solid var(--border-color);
+  border: 1px solid rgba(35, 30, 55, 0.12);
+}
+
+html.dark-theme .gateway-mode-selector {
+  background: rgba(0, 0, 0, 0.35);
+  border-color: rgba(255, 255, 255, 0.1);
+}
+
+@media (max-width: 640px) {
+  .gateway-mode-selector {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
 
 .gateway-mode-btn {
-  flex: 1;
-  padding: 10px 16px;
+  padding: 10px 12px;
   border-radius: 8px;
   border: 1px solid transparent;
   background: transparent;
-  color: var(--text-muted);
+  color: #4b5563;
   font-weight: 600;
-  font-size: 0.88rem;
+  font-size: 0.84rem;
   cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 8px;
+  gap: 6px;
   transition: all 0.2s ease;
+  white-space: nowrap;
+}
+
+html.dark-theme .gateway-mode-btn {
+  color: var(--text-muted);
 }
 
 .gateway-mode-btn.active {
@@ -2322,11 +2487,23 @@ html.dark-theme .gateway-mode-btn.active {
 }
 
 .gateway-mode-btn.mode-demo.active {
-  border-color: rgba(99, 102, 241, 0.5);
+  border-color: rgba(99, 102, 241, 0.6);
+  color: var(--primary-color);
 }
 
 .gateway-mode-btn.mode-pilote.active {
-  border-color: rgba(16, 185, 129, 0.5);
+  border-color: rgba(16, 185, 129, 0.6);
+  color: #10b981;
+}
+
+.gateway-mode-btn.mode-deploy.active {
+  border-color: rgba(99, 102, 241, 0.6);
+  color: var(--primary-color);
+}
+
+.gateway-mode-btn.mode-contact.active {
+  border-color: rgba(245, 158, 11, 0.6);
+  color: #f59e0b;
 }
 
 .gateway-pulse-highlight {
@@ -2381,9 +2558,17 @@ html.dark-theme .gateway-modal-backdrop {
   max-height: 90vh;
   overflow-y: auto;
   border-radius: 20px;
+  background: #ffffff;
+  border: 1px solid rgba(35, 30, 55, 0.14);
   transform: scale(0.94) translateY(12px);
   transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
-  box-shadow: 0 25px 60px -15px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 25px 60px -15px rgba(0, 0, 0, 0.3);
+}
+
+html.dark-theme .gateway-modal-dialog {
+  background: #191023;
+  border-color: rgba(255, 255, 255, 0.15);
+  box-shadow: 0 25px 60px -15px rgba(0, 0, 0, 0.7);
 }
 
 .gateway-modal-overlay.active .gateway-modal-dialog {
