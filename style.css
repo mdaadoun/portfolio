@@ -587,7 +587,7 @@ body {
 }
 
 .logo-text span {
-  color: var(--pax-amber, #eb9d45);
+  color: var(--primary-color);
 }
 
 /* Sub-page Breadcrumb Badge */
@@ -984,7 +984,7 @@ html[data-theme="dark"] .gradient-text {
 }
 
 .hero-brand-title span {
-  color: var(--pax-amber, #eb9d45);
+  color: var(--primary-color);
 }
 
 .hero-brand-divider {
