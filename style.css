@@ -150,6 +150,13 @@ html.dark-theme .theme-toggle-btn:hover {
   border-color: #eb9d45;
 }
 
+html.dark-theme .logo-favicon,
+html.dark-theme .hero-brand-icon,
+html[data-theme="dark"] .logo-favicon,
+html[data-theme="dark"] .hero-brand-icon {
+  filter: drop-shadow(0 2px 8px rgba(235, 157, 69, 0.3));
+}
+
 html.dark-theme .background-glow.glow-1 {
   background: radial-gradient(circle, rgba(235, 157, 69, 0.2) 0%, transparent 70%);
 }
@@ -538,26 +545,49 @@ body {
 .logo {
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 10px;
   text-decoration: none;
-  font-family: var(--font-heading);
-  font-size: 1.3rem;
+  font-family: 'Cinzel', var(--font-heading), serif;
+  font-size: 1.55rem;
   font-weight: 700;
+  letter-spacing: 0.03em;
   color: var(--text-main);
   transition: var(--transition);
   white-space: nowrap;
 }
 
 .logo:hover {
-  transform: scale(1.02);
+  transform: scale(1.03);
 }
 
 .logo-icon {
-  font-size: 1.4rem;
+  font-size: 1.6rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.logo-favicon {
+  width: 36px;
+  height: 36px;
+  display: block;
+  object-fit: contain;
+  filter: drop-shadow(0 2px 6px rgba(17, 37, 62, 0.12));
+}
+
+.logo-img {
+  height: 38px;
+  width: auto;
+  display: block;
+  object-fit: contain;
+}
+
+.logo-text {
+  letter-spacing: 0.03em;
 }
 
 .logo-text span {
-  color: var(--primary-color);
+  color: var(--pax-amber, #eb9d45);
 }
 
 /* Sub-page Breadcrumb Badge */
@@ -907,7 +937,7 @@ html[data-theme="dark"] .gradient-text {
 
 /* Hero Section */
 .hero {
-  padding: 110px 0 85px;
+  padding: 50px 0 85px;
   text-align: center;
 }
 
@@ -915,6 +945,73 @@ html[data-theme="dark"] .gradient-text {
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+
+/* Hero Brand Card (Pax Fabrica Emblem + Title + Subtitle) */
+.hero-brand-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 50px;
+  padding: 26px 42px 22px;
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-card);
+  transition: var(--transition);
+}
+
+.hero-brand-card:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-hover);
+  border-color: rgba(59, 54, 140, 0.3);
+}
+
+.hero-brand-icon {
+  width: 72px;
+  height: 72px;
+  margin-bottom: 14px;
+  filter: drop-shadow(0 3px 10px rgba(17, 37, 62, 0.14));
+}
+
+.hero-brand-title {
+  font-family: 'Cinzel', var(--font-heading), serif;
+  font-size: 2.7rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  color: var(--text-main);
+  line-height: 1.1;
+}
+
+.hero-brand-title span {
+  color: var(--pax-amber, #eb9d45);
+}
+
+.hero-brand-divider {
+  width: 180px;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, #007788, transparent);
+  margin: 12px 0;
+  border-radius: 2px;
+}
+
+.hero-brand-subtitle {
+  font-family: 'Montserrat', var(--font-sans), sans-serif;
+  font-size: 0.95rem;
+  font-weight: 800;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: #007788;
+}
+
+html.dark-theme .hero-brand-subtitle,
+html[data-theme="dark"] .hero-brand-subtitle {
+  color: #85dfeb;
+}
+
+html.dark-theme .hero-brand-divider,
+html[data-theme="dark"] .hero-brand-divider {
+  background: linear-gradient(90deg, transparent, #85dfeb, transparent);
 }
 
 .hero-title {

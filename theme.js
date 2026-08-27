@@ -31,6 +31,9 @@
       document.documentElement.setAttribute('data-theme', 'light');
     }
 
+    // Switch SVG emblems and favicon according to theme
+    updateThemeAssets(theme);
+
     try {
       localStorage.setItem(THEME_KEY, theme);
     } catch (e) {
@@ -38,6 +41,31 @@
     }
 
     updateThemeControls(theme);
+  }
+
+  function updateThemeAssets(theme) {
+    const isDark = theme === 'dark';
+    const activeSvg = isDark ? 'favicon-dark.svg' : 'favicon.svg';
+
+    // 1. Update <link rel="icon">
+    const iconLinks = document.querySelectorAll('link[rel="icon"][type="image/svg+xml"]');
+    iconLinks.forEach((link) => {
+      const href = link.getAttribute('href');
+      if (href && (href.includes('favicon.svg') || href.includes('favicon-dark.svg'))) {
+        const basePath = href.substring(0, href.lastIndexOf('/') + 1);
+        link.setAttribute('href', basePath + activeSvg);
+      }
+    });
+
+    // 2. Update all img.logo-favicon and img.hero-brand-icon
+    const emblemImgs = document.querySelectorAll('img.logo-favicon, img.hero-brand-icon');
+    emblemImgs.forEach((img) => {
+      const src = img.getAttribute('src');
+      if (src && (src.includes('favicon.svg') || src.includes('favicon-dark.svg'))) {
+        const basePath = src.substring(0, src.lastIndexOf('/') + 1);
+        img.setAttribute('src', basePath + activeSvg);
+      }
+    });
   }
 
   function updateThemeControls(theme) {
@@ -83,7 +111,9 @@
   applyTheme(initialTheme);
 
   document.addEventListener('DOMContentLoaded', () => {
-    updateThemeControls(getPreferredTheme());
+    const currentTheme = document.documentElement.getAttribute('data-theme') || getPreferredTheme();
+    updateThemeAssets(currentTheme);
+    updateThemeControls(currentTheme);
 
     // Toggle theme on button click
     document.body.addEventListener('click', (e) => {
