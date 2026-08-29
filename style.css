@@ -3332,8 +3332,8 @@ html[data-theme="dark"] .pax-suffix-agent { color: #5dade2; }
 .pax-module strong {
   display: inline-block;
   font-size: 0.72rem;
-  padding: 4px 10px;
-  border-radius: 12px;
+  padding: 4px 12px;
+  border-radius: 9999px;
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.06em;
@@ -3530,6 +3530,19 @@ html.dark-theme .pax-detail-5, html[data-theme="dark"] .pax-detail-5 { --panel-c
   display: flex;
   align-items: center;
   gap: 10px;
+}
+
+.pax-module-detail-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.76rem;
+  padding: 4px 14px;
+  border-radius: 9999px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  line-height: 1.2;
 }
 
 .pax-module-detail-list {
