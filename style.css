@@ -3146,6 +3146,21 @@ html[data-theme="dark"] .pax-suffix-memory { color: #48c9b0; }
 html.dark-theme .pax-suffix-agent,
 html[data-theme="dark"] .pax-suffix-agent { color: #5dade2; }
 
+.pax-temple-icon {
+  display: inline-block;
+  vertical-align: middle;
+  flex-shrink: 0;
+  color: var(--text-main);
+  transition: transform 0.2s ease;
+}
+
+.pax-module-icon-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 8px 0 2px;
+}
+
 .pax-module-index {
   font-family: var(--font-mono);
   font-size: 0.8rem;
