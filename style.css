@@ -1198,39 +1198,127 @@ html[data-theme="dark"] .hero-brand-divider {
   margin: 0 auto;
 }
 
-/* Features Grid */
+/* Features Grid & Enhanced Feature Cards */
 .features-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 28px;
+  gap: 24px;
 }
 
 .feature-card {
+  position: relative;
   display: flex;
   flex-direction: column;
-  gap: 16px;
-  padding: 36px;
+  padding: 34px 30px;
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-lg, 20px);
+  overflow: hidden;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
+.feature-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, transparent, rgba(230, 126, 34, 0.5), transparent);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
 
 .feature-card:hover {
-  border-color: rgba(99, 102, 241, 0.4);
-  transform: translateY(-4px);
+  transform: translateY(-5px);
+  border-color: rgba(230, 126, 34, 0.35);
+  box-shadow: 0 16px 36px -10px rgba(0, 0, 0, 0.12), 0 0 24px -6px rgba(230, 126, 34, 0.15);
 }
 
-.card-icon {
-  font-size: 2rem;
+.feature-card:hover::before {
+  opacity: 1;
 }
 
-.feature-card h3 {
+.feature-card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.feature-num-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(230, 126, 34, 0.08);
+  border: 1px solid rgba(230, 126, 34, 0.24);
+  padding: 6px 14px;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px -2px rgba(230, 126, 34, 0.15);
+}
+
+.feature-num {
+  font-family: var(--font-mono);
+  font-size: 1.15rem;
+  font-weight: 800;
+  color: var(--primary-color, #e67e22);
+  letter-spacing: -0.02em;
+  line-height: 1;
+}
+
+.feature-badge-title {
   font-family: var(--font-heading);
-  font-size: 1.25rem;
+  font-size: 1.15rem;
+  font-weight: 700;
   color: var(--text-main);
+  line-height: 1;
+  letter-spacing: -0.01em;
 }
 
-.feature-card p {
+.feature-icon-subtle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 34px;
+  height: 34px;
+  font-size: 1.05rem;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid var(--border-color);
+  border-radius: 9px;
+  opacity: 0.75;
+  transition: transform 0.25s ease, opacity 0.25s ease, border-color 0.25s ease;
+}
+
+.feature-card:hover .feature-icon-subtle {
+  opacity: 1;
+  transform: scale(1.1);
+  border-color: rgba(230, 126, 34, 0.3);
+}
+
+.feature-card-desc {
   color: var(--text-muted);
-  font-size: 0.95rem;
+  font-size: 0.96rem;
+  line-height: 1.68;
+  margin: 0;
+}
+
+html.dark-theme .feature-num-badge,
+html[data-theme="dark"] .feature-num-badge {
+  background: rgba(235, 157, 69, 0.12);
+  border-color: rgba(235, 157, 69, 0.32);
+  color: #f8c7a4;
+}
+
+html.dark-theme .feature-icon-subtle,
+html[data-theme="dark"] .feature-icon-subtle {
+  background: rgba(255, 255, 255, 0.05);
+  border-color: rgba(255, 255, 255, 0.1);
+}
+
+html.dark-theme .feature-card:hover,
+html[data-theme="dark"] .feature-card:hover {
+  border-color: rgba(235, 157, 69, 0.45);
+  box-shadow: 0 16px 36px -10px rgba(0, 0, 0, 0.4), 0 0 28px -6px rgba(235, 157, 69, 0.2);
 }
 
 /* Architecture Pipeline */
@@ -3122,14 +3210,15 @@ html[data-theme="dark"] .process-card span {
 .pax-wordmark {
   display: inline;
   white-space: nowrap;
+  font-weight: 700;
 }
 
-.pax-suffix-extract { color: #e67e22; font-weight: inherit; }
-.pax-suffix-control { color: #e74c3c; font-weight: inherit; }
-.pax-suffix-vision  { color: #9b59b6; font-weight: inherit; }
-.pax-suffix-memory  { color: #1abc9c; font-weight: inherit; }
-.pax-suffix-agent   { color: #3498db; font-weight: inherit; }
-.pax-suffix-fabrica { color: var(--primary-color); font-weight: inherit; }
+.pax-suffix-extract { color: #e67e22; font-weight: 700; }
+.pax-suffix-control { color: #e74c3c; font-weight: 700; }
+.pax-suffix-vision  { color: #9b59b6; font-weight: 700; }
+.pax-suffix-memory  { color: #1abc9c; font-weight: 700; }
+.pax-suffix-agent   { color: #3498db; font-weight: 700; }
+.pax-suffix-fabrica { color: var(--primary-color); font-weight: 700; }
 
 html.dark-theme .pax-suffix-extract,
 html[data-theme="dark"] .pax-suffix-extract { color: #f39c12; }
