@@ -53,7 +53,8 @@
       const href = link.getAttribute('href');
       if (href && (href.includes('favicon.svg') || href.includes('favicon-dark.svg'))) {
         const basePath = href.substring(0, href.lastIndexOf('/') + 1);
-        link.setAttribute('href', basePath + activeSvg);
+        const query = href.includes('?') ? href.substring(href.indexOf('?')) : '';
+        link.setAttribute('href', basePath + activeSvg + query);
       }
     });
 
@@ -63,7 +64,8 @@
       const src = img.getAttribute('src');
       if (src && (src.includes('favicon.svg') || src.includes('favicon-dark.svg'))) {
         const basePath = src.substring(0, src.lastIndexOf('/') + 1);
-        img.setAttribute('src', basePath + activeSvg);
+        const query = src.includes('?') ? src.substring(src.indexOf('?')) : '';
+        img.setAttribute('src', basePath + activeSvg + query);
       }
     });
   }
