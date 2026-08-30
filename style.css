@@ -3264,7 +3264,15 @@ html[data-theme="dark"] .process-card span {
 .pax-wordmark {
   display: inline;
   white-space: nowrap;
+  font-family: 'Cinzel', serif;
   font-weight: 700;
+  letter-spacing: 0.03em;
+  color: var(--text-main, #120d1c);
+}
+
+html.dark-theme .pax-wordmark,
+html[data-theme="dark"] .pax-wordmark {
+  color: var(--text-main, #f4f5ef);
 }
 
 .pax-suffix-extract { color: #e67e22; font-weight: 700; }
@@ -3273,6 +3281,17 @@ html[data-theme="dark"] .process-card span {
 .pax-suffix-memory  { color: #1abc9c; font-weight: 700; }
 .pax-suffix-agent   { color: #3498db; font-weight: 700; }
 .pax-suffix-fabrica { color: var(--primary-color); font-weight: 700; }
+
+html.dark-theme .pax-suffix-fabrica,
+html[data-theme="dark"] .pax-suffix-fabrica { color: #eb9d45; }
+
+/* Temple Logo Theme Switcher */
+.pax-temple-img-light { display: inline-block; vertical-align: middle; }
+.pax-temple-img-dark { display: none; vertical-align: middle; }
+html.dark-theme .pax-temple-img-light,
+html[data-theme="dark"] .pax-temple-img-light { display: none; }
+html.dark-theme .pax-temple-img-dark,
+html[data-theme="dark"] .pax-temple-img-dark { display: inline-block; }
 
 html.dark-theme .pax-suffix-extract,
 html[data-theme="dark"] .pax-suffix-extract { color: #f39c12; }

@@ -58,8 +58,8 @@
       }
     });
 
-    // 2. Update all img.logo-favicon and img.hero-brand-icon
-    const emblemImgs = document.querySelectorAll('img.logo-favicon, img.hero-brand-icon');
+    // 2. Update all img.logo-favicon and img.hero-brand-icon and footer emblems
+    const emblemImgs = document.querySelectorAll('img.logo-favicon, img.hero-brand-icon, .footer-info img');
     emblemImgs.forEach((img) => {
       const src = img.getAttribute('src');
       if (src && (src.includes('favicon.svg') || src.includes('favicon-dark.svg'))) {
