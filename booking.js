@@ -4,7 +4,7 @@ const DEFAULT_API_URL = typeof window !== 'undefined' && window.PAX_API_URL
   ? window.PAX_API_URL
   : (typeof window !== 'undefined' && (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1')
       ? `${window.location.protocol}//${window.location.hostname}:8787`
-      : 'https://api-paxfabrica.a.run.app');
+      : 'https://dashboard.paxfabrica.com');
 
 export const MAX_FILE_SIZE_BYTES = 5 * 1024 * 1024; // 5 MiB
 export const ALLOWED_EXTENSIONS = ['.pdf', '.xlsx', '.xls', '.csv', '.ods', '.png', '.jpg', '.jpeg'];
