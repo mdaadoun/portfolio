@@ -436,12 +436,12 @@
 
                 <!-- DPGF PDF/Excel File Upload Dropzone -->
                 <div class="gateway-file-wrapper" id="gatewayDropzoneGroup" style="display: none;">
-                  <label class="gateway-label" id="gatewayFileLabel">5. Joindre votre premier DPGF ou CCTP (PDF ou Excel, max 5 Mo)</label>
+                  <label class="gateway-label" id="gatewayFileLabel">5. Joindre vos dossiers DPGF, CCTP ou scans (PDF, Excel ou Image, max 5 Mo / fichier)</label>
                   <div class="gateway-file-dropzone" id="gatewayFileDropzone" onclick="document.getElementById('gatewayPdfInput').click()">
                     <div class="gateway-file-icon">📄</div>
-                    <div class="gateway-file-text">Cliquez ou glissez-déposez votre fichier PDF ou Excel ici</div>
-                    <div class="gateway-file-subtext">Formats acceptés : PDF, XLSX, XLS, CSV — Limite : 5 Mo</div>
-                    <input type="file" id="gatewayPdfInput" name="pdfFile" accept=".pdf,.xlsx,.xls,.csv,.ods,application/pdf,application/vnd.openxmlformats-officedocument.spreadsheetml.sheet,application/vnd.ms-excel" style="display:none;">
+                    <div class="gateway-file-text">Cliquez ou glissez-déposez vos fichiers (PDF, Excel, Scans JPG/PNG) ici</div>
+                    <div class="gateway-file-subtext">Formats acceptés : PDF, XLSX, XLS, CSV, ODS, JPG, PNG — Max 5 Mo / fichier</div>
+                    <input type="file" id="gatewayPdfInput" name="pdfFiles" multiple accept=".pdf,.xlsx,.xls,.csv,.ods,.png,.jpg,.jpeg,image/png,image/jpeg,application/pdf,application/vnd.openxmlformats-officedocument.spreadsheetml.sheet,application/vnd.ms-excel" style="display:none;">
                   </div>
                   <div id="gatewayFileSelectedDisplay" class="gateway-file-selected" style="display: none;"></div>
                 </div>

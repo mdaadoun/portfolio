@@ -7,7 +7,7 @@ const DEFAULT_API_URL = typeof window !== 'undefined' && window.PAX_API_URL
       : 'https://api-paxfabrica.a.run.app');
 
 export const MAX_FILE_SIZE_BYTES = 5 * 1024 * 1024; // 5 MiB
-export const ALLOWED_EXTENSIONS = ['.pdf', '.xlsx', '.xls', '.csv', '.ods'];
+export const ALLOWED_EXTENSIONS = ['.pdf', '.xlsx', '.xls', '.csv', '.ods', '.png', '.jpg', '.jpeg'];
 
 export function formatSlotLabel(slot) {
   if (!slot || !slot.startTime) return 'Créneau indéfini';
@@ -28,17 +28,20 @@ export async function fetchAvailableSlots(apiBaseUrl = DEFAULT_API_URL, fetchImp
   return data.slots || [];
 }
 
-export function validateBookingForm(values, file, mode = 'demo') {
+export function validateBookingForm(values, fileOrFiles, mode = 'demo') {
   const errors = [];
   if (!values.name || values.name.trim().length < 2) errors.push('Veuillez renseigner votre nom complet.');
   const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
   if (!values.email || !emailRegex.test(values.email.trim())) errors.push('Veuillez renseigner une adresse e-mail valide.');
   if (mode === 'demo' && !values.slotId) errors.push('Veuillez sélectionner un créneau de rendez-vous.');
-  if (mode === 'pilote' && !file) errors.push('Veuillez déposer votre fichier (PDF ou Excel) pour le Pilote 48h.');
-  if (file) {
-    if (file.size > MAX_FILE_SIZE_BYTES) errors.push('Le fichier dépasse la taille maximale de 5 Mo.');
-    const isAllowed = ALLOWED_EXTENSIONS.some((ext) => file.name.toLowerCase().endsWith(ext));
-    if (!isAllowed) errors.push('Seuls les fichiers PDF et Excel (.pdf, .xlsx, .xls, .csv, .ods) sont acceptés.');
+
+  const filesList = Array.isArray(fileOrFiles) ? fileOrFiles : (fileOrFiles ? [fileOrFiles] : []);
+  if (mode === 'pilote' && filesList.length === 0) errors.push('Veuillez déposer vos fichiers (PDF, Excel ou Image/Scan) pour le Pilote 48h.');
+  for (const f of filesList) {
+    if (f.size > MAX_FILE_SIZE_BYTES) errors.push(`Le fichier "${f.name}" dépasse 5 Mo.`);
+    if (!ALLOWED_EXTENSIONS.some((ext) => f.name.toLowerCase().endsWith(ext))) {
+      errors.push(`Format non supporté pour "${f.name}". Formats acceptés : .pdf, .xlsx, .xls, .csv, .ods, .png, .jpg, .jpeg.`);
+    }
   }
   return { isValid: errors.length === 0, errors };
 }
@@ -55,9 +58,7 @@ export function fileToBase64(file) {
 
 export async function submitBooking(apiBaseUrl = DEFAULT_API_URL, payload = {}, fetchImpl = fetch) {
   const res = await fetchImpl(`${apiBaseUrl}/api/v1/bookings`, {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify(payload),
+    method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(payload),
   });
   const data = await res.json();
   if (!res.ok) throw new Error(data.error || 'Erreur lors de la réservation.');
@@ -73,79 +74,48 @@ export async function confirmBookingByToken(apiBaseUrl = DEFAULT_API_URL, token 
 
 const MODE_CONFIGS = {
   demo: {
-    title: '0. Démo Directe en Visio (15 min)',
-    subtitle: 'Découvrez l\'outil en direct sur un DPGF type et posez vos questions techniques ou métier.',
-    showSlot: true,
-    slotLabel: '1. Créneau de démo disponible *',
-    showDropzone: false,
-    messageLabel: '5. Un message à nous faire parvenir ? (Optionnel)',
-    submitHtml: '<span>📅 Valider ma réservation de Démo (15 min)</span>',
+    title: '0. Démo Directe en Visio (15 min)', subtitle: 'Découvrez l\'outil en direct sur un DPGF type et posez vos questions techniques ou métier.',
+    showSlot: true, slotLabel: '1. Créneau de démo disponible *', showDropzone: false,
+    messageLabel: '5. Un message à nous faire parvenir ? (Optionnel)', submitHtml: '<span>📅 Valider ma réservation de Démo (15 min)</span>',
   },
   pilote: {
-    title: '1. Lancer votre Pilote Flash 48 h (490 € net)',
-    subtitle: 'Déposez votre DPGF ou CCTP. Livraison sous 48h du fichier Excel structuré et du rapport d\'anomalies (100% déductible).',
-    showSlot: false,
-    showDropzone: true,
-    fileLabel: '5. Joindre votre premier DPGF ou CCTP (PDF ou Excel, max 5 Mo) *',
-    messageLabel: '6. Précisions sur votre dossier (Optionnel)',
-    submitHtml: '<span>📤 Transmettre mon fichier &amp; Lancer le Pilote 48h</span>',
+    title: '1. Lancer votre Pilote Flash 48 h (490 € net)', subtitle: 'Déposez vos DPGF, CCTP ou scans. Livraison sous 48h du fichier Excel structuré et du rapport d\'anomalies (100% déductible).',
+    showSlot: false, showDropzone: true, fileLabel: '5. Joindre vos dossiers DPGF, CCTP ou scans (PDF, Excel ou Image, max 5 Mo / fichier) *',
+    messageLabel: '6. Précisions sur votre dossier (Optionnel)', submitHtml: '<span>📤 Transmettre mes fichiers &amp; Lancer le Pilote 48h</span>',
   },
   deploy: {
-    title: '2. Mise en Production de Votre Outil Métier',
-    subtitle: 'Déploiement de votre espace web privé dédié (2 990 € net — Pilote 490 € déduit — 1 an de service inclus).',
-    showSlot: false,
-    showDropzone: true,
-    fileLabel: '5. Joindre un cahier des charges ou trame type (PDF ou Excel, max 5 Mo)',
-    messageLabel: '6. Précisions sur vos volumes ou vos besoins d\'intégration (Optionnel)',
-    submitHtml: '<span>💻 Échanger pour déployer l\'Outil Métier</span>',
+    title: '2. Mise en Production de Votre Outil Métier', subtitle: 'Déploiement de votre espace web privé dédié (2 990 € net — Pilote 490 € déduit — 1 an de service inclus).',
+    showSlot: false, showDropzone: true, fileLabel: '5. Joindre un cahier des charges, trame type ou scan (PDF, Excel ou Image, max 5 Mo / fichier)',
+    messageLabel: '6. Précisions sur vos volumes ou vos besoins d\'intégration (Optionnel)', submitHtml: '<span>💻 Échanger pour déployer l\'Outil Métier</span>',
   },
   contact: {
-    title: '3. Extensions & Automatisation Sur-Mesure',
-    subtitle: 'Recherche dans les archives CCTP/DTU, connecteurs logiciels, workflows sur-mesure.',
-    showSlot: false,
-    showDropzone: false,
-    messageLabel: '5. Décrivez vos besoins d\'automatisation ou d\'extensions (Optionnel)',
+    title: '3. Extensions & Automatisation Sur-Mesure', subtitle: 'Recherche dans les archives CCTP/DTU, connecteurs logiciels, workflows sur-mesure.',
+    showSlot: false, showDropzone: false, messageLabel: '5. Décrivez vos besoins d\'automatisation ou d\'extensions (Optionnel)',
     submitHtml: '<span>💬 Envoyer ma demande de contact / devis</span>',
   },
 };
 
-export function initBookingGateway(root = document) {
-  const overlay = root.getElementById('gatewayModalOverlay');
-  const backdrop = root.getElementById('gatewayModalBackdrop');
-  const btnClose = root.getElementById('btnCloseGatewayModal');
-  const form = root.getElementById('gatewayBookingForm');
-  const slotGroup = root.getElementById('gatewaySlotGroup');
-  const dropzoneGroup = root.getElementById('gatewayDropzoneGroup');
-  const slotSelect = root.getElementById('gatewaySlotSelect');
-  const slotLabel = root.getElementById('gatewaySlotLabel');
-  const fileLabel = root.getElementById('gatewayFileLabel');
-  const nameInput = root.getElementById('gatewayNameInput');
-  const emailInput = root.getElementById('gatewayEmailInput');
-  const companyInput = root.getElementById('gatewayCompanyInput');
-  const messageInput = root.getElementById('gatewayMessageInput');
-  const messageLabel = root.getElementById('gatewayMessageLabel');
-  const modalTitle = root.getElementById('gatewayModalTitle');
-  const modalSubtitle = root.getElementById('gatewayModalSubtitle');
+export function initBookingGateway(root = document, { apiBaseUrl = DEFAULT_API_URL, fetchImpl } = {}) {
+  const byId = (id) => root.getElementById(id);
+  const overlay = byId('gatewayModalOverlay'), backdrop = byId('gatewayModalBackdrop'), btnClose = byId('btnCloseGatewayModal');
+  const form = byId('gatewayBookingForm'), slotGroup = byId('gatewaySlotGroup'), dropzoneGroup = byId('gatewayDropzoneGroup');
+  const slotSelect = byId('gatewaySlotSelect'), slotLabel = byId('gatewaySlotLabel'), fileLabel = byId('gatewayFileLabel');
+  const nameInput = byId('gatewayNameInput'), emailInput = byId('gatewayEmailInput'), companyInput = byId('gatewayCompanyInput');
+  const messageInput = byId('gatewayMessageInput'), messageLabel = byId('gatewayMessageLabel');
+  const modalTitle = byId('gatewayModalTitle'), modalSubtitle = byId('gatewayModalSubtitle');
+  const feedback = byId('gatewayFeedback'), submitBtn = byId('btnSubmitGatewayBooking');
+  const dropzone = byId('gatewayFileDropzone'), fileInput = byId('gatewayPdfInput'), fileDisplay = byId('gatewayFileSelectedDisplay');
   const honeypotInput = root.querySelector('input[name="website_url"]');
-  const feedback = root.getElementById('gatewayFeedback');
-  const submitBtn = root.getElementById('btnSubmitGatewayBooking');
-  const fileInput = root.getElementById('gatewayPdfInput');
-  const fileDisplay = root.getElementById('gatewayFileSelectedDisplay');
 
   const modeBtns = {
-    demo: root.getElementById('modeBtnDemo'),
-    pilote: root.getElementById('modeBtnPilote'),
-    deploy: root.getElementById('modeBtnDeploy'),
-    contact: root.getElementById('modeBtnContact'),
+    demo: byId('modeBtnDemo'), pilote: byId('modeBtnPilote'),
+    deploy: byId('modeBtnDeploy'), contact: byId('modeBtnContact'),
   };
 
   let currentMode = 'demo';
   let turnstileToken = 'mock-valid-token';
-  let selectedFile = null;
-
-  if (typeof window !== 'undefined') {
-    window.onTurnstileSuccess = (t) => { turnstileToken = t; };
-  }
+  let selectedFiles = [];
+  if (typeof window !== 'undefined') window.onTurnstileSuccess = (t) => { turnstileToken = t; };
 
   function setMode(mode) {
     currentMode = mode;
@@ -167,7 +137,6 @@ export function initBookingGateway(root = document) {
     overlay?.setAttribute('aria-hidden', 'false');
     if (typeof document !== 'undefined' && document.body) document.body.style.overflow = 'hidden';
   };
-
   const closeModal = () => {
     overlay?.classList.remove('active');
     overlay?.setAttribute('aria-hidden', 'true');
@@ -182,35 +151,66 @@ export function initBookingGateway(root = document) {
   backdrop?.addEventListener('click', closeModal);
   root.addEventListener?.('keydown', (e) => e.key === 'Escape' && overlay?.classList.contains('active') && closeModal());
 
-  if (slotSelect) {
-    fetchAvailableSlots().then((slots) => {
+  if (slotSelect && (fetchImpl || typeof fetch !== 'undefined')) {
+    fetchAvailableSlots(apiBaseUrl, fetchImpl || fetch).then((slots) => {
       slotSelect.innerHTML = slots.length
         ? '<option value="">-- Sélectionnez un créneau --</option>' + slots.map((s) => `<option value="${s.slotId}">${formatSlotLabel(s)}</option>`).join('')
         : '<option value="">Aucun créneau disponible</option>';
     }).catch(() => { slotSelect.innerHTML = '<option value="">Créneaux indisponibles</option>'; });
   }
 
-  fileInput?.addEventListener('change', (e) => {
-    selectedFile = e.target.files?.[0] || null;
-    if (fileDisplay) {
-      fileDisplay.style.display = selectedFile ? 'flex' : 'none';
-      fileDisplay.textContent = selectedFile ? `📄 ${selectedFile.name} (${(selectedFile.size / 1024).toFixed(1)} Ko)` : '';
+  function renderFilesList() {
+    if (!fileDisplay) return;
+    if (selectedFiles.length === 0) {
+      fileDisplay.style.display = 'none'; fileDisplay.innerHTML = ''; return;
     }
-  });
+    fileDisplay.style.display = 'flex';
+    fileDisplay.style.flexDirection = 'column';
+    fileDisplay.innerHTML = selectedFiles.map((f, idx) => `
+      <div class="gateway-file-item" style="display:flex;align-items:center;justify-content:space-between;padding:5px 8px;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:6px;margin-bottom:3px;font-size:0.8rem;">
+        <span style="overflow:hidden;text-overflow:ellipsis;white-space:nowrap;max-width:85%;">📄 ${f.name} <span style="opacity:0.65;">(${(f.size / 1024).toFixed(1)} Ko)</span></span>
+        <button type="button" class="gateway-file-remove-btn" data-index="${idx}" style="background:transparent;border:none;color:#ef4444;font-size:1.1rem;cursor:pointer;padding:0 4px;line-height:1;" title="Supprimer">✕</button>
+      </div>`).join('');
+    fileDisplay.querySelectorAll('.gateway-file-remove-btn').forEach((btn) => btn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      const i = parseInt(btn.getAttribute('data-index'), 10);
+      if (!isNaN(i)) { selectedFiles.splice(i, 1); renderFilesList(); }
+    }));
+  }
+
+  function handleFilesSelection(files) {
+    const list = Array.from(files || []);
+    if (!list.length) return;
+    for (const f of list) {
+      if (!selectedFiles.some((item) => item.name === f.name && item.size === f.size)) selectedFiles.push(f);
+    }
+    renderFilesList();
+  }
+
+  fileInput?.addEventListener('change', (e) => handleFilesSelection(e.target.files));
+  if (dropzone) {
+    const preventDrag = (e) => { e.preventDefault(); e.stopPropagation(); };
+    ['dragenter', 'dragover'].forEach((evt) => dropzone.addEventListener(evt, (e) => { preventDrag(e); dropzone.classList.add('dragover'); }));
+    ['dragleave', 'dragend'].forEach((evt) => dropzone.addEventListener(evt, (e) => { preventDrag(e); dropzone.classList.remove('dragover'); }));
+    dropzone.addEventListener('drop', (e) => {
+      preventDrag(e); dropzone.classList.remove('dragover');
+      if (e.dataTransfer?.files?.length) handleFilesSelection(e.dataTransfer.files);
+    });
+  }
+
+  if (typeof window !== 'undefined') {
+    window.addEventListener('dragover', (e) => overlay?.classList.contains('active') && e.preventDefault());
+    window.addEventListener('drop', (e) => overlay?.classList.contains('active') && e.preventDefault());
+  }
 
   form?.addEventListener('submit', async (e) => {
     e.preventDefault();
     const values = {
-      mode: currentMode,
-      slotId: slotSelect?.value || '',
-      name: nameInput?.value || '',
-      email: emailInput?.value || '',
-      company: companyInput?.value || '',
-      message: messageInput?.value || '',
-      website_url: honeypotInput?.value || '',
-      cf_turnstile_response: turnstileToken,
+      mode: currentMode, slotId: slotSelect?.value || '', name: nameInput?.value || '',
+      email: emailInput?.value || '', company: companyInput?.value || '', message: messageInput?.value || '',
+      website_url: honeypotInput?.value || '', cf_turnstile_response: turnstileToken,
     };
-    const validation = validateBookingForm(values, selectedFile, currentMode);
+    const validation = validateBookingForm(values, selectedFiles, currentMode);
     if (!validation.isValid) {
       feedback.className = 'gateway-feedback-banner error';
       feedback.innerHTML = `⚠️ ${validation.errors.join('<br>')}`;
@@ -222,14 +222,18 @@ export function initBookingGateway(root = document) {
     feedback.textContent = 'Traitement de votre demande en cours...';
     feedback.style.display = 'block';
     try {
-      if (selectedFile) {
-        values.fileBase64 = await fileToBase64(selectedFile);
-        values.fileName = selectedFile.name;
+      if (selectedFiles.length > 0) {
+        values.files = await Promise.all(selectedFiles.map(async (f) => ({
+          fileName: f.name, fileSize: f.size, fileBase64: await fileToBase64(f),
+        })));
+        values.fileName = selectedFiles[0].name;
+        values.fileBase64 = values.files[0].fileBase64;
       }
       const result = await submitBooking(DEFAULT_API_URL, values);
       feedback.className = 'gateway-feedback-banner success';
       feedback.innerHTML = `🎉 <strong>Demande enregistrée !</strong> ${result.message}`;
       form.reset();
+      selectedFiles = [];
       if (fileDisplay) fileDisplay.style.display = 'none';
     } catch (err) {
       feedback.className = 'gateway-feedback-banner error';
@@ -240,9 +244,6 @@ export function initBookingGateway(root = document) {
 }
 
 if (typeof document !== 'undefined') {
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', () => initBookingGateway(document));
-  } else {
-    initBookingGateway(document);
-  }
+  const init = () => initBookingGateway(document);
+  document.readyState === 'loading' ? document.addEventListener('DOMContentLoaded', init) : init();
 }
