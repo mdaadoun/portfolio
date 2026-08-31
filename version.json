@@ -1,8 +1,7 @@
 {
   "name": "pax-fabrica-landing",
-  "version": "1.0.1",
-  "assetVersion": "7.5",
-  "commit": "fa8713d",
-  "branch": "post-release-patch",
-  "updatedAt": "2026-08-30T08:29:02Z"
+  "version": "1.1.0",
+  "assetVersion": "7.6",
+  "branch": "main",
+  "updatedAt": "2026-08-31T11:19:00Z"
 }
