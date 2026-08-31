@@ -434,21 +434,21 @@
                   </div>
                 </div>
 
-                <!-- DPGF PDF File Upload Dropzone -->
-                <div class="gateway-file-wrapper" id="gatewayDropzoneGroup">
-                  <label class="gateway-label" id="gatewayFileLabel">5. Joindre votre premier DPGF ou CCTP (optionnel, max 5 Mo)</label>
+                <!-- DPGF PDF/Excel File Upload Dropzone -->
+                <div class="gateway-file-wrapper" id="gatewayDropzoneGroup" style="display: none;">
+                  <label class="gateway-label" id="gatewayFileLabel">5. Joindre votre premier DPGF ou CCTP (PDF ou Excel, max 5 Mo)</label>
                   <div class="gateway-file-dropzone" id="gatewayFileDropzone" onclick="document.getElementById('gatewayPdfInput').click()">
                     <div class="gateway-file-icon">📄</div>
-                    <div class="gateway-file-text">Cliquez ou glissez-déposez votre premier PDF ici</div>
-                    <div class="gateway-file-subtext">Traitement confidentiel — Limite : 5 Mo</div>
-                    <input type="file" id="gatewayPdfInput" name="pdfFile" accept="application/pdf" style="display:none;">
+                    <div class="gateway-file-text">Cliquez ou glissez-déposez votre fichier PDF ou Excel ici</div>
+                    <div class="gateway-file-subtext">Formats acceptés : PDF, XLSX, XLS, CSV — Limite : 5 Mo</div>
+                    <input type="file" id="gatewayPdfInput" name="pdfFile" accept=".pdf,.xlsx,.xls,.csv,.ods,application/pdf,application/vnd.openxmlformats-officedocument.spreadsheetml.sheet,application/vnd.ms-excel" style="display:none;">
                   </div>
                   <div id="gatewayFileSelectedDisplay" class="gateway-file-selected" style="display: none;"></div>
                 </div>
 
                 <!-- Message / Notes text area -->
                 <div class="gateway-input-group" id="gatewayMessageGroup" style="margin-top: 16px;">
-                  <label for="gatewayMessageInput" id="gatewayMessageLabel" class="gateway-label">6. Message / Précisions complémentaires (Optionnel)</label>
+                  <label for="gatewayMessageInput" id="gatewayMessageLabel" class="gateway-label">5. Un message à nous faire parvenir ? (Optionnel)</label>
                   <textarea id="gatewayMessageInput" name="message" class="gateway-input" rows="3" placeholder="Précisez votre demande, vos questions ou particularités..." style="resize: vertical; font-family: inherit;"></textarea>
                 </div>
 
