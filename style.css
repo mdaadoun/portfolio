@@ -2580,7 +2580,7 @@ html.dark-theme .roi-result-metric {
    ========================================================================== */
 .gateway-booking-card {
   margin-top: 0;
-  padding: 36px 32px;
+  padding: 24px;
   border-radius: 20px;
   background: #ffffff;
   border: 1px solid rgba(35, 30, 55, 0.14);
@@ -2593,22 +2593,51 @@ html.dark-theme .gateway-booking-card {
   box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6);
 }
 
-.gateway-form-header {
-  margin-bottom: 24px;
+.gateway-mode-box {
+  width: 100%;
+  background: #f1f3f7;
+  border: 1px solid rgba(35, 30, 55, 0.12);
+  border-radius: 14px;
+  padding: 8px 10px;
+  margin-bottom: 20px;
+}
+
+html.dark-theme .gateway-mode-box {
+  background: rgba(0, 0, 0, 0.35);
+  border-color: rgba(255, 255, 255, 0.1);
+}
+
+.gateway-mode-top-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.gateway-mode-info {
+  margin-top: 8px;
+  padding: 8px 12px 4px 12px;
+  border-top: 1px solid rgba(35, 30, 55, 0.08);
   text-align: left;
 }
 
-.gateway-form-title {
-  font-family: var(--font-heading);
-  font-size: 1.4rem;
-  font-weight: 700;
-  color: var(--text-main);
-  margin-bottom: 6px;
+html.dark-theme .gateway-mode-info {
+  border-top-color: rgba(255, 255, 255, 0.08);
 }
 
-.gateway-form-subtitle {
-  font-size: 0.95rem;
+.gateway-mode-info-title {
+  font-family: var(--font-heading);
+  font-size: 0.92rem;
+  font-weight: 700;
+  color: var(--text-main);
+  margin: 0 0 2px 0;
+  line-height: 1.3;
+}
+
+.gateway-mode-info-subtitle {
+  font-size: 0.82rem;
   color: var(--text-muted);
+  margin: 0;
+  line-height: 1.4;
 }
 
 .gateway-form-grid {
@@ -2795,24 +2824,36 @@ html.dark-theme .gateway-countdown-badge {
 
 /* Gateway Form Mode Toggle Selector */
 .gateway-mode-selector {
+  flex: 1;
+  min-width: 0;
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 8px;
-  margin-bottom: 24px;
-  background: #f1f3f7;
-  padding: 6px;
-  border-radius: 12px;
-  border: 1px solid rgba(35, 30, 55, 0.12);
+  gap: 6px;
+  margin-bottom: 0;
+  background: transparent;
+  padding: 0;
+  border: none;
+  border-radius: 0;
 }
 
 html.dark-theme .gateway-mode-selector {
-  background: rgba(0, 0, 0, 0.35);
-  border-color: rgba(255, 255, 255, 0.1);
+  background: transparent;
+  border: none;
 }
 
 @media (max-width: 640px) {
+  .gateway-mode-top-row {
+    flex-wrap: wrap;
+  }
   .gateway-mode-selector {
     grid-template-columns: repeat(2, 1fr);
+    order: 2;
+    width: 100%;
+  }
+  .gateway-modal-close {
+    order: 1;
+    margin-left: auto;
+    margin-bottom: 6px;
   }
 }
 
@@ -2831,6 +2872,10 @@ html.dark-theme .gateway-mode-selector {
   gap: 6px;
   transition: all 0.2s ease;
   white-space: nowrap;
+}
+
+.gateway-mode-btn svg {
+  flex-shrink: 0;
 }
 
 html.dark-theme .gateway-mode-btn {
@@ -2939,14 +2984,12 @@ html.dark-theme .gateway-modal-dialog {
 }
 
 .gateway-modal-close {
-  position: absolute;
-  top: 18px;
-  right: 18px;
-  z-index: 10;
-  width: 38px;
-  height: 38px;
+  position: static;
+  flex-shrink: 0;
+  width: 36px;
+  height: 36px;
   border-radius: 50%;
-  border: 1px solid var(--border-color, rgba(255, 255, 255, 0.2));
+  border: 1px solid var(--border-color, rgba(35, 30, 55, 0.15));
   background: var(--surface-card, #ffffff);
   color: var(--text-main, #0f172a);
   font-size: 1.1rem;
@@ -2955,12 +2998,14 @@ html.dark-theme .gateway-modal-dialog {
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
   transition: all 0.2s ease;
+  margin-top: 2px;
 }
 
 html.dark-theme .gateway-modal-close {
   background: rgba(30, 41, 59, 0.9);
+  border-color: rgba(255, 255, 255, 0.2);
   color: #f8fafc;
 }
 

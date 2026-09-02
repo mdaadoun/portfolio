@@ -6,8 +6,8 @@ const DEFAULT_API_URL = typeof window !== 'undefined' && window.PAX_API_URL
       ? `${window.location.protocol}//${window.location.hostname}:8787`
       : 'https://dashboard.paxfabrica.com');
 
-export const MAX_FILE_SIZE_BYTES = 5 * 1024 * 1024; // 5 MiB
-export const ALLOWED_EXTENSIONS = ['.pdf', '.xlsx', '.xls', '.csv', '.ods', '.png', '.jpg', '.jpeg'];
+export const MAX_TOTAL_FILES_SIZE_BYTES = 50 * 1024 * 1024; // 50 MiB
+export const MAX_FILE_SIZE_BYTES = MAX_TOTAL_FILES_SIZE_BYTES; export const ALLOWED_EXTENSIONS = ['.pdf', '.xlsx', '.xls', '.csv', '.ods', '.png', '.jpg', '.jpeg'];
 
 export function formatSlotLabel(slot) {
   if (!slot || !slot.startTime) return 'Créneau indéfini';
@@ -37,8 +37,9 @@ export function validateBookingForm(values, fileOrFiles, mode = 'demo') {
 
   const filesList = Array.isArray(fileOrFiles) ? fileOrFiles : (fileOrFiles ? [fileOrFiles] : []);
   if (mode === 'pilote' && filesList.length === 0) errors.push('Veuillez déposer vos fichiers (PDF, Excel ou Image/Scan) pour le Pilote 48h.');
+  const totalSize = filesList.reduce((acc, f) => acc + (f.size || 0), 0);
+  if (totalSize > MAX_TOTAL_FILES_SIZE_BYTES) errors.push('La taille totale des fichiers dépasse 50 Mo.');
   for (const f of filesList) {
-    if (f.size > MAX_FILE_SIZE_BYTES) errors.push(`Le fichier "${f.name}" dépasse 5 Mo.`);
     if (!ALLOWED_EXTENSIONS.some((ext) => f.name.toLowerCase().endsWith(ext))) {
       errors.push(`Format non supporté pour "${f.name}". Formats acceptés : .pdf, .xlsx, .xls, .csv, .ods, .png, .jpg, .jpeg.`);
     }
@@ -76,22 +77,22 @@ const MODE_CONFIGS = {
   demo: {
     title: '0. Démo Directe en Visio (15 min)', subtitle: 'Découvrez l\'outil en direct sur un DPGF type et posez vos questions techniques ou métier.',
     showSlot: true, slotLabel: '1. Créneau de démo disponible *', showDropzone: false,
-    messageLabel: '5. Un message à nous faire parvenir ? (Optionnel)', submitHtml: '<span>📅 Valider ma réservation de Démo (15 min)</span>',
+    messageLabel: '5. Un message à nous faire parvenir ? (Optionnel)', submitHtml: '<span>Valider ma réservation de Démo (15 min)</span>',
   },
   pilote: {
-    title: '1. Lancer votre Pilote Flash 48 h (490 € net)', subtitle: 'Déposez vos DPGF, BPU, DQE ou scans. Livraison sous 48h du fichier Excel structuré et du rapport d\'anomalies (100% déductible).',
-    showSlot: false, showDropzone: true, fileLabel: '5. Joindre vos dossiers DPGF, BPU, DQE ou scans (PDF, Excel ou Image, max 5 Mo / fichier) *',
-    messageLabel: '6. Précisions sur votre dossier (Optionnel)', submitHtml: '<span>📤 Transmettre mes fichiers &amp; Lancer le Pilote 48h</span>',
+    title: '1. Lancer votre Pilote Flash 48 h (490 € net)', subtitle: 'Déposez vos DPGF, BPU, DQE ou scans. Livraison sous 48h du fichier Excel structuré et du rapport d\'anomalies (100 % déduit de l\'Outil Métier).',
+    showSlot: false, showDropzone: true, fileLabel: '5. Joindre vos dossiers DPGF, BPU, DQE ou scans (PDF, Excel ou Image, max 50 Mo) *',
+    messageLabel: '6. Précisions sur votre dossier (Optionnel)', submitHtml: '<span>Transmettre mes fichiers &amp; Lancer le Pilote 48h</span>',
   },
   deploy: {
-    title: '2. Mise en Production de Votre Outil Métier', subtitle: 'Déploiement de votre espace web privé dédié (2 990 € net — Pilote 490 € déduit — 1 an de service inclus).',
-    showSlot: false, showDropzone: true, fileLabel: '5. Joindre un cahier des charges, trame type ou scan (PDF, Excel ou Image, max 5 Mo / fichier)',
-    messageLabel: '6. Précisions sur vos volumes ou vos besoins d\'intégration (Optionnel)', submitHtml: '<span>💻 Échanger pour déployer l\'Outil Métier</span>',
+    title: '2. Mise en Production de Votre Outil Métier', subtitle: 'Déploiement de votre espace web privé dédié (2 990 € net — 50 % d\'acompte à la commande — Pilote 490 € déduit — 1 an de service inclus).',
+    showSlot: false, showDropzone: true, fileLabel: '5. Joindre un cahier des charges, trame type ou scan (PDF, Excel ou Image, max 50 Mo)',
+    messageLabel: '6. Précisions sur vos volumes ou vos besoins d\'intégration (Optionnel)', submitHtml: '<span>Échanger pour déployer l\'Outil Métier</span>',
   },
   contact: {
     title: '3. Extensions & Automatisation Sur-Mesure', subtitle: 'Recherche dans les archives CCTP/DTU, connecteurs logiciels, workflows sur-mesure.',
     showSlot: false, showDropzone: false, messageLabel: '5. Décrivez vos besoins d\'automatisation ou d\'extensions (Optionnel)',
-    submitHtml: '<span>💬 Envoyer ma demande de contact / devis</span>',
+    submitHtml: '<span>Envoyer ma demande de contact / devis</span>',
   },
 };
 
