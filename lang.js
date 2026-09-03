@@ -35,7 +35,7 @@
       "hub_hero_title": "Building Sovereign, Secure & <span class=\"gradient-text\">Production-Grade AI Systems</span>",
       "hub_hero_desc": "Bridging the gap between cutting-edge AI capabilities—<strong>Multimodal, Agentic RAG, Autonomous Workflows</strong>—and <strong>enterprise-grade safety, sovereignty & ethics</strong>.",
       "hub_hero_read_also": "📖 Read also:",
-      "hub_hero_article_link": "AI Engineer role",
+      "hub_hero_article_link": "AI Product Engineer role for Construction",
       "hub_btn_discover": "Explore Projects & Stack",
       "hub_btn_parcours": "How I Build with AI",
       "hub_pill1": "Agentic Systems",
@@ -439,6 +439,9 @@
       "book_proj4": "Project 4 — Automated Document Ingestion Pipeline",
       "book_ch6": "Ch.6 — Vectorization, Semantic Search & Advanced RAG",
       "book_proj5": "Project 5 — Enterprise Document Assistant (\"Chat with your Doc\")",
+      "book_ch7": "Ch.7 — Function Calling & The Emergence of the MCP Standard",
+      "book_proj6": "Project 6 — Customer Support Automation Agent",
+      "book_proj7": "Project 6 — Customer Support Automation Agent",
 
       // Blog Portal
       "blog_header_title": "Blog & <span class=\"gradient-text\">Technical Insights</span>",
@@ -644,7 +647,7 @@
       "hub_hero_title": "Conception de Systèmes IA <span class=\"gradient-text\">Souverains, Sécurisés & Prêts pour la Production</span>",
       "hub_hero_desc": "Faire la jonction entre les capacités IA de pointe—<strong>Multimodal, Agentic RAG, Workflows Autonomes</strong>—et les exigences industrielles de <strong>sécurité, souveraineté et éthique des données</strong>.",
       "hub_hero_read_also": "📖 Lire aussi :",
-      "hub_hero_article_link": "Le métier d'AI Engineer",
+      "hub_hero_article_link": "Le métier d'AI Product Engineer pour le BTP",
       "hub_btn_discover": "Explorer Projets & Stack",
       "hub_btn_parcours": "Comment je conçois avec l'IA",
       "hub_pill1": "Systèmes Agentiques",
@@ -959,6 +962,9 @@
       "book_proj4": "Projet 4 — Pipeline d'Ingestion Documentaire Automatisé",
       "book_ch6": "Ch.6 — Vectorisation, Recherche Sémantique & RAG Avancé",
       "book_proj5": "Projet 5 — Assistant Documentaire d'Entreprise (\"Chat with your Doc\")",
+      "book_ch7": "Ch.7 — Function Calling & L'Émergence du standard MCP",
+      "book_proj6": "Projet 6 — Agent d'Automatisation du Support Client",
+      "book_proj7": "Projet 6 — Agent d'Automatisation du Support Client",
 
       // Blog Portal
       "blog_header_title": "Blog & <span class=\"gradient-text\">Analyses Techniques</span>",

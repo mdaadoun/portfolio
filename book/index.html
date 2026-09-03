@@ -47,15 +47,16 @@
 
     .book-layout {
       display: grid;
-      grid-template-columns: 280px 1fr;
+      grid-template-columns: 300px minmax(0, 1fr);
       gap: 32px;
       align-items: start;
       padding-bottom: 60px;
       transition: grid-template-columns 0.3s ease;
+      width: 100%;
     }
 
     .book-layout.toc-hidden {
-      grid-template-columns: 0 1fr;
+      grid-template-columns: 0 minmax(0, 1fr);
       gap: 0;
     }
 
@@ -69,31 +70,62 @@
     }
 
     .book-layout.toc-hidden .book-content {
-      max-width: 960px;
+      max-width: 880px;
       margin: 0 auto;
+      width: 100%;
     }
 
     /* Table of Contents Sidebar */
     .book-toc {
       position: sticky;
-      top: 90px;
+      top: 86px;
       background: var(--bg-card);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
       border: 1px solid var(--border-color);
       border-radius: var(--radius);
-      padding: 20px;
-      max-height: calc(100vh - 120px);
+      padding: 18px 16px;
+      max-height: calc(100vh - 110px);
       overflow-y: auto;
+      scrollbar-width: thin;
+      scrollbar-color: rgba(99, 102, 241, 0.3) transparent;
       transition: opacity 0.3s ease, padding 0.3s ease, border 0.3s ease;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .book-toc::-webkit-scrollbar {
+      width: 5px;
+    }
+
+    .book-toc::-webkit-scrollbar-thumb {
+      background: rgba(99, 102, 241, 0.3);
+      border-radius: 4px;
+    }
+
+    .toc-header-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-bottom: 12px;
+      margin-bottom: 12px;
+      border-bottom: 1px solid var(--border-color);
     }
 
     .book-toc h3 {
       font-family: var(--font-heading);
-      font-size: 1rem;
+      font-size: 0.95rem;
       font-weight: 700;
-      margin-bottom: 16px;
+      margin: 0;
       color: var(--text-main);
-      padding-bottom: 12px;
-      border-bottom: 1px solid var(--border-color);
+    }
+
+    .toc-count-badge {
+      font-size: 0.72rem;
+      font-weight: 600;
+      padding: 2px 8px;
+      border-radius: 99px;
+      background: rgba(99, 102, 241, 0.12);
+      color: var(--primary-color);
     }
 
     .toc-list {
@@ -103,16 +135,39 @@
     }
 
     .toc-list li {
-      margin-bottom: 4px;
+      margin-bottom: 3px;
+    }
+
+    .toc-section-header {
+      font-family: var(--font-heading);
+      font-size: 0.74rem;
+      font-weight: 800;
+      color: var(--primary-color);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      padding: 14px 10px 6px 10px;
+      margin-top: 12px;
+      border-top: 1px solid var(--border-color);
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .toc-section-header:first-child {
+      border-top: none;
+      margin-top: 0;
+      padding-top: 0;
     }
 
     .toc-link {
-      display: block;
-      padding: 8px 12px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 8px 10px;
       border-radius: 8px;
       color: var(--text-muted);
       text-decoration: none;
-      font-size: 0.88rem;
+      font-size: 0.84rem;
       font-weight: 500;
       transition: var(--transition);
       cursor: pointer;
@@ -120,42 +175,65 @@
       background: none;
       width: 100%;
       text-align: left;
+      border-left: 3px solid transparent;
+      box-sizing: border-box;
     }
 
     .toc-link:hover {
-      background: rgba(99, 102, 241, 0.1);
+      background: rgba(99, 102, 241, 0.08);
       color: var(--text-main);
+      border-left-color: rgba(99, 102, 241, 0.4);
     }
 
     .toc-link.active {
-      background: rgba(99, 102, 241, 0.15);
+      background: rgba(99, 102, 241, 0.14);
       color: var(--primary-color);
       font-weight: 600;
+      border-left-color: var(--primary-color);
     }
 
-    .toc-link.toc-section {
+    .toc-badge {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.72rem;
       font-weight: 700;
-      color: var(--text-main);
-      font-size: 0.82rem;
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
-      padding-top: 16px;
-      margin-top: 8px;
-      border-top: 1px solid var(--border-color);
+      padding: 2px 6px;
+      border-radius: 4px;
+      background: rgba(255, 255, 255, 0.05);
+      color: var(--text-muted);
+      flex-shrink: 0;
+      min-width: 24px;
     }
 
-    .toc-link.toc-section:hover {
-      background: none;
-      color: var(--text-main);
+    .toc-link.active .toc-badge {
+      background: var(--primary-color);
+      color: #ffffff;
     }
 
-    /* TOC Toggle Button */
+    .toc-title {
+      flex: 1;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      font-size: 0.83rem;
+    }
+
+    /* Controls Bar */
+    .book-controls {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 16px;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
     .toc-toggle {
       display: inline-flex;
       align-items: center;
       gap: 8px;
       padding: 8px 18px;
-      margin-bottom: 20px;
       background: var(--bg-card);
       border: 1px solid var(--border-color);
       border-radius: 99px;
@@ -183,6 +261,48 @@
       transform: rotate(180deg);
     }
 
+    .reading-badge-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 14px;
+      background: rgba(99, 102, 241, 0.08);
+      border: 1px solid rgba(99, 102, 241, 0.2);
+      border-radius: 99px;
+      font-size: 0.80rem;
+      color: var(--primary-color);
+      font-weight: 600;
+      max-width: 400px;
+    }
+
+    .reading-badge-pill span:last-child {
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .reading-badge-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: #10b981;
+      box-shadow: 0 0 8px #10b981;
+      flex-shrink: 0;
+    }
+
+    /* Reading Progress Bar */
+    .reading-progress-bar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 3px;
+      background: linear-gradient(90deg, #6366f1, #a855f7, #38bdf8);
+      width: 0%;
+      z-index: 9999;
+      transition: width 0.1s ease-out;
+      pointer-events: none;
+    }
+
     /* Premium Book Content Typography & Layout */
     .book-content {
       background: var(--bg-card);
@@ -190,12 +310,18 @@
       -webkit-backdrop-filter: blur(16px);
       border: 1px solid var(--border-color);
       border-radius: var(--radius);
-      padding: 48px 56px;
+      padding: 44px 52px;
       min-height: 550px;
+      min-width: 0;
+      max-width: 100%;
+      box-sizing: border-box;
+      overflow-wrap: break-word;
+      word-wrap: break-word;
       font-size: 1.02rem;
       line-height: 1.8;
       color: var(--text-muted);
       box-shadow: var(--shadow-card);
+      transition: max-width 0.3s ease;
     }
 
     .book-content h1 {
@@ -362,24 +488,48 @@
       display: block;
     }
 
+    /* Table Container & Horizontal Scroll Isolation */
+    .table-container {
+      width: 100%;
+      max-width: 100%;
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+      margin: 32px 0;
+      border-radius: 12px;
+      border: 1px solid var(--border-color);
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+      background: rgba(11, 15, 25, 0.5);
+      scrollbar-width: thin;
+      scrollbar-color: rgba(99, 102, 241, 0.3) transparent;
+    }
+
+    .table-container::-webkit-scrollbar {
+      height: 6px;
+    }
+
+    .table-container::-webkit-scrollbar-thumb {
+      background: rgba(99, 102, 241, 0.3);
+      border-radius: 4px;
+    }
+
     /* Table Styling */
     .book-content table {
       width: 100%;
-      border-collapse: separate;
+      min-width: 580px;
+      border-collapse: collapse;
       border-spacing: 0;
-      margin: 32px 0;
+      margin: 0;
       font-size: 0.92rem;
-      border-radius: 12px;
-      overflow: hidden;
-      border: 1px solid var(--border-color);
-      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+      border: none;
+      box-shadow: none;
+      border-radius: 0;
     }
 
     .book-content th {
       background: rgba(99, 102, 241, 0.14);
       color: var(--text-main);
       font-weight: 700;
-      font-size: 0.88rem;
+      font-size: 0.86rem;
       text-transform: uppercase;
       letter-spacing: 0.04em;
       padding: 16px 20px;
@@ -412,6 +562,137 @@
       border-top: 1px solid var(--border-color);
       margin: 48px 0;
       opacity: 0.6;
+    }
+
+    /* Code Block Copy Button Wrapper */
+    .code-block-wrapper {
+      position: relative;
+      margin: 28px 0;
+      max-width: 100%;
+    }
+
+    .copy-code-btn {
+      position: absolute;
+      top: 12px;
+      right: 14px;
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.16);
+      color: #cbd5e1;
+      border-radius: 6px;
+      padding: 4px 10px;
+      font-size: 0.76rem;
+      font-family: var(--font-sans);
+      font-weight: 600;
+      cursor: pointer;
+      transition: var(--transition);
+      z-index: 2;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+    }
+
+    .copy-code-btn:hover {
+      background: rgba(99, 102, 241, 0.25);
+      border-color: var(--primary-color);
+      color: #ffffff;
+    }
+
+    .copy-code-btn.copied {
+      background: rgba(16, 185, 129, 0.25);
+      border-color: #10b981;
+      color: #6ee7b7;
+    }
+
+    .code-block-wrapper pre {
+      margin: 0;
+    }
+
+    /* Chapter Navigation (Bottom Prev / Next) */
+    .chapter-nav {
+      display: flex;
+      justify-content: space-between;
+      gap: 16px;
+      margin-top: 56px;
+      padding-top: 32px;
+      border-top: 1px solid var(--border-color);
+      flex-wrap: wrap;
+    }
+
+    .chapter-nav-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      padding: 14px 22px;
+      border-radius: 12px;
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      color: var(--text-main);
+      text-decoration: none;
+      font-size: 0.90rem;
+      font-weight: 600;
+      transition: var(--transition);
+      cursor: pointer;
+      max-width: 48%;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .chapter-nav-btn:hover {
+      border-color: var(--primary-color);
+      background: rgba(99, 102, 241, 0.08);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(99, 102, 241, 0.15);
+    }
+
+    .chapter-nav-btn.prev {
+      margin-right: auto;
+      text-align: left;
+    }
+
+    .chapter-nav-btn.next {
+      margin-left: auto;
+      text-align: right;
+    }
+
+    .chapter-nav-text-group {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+      overflow: hidden;
+    }
+
+    .chapter-nav-label {
+      font-size: 0.72rem;
+      color: var(--text-muted);
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+    }
+
+    .chapter-nav-title {
+      font-size: 0.88rem;
+      color: var(--text-main);
+      font-weight: 600;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      max-width: 280px;
+    }
+
+    .chapter-nav-arrow {
+      font-size: 1.2rem;
+      color: var(--primary-color);
+      transition: transform 0.2s ease;
+      flex-shrink: 0;
+    }
+
+    .chapter-nav-btn.next:hover .chapter-nav-arrow {
+      transform: translateX(4px);
+    }
+
+    .chapter-nav-btn.prev:hover .chapter-nav-arrow {
+      transform: translateX(-4px);
     }
 
     /* ==========================================================================
@@ -513,6 +794,13 @@
       color: #f4f5ef;
     }
 
+    html.light-theme .copy-code-btn,
+    html[data-theme="light"] .copy-code-btn {
+      background: rgba(255, 255, 255, 0.15);
+      border-color: rgba(255, 255, 255, 0.25);
+      color: #e2e8f0;
+    }
+
     /* Blockquotes & Callouts in Light Mode */
     html.light-theme .book-content blockquote,
     html[data-theme="light"] .book-content blockquote {
@@ -541,11 +829,18 @@
     }
 
     /* Tables in Light Mode */
-    html.light-theme .book-content table,
-    html[data-theme="light"] .book-content table {
+    html.light-theme .table-container,
+    html[data-theme="light"] .table-container {
       border: 1px solid rgba(59, 54, 140, 0.14);
       background: #ffffff;
       box-shadow: 0 4px 20px -2px rgba(18, 13, 28, 0.06);
+    }
+
+    html.light-theme .book-content table,
+    html[data-theme="light"] .book-content table {
+      border: none;
+      background: #ffffff;
+      box-shadow: none;
     }
 
     html.light-theme .book-content th,
@@ -589,7 +884,7 @@
       background: rgba(59, 54, 140, 0.035);
     }
 
-    /* Sidebar TOC in Light Mode */
+    /* Sidebar TOC & Nav in Light Mode */
     html.light-theme .book-toc,
     html[data-theme="light"] .book-toc {
       background: #ffffff;
@@ -603,6 +898,12 @@
       border-bottom: 1px solid rgba(35, 30, 55, 0.1);
     }
 
+    html.light-theme .toc-section-header,
+    html[data-theme="light"] .toc-section-header {
+      color: #3b368c;
+      border-top-color: rgba(35, 30, 55, 0.1);
+    }
+
     html.light-theme .toc-link,
     html[data-theme="light"] .toc-link {
       color: #384152;
@@ -612,6 +913,7 @@
     html[data-theme="light"] .toc-link:hover {
       background: rgba(59, 54, 140, 0.06);
       color: #120d1c;
+      border-left-color: rgba(59, 54, 140, 0.3);
     }
 
     html.light-theme .toc-link.active,
@@ -619,13 +921,19 @@
       background: rgba(59, 54, 140, 0.1);
       color: #3b368c;
       font-weight: 700;
+      border-left-color: #3b368c;
     }
 
-    html.light-theme .toc-link.toc-section,
-    html[data-theme="light"] .toc-link.toc-section {
-      color: #120d1c;
-      border-top: 1px solid rgba(35, 30, 55, 0.1);
-      font-weight: 700;
+    html.light-theme .toc-badge,
+    html[data-theme="light"] .toc-badge {
+      background: rgba(35, 30, 55, 0.06);
+      color: #6b7280;
+    }
+
+    html.light-theme .toc-link.active .toc-badge,
+    html[data-theme="light"] .toc-link.active .toc-badge {
+      background: #3b368c;
+      color: #ffffff;
     }
 
     html.light-theme .toc-toggle,
@@ -640,6 +948,31 @@
       background: rgba(59, 54, 140, 0.06);
       color: #120d1c;
       border-color: #3b368c;
+    }
+
+    html.light-theme .chapter-nav-btn,
+    html[data-theme="light"] .chapter-nav-btn {
+      background: #ffffff;
+      border-color: rgba(35, 30, 55, 0.12);
+      box-shadow: 0 2px 10px rgba(18, 13, 28, 0.04);
+    }
+
+    html.light-theme .chapter-nav-btn:hover,
+    html[data-theme="light"] .chapter-nav-btn:hover {
+      background: rgba(59, 54, 140, 0.04);
+      border-color: #3b368c;
+    }
+
+    html.light-theme .chapter-nav-title,
+    html[data-theme="light"] .chapter-nav-title {
+      color: #120d1c;
+    }
+
+    html.light-theme .reading-badge-pill,
+    html[data-theme="light"] .reading-badge-pill {
+      background: rgba(59, 54, 140, 0.06);
+      border-color: rgba(59, 54, 140, 0.15);
+      color: #3b368c;
     }
 
     /* Loading state */
@@ -657,31 +990,51 @@
     }
 
     /* Responsive */
-    @media (max-width: 768px) {
+    @media (max-width: 960px) {
       .book-layout {
         grid-template-columns: 1fr;
+        gap: 20px;
       }
       .book-layout.toc-hidden {
         grid-template-columns: 1fr;
       }
       .book-toc {
-        position: relative;
-        top: 0;
+        position: static;
+        top: auto;
         max-height: none;
+        margin-bottom: 16px;
+        transition: none;
+      }
+      .book-layout.toc-hidden .book-toc {
+        display: none;
+      }
+      .book-layout:not(.toc-hidden) .book-toc {
+        display: block;
       }
       .book-content {
-        padding: 24px 20px;
+        padding: 28px 20px;
       }
       .book-header h1 {
-        font-size: 1.8rem;
+        font-size: 1.85rem;
       }
       .book-header {
-        padding: 40px 0 24px;
+        padding: 36px 0 20px;
+      }
+      .chapter-nav-btn {
+        max-width: 100%;
+        width: 100%;
+      }
+      .chapter-nav {
+        flex-direction: column;
+      }
+      .reading-badge-pill {
+        max-width: 100%;
       }
     }
   </style>
 </head>
 <body>
+  <div class="reading-progress-bar" id="readingProgressBar"></div>
   <div class="background-glow glow-1"></div>
   <div class="background-glow glow-2"></div>
 
@@ -689,12 +1042,12 @@
   <header class="navbar" id="navbar">
     <div class="container nav-container">
       <div class="nav-brand-group">
-        <a href="../" class="logo">
+        <a href="../tech.html" class="logo">
           <span class="logo-icon">📖</span>
           <span class="logo-text">AI Product<span> Engineer</span></span>
         </a>
         <div class="nav-breadcrumb">
-          <a href="../" data-i18n="nav_hub">← Hub Portfolio</a>
+          <a href="../tech.html" data-i18n="nav_hub">← Hub Portfolio</a>
         </div>
       </div>
 
@@ -705,8 +1058,8 @@
       <div class="nav-links-wrapper">
         <nav>
           <ul class="nav-links">
-            <li><a href="../#parcours" data-i18n="nav_parcours">Métier</a></li>
-            <li><a href="../#projects" data-i18n="nav_projects">Projets</a></li>
+            <li><a href="../tech.html#parcours" data-i18n="nav_parcours">Métier</a></li>
+            <li><a href="../tech.html#projects" data-i18n="nav_projects">Projets</a></li>
             <li><a href="../blog/" data-i18n="nav_blog">Blog</a></li>
           </ul>
         </nav>
@@ -735,17 +1088,24 @@
         <p data-i18n="book_subtitle">The Major Professional Course: Architecture, Product, and Industrialization — Interactive Edition</p>
       </div>
 
-      <div class="book-controls" style="display: flex; justify-content: flex-start; margin-bottom: 8px;">
+      <div class="book-controls">
         <button class="toc-toggle" id="tocToggle" type="button">
           <span class="toggle-icon">◀</span>
           <span data-i18n="book_toc_toggle">Hide Table of Contents</span>
         </button>
+        <div class="reading-badge-pill" id="readingChapterBadge">
+          <span class="reading-badge-dot"></span>
+          <span id="readingChapterBadgeText">📚 Manuel AI Product Engineer</span>
+        </div>
       </div>
 
       <div class="book-layout" id="bookLayout">
         <!-- Table of Contents Sidebar -->
         <aside class="book-toc" id="bookToc">
-          <h3 data-i18n="book_toc_title">📑 Table of Contents</h3>
+          <div class="toc-header-row">
+            <h3 data-i18n="book_toc_title">📑 Table of Contents</h3>
+            <span class="toc-count-badge" id="tocCountBadge">15 modules</span>
+          </div>
           <ul class="toc-list" id="tocList">
             <!-- Dynamically populated -->
           </ul>
@@ -786,30 +1146,43 @@
     const tocToggle = document.getElementById('tocToggle');
     const bookLayout = document.getElementById('bookLayout');
     if (tocToggle && bookLayout) {
-      // Restore state from localStorage
+      const getLang = () => document.documentElement.getAttribute('lang') || 'fr';
+      const getLabels = (hidden) => {
+        const isFr = getLang() === 'fr';
+        if (hidden) {
+          return { icon: '▶', text: isFr ? 'Afficher le Sommaire' : 'Show Table of Contents' };
+        }
+        return { icon: '◀', text: isFr ? 'Masquer le Sommaire' : 'Hide Table of Contents' };
+      };
+
+      const updateBtn = (hidden) => {
+        const { icon, text } = getLabels(hidden);
+        const iconEl = tocToggle.querySelector('.toggle-icon');
+        const labelEl = tocToggle.querySelector('span:last-child');
+        if (iconEl) iconEl.textContent = icon;
+        if (labelEl) labelEl.textContent = text;
+      };
+
       const isHidden = localStorage.getItem('book_toc_hidden') === 'true';
       if (isHidden) {
         bookLayout.classList.add('toc-hidden');
         tocToggle.classList.add('toc-hidden');
-        tocToggle.querySelector('.toggle-icon').textContent = '▶';
-        tocToggle.querySelector('span:last-child').textContent = 'Show Table of Contents';
+        updateBtn(true);
       }
 
       tocToggle.addEventListener('click', () => {
         const hidden = bookLayout.classList.toggle('toc-hidden');
         tocToggle.classList.toggle('toc-hidden');
-        const icon = tocToggle.querySelector('.toggle-icon');
-        const label = tocToggle.querySelector('span:last-child');
-        if (hidden) {
-          icon.textContent = '▶';
-          label.textContent = 'Show Table of Contents';
-          localStorage.setItem('book_toc_hidden', 'true');
-        } else {
-          icon.textContent = '◀';
-          label.textContent = 'Hide Table of Contents';
-          localStorage.setItem('book_toc_hidden', 'false');
-        }
+        updateBtn(hidden);
+        localStorage.setItem('book_toc_hidden', hidden ? 'true' : 'false');
       });
+
+      // Update toggle labels if language changes
+      const observer = new MutationObserver(() => {
+        const hidden = bookLayout.classList.contains('toc-hidden');
+        updateBtn(hidden);
+      });
+      observer.observe(document.documentElement, { attributes: true, attributeFilter: ['lang'] });
     }
   });
   </script>

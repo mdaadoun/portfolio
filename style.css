@@ -1037,6 +1037,10 @@ html.dark-theme .badge-success {
   max-width: 900px;
 }
 
+.tech-stack-pills + .hero-actions {
+  margin-top: 28px;
+}
+
 .pill {
   padding: 8px 18px;
   background: var(--bg-card);
