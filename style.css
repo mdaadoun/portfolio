@@ -2361,10 +2361,23 @@ html.dark-theme .pill-evolution, html[data-theme="dark"] .pill-evolution {
 .stack-table-card {
   padding: 32px;
   overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(99, 102, 241, 0.3) transparent;
+}
+
+.stack-table-card::-webkit-scrollbar {
+  height: 6px;
+}
+
+.stack-table-card::-webkit-scrollbar-thumb {
+  background: rgba(99, 102, 241, 0.3);
+  border-radius: 4px;
 }
 
 .stack-table {
   width: 100%;
+  min-width: 580px;
   border-collapse: collapse;
   text-align: left;
   font-size: 0.98rem;
