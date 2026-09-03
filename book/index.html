@@ -414,60 +414,232 @@
       opacity: 0.6;
     }
 
-    /* Light theme overrides for book */
-    html.light-theme .book-content {
+    /* ==========================================================================
+       LIGHT THEME OVERRIDES FOR BOOK
+       ========================================================================== */
+    html.light-theme .book-content,
+    html[data-theme="light"] .book-content {
       background: #ffffff;
-      border-color: rgba(15, 23, 42, 0.12);
-      box-shadow: 0 10px 30px rgba(15, 23, 42, 0.06);
+      border-color: rgba(35, 30, 55, 0.12);
+      box-shadow: 0 10px 30px rgba(18, 13, 28, 0.06);
+      color: #231e37;
     }
 
-    html.light-theme .book-content code {
-      background: rgba(79, 70, 229, 0.08);
-      color: #4338ca;
-      border-color: rgba(79, 70, 229, 0.2);
+    /* Headings in Light Mode */
+    html.light-theme .book-content h1,
+    html[data-theme="light"] .book-content h1 {
+      color: #120d1c;
+      background: linear-gradient(135deg, #120d1c 0%, #3b368c 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      border-bottom: 2px solid #3b368c;
     }
 
-    html.light-theme .book-content pre {
-      background: #0f172a;
-      border-color: #1e293b;
+    html.light-theme .book-content h2,
+    html[data-theme="light"] .book-content h2 {
+      color: #1a1528;
+      border-bottom: 1px solid rgba(59, 54, 140, 0.2);
     }
 
-    html.light-theme .book-content pre code {
-      color: #f8fafc;
+    html.light-theme .book-content h3,
+    html[data-theme="light"] .book-content h3 {
+      color: #231e37;
+      border-left: 3px solid #3b368c;
     }
 
-    html.light-theme .book-content blockquote {
-      background: #f8fafc;
-      color: #334155;
-      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.02);
+    html.light-theme .book-content h4,
+    html.light-theme .book-content h5,
+    html.light-theme .book-content h6,
+    html[data-theme="light"] .book-content h4,
+    html[data-theme="light"] .book-content h5,
+    html[data-theme="light"] .book-content h6 {
+      color: #384152;
     }
 
-    html.light-theme .book-content blockquote.callout {
-      background: #f0f9ff;
+    /* Body Text & Lists in Light Mode */
+    html.light-theme .book-content p,
+    html[data-theme="light"] .book-content p {
+      color: #231e37;
+    }
+
+    html.light-theme .book-content strong,
+    html[data-theme="light"] .book-content strong {
+      color: #120d1c;
+    }
+
+    html.light-theme .book-content ul,
+    html.light-theme .book-content ol,
+    html[data-theme="light"] .book-content ul,
+    html[data-theme="light"] .book-content ol {
+      color: #231e37;
+    }
+
+    html.light-theme .book-content ul li::marker,
+    html[data-theme="light"] .book-content ul li::marker {
+      color: #3b368c;
+    }
+
+    html.light-theme .book-content ol li::marker,
+    html[data-theme="light"] .book-content ol li::marker {
+      color: #3b368c;
+      font-weight: 700;
+    }
+
+    html.light-theme .book-content hr,
+    html[data-theme="light"] .book-content hr {
+      border-top-color: rgba(35, 30, 55, 0.12);
+    }
+
+    /* Code in Light Mode */
+    html.light-theme .book-content code,
+    html[data-theme="light"] .book-content code {
+      background: rgba(59, 54, 140, 0.08);
+      color: #3b368c;
+      border: 1px solid rgba(59, 54, 140, 0.16);
+      font-weight: 600;
+    }
+
+    html.light-theme .book-content pre,
+    html[data-theme="light"] .book-content pre {
+      background: #130f24;
+      border: 1px solid rgba(59, 54, 140, 0.22);
+      box-shadow: 0 8px 30px -4px rgba(18, 13, 28, 0.12);
+    }
+
+    html.light-theme .book-content pre code,
+    html[data-theme="light"] .book-content pre code {
+      background: none;
+      border: none;
+      color: #f4f5ef;
+    }
+
+    /* Blockquotes & Callouts in Light Mode */
+    html.light-theme .book-content blockquote,
+    html[data-theme="light"] .book-content blockquote {
+      background: rgba(59, 54, 140, 0.05);
+      border-left: 4px solid #3b368c;
+      color: #1e1b2e;
+      box-shadow: 0 2px 10px rgba(59, 54, 140, 0.04);
+    }
+
+    html.light-theme .book-content blockquote .callout-title,
+    html.light-theme .book-content blockquote strong,
+    html[data-theme="light"] .book-content blockquote .callout-title,
+    html[data-theme="light"] .book-content blockquote strong {
+      color: #3b368c;
+    }
+
+    html.light-theme .book-content blockquote.callout,
+    html[data-theme="light"] .book-content blockquote.callout {
+      background: #f0f7ff;
       border-left-color: #0284c7;
     }
 
-    html.light-theme .book-content blockquote.callout .callout-title {
+    html.light-theme .book-content blockquote.callout .callout-title,
+    html[data-theme="light"] .book-content blockquote.callout .callout-title {
       color: #0284c7;
     }
 
-    html.light-theme .book-content table {
-      border-color: rgba(15, 23, 42, 0.12);
-      box-shadow: 0 4px 15px rgba(15, 23, 42, 0.04);
+    /* Tables in Light Mode */
+    html.light-theme .book-content table,
+    html[data-theme="light"] .book-content table {
+      border: 1px solid rgba(59, 54, 140, 0.14);
+      background: #ffffff;
+      box-shadow: 0 4px 20px -2px rgba(18, 13, 28, 0.06);
     }
 
-    html.light-theme .book-content th {
-      background: #f1f5f9;
-      color: #0f172a;
-      border-bottom-color: rgba(15, 23, 42, 0.15);
+    html.light-theme .book-content th,
+    html[data-theme="light"] .book-content th {
+      background: rgba(59, 54, 140, 0.06);
+      color: #231e37;
+      border-bottom: 2px solid #3b368c;
+      border-right: 1px solid rgba(59, 54, 140, 0.1);
+      font-weight: 700;
     }
 
-    html.light-theme .book-content tr:nth-child(even) {
-      background: #f8fafc;
+    html.light-theme .book-content th:last-child,
+    html[data-theme="light"] .book-content th:last-child {
+      border-right: none;
     }
 
-    html.light-theme .book-content tr:hover {
-      background: #f1f5f9;
+    html.light-theme .book-content td,
+    html[data-theme="light"] .book-content td {
+      color: #1e1b2e;
+      border-bottom: 1px solid rgba(59, 54, 140, 0.08);
+      border-right: 1px solid rgba(59, 54, 140, 0.08);
+    }
+
+    html.light-theme .book-content td:last-child,
+    html[data-theme="light"] .book-content td:last-child {
+      border-right: none;
+    }
+
+    html.light-theme .book-content tr:last-child td,
+    html[data-theme="light"] .book-content tr:last-child td {
+      border-bottom: none;
+    }
+
+    html.light-theme .book-content tr:nth-child(even) td,
+    html[data-theme="light"] .book-content tr:nth-child(even) td {
+      background: #f9faf7;
+    }
+
+    html.light-theme .book-content tr:hover td,
+    html[data-theme="light"] .book-content tr:hover td {
+      background: rgba(59, 54, 140, 0.035);
+    }
+
+    /* Sidebar TOC in Light Mode */
+    html.light-theme .book-toc,
+    html[data-theme="light"] .book-toc {
+      background: #ffffff;
+      border: 1px solid rgba(35, 30, 55, 0.12);
+      box-shadow: 0 4px 20px rgba(18, 13, 28, 0.05);
+    }
+
+    html.light-theme .book-toc h3,
+    html[data-theme="light"] .book-toc h3 {
+      color: #120d1c;
+      border-bottom: 1px solid rgba(35, 30, 55, 0.1);
+    }
+
+    html.light-theme .toc-link,
+    html[data-theme="light"] .toc-link {
+      color: #384152;
+    }
+
+    html.light-theme .toc-link:hover,
+    html[data-theme="light"] .toc-link:hover {
+      background: rgba(59, 54, 140, 0.06);
+      color: #120d1c;
+    }
+
+    html.light-theme .toc-link.active,
+    html[data-theme="light"] .toc-link.active {
+      background: rgba(59, 54, 140, 0.1);
+      color: #3b368c;
+      font-weight: 700;
+    }
+
+    html.light-theme .toc-link.toc-section,
+    html[data-theme="light"] .toc-link.toc-section {
+      color: #120d1c;
+      border-top: 1px solid rgba(35, 30, 55, 0.1);
+      font-weight: 700;
+    }
+
+    html.light-theme .toc-toggle,
+    html[data-theme="light"] .toc-toggle {
+      background: #ffffff;
+      border: 1px solid rgba(35, 30, 55, 0.14);
+      color: #384152;
+    }
+
+    html.light-theme .toc-toggle:hover,
+    html[data-theme="light"] .toc-toggle:hover {
+      background: rgba(59, 54, 140, 0.06);
+      color: #120d1c;
+      border-color: #3b368c;
     }
 
     /* Loading state */

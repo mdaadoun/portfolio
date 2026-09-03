@@ -1,5 +1,3 @@
-# IA et BTP : Décryptage Produit d'une Révolution sur le Terrain
-
 Le secteur du Bâtiment et des Travaux Publics (BTP) affiche une singularité économique frappante : sa productivité n'a progressé que d'environ 1 % par an au cours des dernières décennies, subissant même selon certaines études un recul cumulé de près de 20 % par rapport à d'autres industries manufacturières. Processus fragmentés, culture du travail en silo, complexité croissante des normes environnementales et marge nette sous pression : le décor opérationnel est exigeant.
 
 Parallèlement, le marché mondial de l'IA appliquée à la construction connaît une croissance exponentielle, passant de 0,5 milliard de dollars en 2019 à une estimation de **4,5 milliards de dollars en 2026**.
@@ -15,7 +13,7 @@ Construire un produit IA dans le BTP nécessite d'aligner la valeur algorithmiqu
 ```
 [Phase Amont & Offre]  -->  [Conception & Ingénierie]  -->  [Exécution & Chantier]  -->  [Exploitation & Suivi]
   - Tri CCTP & Dossiers      - Design génératif (BIM)        - Vision par ordinateur         - OCR factures/DOE
-  - Devis instantanés         - Optimisation carbone/ACV      - Planification dynamique       - Maintenance prédictive
+  - Devis instantanés        - Optimisation carbone/ACV      - Planification dynamique       - Maintenance prédictive
 ```
 
 ### A. Phase Amont : Réponse aux Appels d'Offres & Devis
@@ -29,7 +27,7 @@ Dans le BTP, près de **95 % du chiffre d'affaires** d'une entreprise dépend de
 
 * **Études de faisabilité accélérées :** L'analyse des contraintes géotechniques, d'urbanisme local (PLU) et d'exposition réduit le temps d'étude préliminaire de plusieurs semaines à quelques heures, tout en faisant chuter la marge d'erreur budgétaire de 30 % à moins de 15 %.
 * **Design Génératif et Optimisation Structurelle :** En couplant calcul paramétrique et IA (ex. Spacemaker AI, Autodesk Forma), les ingénieurs explorent des centaines de variantes pour optimiser l'ensoleillement, l'acoustique et réduire la consommation globale de matériaux jusqu'à 30 %.
-* **Calcul d'Analyse de Cycle de Vie (ACV) et Bilan Carbone :** Des outils spécialisés (comme *nco*) analysent automatiquement les descriptifs (DPGF/CCTP) et les associent aux bases de données environnementales (FDES), faisant passer le calcul carbone d'un projet de 4-5 jours à une seule journée.
+* **Calcul d'Analyse de Cycle de Vie (ACV) et Bilan Carbone :** Des outils spécialisés analysent automatiquement les descriptifs (DPGF/CCTP) et les associent aux bases de données environnementales (FDES), faisant passer le calcul carbone d'un projet de 4-5 jours à une seule journée.
 
 ### C. Exécution & Chantier Intelligent
 
@@ -56,19 +54,19 @@ Pour un concepteur de logiciel IA, aborder le marché du BTP nécessite d'évite
              ┌──────────────────────────┴──────────────────────────┐
              ▼                                                     ▼
 ┌─────────────────────────┐                               ┌─────────────────────────┐
-│     Ce qui échoue       │                               │   Ce qui réussit (Product│
-│                         │                               │   Market Fit BTP)       │
+│     Ce qui échoue       │                               │   Ce qui réussit        │
+│                         │                               │   (Product-Market Fit)  │
 ├─────────────────────────┤                               ├─────────────────────────┤
 │ • Prompts non cadrés    │                               │ • Intégration ERP/BIM   │
 │ • "Shadow IA" non gérée │                               │ • Verticalisation métier│
 │ • Boîte noire opaque    │                               │ • UI mobile et offline  │
-│ • Illusion du tout-en-un│                               │ • Données locales fiables│
+│ • Illusion du tout-en-un│                               │ • Données locales sûres │
 └─────────────────────────┘                               └─────────────────────────┘
 ```
 
 ### Le gouffre du passage en production (80 % à 95 % d'échec)
 
-Selon les retours d'experts de la filière et du MIT, **80 % à 95 % des projets basés sur l'IA générative échouent à dépasser le stade de l'expérimentation** ou n'atteignent pas leurs KPI de rentabilité. Pourquoi ? Les dirigeants investissent parfois sous le coup du *FOMO* (*Fear Of Missing Out*, relevé chez 64 % des décideurs) sans stratégie claire de workflow métier.
+Selon les retours d'experts de la filière et du MIT, **80 % à 95 % des projets basés sur l'IA générative échouent à dépasser le stade de l'expérimentation** ou n'atteignent pas leurs KPI de rentabilité. Les dirigeants investissent parfois sous le coup du FOMO (*Fear Of Missing Out*) sans stratégie claire de workflow métier.
 
 > **Clé Produit :** Ne concevez pas des « briques d'IA magiques ». Construisez des automatisations invisibles intégrées directement dans les outils du quotidien (ERP de devis comme Sage/Batigest, logiciels BIM, WhatsApp de chantier).
 
@@ -80,7 +78,7 @@ Dans le BTP, la conformité aux normes (Eurocodes, DTU, sécurité) engage des r
 
 ### La vulnérabilité de la « Shadow IA » et des données de marché
 
-Une proportion critique de prompts mondiaux expose des données sensibles (devis, marges, identifiants de sous-traitants, données RH). Le secteur a déjà essuyé des attaques et usurpations d'identité commerciale par IA.
+Une proportion critique de requêtes vers des API publiques expose des données sensibles (devis, marges, identifiants de sous-traitants, données RH). Le secteur a déjà essuyé des attaques et usurpations d'identité commerciale par IA.
 
 > **Clé Produit :** L'argument commercial décisif en 2026 n'est plus la taille du LLM, mais le cloisonnement étanche des données, le déploiement sur serveurs souverains/privés et l'application stricte du RGPD.
 
@@ -89,7 +87,7 @@ Une proportion critique de prompts mondiaux expose des données sensibles (devis
 ## 3. Les Trois Piliers du Product-Market Fit dans le BTP
 
 | Défi Terrain | Réalité Observée | Solution Produit IA Recommandée |
-| --- | --- | --- |
+| :--- | :--- | :--- |
 | **Qualité et structuration de la donnée** | Données silotées, formats hétérogènes (plans scannés, photos non nommées, tableurs manuels). | Moteurs de parsing multimodal robustes (OCR/Vision) capables de convertir des archives dégradées en données structurées exploitables. |
 | **Fracture d'acculturation & Compétences** | Seuls 25 % des pros comprennent l'IA ; le reste manque de temps technique pour coder. | Expérience « zéro friction » : commandes vocales sur mobile pour les chefs de chantier et automatisation *end-to-end* en un clic. |
 | **Environnement physique hostile** | Bruit, intempéries, connectivité instable sur le chantier. | Edge AI pour caméras/EPI, interfaces vocales avec filtrage de bruit et applications fonctionnant en mode déconnecté. |
@@ -104,7 +102,7 @@ Une proportion critique de prompts mondiaux expose des données sensibles (devis
 
 ---
 
-### Sources consultées
+### Sources & Références
 
 * *Table ronde sur les usages de l'Intelligence Artificielle dans les entreprises du BTP* (Observatoire des métiers du BTP / Plein Sens / Inria LaborIA / GCC / Berger TP).
 * *L'intelligence artificielle dans le bâtiment : quels usages ?* (France Num / Direction Générale des Entreprises / FFB).

@@ -17,7 +17,6 @@
   <link rel="stylesheet" href="../style.css?v=7.0">
   <script src="https://cdn.jsdelivr.net/npm/marked@12.0.0/marked.min.js"></script>
   <script src="../theme.js?v=7.0"></script>
-  <script src="../lang.js?v=7.0"></script>
   <style>
     .blog-header {
       text-align: center;
@@ -241,36 +240,50 @@
       margin-bottom: 8px;
     }
     .article-body blockquote {
-      border-left: 4px solid var(--primary-color);
-      padding: 16px 20px;
-      background: rgba(99, 102, 241, 0.08);
-      border-radius: 4px 12px 12px 4px;
-      margin: 24px 0;
-      color: var(--text-main);
+      border-left: 4px solid #3b368c;
+      padding: 18px 24px;
+      background: rgba(59, 54, 140, 0.05);
+      border-radius: 4px 14px 14px 4px;
+      margin: 28px 0;
+      color: #1e1b2e;
+      box-shadow: 0 2px 12px rgba(59, 54, 140, 0.04);
+    }
+    .article-body .callout-title {
+      color: #3b368c;
+      display: block;
+      margin-bottom: 8px;
+      font-size: 1.05rem;
+      font-weight: 700;
+      font-family: var(--font-heading);
     }
     .article-body pre {
-      background: #0b0f19;
-      border: 1px solid var(--border-color);
+      background: #130f24;
+      border: 1px solid rgba(59, 54, 140, 0.22);
       border-radius: 12px;
-      padding: 20px;
+      padding: 22px 24px;
       overflow-x: auto;
-      margin: 24px 0;
+      margin: 28px 0;
       font-family: var(--font-mono);
-      font-size: 0.9rem;
-      color: #e2e8f0;
+      font-size: 0.88rem;
+      line-height: 1.55;
+      color: #f4f5ef;
+      box-shadow: 0 8px 30px -4px rgba(18, 13, 28, 0.12), 0 2px 8px rgba(18, 13, 28, 0.06);
     }
     .article-body code {
-      background: rgba(99, 102, 241, 0.15);
-      color: #a5b4fc;
-      padding: 2px 6px;
-      border-radius: 4px;
+      background: rgba(59, 54, 140, 0.08);
+      color: #3b368c;
+      padding: 2px 7px;
+      border-radius: 6px;
+      border: 1px solid rgba(59, 54, 140, 0.16);
       font-family: var(--font-mono);
       font-size: 0.9em;
+      font-weight: 600;
     }
     .article-body pre code {
       background: none;
       color: inherit;
       padding: 0;
+      border: none;
     }
     .article-body table {
       width: 100%;
@@ -278,29 +291,101 @@
       border-spacing: 0;
       margin: 28px 0;
       font-size: 0.92rem;
-      border-radius: 8px;
+      border-radius: 12px;
       overflow: hidden;
-      border: 1px solid var(--border-color);
+      background: #ffffff;
+      border: 1px solid rgba(59, 54, 140, 0.14);
+      box-shadow: 0 4px 20px -2px rgba(18, 13, 28, 0.06), 0 1px 4px rgba(18, 13, 28, 0.03);
     }
     .article-body th, .article-body td {
-      padding: 12px 16px;
-      border-bottom: 1px solid var(--border-color);
-      border-right: 1px solid var(--border-color);
+      padding: 14px 18px;
       text-align: left;
+      vertical-align: top;
+      line-height: 1.6;
     }
-    .article-body th:last-child, .article-body td:last-child {
+    .article-body th {
+      color: #231e37;
+      background: rgba(59, 54, 140, 0.06);
+      border-bottom: 2px solid #3b368c;
+      border-right: 1px solid rgba(59, 54, 140, 0.1);
+      font-weight: 700;
+      font-family: var(--font-heading);
+      font-size: 0.86rem;
+      letter-spacing: 0.02em;
+    }
+    .article-body th:last-child {
+      border-right: none;
+    }
+    .article-body td {
+      color: #1e1b2e;
+      border-bottom: 1px solid rgba(59, 54, 140, 0.08);
+      border-right: 1px solid rgba(59, 54, 140, 0.08);
+    }
+    .article-body td:last-child {
       border-right: none;
     }
     .article-body tr:last-child td {
       border-bottom: none;
     }
-    .article-body th {
-      background: rgba(99, 102, 241, 0.12);
-      color: var(--text-main);
-      font-weight: 700;
+    .article-body tr:nth-child(even) td {
+      background: #f9faf7;
     }
-    .article-body tr:nth-child(even) {
-      background: rgba(255, 255, 255, 0.02);
+    .article-body tr:hover td {
+      background: rgba(59, 54, 140, 0.035);
+      transition: background 0.15s ease;
+    }
+
+    /* Dark Theme Overrides for Article Content */
+    html.dark-theme .article-body table,
+    html[data-theme="dark"] .article-body table {
+      background: #20182c !important;
+      border-color: rgba(94, 106, 130, 0.35) !important;
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25) !important;
+    }
+    html.dark-theme .article-body table th,
+    html[data-theme="dark"] .article-body table th {
+      background: rgba(50, 45, 77, 0.9) !important;
+      color: #f4f5ef !important;
+      border-bottom: 2px solid rgba(235, 157, 69, 0.5) !important;
+      border-right: 1px solid rgba(94, 106, 130, 0.25) !important;
+    }
+    html.dark-theme .article-body table td,
+    html[data-theme="dark"] .article-body table td {
+      color: #e2e8f0 !important;
+      border-bottom: 1px solid rgba(94, 106, 130, 0.25) !important;
+      border-right: 1px solid rgba(94, 106, 130, 0.25) !important;
+    }
+    html.dark-theme .article-body table tr:nth-child(even) td,
+    html[data-theme="dark"] .article-body table tr:nth-child(even) td {
+      background: rgba(50, 45, 77, 0.4) !important;
+    }
+    html.dark-theme .article-body table tr:hover td,
+    html[data-theme="dark"] .article-body table tr:hover td {
+      background: rgba(235, 157, 69, 0.08) !important;
+    }
+    html.dark-theme .article-body pre,
+    html[data-theme="dark"] .article-body pre {
+      background: #0d0814 !important;
+      border: 1px solid rgba(94, 106, 130, 0.35) !important;
+      color: #f4f5ef !important;
+      box-shadow: 0 6px 24px rgba(0, 0, 0, 0.35) !important;
+    }
+    html.dark-theme .article-body code:not(pre code),
+    html[data-theme="dark"] .article-body code:not(pre code) {
+      background: rgba(235, 157, 69, 0.15) !important;
+      color: #f8c7a4 !important;
+      border: 1px solid rgba(235, 157, 69, 0.25) !important;
+    }
+    html.dark-theme .article-body blockquote,
+    html[data-theme="dark"] .article-body blockquote {
+      background: rgba(50, 45, 77, 0.4) !important;
+      border-left-color: #eb9d45 !important;
+      color: #f4f5ef !important;
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2) !important;
+    }
+    html.dark-theme .article-body .callout-title,
+    html[data-theme="dark"] .article-body .callout-title {
+      color: #eb9d45 !important;
     }
   </style>
 </head>
@@ -317,7 +402,7 @@
           <span class="logo-text">Pax<span>.Fabrica</span></span>
         </a>
         <div class="nav-breadcrumb">
-          <a href="../" data-i18n="nav_hub">← Hub Portfolio</a>
+          <a href="../">← Hub Portfolio</a>
         </div>
       </div>
 
@@ -328,19 +413,15 @@
       <div class="nav-links-wrapper">
         <nav>
           <ul class="nav-links">
-            <li><a href="../#parcours" data-i18n="nav_parcours">Métier</a></li>
-            <li><a href="../#projects" data-i18n="nav_projects">Projets</a></li>
-            <li><a href="../book/" data-i18n="nav_book">Book</a></li>
+            <li><a href="../#parcours">Métier</a></li>
+            <li><a href="../#projects">Projets</a></li>
+            <li><a href="../book/">Book</a></li>
           </ul>
         </nav>
 
         <div class="nav-controls">
-          <button class="theme-toggle-btn" type="button" aria-label="Passer au mode sombre" title="Passer au mode sombre">
+          <button class="theme-toggle-btn" type="button" aria-label="Basculer le mode sombre" title="Basculer le mode sombre">
             <span class="theme-toggle-icon">🌙</span>
-          </button>
-          <button class="lang-switch-btn" type="button" aria-label="Passer en Français" title="Passer en Français">
-            <span class="lang-icon">🇫🇷</span>
-            <span class="lang-text">FR</span>
           </button>
         </div>
       </div>
@@ -350,9 +431,9 @@
   <!-- Feed View -->
   <main class="container" id="blogFeedView">
     <header class="blog-header">
-      <h1 class="blog-title" data-i18n="blog_header_title">Blog & <span class="gradient-text">Analyses Techniques</span></h1>
-      <p class="blog-subtitle" data-i18n="blog_header_subtitle">
-        Retrouvez mes publications sur l'architecture logicielle de l'IA, le Model Context Protocol (MCP), et l'orchestration robuste des Cloud Agents.
+      <h1 class="blog-title">Blog & <span class="gradient-text">Analyses Techniques</span></h1>
+      <p class="blog-subtitle">
+        Analyses sur l'ingénierie produit IA appliquée au BTP, les architectures documentaires critiques et l'orchestration logicielle de production.
       </p>
     </header>
 
@@ -363,18 +444,18 @@
 
   <!-- Article Detail View -->
   <main class="article-container" id="blogArticleView" style="display: none;">
-    <a href="#" class="back-link" data-i18n="blog_back_to_list">&larr; Retour au blog</a>
+    <a href="#" class="back-link">&larr; Retour aux articles</a>
     
     <article class="glass-card" style="padding: 40px; border-radius: var(--radius);">
       <header class="article-header">
         <div class="article-meta">
-          <span class="meta-item meta-tag" id="articleMetaTag">✨ AI Engineering</span>
-          <span class="meta-item" id="articleMetaDate">📅 29 Juillet 2026</span>
-          <span class="meta-item" id="articleMetaReadTime">⏱️ 8 min de lecture</span>
-          <span class="meta-item" data-i18n="blog_by_author">✍️ Par Pax Fabrica</span>
+          <span class="meta-item meta-tag" id="articleMetaTag">🏗️ IA & BTP</span>
+          <span class="meta-item" id="articleMetaDate">📅 25 Août 2026</span>
+          <span class="meta-item" id="articleMetaReadTime">⏱️ 11 min de lecture</span>
+          <span class="meta-item">✍️ Par Pax Fabrica</span>
         </div>
 
-        <h1 class="article-title-main" id="articleTitle">Title</h1>
+        <h1 class="article-title-main" id="articleTitle">Titre</h1>
 
         <div class="article-tags" id="articlePills">
           <!-- Dynamically populated -->
@@ -390,8 +471,8 @@
   <footer class="footer">
     <div class="container footer-container">
       <div class="footer-info">
-        <p data-i18n="footer_text">Portfolio Pax Fabrica — AI Product Engineering</p>
-        <p class="footer-sub" data-i18n="footer_sub">Hébergé via GitHub Pages</p>
+        <p>Portfolio Pax Fabrica — AI Product Engineering</p>
+        <p class="footer-sub">Hébergé via GitHub Pages</p>
       </div>
       <div class="footer-controls">
         <span class="footer-theme-label">🎨 Thème :</span>
