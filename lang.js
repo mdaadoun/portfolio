@@ -37,7 +37,7 @@
       "hub_hero_read_also": "📖 Read also:",
       "hub_hero_article_link": "AI Product Engineer role for Construction",
       "hub_btn_discover": "Explore Projects & Stack",
-      "hub_btn_parcours": "How I Build with AI",
+      "hub_btn_parcours": "How We Build with AI",
       "hub_pill1": "Agentic Systems",
       "hub_pill2": "Advanced Hybrid RAG",
       "hub_pill3": "Sovereign & Safe LLMs",
@@ -46,7 +46,7 @@
       
       // 4 Pillars Section
       "pillars_badge": "Engineering Philosophy",
-      "pillars_title": "How I Build with AI — The 4 Engineering Pillars",
+      "pillars_title": "How We Build with AI — The 4 Engineering Pillars",
       "pillars_subtitle": "Delivering measurable product value through robust architecture, security, and user experience",
       "pillar1_num": "01. AGENTIC SYSTEMS",
       "pillar1_title": "Agentic Orchestration & Workflows",
@@ -445,7 +445,7 @@
 
       // Blog Portal
       "blog_header_title": "Blog & <span class=\"gradient-text\">Technical Insights</span>",
-      "blog_header_subtitle": "Discover my publications on AI software architecture, the Model Context Protocol (MCP), and robust Cloud Agent orchestration.",
+      "blog_header_subtitle": "Discover our publications on AI software architecture, the Model Context Protocol (MCP), and robust Cloud Agent orchestration.",
       "blog_tag_strategy": "✨ Strategy & Security",
       "blog_tag_arch": "✨ AI Architecture",
       "blog_tag_security": "✨ Security & Agents",
@@ -649,7 +649,7 @@
       "hub_hero_read_also": "📖 Lire aussi :",
       "hub_hero_article_link": "Le métier d'AI Product Engineer pour le BTP",
       "hub_btn_discover": "Explorer Projets & Stack",
-      "hub_btn_parcours": "Comment je conçois avec l'IA",
+      "hub_btn_parcours": "Comment nous concevons avec l'IA",
       "hub_pill1": "Systèmes Agentiques",
       "hub_pill2": "RAG Hybride Avancé",
       "hub_pill3": "LLMs Souverains & Sûrs",
@@ -658,7 +658,7 @@
       
       // 4 Pillars Section
       "pillars_badge": "Philosophie d'Ingénierie",
-      "pillars_title": "Comment je conçois avec l'IA — Les 4 Piliers Métier",
+      "pillars_title": "Comment nous concevons avec l'IA — Les 4 Piliers Métier",
       "pillars_subtitle": "Créer de la valeur produit mesurable grâce à des architectures robustes, sécurisées et orientées utilisateur",
       "pillar1_num": "01. SYSTEMES AGENTIQUES",
       "pillar1_title": "Orchestration d'Agents & Workflows",
@@ -968,7 +968,7 @@
 
       // Blog Portal
       "blog_header_title": "Blog & <span class=\"gradient-text\">Analyses Techniques</span>",
-      "blog_header_subtitle": "Retrouvez mes publications sur l'architecture logicielle de l'IA, le Model Context Protocol (MCP), et l'orchestration robuste des Cloud Agents.",
+      "blog_header_subtitle": "Retrouvez nos publications sur l'architecture logicielle de l'IA, le Model Context Protocol (MCP), et l'orchestration robuste des Cloud Agents.",
       "blog_tag_strategy": "✨ Stratégie & Sécurité",
       "blog_tag_arch": "✨ AI Architecture",
       "blog_tag_security": "✨ Sécurité & Agents",
